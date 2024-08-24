@@ -6,9 +6,9 @@ public class AccentedContextMenuStripRenderer : ToolStripProfessionalRenderer
 
     private class AccentedColors : ProfessionalColorTable
     {
-        public override Color MenuBorder                    => Personalize.GetAccentColor(ColorType.Accent);
+        public override Color MenuBorder                    => Theming.GetAccentColor(ColorType.Accent);
         public override Color MenuItemBorder                => Color.Transparent;
-        public override Color MenuItemSelectedGradientBegin => Personalize.GetAccentColor(ColorType.Light3);
-        public override Color MenuItemSelectedGradientEnd   => Personalize.GetAccentColor(ColorType.Light3);
+        public override Color MenuItemSelectedGradientBegin => Theming.GetAccentColor(ColorType.Light3);
+        public override Color MenuItemSelectedGradientEnd   => Theming.GetAccentColor(ColorType.Light3);
     }
 }

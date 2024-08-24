@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;c_PrepareOperationButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="c_SoftwareSelectionSlotPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;c_SoftwareSelectionSlotPanel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="c_ClearSelectionButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -208,19 +208,20 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;c_ClearSelectionButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="c_AboutLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="c_AboutLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>None</value>
   </data>
   <data name="c_AboutLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>982, 537</value>
+    <value>982, 524</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="c_AboutLinkLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="c_AboutLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 15</value>
+    <value>40, 25</value>
   </data>
   <data name="c_AboutLinkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -249,7 +250,6 @@
   <data name="c_HeadingLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="c_HeadingLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
@@ -275,7 +275,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;c_HeadingLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="c_Debug_SelectAllButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -305,25 +305,28 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;c_Debug_SelectAllButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="c_LatestReleaseLinkLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>None</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>880, 537</value>
+    <value>767, 524</value>
+  </data>
+  <data name="c_LatestReleaseLinkLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 15</value>
+    <value>96, 25</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Text" xml:space="preserve">
-    <value>Update Available</value>
+    <value>&amp;Update Available</value>
+  </data>
+  <data name="c_LatestReleaseLinkLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -339,6 +342,39 @@
   </data>
   <data name="&gt;&gt;c_LatestReleaseLinkLabel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>869, 524</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 25</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.Text" xml:space="preserve">
+    <value>&amp;Suggest a program</value>
+  </data>
+  <data name="c_SuggestionLinkLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;c_SuggestionLinkLabel.Name" xml:space="preserve">
+    <value>c_SuggestionLinkLabel</value>
+  </data>
+  <data name="&gt;&gt;c_SuggestionLinkLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;c_SuggestionLinkLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;c_SuggestionLinkLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

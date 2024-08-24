@@ -1,5 +1,4 @@
 using WinRT.Interop;
-using Windows.System;
 using CarePackage.Controls;
 
 namespace CarePackage.Forms;
@@ -16,7 +15,7 @@ public partial class MainForm : Form
                     DownloadService          downloader,
                     InstallerService         installer,
                     MaintenanceService       maintenance,
-                    SoftwareSelectionControl softwareSelectionControl,
+                    SoftwareSelectionTabs softwareSelectionControl,
                     string[]                 args)
     {
         _downloader  = downloader;
@@ -32,11 +31,14 @@ public partial class MainForm : Form
             // ReSharper restore VirtualMemberCallInConstructor
         }
 
-        c_HeadingLabel.ForeColor                 = Personalize.GetAccentColor(ColorType.Dark3);
-        c_LatestReleaseLinkLabel.LinkColor       = Personalize.GetAccentColor(ColorType.Accent);
-        c_LatestReleaseLinkLabel.ActiveLinkColor = Personalize.GetAccentColor(ColorType.Dark3);
-        c_AboutLinkLabel.LinkColor               = Personalize.GetAccentColor(ColorType.Accent);
-        c_AboutLinkLabel.ActiveLinkColor         = Personalize.GetAccentColor(ColorType.Dark3);
+        // TODO create a helper to apply theming
+        c_HeadingLabel.ForeColor                 = Theming.GetAccentColor(ColorType.Dark3);
+        c_LatestReleaseLinkLabel.LinkColor       = Theming.GetAccentColor(ColorType.Accent);
+        c_LatestReleaseLinkLabel.ActiveLinkColor = Theming.GetAccentColor(ColorType.Dark3);
+        c_SuggestionLinkLabel.LinkColor          = Theming.GetAccentColor(ColorType.Accent);
+        c_SuggestionLinkLabel.ActiveLinkColor    = Theming.GetAccentColor(ColorType.Dark3);
+        c_AboutLinkLabel.LinkColor               = Theming.GetAccentColor(ColorType.Accent);
+        c_AboutLinkLabel.ActiveLinkColor         = Theming.GetAccentColor(ColorType.Dark3);
 
         c_SoftwareSelectionSlotPanel.Controls.Add(softwareSelectionControl);
 
@@ -45,7 +47,8 @@ public partial class MainForm : Form
 
         c_PrepareOperationButton.Click += C_StartOperationButtonOnClick;
         c_ClearSelectionButton.Click   += C_ClearSelectionButtonOnClick;
-        c_LatestReleaseLinkLabel.Click += CLatestReleaseLinkLabelOnClick;
+        c_LatestReleaseLinkLabel.Click += C_LatestReleaseLinkLabelOnClick;
+        c_SuggestionLinkLabel.Click    += C_SuggestionLinkLabelOnClick;
         c_AboutLinkLabel.Click         += C_AboutLinkLabelOnClick;
         #if DEBUG
         c_Debug_SelectAllButton.Click += (_, _) =>
@@ -80,7 +83,7 @@ public partial class MainForm : Form
             }
         }
 
-        this.RespectDarkMode();
+        Theming.ApplyTheme(this);
     }
 
     private async void OnLoad(object? sender, EventArgs e)
@@ -122,7 +125,9 @@ public partial class MainForm : Form
 
     private void C_ClearSelectionButtonOnClick(object? sender, EventArgs e) => _downloader.Queue.Clear();
 
-    private async void CLatestReleaseLinkLabelOnClick(object? sender, EventArgs e)
+    private void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e) => new SuggestionForm().ShowDialog();
+    
+    private async void C_LatestReleaseLinkLabelOnClick(object? sender, EventArgs e)
         => await Launcher.LaunchUriAsync(new Uri(GlobalShared.LatestReleasePermalink));
 
     private void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialog();

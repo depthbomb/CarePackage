@@ -1,5 +1,4 @@
-﻿using Windows.System;
-using CarePackage.Renderers;
+﻿using CarePackage.Renderers;
 
 namespace CarePackage.Controls;
 
@@ -25,8 +24,8 @@ public partial class SoftwareListItem : UserControl
 
         _activeIcon   = software.Icon;
         _inactiveIcon = software.Icon.ToGrayScale();
-        _backColor    = Personalize.GetAccentColor(ColorType.Light3);
-        _foreColor    = Personalize.GetAccentColor(ColorType.Dark3);
+        _backColor    = Theming.GetAccentColor(ColorType.Light3);
+        _foreColor    = Theming.GetAccentColor(ColorType.Dark3);
         _menu = new ContextMenuStrip
         {
             ShowImageMargin   = false,

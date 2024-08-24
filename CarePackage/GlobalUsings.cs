@@ -1,5 +1,6 @@
 ﻿// Global using directives
 
+global using Windows.System;
 global using CarePackage.Utils;
 global using CarePackage.Services;
 global using CarePackage.Software;

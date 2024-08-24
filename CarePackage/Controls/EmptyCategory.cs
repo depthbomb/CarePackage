@@ -1,11 +1,8 @@
-﻿using Windows.System;
-
-namespace CarePackage.Controls;
+﻿namespace CarePackage.Controls;
 
 public partial class EmptyCategory : UserControl
 {
     private readonly SoftwareCategory _category;
-    private readonly Uri              _suggestionUrl = new("https://github.com/depthbomb/carepackage");
 
     public EmptyCategory(SoftwareCategory category)
     {
@@ -13,6 +10,13 @@ public partial class EmptyCategory : UserControl
 
         InitializeComponent();
 
-        c_Subheading.LinkClicked += async (_, _) => await Launcher.LaunchUriAsync(_suggestionUrl);
+        c_Subheading.LinkClicked += C_SubheadingOnLinkClicked;
+    }
+
+    private async void C_SubheadingOnLinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var url = string.Format(GlobalShared.SoftwareSuggestionLink, _category.ToTitle());
+        
+        await Launcher.LaunchUriAsync(new Uri(url));
     }
 }

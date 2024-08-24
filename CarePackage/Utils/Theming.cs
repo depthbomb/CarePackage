@@ -16,7 +16,7 @@ public enum ColorType
     Light3
 }
 
-public static class Personalize
+public static class Theming
 {
     private static bool _accentColorsLoaded;
 
@@ -52,6 +52,30 @@ public static class Personalize
         };
     }
 
+    public static void ApplyTheme(Form form)
+    {
+        ApplyThemeToControl(form);
+        
+        if (IsSystemUsingDarkMode())
+        {
+            if (form.IsHandleCreated)
+            {
+                NativeMethods.SetPreferredAppMode(2);
+                NativeMethods.UseImmersiveDarkMode(form.Handle, true);
+                NativeMethods.FlushMenuThemes();
+            }
+            else
+            {
+                form.HandleCreated += (_, _) =>
+                {
+                    NativeMethods.SetPreferredAppMode(2);
+                    NativeMethods.UseImmersiveDarkMode(form.Handle, true);
+                    NativeMethods.FlushMenuThemes();
+                };
+            }
+        }
+    }
+
     public static bool IsSystemUsingDarkMode()
     {
         try
@@ -81,5 +105,21 @@ public static class Personalize
         _accentColorLight3     = uiSettings.GetColorValue(UIColorType.AccentLight3).ToDrawingColor();
         
         _accentColorsLoaded = true;
+    }
+
+    private static void ApplyThemeToControl(Control control)
+    {
+        switch (control)
+        {
+            case LinkLabel linkLabel:
+                linkLabel.LinkColor       = GetAccentColor(ColorType.Accent);
+                linkLabel.ActiveLinkColor = GetAccentColor(ColorType.Dark3);
+                break;
+        }
+
+        foreach (Control childControl in control.Controls)
+        {
+            ApplyThemeToControl(childControl);
+        }
     }
 }

@@ -40,6 +40,7 @@ partial class MainForm
         c_HeadingLabel = new Label();
         c_Debug_SelectAllButton = new Button();
         c_LatestReleaseLinkLabel = new LinkLabel();
+        c_SuggestionLinkLabel = new LinkLabel();
         SuspendLayout();
         // 
         // c_PrepareOperationButton
@@ -83,26 +84,37 @@ partial class MainForm
         c_Debug_SelectAllButton.Name = "c_Debug_SelectAllButton";
         c_Debug_SelectAllButton.UseVisualStyleBackColor = true;
         // 
-        // c_UpdateDownloadLinkLabel
+        // c_LatestReleaseLinkLabel
         // 
+        c_LatestReleaseLinkLabel.ActiveLinkColor = SystemColors.HotTrack;
         resources.ApplyResources(c_LatestReleaseLinkLabel, "c_LatestReleaseLinkLabel");
         c_LatestReleaseLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
+        c_LatestReleaseLinkLabel.LinkColor = SystemColors.Highlight;
         c_LatestReleaseLinkLabel.Name = "c_LatestReleaseLinkLabel";
         c_LatestReleaseLinkLabel.TabStop = true;
+        // 
+        // c_SuggestionLinkLabel
+        // 
+        c_SuggestionLinkLabel.ActiveLinkColor = SystemColors.HotTrack;
+        resources.ApplyResources(c_SuggestionLinkLabel, "c_SuggestionLinkLabel");
+        c_SuggestionLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
+        c_SuggestionLinkLabel.LinkColor = SystemColors.Highlight;
+        c_SuggestionLinkLabel.Name = "c_SuggestionLinkLabel";
+        c_SuggestionLinkLabel.TabStop = true;
         // 
         // MainForm
         // 
         resources.ApplyResources(this, "$this");
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(c_LatestReleaseLinkLabel);
-        #if DEBUG
+        Controls.Add(c_SuggestionLinkLabel);
         Controls.Add(c_Debug_SelectAllButton);
-        #endif
-        Controls.Add(c_HeadingLabel);
         Controls.Add(c_AboutLinkLabel);
+        Controls.Add(c_HeadingLabel);
         Controls.Add(c_ClearSelectionButton);
         Controls.Add(c_SoftwareSelectionSlotPanel);
         Controls.Add(c_PrepareOperationButton);
+        HelpButton = true;
         Name = "MainForm";
         ResumeLayout(false);
         PerformLayout();
@@ -116,4 +128,5 @@ partial class MainForm
     private Label c_HeadingLabel;
     private Button c_Debug_SelectAllButton;
     private LinkLabel c_LatestReleaseLinkLabel;
+    private LinkLabel c_SuggestionLinkLabel;
 }

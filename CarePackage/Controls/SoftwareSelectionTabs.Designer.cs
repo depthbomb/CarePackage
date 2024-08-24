@@ -2,7 +2,7 @@
 
 namespace CarePackage.Controls;
 
-partial class SoftwareSelectionControl
+partial class SoftwareSelectionTabs
 {
     /// <summary> 
     /// Required designer variable.
@@ -51,7 +51,7 @@ partial class SoftwareSelectionControl
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(c_SoftwareSelectionTabs);
-        Name = "SoftwareSelectionControl";
+        Name = "SoftwareSelectionTabs";
         Size = new Size(1223, 869);
         ResumeLayout(false);
     }

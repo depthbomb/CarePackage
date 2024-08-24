@@ -9,7 +9,7 @@ public enum SpinnerStyle
     Line
 }
 
-public sealed class SpinnerControl : Label
+public sealed class Spinner : Label
 {
     public event EventHandler? IsSpinningChanged;
 
@@ -50,7 +50,7 @@ public sealed class SpinnerControl : Label
     private readonly char[]                _dotStyleParts  = CharSequence(0xE052..0xE0CB);
     private readonly char[]                _lineStyleParts = CharSequence(0xE100..0xE176);
 
-    public SpinnerControl()
+    public Spinner()
     {
         DoubleBuffered = true;
         Text           = "";

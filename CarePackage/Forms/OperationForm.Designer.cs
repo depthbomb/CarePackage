@@ -41,7 +41,7 @@ partial class OperationForm
         c_StartOperationButton = new Button();
         c_CancelOperationButton = new Button();
         c_StatusLabel = new Label();
-        c_Spinner = new SpinnerControl();
+        c_Spinner = new Spinner();
         tableLayoutPanel1 = new TableLayoutPanel();
         groupBox1.SuspendLayout();
         c_OptionsTableLayout.SuspendLayout();
@@ -222,6 +222,6 @@ partial class OperationForm
     private Button c_CancelOperationButton;
     private Label c_StatusLabel;
     private CheckBox c_CleanUpExecutablesCheckBox;
-    private SpinnerControl c_Spinner;
+    private Spinner c_Spinner;
     private TableLayoutPanel tableLayoutPanel1;
 }

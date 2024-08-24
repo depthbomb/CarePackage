@@ -63,7 +63,7 @@ partial class AboutForm
         c_TitleLabel.Location = new Point(6, 70);
         c_TitleLabel.Margin = new Padding(3);
         c_TitleLabel.Name = "c_TitleLabel";
-        c_TitleLabel.Size = new Size(162, 31);
+        c_TitleLabel.Size = new Size(162, 34);
         c_TitleLabel.TabIndex = 3;
         c_TitleLabel.Text = "CarePackage";
         c_TitleLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -71,10 +71,10 @@ partial class AboutForm
         // c_VersionLabel
         // 
         c_VersionLabel.Dock = DockStyle.Fill;
-        c_VersionLabel.Location = new Point(6, 107);
+        c_VersionLabel.Location = new Point(6, 110);
         c_VersionLabel.Margin = new Padding(3);
         c_VersionLabel.Name = "c_VersionLabel";
-        c_VersionLabel.Size = new Size(162, 31);
+        c_VersionLabel.Size = new Size(162, 18);
         c_VersionLabel.TabIndex = 4;
         c_VersionLabel.Text = "v0.0.0";
         c_VersionLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -93,10 +93,10 @@ partial class AboutForm
         tableLayoutPanel1.Padding = new Padding(3);
         tableLayoutPanel1.RowCount = 4;
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 64F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-        tableLayoutPanel1.Size = new Size(174, 183);
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        tableLayoutPanel1.Size = new Size(174, 158);
         tableLayoutPanel1.TabIndex = 5;
         // 
         // c_GithubLinkLabel
@@ -104,9 +104,9 @@ partial class AboutForm
         c_GithubLinkLabel.AutoSize = true;
         c_GithubLinkLabel.Dock = DockStyle.Fill;
         c_GithubLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
-        c_GithubLinkLabel.Location = new Point(6, 141);
+        c_GithubLinkLabel.Location = new Point(6, 131);
         c_GithubLinkLabel.Name = "c_GithubLinkLabel";
-        c_GithubLinkLabel.Size = new Size(162, 39);
+        c_GithubLinkLabel.Size = new Size(162, 24);
         c_GithubLinkLabel.TabIndex = 5;
         c_GithubLinkLabel.TabStop = true;
         c_GithubLinkLabel.Text = "GitHub";
@@ -116,7 +116,7 @@ partial class AboutForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(174, 183);
+        ClientSize = new Size(174, 158);
         Controls.Add(tableLayoutPanel1);
         FormBorderStyle = FormBorderStyle.FixedSingle;
         MaximizeBox = false;

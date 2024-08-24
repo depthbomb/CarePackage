@@ -6,16 +6,6 @@ namespace CarePackage.Extensions;
 
 public static class FormExtensions
 {
-    public static void RespectDarkMode(this Form form)
-    {
-        if (Personalize.IsSystemUsingDarkMode())
-        {
-            NativeMethods.SetPreferredAppMode(2);
-            NativeMethods.UseImmersiveDarkMode(form.Handle, true);
-            NativeMethods.FlushMenuThemes();
-        }
-    }
-
     public static IAsyncOperation<IUICommand> ShowMessageDialogAsync(this Form               form,
                                                                      string                  title,
                                                                      string                  content,

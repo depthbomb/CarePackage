@@ -13,7 +13,7 @@ public static class ServiceCollectionExtensions
                    .AddSingleton<MaintenanceService>();
 
     public static IServiceCollection AddControls(this IServiceCollection services)
-        => services.AddSingleton<SoftwareSelectionControl>();
+        => services.AddSingleton<SoftwareSelectionTabs>();
 
     public static IServiceCollection AddHttpClients(this IServiceCollection services)
     {

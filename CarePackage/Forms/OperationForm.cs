@@ -1,5 +1,4 @@
-﻿using Windows.System;
-using Windows.UI.Popups;
+﻿using Windows.UI.Popups;
 using System.Diagnostics;
 using System.ComponentModel;
 
@@ -36,7 +35,7 @@ public partial class OperationForm : Form
         _installer.SoftwareInstallingStarted     += InstallerOnSoftwareInstallingStarted;
         _installer.SoftwareExecutableStarted     += InstallerOnSoftwareExecutableStarted;
         
-        this.RespectDarkMode();
+        Theming.ApplyTheme(this);
     }
 
     #region Overrides of Form
@@ -97,7 +96,7 @@ public partial class OperationForm : Form
             }
         }
 
-        if (!Identity.IsAdministrator && _downloader.Queue.Any(s => s.RequiresAdmin))
+        if (!Identity.IsAdministrator && _downloader.Queue.Any(s => s.RequiresAdmin) && !c_SkipInstallCheckBox.Checked)
         {
             var res = await this.ShowMessageDialogAsync(
                 "Elevated permissions required",

@@ -12,6 +12,7 @@ public static class GlobalShared
     public const string LatestReleasePermalink = "https://bit.ly/get-carepackage";
     public const string RepositoryLink         = "https://bit.ly/carepackage-repo";
     #endif
+    public const string SoftwareSuggestionLink = "https://github.com/depthbomb/CarePackage/issues/new?title=[{0}] PROGRAM NAME";
 
     public static readonly string DownloadFolder = Path.Combine(Path.GetTempPath(), ".carepackage");
     public static readonly string DataFolder 

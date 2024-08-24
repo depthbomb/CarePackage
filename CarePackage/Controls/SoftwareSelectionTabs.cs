@@ -1,13 +1,13 @@
 ﻿namespace CarePackage.Controls;
 
-public partial class SoftwareSelectionControl : UserControl
+public partial class SoftwareSelectionTabs : UserControl
 {
     private bool _resizing;
 
     private readonly SoftwareService _software;
     private readonly DownloadService _downloader;
 
-    public SoftwareSelectionControl(SoftwareService software, DownloadService downloader)
+    public SoftwareSelectionTabs(SoftwareService software, DownloadService downloader)
     {
         _software   = software;
         _downloader = downloader;

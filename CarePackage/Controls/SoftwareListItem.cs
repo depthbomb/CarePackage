@@ -91,6 +91,7 @@ public partial class SoftwareListItem : UserControl
 
         if (!_selected)
         {
+            BackColor                = Color.FromKnownColor(KnownColor.Control);
             c_SoftwareIcon.Image     = _activeIcon;
             c_SoftwareName.ForeColor = Color.Black;
         }
@@ -102,6 +103,7 @@ public partial class SoftwareListItem : UserControl
 
         if (!_selected)
         {
+            BackColor                = Color.Transparent;
             c_SoftwareIcon.Image     = _inactiveIcon;
             c_SoftwareName.ForeColor = Color.DimGray;
         }

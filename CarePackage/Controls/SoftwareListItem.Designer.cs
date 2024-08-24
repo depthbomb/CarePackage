@@ -66,7 +66,7 @@ partial class SoftwareListItem
         // 
         AutoScaleMode = AutoScaleMode.None;
         AutoSize = true;
-        BackColor = Color.White;
+        BackColor = Color.Transparent;
         Controls.Add(c_SoftwareIcon);
         Controls.Add(c_SoftwareName);
         Cursor = Cursors.Hand;

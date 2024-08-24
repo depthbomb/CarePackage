@@ -302,6 +302,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minecraft_launcher_legacy {
+            get {
+                object obj = ResourceManager.GetObject("minecraft_launcher_legacy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mozilla_firefox {
             get {
                 object obj = ResourceManager.GetObject("mozilla_firefox", resourceCulture);

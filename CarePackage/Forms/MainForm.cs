@@ -30,17 +30,13 @@ public partial class MainForm : Form
             Text = $"[Administrator] {Text}";
             // ReSharper restore VirtualMemberCallInConstructor
         }
-
-        // TODO create a helper to apply theming
-        c_HeadingLabel.ForeColor                 = Theming.GetAccentColor(ColorType.Dark3);
-        c_LatestReleaseLinkLabel.LinkColor       = Theming.GetAccentColor(ColorType.Accent);
-        c_LatestReleaseLinkLabel.ActiveLinkColor = Theming.GetAccentColor(ColorType.Dark3);
-        c_SuggestionLinkLabel.LinkColor          = Theming.GetAccentColor(ColorType.Accent);
-        c_SuggestionLinkLabel.ActiveLinkColor    = Theming.GetAccentColor(ColorType.Dark3);
-        c_AboutLinkLabel.LinkColor               = Theming.GetAccentColor(ColorType.Accent);
-        c_AboutLinkLabel.ActiveLinkColor         = Theming.GetAccentColor(ColorType.Dark3);
+        
+        c_HeadingLabel.ForeColor = Theming.GetAccentColor(ColorType.Dark3);
 
         c_SoftwareSelectionSlotPanel.Controls.Add(softwareSelectionControl);
+        #if RELEASE
+        c_Debug_SelectAllButton.Dispose();
+        #endif
 
         Load        += OnLoad;
         FormClosing += OnFormClosing;

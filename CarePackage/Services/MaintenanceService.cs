@@ -55,14 +55,19 @@ public class MaintenanceService
                 return tagVersion > Assembly.GetExecutingAssembly().GetName().Version;
             }
         }
+        #if DEBUG
         catch (Exception e)
         {
-            #if DEBUG
             Console.WriteLine(e);
-            #endif
 
             return false;
         }
+        #else
+        catch (Exception)
+        {
+            return false;
+        }
+        #endif
     }
 
     public async Task CleanUpDownloadFolderAsync(CancellationToken ct = default)

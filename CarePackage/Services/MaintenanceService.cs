@@ -46,6 +46,8 @@ public class MaintenanceService
         {
             using (var http = new HttpClient())
             {
+                http.DefaultRequestHeaders.Add("User-Agent", GlobalShared.UserAgent);
+
                 var res        = await http.GetAsync("https://api.github.com/repos/depthbomb/carepackage/releases/latest", ct);
                 var data       = await res.Content.ReadFromJsonAsync<GithubRelease>(ct);
                 var tagVersion = new Version(data!.Tag);

@@ -39,7 +39,7 @@ partial class MainForm
         c_AboutLinkLabel = new LinkLabel();
         c_HeadingLabel = new Label();
         c_Debug_SelectAllButton = new Button();
-        c_UpdateDownloadLinkLabel = new LinkLabel();
+        c_LatestReleaseLinkLabel = new LinkLabel();
         SuspendLayout();
         // 
         // c_PrepareOperationButton
@@ -85,16 +85,16 @@ partial class MainForm
         // 
         // c_UpdateDownloadLinkLabel
         // 
-        resources.ApplyResources(c_UpdateDownloadLinkLabel, "c_UpdateDownloadLinkLabel");
-        c_UpdateDownloadLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
-        c_UpdateDownloadLinkLabel.Name = "c_UpdateDownloadLinkLabel";
-        c_UpdateDownloadLinkLabel.TabStop = true;
+        resources.ApplyResources(c_LatestReleaseLinkLabel, "c_LatestReleaseLinkLabel");
+        c_LatestReleaseLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
+        c_LatestReleaseLinkLabel.Name = "c_LatestReleaseLinkLabel";
+        c_LatestReleaseLinkLabel.TabStop = true;
         // 
         // MainForm
         // 
         resources.ApplyResources(this, "$this");
         AutoScaleMode = AutoScaleMode.Font;
-        Controls.Add(c_UpdateDownloadLinkLabel);
+        Controls.Add(c_LatestReleaseLinkLabel);
         #if DEBUG
         Controls.Add(c_Debug_SelectAllButton);
         #endif
@@ -115,5 +115,5 @@ partial class MainForm
     private LinkLabel c_AboutLinkLabel;
     private Label c_HeadingLabel;
     private Button c_Debug_SelectAllButton;
-    private LinkLabel c_UpdateDownloadLinkLabel;
+    private LinkLabel c_LatestReleaseLinkLabel;
 }

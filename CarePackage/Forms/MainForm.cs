@@ -1,4 +1,5 @@
 using WinRT.Interop;
+using Windows.System;
 using CarePackage.Controls;
 
 namespace CarePackage.Forms;
@@ -31,9 +32,11 @@ public partial class MainForm : Form
             // ReSharper restore VirtualMemberCallInConstructor
         }
 
-        c_HeadingLabel.ForeColor         = Personalize.GetAccentColor(ColorType.Dark3);
-        c_AboutLinkLabel.LinkColor       = Personalize.GetAccentColor(ColorType.Accent);
-        c_AboutLinkLabel.ActiveLinkColor = Personalize.GetAccentColor(ColorType.Dark3);
+        c_HeadingLabel.ForeColor                  = Personalize.GetAccentColor(ColorType.Dark3);
+        c_LatestReleaseLinkLabel.LinkColor       = Personalize.GetAccentColor(ColorType.Accent);
+        c_LatestReleaseLinkLabel.ActiveLinkColor = Personalize.GetAccentColor(ColorType.Dark3);
+        c_AboutLinkLabel.LinkColor                = Personalize.GetAccentColor(ColorType.Accent);
+        c_AboutLinkLabel.ActiveLinkColor          = Personalize.GetAccentColor(ColorType.Dark3);
 
         c_SoftwareSelectionSlotPanel.Controls.Add(softwareSelectionControl);
 
@@ -42,6 +45,7 @@ public partial class MainForm : Form
 
         c_PrepareOperationButton.Click += C_StartOperationButtonOnClick;
         c_ClearSelectionButton.Click   += C_ClearSelectionButtonOnClick;
+        c_LatestReleaseLinkLabel.Click += CLatestReleaseLinkLabelOnClick;
         c_AboutLinkLabel.Click         += C_AboutLinkLabelOnClick;
         #if DEBUG
         c_Debug_SelectAllButton.Click += (_, _) =>
@@ -88,7 +92,7 @@ public partial class MainForm : Form
             await dialog.ShowAsync();
         }
 
-        c_UpdateDownloadLinkLabel.Visible = await _maintenance.IsUpdateAvailableAsync();
+        c_LatestReleaseLinkLabel.Visible = await _maintenance.IsUpdateAvailableAsync();
     }
 
     private async void OnFormClosing(object? sender, FormClosingEventArgs e)
@@ -117,6 +121,9 @@ public partial class MainForm : Form
     }
 
     private void C_ClearSelectionButtonOnClick(object? sender, EventArgs e) => _downloader.Queue.Clear();
+
+    private async void CLatestReleaseLinkLabelOnClick(object? sender, EventArgs e)
+        => await Launcher.LaunchUriAsync(new Uri(GlobalShared.LatestReleasePermalink));
 
     private void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialog();
 }

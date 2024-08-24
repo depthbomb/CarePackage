@@ -307,37 +307,37 @@
   <data name="&gt;&gt;c_Debug_SelectAllButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="c_LatestReleaseLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="c_LatestReleaseLinkLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="c_LatestReleaseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>880, 537</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="c_LatestReleaseLinkLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 15</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.TabIndex" type="System.Int32, mscorlib">
+  <data name="c_LatestReleaseLinkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.Text" xml:space="preserve">
+  <data name="c_LatestReleaseLinkLabel.Text" xml:space="preserve">
     <value>Update Available</value>
   </data>
-  <data name="c_UpdateDownloadLinkLabel.Visible" type="System.Boolean, mscorlib">
+  <data name="c_LatestReleaseLinkLabel.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;c_UpdateDownloadLinkLabel.Name" xml:space="preserve">
-    <value>c_UpdateDownloadLinkLabel</value>
+  <data name="&gt;&gt;c_LatestReleaseLinkLabel.Name" xml:space="preserve">
+    <value>c_LatestReleaseLinkLabel</value>
   </data>
-  <data name="&gt;&gt;c_UpdateDownloadLinkLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;c_LatestReleaseLinkLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;c_UpdateDownloadLinkLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;c_LatestReleaseLinkLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;c_UpdateDownloadLinkLabel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;c_LatestReleaseLinkLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

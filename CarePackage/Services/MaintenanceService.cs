@@ -52,7 +52,7 @@ public class MaintenanceService
                 var data       = await res.Content.ReadFromJsonAsync<GithubRelease>(ct);
                 var tagVersion = new Version(data!.Tag);
                 
-                return tagVersion >= Assembly.GetExecutingAssembly().GetName().Version;
+                return tagVersion > Assembly.GetExecutingAssembly().GetName().Version;
             }
         }
         catch (Exception e)

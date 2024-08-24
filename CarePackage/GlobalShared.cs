@@ -7,8 +7,10 @@ public static class GlobalShared
 
     #if DEBUG
     public const string LatestReleasePermalink = "https://github.com/depthbomb/CarePackage/releases/latest";
+    public const string RepositoryLink         = "https://github.com/depthbomb/CarePackage";
     #else
     public const string LatestReleasePermalink = "https://bit.ly/get-carepackage";
+    public const string RepositoryLink         = "https://bit.ly/carepackage-repo";
     #endif
 
     public static readonly string DownloadFolder = Path.Combine(Path.GetTempPath(), ".carepackage");

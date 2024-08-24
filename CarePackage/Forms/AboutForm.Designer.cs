@@ -35,6 +35,7 @@ partial class AboutForm
         c_TitleLabel = new Label();
         c_VersionLabel = new Label();
         tableLayoutPanel1 = new TableLayoutPanel();
+        c_GithubLinkLabel = new LinkLabel();
         ((ISupportInitialize)c_Logo).BeginInit();
         tableLayoutPanel1.SuspendLayout();
         SuspendLayout();
@@ -62,7 +63,7 @@ partial class AboutForm
         c_TitleLabel.Location = new Point(6, 70);
         c_TitleLabel.Margin = new Padding(3);
         c_TitleLabel.Name = "c_TitleLabel";
-        c_TitleLabel.Size = new Size(162, 30);
+        c_TitleLabel.Size = new Size(162, 31);
         c_TitleLabel.TabIndex = 3;
         c_TitleLabel.Text = "CarePackage";
         c_TitleLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -70,13 +71,13 @@ partial class AboutForm
         // c_VersionLabel
         // 
         c_VersionLabel.Dock = DockStyle.Fill;
-        c_VersionLabel.Location = new Point(6, 106);
+        c_VersionLabel.Location = new Point(6, 107);
         c_VersionLabel.Margin = new Padding(3);
         c_VersionLabel.Name = "c_VersionLabel";
-        c_VersionLabel.Size = new Size(162, 25);
+        c_VersionLabel.Size = new Size(162, 31);
         c_VersionLabel.TabIndex = 4;
         c_VersionLabel.Text = "v0.0.0";
-        c_VersionLabel.TextAlign = ContentAlignment.TopCenter;
+        c_VersionLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // tableLayoutPanel1
         // 
@@ -85,22 +86,37 @@ partial class AboutForm
         tableLayoutPanel1.Controls.Add(c_VersionLabel, 0, 2);
         tableLayoutPanel1.Controls.Add(c_Logo, 0, 0);
         tableLayoutPanel1.Controls.Add(c_TitleLabel, 0, 1);
+        tableLayoutPanel1.Controls.Add(c_GithubLinkLabel, 0, 3);
         tableLayoutPanel1.Dock = DockStyle.Fill;
         tableLayoutPanel1.Location = new Point(0, 0);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
         tableLayoutPanel1.Padding = new Padding(3);
-        tableLayoutPanel1.RowCount = 3;
+        tableLayoutPanel1.RowCount = 4;
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 64F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 54.5454559F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 45.4545441F));
-        tableLayoutPanel1.Size = new Size(174, 137);
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+        tableLayoutPanel1.Size = new Size(174, 183);
         tableLayoutPanel1.TabIndex = 5;
+        // 
+        // c_GithubLinkLabel
+        // 
+        c_GithubLinkLabel.AutoSize = true;
+        c_GithubLinkLabel.Dock = DockStyle.Fill;
+        c_GithubLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
+        c_GithubLinkLabel.Location = new Point(6, 141);
+        c_GithubLinkLabel.Name = "c_GithubLinkLabel";
+        c_GithubLinkLabel.Size = new Size(162, 39);
+        c_GithubLinkLabel.TabIndex = 5;
+        c_GithubLinkLabel.TabStop = true;
+        c_GithubLinkLabel.Text = "GitHub";
+        c_GithubLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // AboutForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(174, 137);
+        ClientSize = new Size(174, 183);
         Controls.Add(tableLayoutPanel1);
         FormBorderStyle = FormBorderStyle.FixedSingle;
         MaximizeBox = false;
@@ -112,6 +128,7 @@ partial class AboutForm
         Text = "About";
         ((ISupportInitialize)c_Logo).EndInit();
         tableLayoutPanel1.ResumeLayout(false);
+        tableLayoutPanel1.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -121,5 +138,6 @@ partial class AboutForm
     private Label c_TitleLabel;
     private Label c_VersionLabel;
     private TableLayoutPanel tableLayoutPanel1;
+    private LinkLabel c_GithubLinkLabel;
 }
 

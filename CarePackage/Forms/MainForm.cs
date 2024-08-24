@@ -32,11 +32,11 @@ public partial class MainForm : Form
             // ReSharper restore VirtualMemberCallInConstructor
         }
 
-        c_HeadingLabel.ForeColor                  = Personalize.GetAccentColor(ColorType.Dark3);
+        c_HeadingLabel.ForeColor                 = Personalize.GetAccentColor(ColorType.Dark3);
         c_LatestReleaseLinkLabel.LinkColor       = Personalize.GetAccentColor(ColorType.Accent);
         c_LatestReleaseLinkLabel.ActiveLinkColor = Personalize.GetAccentColor(ColorType.Dark3);
-        c_AboutLinkLabel.LinkColor                = Personalize.GetAccentColor(ColorType.Accent);
-        c_AboutLinkLabel.ActiveLinkColor          = Personalize.GetAccentColor(ColorType.Dark3);
+        c_AboutLinkLabel.LinkColor               = Personalize.GetAccentColor(ColorType.Accent);
+        c_AboutLinkLabel.ActiveLinkColor         = Personalize.GetAccentColor(ColorType.Dark3);
 
         c_SoftwareSelectionSlotPanel.Controls.Add(softwareSelectionControl);
 

@@ -26,7 +26,7 @@ public static class ServiceCollectionExtensions
         services.AddKeyedSingleton("MimicBrowser", mimicBrowserHttp);
         
         var wgetHttp = new HttpClient();
-            wgetHttp.DefaultRequestHeaders.Add("User-Agent", "Wget/1.24.5");
+            wgetHttp.DefaultRequestHeaders.Add("User-Agent", "Wget/1.21.4");
         services.AddKeyedSingleton("Wget", wgetHttp);
         
         return services;

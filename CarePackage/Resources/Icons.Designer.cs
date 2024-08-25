@@ -192,6 +192,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap filezilla {
+            get {
+                object obj = ResourceManager.GetObject("filezilla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap foobar2000 {
             get {
                 object obj = ResourceManager.GetObject("foobar2000", resourceCulture);
@@ -382,9 +392,29 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap overwolf {
+            get {
+                object obj = ResourceManager.GetObject("overwolf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paintdotnet {
             get {
                 object obj = ResourceManager.GetObject("paintdotnet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap parsec {
+            get {
+                object obj = ResourceManager.GetObject("parsec", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -452,6 +482,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap putty {
+            get {
+                object obj = ResourceManager.GetObject("putty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap qbittorrent {
             get {
                 object obj = ResourceManager.GetObject("qbittorrent", resourceCulture);
@@ -485,6 +525,16 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap steam {
             get {
                 object obj = ResourceManager.GetObject("steam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamlink {
+            get {
+                object obj = ResourceManager.GetObject("streamlink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

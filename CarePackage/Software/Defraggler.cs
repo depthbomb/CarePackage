@@ -31,8 +31,6 @@ public class Defraggler : BaseSoftware
         
         DownloadUrlResolveException.ThrowUnless(match.Success);
 
-        var downloadUrl = match.Groups[0].Value;
-
-        return downloadUrl;
+        return match.Groups[0].Value;
     }
 }

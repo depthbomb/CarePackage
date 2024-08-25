@@ -277,4 +277,19 @@
   <data name="powershell_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Icons\powershell-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="parsec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\parsec.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="overwolf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\overwolf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streamlink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\streamlink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="putty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\putty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filezilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\filezilla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

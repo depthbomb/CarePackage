@@ -12,8 +12,9 @@
         <Company>Caprine Logic</Company>
         <Authors>Caprine Logic</Authors>
         <Product>CarePackage Software Management</Product>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-        <Version>1.1.0.0</Version>
+        <CalVer>$([System.DateTime]::Now.ToString(yyyy.M.dd.H))</CalVer>
+        <AssemblyVersion>$(CalVer)</AssemblyVersion>
+        <Version>$(CalVer)</Version>
         <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
 

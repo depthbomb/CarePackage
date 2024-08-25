@@ -21,6 +21,22 @@ public class VlcMediaPlayer : BaseSoftware
     
     public override async Task<string> GetDownloadUrlAsync(CancellationToken ct)
     {
+        var downloadPageUrl = await GetDownloadPageUrlAsync(ct);
+        var res             = await _http.GetAsync(downloadPageUrl, ct);
+        
+        res.EnsureSuccessStatusCode();
+
+        var downloadUrlPattern = new Regex(@"<meta http-equiv=""refresh"" content=""5;URL='(.*)'"" />");
+        var html               = await res.Content.ReadAsStringAsync(ct);
+        var match              = downloadUrlPattern.Match(html);
+        
+        DownloadUrlResolveException.ThrowUnless(match.Success);
+
+        return match.Groups[1].Value;
+    }
+
+    private async Task<string> GetDownloadPageUrlAsync(CancellationToken ct)
+    {
         var res = await _http.GetAsync("https://videolan.org", ct);
         
         res.EnsureSuccessStatusCode();
@@ -30,7 +46,7 @@ public class VlcMediaPlayer : BaseSoftware
         var match              = downloadUrlPattern.Match(html);
         
         DownloadUrlResolveException.ThrowUnless(match.Success);
-
+        
         return $"https:{match.Groups[0].Value}";
     }
 }

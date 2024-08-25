@@ -211,7 +211,7 @@
     <value>5</value>
   </data>
   <data name="c_AboutLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="c_AboutLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>982, 524</value>
@@ -308,7 +308,7 @@
     <value>2</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="c_LatestReleaseLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>767, 524</value>
@@ -344,7 +344,7 @@
     <value>0</value>
   </data>
   <data name="c_SuggestionLinkLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="c_SuggestionLinkLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>869, 524</value>

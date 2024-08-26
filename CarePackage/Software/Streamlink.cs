@@ -21,8 +21,8 @@ public class Streamlink : BaseSoftware
     
     public override async Task<string> GetDownloadUrlAsync(CancellationToken ct)
     {
-        var filePattern = new Regex(@"streamlink-\d{1,}\.\d{1,}\.\d{1,}(?:-\d{1,})?-py3\d{2}-x86_64\.exe");
         var assets      = await _github.GetLatestRepositoryReleaseAssetsAsync("streamlink", "windows-builds", ct);
+        var filePattern = new Regex(@"streamlink-\d{1,}\.\d{1,}\.\d{1,}(?:-\d{1,})?-py3\d{2}-x86_64\.exe");
         var asset       = assets.FirstOrDefault(a => filePattern.IsMatch(a));
         
         DownloadUrlResolveException.ThrowIf(asset is null);

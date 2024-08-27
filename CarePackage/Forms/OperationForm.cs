@@ -133,7 +133,7 @@ public partial class OperationForm : Form
         c_InstallSilentlyCheckBox.Enabled    = false;
         c_CleanUpExecutablesCheckBox.Enabled = false;
         c_StartOperationButton.Enabled       = false;
-        c_Spinner.IsSpinning                 = true;
+        // c_Spinner.IsSpinning                 = true;
 
         var files = await _downloader.DownloadQueueAsync(_cts.Token);
 

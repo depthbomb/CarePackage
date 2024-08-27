@@ -63,8 +63,6 @@ public sealed class Spinner : Label
 
         LoadBootFont();
 
-        Font = new Font(_pfc.Families[0], Font.Size);
-
         var form = FindForm();
         if (form != null)
         {
@@ -90,8 +88,9 @@ public sealed class Spinner : Label
     {
         var windowsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
         var bootFolder        = Path.Combine(windowsFolderPath, BootFontPath);
+        var fontFilePath      = Path.Combine(bootFolder, FontFileName);
 
-        _pfc.AddFontFile(Path.Combine(bootFolder, FontFileName));
+        _pfc.AddFontFile(fontFilePath);
     }
 
     private async void OnIsSpinningChanged(EventArgs e)

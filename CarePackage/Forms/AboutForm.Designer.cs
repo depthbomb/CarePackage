@@ -70,6 +70,7 @@ partial class AboutForm
         // 
         // c_VersionLabel
         // 
+        c_VersionLabel.BackColor = Color.Transparent;
         c_VersionLabel.Dock = DockStyle.Fill;
         c_VersionLabel.Location = new Point(6, 110);
         c_VersionLabel.Margin = new Padding(3);
@@ -102,6 +103,7 @@ partial class AboutForm
         // c_GithubLinkLabel
         // 
         c_GithubLinkLabel.AutoSize = true;
+        c_GithubLinkLabel.BackColor = Color.Transparent;
         c_GithubLinkLabel.Dock = DockStyle.Fill;
         c_GithubLinkLabel.LinkBehavior = LinkBehavior.HoverUnderline;
         c_GithubLinkLabel.Location = new Point(6, 131);

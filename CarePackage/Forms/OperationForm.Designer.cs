@@ -41,7 +41,7 @@ partial class OperationForm
         c_StartOperationButton = new Button();
         c_CancelOperationButton = new Button();
         c_StatusLabel = new Label();
-        c_Spinner = new Spinner();
+        // c_Spinner = new Spinner();
         tableLayoutPanel1 = new TableLayoutPanel();
         groupBox1.SuspendLayout();
         c_OptionsTableLayout.SuspendLayout();
@@ -155,15 +155,14 @@ partial class OperationForm
         // 
         // c_Spinner
         // 
-        c_Spinner.Dock = DockStyle.Fill;
-        c_Spinner.Font = new Font("Segoe Boot Semilight", 10F);
-        c_Spinner.IsSpinning = false;
-        c_Spinner.Location = new Point(3, 0);
-        c_Spinner.Name = "c_Spinner";
-        c_Spinner.Size = new Size(19, 25);
-        c_Spinner.SpinnerStyle = SpinnerStyle.Line;
-        c_Spinner.TabIndex = 0;
-        c_Spinner.TextAlign = ContentAlignment.MiddleCenter;
+        // c_Spinner.Dock = DockStyle.Fill;
+        // c_Spinner.IsSpinning = false;
+        // c_Spinner.Location = new Point(3, 0);
+        // c_Spinner.Name = "c_Spinner";
+        // c_Spinner.Size = new Size(19, 25);
+        // c_Spinner.SpinnerStyle = SpinnerStyle.Line;
+        // c_Spinner.TabIndex = 0;
+        // c_Spinner.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // tableLayoutPanel1
         // 
@@ -173,7 +172,7 @@ partial class OperationForm
         tableLayoutPanel1.ColumnCount = 2;
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-        tableLayoutPanel1.Controls.Add(c_Spinner, 0, 0);
+        // tableLayoutPanel1.Controls.Add(c_Spinner, 0, 0);
         tableLayoutPanel1.Controls.Add(c_StatusLabel, 1, 0);
         tableLayoutPanel1.Location = new Point(493, 100);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -222,6 +221,6 @@ partial class OperationForm
     private Button c_CancelOperationButton;
     private Label c_StatusLabel;
     private CheckBox c_CleanUpExecutablesCheckBox;
-    private Spinner c_Spinner;
+    // private Spinner c_Spinner;
     private TableLayoutPanel tableLayoutPanel1;
 }

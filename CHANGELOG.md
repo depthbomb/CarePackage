@@ -1,4 +1,10 @@
-﻿# 2024.8.25.18
+﻿# 2024.8.27.19
+
+- Added the following programs
+  - Ryujinx
+- Improved the look of the operations window
+
+# 2024.8.25.18
 
 - Added the following programs
   - FileZilla
@@ -8,8 +14,6 @@
   - PuTTY
   - Streamlink
   - System Informer
-
-(Calendar versioning is used from here on)
 
 # 1.1.0.0 - 8/24/2024
 

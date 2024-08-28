@@ -41,11 +41,13 @@ partial class OperationForm
         c_StartOperationButton = new Button();
         c_CancelOperationButton = new Button();
         c_StatusLabel = new Label();
-        // c_Spinner = new Spinner();
-        tableLayoutPanel1 = new TableLayoutPanel();
+        c_ProgressBar = new ProgressBar();
+        c_ProgressLabel = new Label();
+        c_ProgressLabelsTableLayout = new TableLayoutPanel();
+        c_PercentStatusLabel = new Label();
         groupBox1.SuspendLayout();
         c_OptionsTableLayout.SuspendLayout();
-        tableLayoutPanel1.SuspendLayout();
+        c_ProgressLabelsTableLayout.SuspendLayout();
         SuspendLayout();
         // 
         // groupBox1
@@ -125,7 +127,7 @@ partial class OperationForm
         // 
         c_StartOperationButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         c_StartOperationButton.AutoSize = true;
-        c_StartOperationButton.Location = new Point(12, 100);
+        c_StartOperationButton.Location = new Point(12, 207);
         c_StartOperationButton.Name = "c_StartOperationButton";
         c_StartOperationButton.Size = new Size(128, 25);
         c_StartOperationButton.TabIndex = 2;
@@ -136,7 +138,7 @@ partial class OperationForm
         // 
         c_CancelOperationButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         c_CancelOperationButton.AutoSize = true;
-        c_CancelOperationButton.Location = new Point(146, 100);
+        c_CancelOperationButton.Location = new Point(146, 207);
         c_CancelOperationButton.Name = "c_CancelOperationButton";
         c_CancelOperationButton.Size = new Size(75, 25);
         c_CancelOperationButton.TabIndex = 3;
@@ -145,41 +147,59 @@ partial class OperationForm
         // 
         // c_StatusLabel
         // 
-        c_StatusLabel.AutoSize = true;
-        c_StatusLabel.Dock = DockStyle.Fill;
-        c_StatusLabel.Location = new Point(28, 0);
+        c_StatusLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        c_StatusLabel.Location = new Point(12, 103);
+        c_StatusLabel.Margin = new Padding(3, 6, 3, 6);
         c_StatusLabel.Name = "c_StatusLabel";
-        c_StatusLabel.Size = new Size(1, 25);
-        c_StatusLabel.TabIndex = 1;
-        c_StatusLabel.TextAlign = ContentAlignment.MiddleRight;
+        c_StatusLabel.Size = new Size(512, 25);
+        c_StatusLabel.TabIndex = 4;
+        c_StatusLabel.Text = "Waiting";
+        c_StatusLabel.TextAlign = ContentAlignment.MiddleLeft;
         // 
-        // c_Spinner
+        // c_ProgressBar
         // 
-        // c_Spinner.Dock = DockStyle.Fill;
-        // c_Spinner.IsSpinning = false;
-        // c_Spinner.Location = new Point(3, 0);
-        // c_Spinner.Name = "c_Spinner";
-        // c_Spinner.Size = new Size(19, 25);
-        // c_Spinner.SpinnerStyle = SpinnerStyle.Line;
-        // c_Spinner.TabIndex = 0;
-        // c_Spinner.TextAlign = ContentAlignment.MiddleCenter;
+        c_ProgressBar.Location = new Point(12, 137);
+        c_ProgressBar.MarqueeAnimationSpeed = 20;
+        c_ProgressBar.Name = "c_ProgressBar";
+        c_ProgressBar.Size = new Size(512, 23);
+        c_ProgressBar.TabIndex = 5;
         // 
-        // tableLayoutPanel1
+        // c_ProgressLabel
         // 
-        tableLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-        tableLayoutPanel1.AutoSize = true;
-        tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        tableLayoutPanel1.ColumnCount = 2;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-        // tableLayoutPanel1.Controls.Add(c_Spinner, 0, 0);
-        tableLayoutPanel1.Controls.Add(c_StatusLabel, 1, 0);
-        tableLayoutPanel1.Location = new Point(493, 100);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 1;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        tableLayoutPanel1.Size = new Size(31, 25);
-        tableLayoutPanel1.TabIndex = 4;
+        c_ProgressLabel.BackColor = Color.Transparent;
+        c_ProgressLabel.Dock = DockStyle.Fill;
+        c_ProgressLabel.Location = new Point(0, 0);
+        c_ProgressLabel.Margin = new Padding(0);
+        c_ProgressLabel.Name = "c_ProgressLabel";
+        c_ProgressLabel.Size = new Size(256, 25);
+        c_ProgressLabel.TabIndex = 6;
+        c_ProgressLabel.Text = "...";
+        c_ProgressLabel.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // c_ProgressLabelsTableLayout
+        // 
+        c_ProgressLabelsTableLayout.ColumnCount = 2;
+        c_ProgressLabelsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        c_ProgressLabelsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        c_ProgressLabelsTableLayout.Controls.Add(c_ProgressLabel, 0, 0);
+        c_ProgressLabelsTableLayout.Controls.Add(c_PercentStatusLabel, 1, 0);
+        c_ProgressLabelsTableLayout.Location = new Point(12, 169);
+        c_ProgressLabelsTableLayout.Margin = new Padding(3, 6, 3, 6);
+        c_ProgressLabelsTableLayout.Name = "c_ProgressLabelsTableLayout";
+        c_ProgressLabelsTableLayout.RowCount = 1;
+        c_ProgressLabelsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        c_ProgressLabelsTableLayout.Size = new Size(512, 25);
+        c_ProgressLabelsTableLayout.TabIndex = 7;
+        // 
+        // c_PercentStatusLabel
+        // 
+        c_PercentStatusLabel.Dock = DockStyle.Fill;
+        c_PercentStatusLabel.Location = new Point(256, 0);
+        c_PercentStatusLabel.Margin = new Padding(0);
+        c_PercentStatusLabel.Name = "c_PercentStatusLabel";
+        c_PercentStatusLabel.Size = new Size(256, 25);
+        c_PercentStatusLabel.TabIndex = 7;
+        c_PercentStatusLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // OperationForm
         // 
@@ -187,8 +207,10 @@ partial class OperationForm
         AutoScaleMode = AutoScaleMode.Font;
         AutoSizeMode = AutoSizeMode.GrowAndShrink;
         BackColor = Color.White;
-        ClientSize = new Size(536, 136);
-        Controls.Add(tableLayoutPanel1);
+        ClientSize = new Size(536, 244);
+        Controls.Add(c_ProgressLabelsTableLayout);
+        Controls.Add(c_ProgressBar);
+        Controls.Add(c_StatusLabel);
         Controls.Add(c_CancelOperationButton);
         Controls.Add(c_StartOperationButton);
         Controls.Add(groupBox1);
@@ -204,8 +226,7 @@ partial class OperationForm
         groupBox1.ResumeLayout(false);
         c_OptionsTableLayout.ResumeLayout(false);
         c_OptionsTableLayout.PerformLayout();
-        tableLayoutPanel1.ResumeLayout(false);
-        tableLayoutPanel1.PerformLayout();
+        c_ProgressLabelsTableLayout.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -219,8 +240,10 @@ partial class OperationForm
     private CheckBox c_InstallSilentlyCheckBox;
     private Button c_StartOperationButton;
     private Button c_CancelOperationButton;
-    private Label c_StatusLabel;
     private CheckBox c_CleanUpExecutablesCheckBox;
-    // private Spinner c_Spinner;
-    private TableLayoutPanel tableLayoutPanel1;
+    private Label c_StatusLabel;
+    private ProgressBar c_ProgressBar;
+    private Label c_ProgressLabel;
+    private TableLayoutPanel c_ProgressLabelsTableLayout;
+    private Label c_PercentStatusLabel;
 }

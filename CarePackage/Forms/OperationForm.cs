@@ -30,11 +30,13 @@ public partial class OperationForm : Form
         c_InstallSilentlyCheckBox.HelpRequested    += C_InstallSilentlyCheckBoxOnHelpRequested;
         c_CleanUpExecutablesCheckBox.HelpRequested += C_CleanUpExecutablesCheckBoxOnHelpRequested;
 
-        _downloader.SoftwareDownloadUrlResolving += DownloaderOnSoftwareDownloadUrlResolving;
-        _downloader.SoftwareDownloadStarted      += DownloaderOnSoftwareDownloadStarted;
-        _installer.SoftwareInstallingStarted     += InstallerOnSoftwareInstallingStarted;
-        _installer.SoftwareExecutableStarted     += InstallerOnSoftwareExecutableStarted;
-        
+        _downloader.SoftwareDownloadUrlResolving    += DownloaderOnSoftwareDownloadUrlResolving;
+        _downloader.SoftwareDownloadStarted         += DownloaderOnSoftwareDownloadStarted;
+        _downloader.SoftwareDownloadProgressChanged += DownloaderOnSoftwareDownloadProgressChanged;
+        _downloader.SoftwareDownloadCompleted       += DownloaderOnSoftwareDownloadCompleted;
+        _installer.SoftwareInstallingStarted        += InstallerOnSoftwareInstallingStarted;
+        _installer.SoftwareExecutableStarted        += InstallerOnSoftwareExecutableStarted;
+
         Theming.ApplyTheme(this);
     }
 
@@ -117,7 +119,7 @@ public partial class OperationForm : Form
                         Arguments       = string.Join(',', _downloader.Queue.Select(s => s.Key)),
                         Verb            = "runas"
                     });
-                
+
                     Application.Exit();
                     return;
                 case "&Cancel":
@@ -127,7 +129,7 @@ public partial class OperationForm : Form
                     break;
             }
         }
-        
+
         c_SkipInstallCheckBox.Enabled        = false;
         c_OpenDownloadFolderCheckBox.Enabled = false;
         c_InstallSilentlyCheckBox.Enabled    = false;
@@ -150,7 +152,7 @@ public partial class OperationForm : Form
         if (c_OpenDownloadFolderCheckBox.Checked && !_cts.IsCancellationRequested)
         {
             await Launcher.LaunchFolderPathAsync(GlobalShared.DownloadFolder);
-            
+
             _downloader.Queue.Clear(); // TODO always clear queue?
         }
 
@@ -167,33 +169,67 @@ public partial class OperationForm : Form
         _shouldClose = true;
         Close();
     }
-    
+
     #region Help Requests
     private async void C_SkipInstallCheckBoxOnHelpRequested(object? sender, HelpEventArgs e)
         => await this.ShowMessageDialogAsync("Skip installation", "This option will skip the installation step after all of the software has finished downloading.", []);
 
     private async void C_OpenDownloadFolderCheckBoxOnHelpRequested(object? sender, HelpEventArgs e)
         => await this.ShowMessageDialogAsync("Open download folder", "This option will open the folder containing the downloaded software once they have finished downloading.", []);
-    
+
     private async void C_InstallSilentlyCheckBoxOnHelpRequested(object? sender, HelpEventArgs e)
         => await this.ShowMessageDialogAsync("Try to install silently", "This option attempts to install the selected software in the background without any interaction needed.\nThis doesn't work for every installer and may cause issues on installation.", []);
-    
+
     private async void C_CleanUpExecutablesCheckBoxOnHelpRequested(object? sender, HelpEventArgs e)
         => await this.ShowMessageDialogAsync("Clean up installers after installation", "This option will delete a software's installer executable after the software has finished installing.\nThis option is only applicable to software that is not downloaded as a compressed archive.", []);
     #endregion
     #endregion
 
     #region Service Event Handlers
-    private void DownloaderOnSoftwareDownloadUrlResolving(object? sender, BaseSoftware s)
-        => c_StatusLabel.Text = $"Resolving URL: {s.Name}";
-    
-    private void DownloaderOnSoftwareDownloadStarted(object? _, BaseSoftware s)
-        => c_StatusLabel.Text = $"Downloading: {s.Name}";
+    private void DownloaderOnSoftwareDownloadUrlResolving(object? _, BaseSoftware s)
+    {
+        c_ProgressBar.Style       = ProgressBarStyle.Marquee;
+        c_StatusLabel.Text        = $"Resolving URL: {s.Name}";
+        c_ProgressLabel.Text      = "...";
+        c_PercentStatusLabel.Text = string.Empty;
+    }
 
-    private void InstallerOnSoftwareInstallingStarted(object? sender, EventArgs e)
+    private void DownloaderOnSoftwareDownloadStarted(object? _, BaseSoftware s)
+    {
+        c_StatusLabel.Text        = $"Starting download: {s.Name}";
+        c_ProgressBar.Value       = 0;
+        c_ProgressBar.Style       = ProgressBarStyle.Blocks;
+        c_ProgressLabel.Text      = "...";
+        c_PercentStatusLabel.Text = string.Empty;
+    }
+
+    private void DownloaderOnSoftwareDownloadProgressChanged(long?        totalFileSize,
+                                                             long         totalBytesDownloaded,
+                                                             double?      progressPercentage,
+                                                             BaseSoftware software)
+    {
+        c_StatusLabel.Text        = $"Downloading: {software.Name}";
+        if (totalFileSize is not null)
+        {
+            var downloadedSize = totalBytesDownloaded.ToFileSize();
+            var totalSize      = ((long)totalFileSize).ToFileSize();
+            
+            c_ProgressBar.Value       = (int)Math.Round(progressPercentage ?? 0);
+            c_ProgressLabel.Text      = $"{downloadedSize}/{totalSize}";
+            c_PercentStatusLabel.Text = $"{progressPercentage}%";
+        }
+    }
+
+    private void DownloaderOnSoftwareDownloadCompleted(object? _, BaseSoftware s)
+    {
+        c_StatusLabel.Text  = $"Finished: {s.Name}";
+        c_ProgressBar.Value = 100;
+    }
+
+    private void InstallerOnSoftwareInstallingStarted(object? _, EventArgs e)
         => c_StatusLabel.Text = "Preparing to install software...";
 
-    private void InstallerOnSoftwareExecutableStarted(object? sender, BaseSoftware s)
-        => c_StatusLabel.Text = $"Waiting: {s.Name}";
+    private void InstallerOnSoftwareExecutableStarted(object? _, BaseSoftware s)
+        => c_StatusLabel.Text = $"Waiting to exit: {s.Name}";
     #endregion
 }

@@ -1,4 +1,11 @@
-﻿# 2024.8.27.19
+﻿# 2024.10.13.22
+
+- Removed the following programs
+  - Ryujinx
+  - WinRAR
+- Windows will now have rounded corners on systems that support it
+
+# 2024.8.27.19
 
 - Added the following programs
   - Ryujinx

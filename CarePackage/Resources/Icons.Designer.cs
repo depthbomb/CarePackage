@@ -502,16 +502,6 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ryujinx {
-            get {
-                object obj = ResourceManager.GetObject("ryujinx", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap sharex {
             get {
                 object obj = ResourceManager.GetObject("sharex", resourceCulture);
@@ -625,16 +615,6 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap windirstat {
             get {
                 object obj = ResourceManager.GetObject("windirstat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap winrar {
-            get {
-                object obj = ResourceManager.GetObject("winrar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,10 +20,10 @@ public static class NativeMethods
     }
 
     [DllImport("dwmapi.dll")]
-    private static extern int DwmSetWindowAttribute(IntPtr             hwnd,
-                                                    DWMWINDOWATTRIBUTE attribute,
-                                                    ref int            pvAttribute,
-                                                    int                cbAttribute);
+    public static extern int DwmSetWindowAttribute(IntPtr             hwnd,
+                                                   DWMWINDOWATTRIBUTE attribute,
+                                                   ref int            pvAttribute,
+                                                   int                cbAttribute);
 
     [DllImport("uxtheme.dll", EntryPoint = "#135", SetLastError = true, CharSet = CharSet.Unicode)]
     public static extern int SetPreferredAppMode(int preferredAppMode);

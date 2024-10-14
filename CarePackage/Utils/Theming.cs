@@ -55,7 +55,7 @@ public static class Theming
     public static void ApplyTheme(Form form)
     {
         ApplyThemeToControl(form);
-        
+
         if (IsSystemUsingDarkMode())
         {
             if (form.IsHandleCreated)
@@ -74,6 +74,15 @@ public static class Theming
                 };
             }
         }
+
+        var cornerPreference = (int)NativeMethods.DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
+
+        NativeMethods.DwmSetWindowAttribute(
+            form.Handle,
+            NativeMethods.DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE,
+            ref cornerPreference,
+            sizeof(uint)
+        );
     }
 
     public static bool IsSystemUsingDarkMode()
@@ -93,7 +102,7 @@ public static class Theming
     private static void LoadUiColors()
     {
         var uiSettings = new UISettings();
-        
+
         _accentColorBackground = uiSettings.GetColorValue(UIColorType.Background).ToDrawingColor();
         _accentColorForeground = uiSettings.GetColorValue(UIColorType.Foreground).ToDrawingColor();
         _accentColor           = uiSettings.GetColorValue(UIColorType.Accent).ToDrawingColor();
@@ -103,7 +112,7 @@ public static class Theming
         _accentColorLight1     = uiSettings.GetColorValue(UIColorType.AccentLight1).ToDrawingColor();
         _accentColorLight2     = uiSettings.GetColorValue(UIColorType.AccentLight2).ToDrawingColor();
         _accentColorLight3     = uiSettings.GetColorValue(UIColorType.AccentLight3).ToDrawingColor();
-        
+
         _accentColorsLoaded = true;
     }
 

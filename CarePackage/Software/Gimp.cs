@@ -25,7 +25,7 @@ public class Gimp : BaseSoftware
 
         res.EnsureSuccessStatusCode();
 
-        var downloadUrlPattern = new Regex(@"//download\.gimp\.org/gimp/v\d{1,}\.\d{1,}/windows/gimp-\d{1,}\.\d{1,}\.\d{1,}-setup\.exe");
+        var downloadUrlPattern = new Regex(@"//download\.gimp\.org/gimp/v\d{1,}\.\d{1,}/windows/gimp-\d{1,}\.\d{1,}\.\d{1,}-setup(-\d{1,})\.exe");
         var html               = await res.Content.ReadAsStringAsync(ct);
         var match              = downloadUrlPattern.Match(html);
         

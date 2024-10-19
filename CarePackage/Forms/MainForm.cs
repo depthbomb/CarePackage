@@ -11,12 +11,12 @@ public partial class MainForm : Form
     private readonly InstallerService   _installer;
     private readonly MaintenanceService _maintenance;
 
-    public MainForm(SoftwareService          software,
-                    DownloadService          downloader,
-                    InstallerService         installer,
-                    MaintenanceService       maintenance,
+    public MainForm(SoftwareService       software,
+                    DownloadService       downloader,
+                    InstallerService      installer,
+                    MaintenanceService    maintenance,
                     SoftwareSelectionTabs softwareSelectionControl,
-                    string[]                 args)
+                    string[]              args)
     {
         _downloader  = downloader;
         _installer   = installer;
@@ -30,7 +30,7 @@ public partial class MainForm : Form
             Text = $"[Administrator] {Text}";
             // ReSharper restore VirtualMemberCallInConstructor
         }
-        
+
         c_HeadingLabel.ForeColor = Theming.GetAccentColor(ColorType.Dark3);
 
         c_SoftwareSelectionSlotPanel.Controls.Add(softwareSelectionControl);
@@ -114,17 +114,17 @@ public partial class MainForm : Form
     {
         c_PrepareOperationButton.Enabled = false;
 
-        new OperationForm(_downloader, _installer).ShowDialog();
+        new OperationForm(_downloader, _installer).ShowDialog(this);
 
         c_PrepareOperationButton.Enabled = true;
     }
 
     private void C_ClearSelectionButtonOnClick(object? sender, EventArgs e) => _downloader.Queue.Clear();
 
-    private void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e) => new SuggestionForm().ShowDialog();
-    
+    private void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e) => new SuggestionForm().ShowDialog(this);
+
     private async void C_LatestReleaseLinkLabelOnClick(object? sender, EventArgs e)
         => await Launcher.LaunchUriAsync(new Uri(GlobalShared.LatestReleasePermalink));
 
-    private void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialog();
+    private void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialog(this);
 }

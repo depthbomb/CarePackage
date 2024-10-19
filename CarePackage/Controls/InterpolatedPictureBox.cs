@@ -1,9 +1,11 @@
-﻿using System.Drawing.Drawing2D;
+﻿using System.ComponentModel;
+using System.Drawing.Drawing2D;
 
 namespace CarePackage.Controls;
 
 public class InterpolatedPictureBox : PictureBox
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public InterpolationMode InterpolationMode { get; set; } = InterpolationMode.Default;
 
     #region Overrides of PictureBox

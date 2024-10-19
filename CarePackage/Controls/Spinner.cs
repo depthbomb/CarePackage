@@ -116,7 +116,7 @@ public sealed class Spinner : Label
     private async Task SpinAsync(CancellationToken ct = default)
     {
         var timer = new PeriodicTimer(TimeSpan.FromMilliseconds(15));
-
+        
         try
         {
             var index = 0;
@@ -133,8 +133,8 @@ public sealed class Spinner : Label
                         SpinnerStyle.Line => _lineStyleParts,
                         _                 => throw new ArgumentOutOfRangeException()
                     };
-                    
-                    await Task.Run(() =>
+
+                    await InvokeAsync(() =>
                     {
                         Text = parts[index].ToString();
 

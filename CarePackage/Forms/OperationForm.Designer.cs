@@ -206,7 +206,6 @@ partial class OperationForm
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        BackColor = Color.White;
         ClientSize = new Size(536, 244);
         Controls.Add(c_ProgressLabelsTableLayout);
         Controls.Add(c_ProgressBar);

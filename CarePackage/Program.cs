@@ -17,9 +17,6 @@ internal static class Program
         await maintenance.EnsureFoldersAsync();
         
         ApplicationConfiguration.Initialize();
-        #pragma warning disable WFO5001
-        Application.SetColorMode(SystemColorMode.Classic);
-        #pragma warning restore WFO5001
         Application.Run(services.GetRequiredService<MainForm>());
     }
 

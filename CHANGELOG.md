@@ -1,4 +1,11 @@
-﻿# 2024.10.13.22
+﻿# 2024.10.18.23
+
+- Updated to .NET 9 RC2
+- Fixed the download URL for _Gimp_ failing to resolve in some cases
+- Updated to download the new major release of _WinDirStat_
+- Adjusted the back color of the operation window
+
+# 2024.10.13.22
 
 - Removed the following programs
   - Ryujinx

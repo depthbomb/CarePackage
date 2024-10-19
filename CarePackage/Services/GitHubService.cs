@@ -1,4 +1,6 @@
-﻿namespace CarePackage.Services;
+﻿using System.Net;
+
+namespace CarePackage.Services;
 
 public class GitHubService
 {
@@ -27,6 +29,12 @@ public class GitHubService
         var assetsUrl     = $"https://github.com/{owner}/{repo}/releases/expanded_assets/{latestVersion}";
         var assetsRes     = await _http.GetAsync(assetsUrl, ct);
 
+        if (assetsRes.StatusCode == HttpStatusCode.NotFound)
+        {
+            assetsUrl = $"https://github.com/{owner}/{repo}/releases/expanded_assets/release/{latestVersion}";
+            assetsRes = await _http.GetAsync(assetsUrl, ct);
+        }
+        
         assetsRes.EnsureSuccessStatusCode();
 
         var html    = await assetsRes.Content.ReadAsStringAsync(ct);

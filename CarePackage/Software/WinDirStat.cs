@@ -5,26 +5,27 @@ public class WinDirStat : BaseSoftware
     public override string           Key            { get; set; } = "windirstat";
     public override string           Name           { get; set; } = "WinDirStat";
     public override SoftwareCategory Category       { get; set; } = SoftwareCategory.Utility;
-    public override string           DownloadName   { get; set; } = "wds_current_setup.exe";
+    public override string           DownloadName   { get; set; } = "WinDirStat-x64.msi";
     public override bool             IsArchive      { get; set; } = false;
     public override bool             ShouldCacheUrl { get; set; } = false;
     public override bool             RequiresAdmin  { get; set; } = true;
     public override Bitmap           Icon           { get; set; } = Resources.Icons.windirstat;
     public override string           Homepage       { get; set; } = "https://windirstat.net";
 
-    private readonly HttpClient _http;
+    private readonly GitHubService _github;
     
     public WinDirStat(IServiceProvider services)
     {
-        _http = services.GetKeyedService<HttpClient>("Wget")!;
+        _github = services.GetRequiredService<GitHubService>();
     }
 
     public override async Task<string> GetDownloadUrlAsync(CancellationToken ct)
     {
-        var res = await _http.GetAsync("https://windirstat.net/wds_current_setup.exe", ct);
-
-        res.EnsureSuccessStatusCode();
+        var assets = await _github.GetLatestRepositoryReleaseAssetsAsync("windirstat", "windirstat", ct);
+        var asset  = assets.FirstOrDefault(a => a.EndsWith("-x64.msi"));
         
-        return res.RequestMessage!.RequestUri!.ToString();
+        DownloadUrlResolveException.ThrowIf(asset is null);
+
+        return asset;
     }
 }

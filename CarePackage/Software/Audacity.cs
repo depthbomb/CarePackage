@@ -4,7 +4,7 @@ public class Audacity : BaseSoftware
 {
     public override string           Key            { get; set; } = "audacity";
     public override string           Name           { get; set; } = "Audacity";
-    public override SoftwareCategory Category       { get; set; } = SoftwareCategory.Creative;
+    public override SoftwareCategory Category       { get; set; } = SoftwareCategory.Media;
     public override string           DownloadName   { get; set; } = "audacity-win-64bit.exe";
     public override bool             IsArchive      { get; set; } = false;
     public override bool             ShouldCacheUrl { get; set; } = true;

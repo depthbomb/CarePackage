@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using WinRT.Interop;
+using System.Reflection;
 using Windows.UI.Popups;
 using System.Net.Http.Json;
 
@@ -12,6 +13,13 @@ internal record GithubRelease
 
 public class MaintenanceService
 {
+    private readonly SettingsService _settings;
+
+    public MaintenanceService(SettingsService settings)
+    {
+        _settings = settings;
+    }
+    
     public async Task EnsureFoldersAsync()
     {
         await Task.Run(() =>
@@ -21,23 +29,24 @@ public class MaintenanceService
         });
     }
 
-    public bool HasSeenDisclaimer(out MessageDialog disclaimerDialog)
+    public async Task ShowDisclaimerIfRequiredAsync(nint handle)
     {
-        var disclaimerFile = Path.Combine(GlobalShared.DataFolder, "SeenDisclaimer");
-
-        disclaimerDialog = new MessageDialog("This application is an independent, open-source project and is not affiliated with, endorsed by, or associated with the software it manages. All trademarks and software names are the property of their respective owners.", "Disclaimer")
+        var seenDisclaimer = _settings.Get(s => s.SeenDisclaimer);
+        var dialog = new MessageDialog("This application is an independent, open-source project and is not affiliated with, endorsed by, or associated with the software it manages. All trademarks and software names are the property of their respective owners.", "Disclaimer")
         {
             Commands            = { new UICommand("OK") },
             DefaultCommandIndex = 0
         };
 
-        if (!File.Exists(disclaimerFile))
+        if (!seenDisclaimer)
         {
-            File.Create(disclaimerFile).Dispose();
-            return false;
+            _settings.Set(s => s with { SeenDisclaimer = true });
+            
+            InitializeWithWindow.Initialize(dialog, handle);
+            
+            await dialog.ShowAsync();
+            await _settings.CommitAsync();
         }
-
-        return true;
     }
 
     public async Task<bool> IsUpdateAvailableAsync(CancellationToken ct = default)

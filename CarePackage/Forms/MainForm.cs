@@ -1,4 +1,3 @@
-using WinRT.Interop;
 using CarePackage.Controls;
 
 namespace CarePackage.Forms;
@@ -84,12 +83,7 @@ public partial class MainForm : Form
 
     private async void OnLoad(object? sender, EventArgs e)
     {
-        if (!_maintenance.HasSeenDisclaimer(out var dialog))
-        {
-            InitializeWithWindow.Initialize(dialog, Handle);
-
-            await dialog.ShowAsync();
-        }
+        await _maintenance.ShowDisclaimerIfRequiredAsync(Handle);
 
         c_LatestReleaseLinkLabel.Visible = await _maintenance.IsUpdateAvailableAsync();
     }

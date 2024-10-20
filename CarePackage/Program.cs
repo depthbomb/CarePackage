@@ -11,11 +11,11 @@ internal static class Program
     {
         _args = args;
         
-        var services    = CreateServiceProvider();
-        var maintenance = services.GetRequiredService<MaintenanceService>();
+        var services = CreateServiceProvider();
 
-        await maintenance.EnsureFoldersAsync();
-        
+        await services.GetRequiredService<MaintenanceService>().EnsureFoldersAsync();
+        await services.GetRequiredService<SettingsService>().LoadAsync();
+
         ApplicationConfiguration.Initialize();
         Application.Run(services.GetRequiredService<MainForm>());
     }

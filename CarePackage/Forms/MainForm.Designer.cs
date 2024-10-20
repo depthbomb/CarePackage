@@ -47,7 +47,6 @@ partial class MainForm
         // 
         resources.ApplyResources(c_PrepareOperationButton, "c_PrepareOperationButton");
         c_PrepareOperationButton.Name = "c_PrepareOperationButton";
-        c_PrepareOperationButton.UseVisualStyleBackColor = true;
         // 
         // c_SoftwareSelectionSlotPanel
         // 
@@ -59,7 +58,6 @@ partial class MainForm
         // 
         resources.ApplyResources(c_ClearSelectionButton, "c_ClearSelectionButton");
         c_ClearSelectionButton.Name = "c_ClearSelectionButton";
-        c_ClearSelectionButton.UseVisualStyleBackColor = true;
         // 
         // c_AboutLinkLabel
         // 
@@ -82,7 +80,6 @@ partial class MainForm
         // 
         resources.ApplyResources(c_Debug_SelectAllButton, "c_Debug_SelectAllButton");
         c_Debug_SelectAllButton.Name = "c_Debug_SelectAllButton";
-        c_Debug_SelectAllButton.UseVisualStyleBackColor = true;
         // 
         // c_LatestReleaseLinkLabel
         // 

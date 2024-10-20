@@ -121,10 +121,10 @@
   <data name="c_PrepareOperationButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="c_PrepareOperationButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="c_PrepareOperationButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="c_PrepareOperationButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -133,7 +133,7 @@
     <value>9, 524</value>
   </data>
   <data name="c_PrepareOperationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 25</value>
+    <value>90, 25</value>
   </data>
   <data name="c_PrepareOperationButton.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -187,7 +187,7 @@
     <value>False</value>
   </data>
   <data name="c_ClearSelectionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 524</value>
+    <value>105, 524</value>
   </data>
   <data name="c_ClearSelectionButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 25</value>
@@ -284,7 +284,7 @@
     <value>True</value>
   </data>
   <data name="c_Debug_SelectAllButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 524</value>
+    <value>186, 524</value>
   </data>
   <data name="c_Debug_SelectAllButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 25</value>

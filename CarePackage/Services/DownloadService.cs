@@ -5,6 +5,7 @@ public class DownloadService
     public event EventHandler?               QueueDownloadingStarted;
     public event EventHandler?               QueueDownloadingComplete;
     public event EventHandler<BaseSoftware>? SoftwareDownloadUrlResolving;
+    public event EventHandler<BaseSoftware>? SoftwareDownloadUrlResolvingError;
     public event EventHandler<BaseSoftware>? SoftwareDownloadStarted;
     public event ProgressChangedHandler?     SoftwareDownloadProgressChanged;
     public event EventHandler<BaseSoftware>? SoftwareDownloadCompleted;
@@ -109,7 +110,14 @@ public class DownloadService
                     ExecutableLocation = downloadFile
                 });
             }
-            catch (OperationCanceledException) { }
+            catch (Exception ex) when (ex is DownloadUrlResolveException or HttpRequestException)
+            {
+                SoftwareDownloadUrlResolvingError?.Invoke(this, software);
+            }
+            catch (OperationCanceledException)
+            {
+                //
+            }
         }
 
         QueueDownloadingComplete?.Invoke(this, EventArgs.Empty);

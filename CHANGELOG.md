@@ -1,4 +1,10 @@
-﻿# 2024.10.18.23
+﻿# 2024.10.20.20
+
+- Better handle URL resolving errors
+- Fixed the application not closing when it restarts with administrator priviledges
+- Moved _Audacity_ to the **Media** category
+
+# 2024.10.18.23
 
 - Updated to .NET 9 RC2
 - Fixed the download URL for _Gimp_ failing to resolve in some cases

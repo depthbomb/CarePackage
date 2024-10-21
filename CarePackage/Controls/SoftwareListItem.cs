@@ -1,4 +1,5 @@
-﻿using CarePackage.Renderers;
+﻿using CarePackage.Forms;
+using CarePackage.Renderers;
 
 namespace CarePackage.Controls;
 
@@ -35,6 +36,12 @@ public partial class SoftwareListItem : UserControl
         _menu.ItemClicked += ContextMenuOnItemClicked;
         _menu.ForeColor   =  _foreColor;
         _menu.Renderer    =  new AccentedContextMenuStripRenderer();
+
+        if (ArgParser.GetArg<bool>("debug"))
+        {
+            _menu.Items.Add(new ToolStripSeparator());
+            _menu.Items.Add("(Debug) View Info");
+        }
 
         InitializeComponent();
 
@@ -111,10 +118,15 @@ public partial class SoftwareListItem : UserControl
     
     private async void ContextMenuOnItemClicked(object? sender, ToolStripItemClickedEventArgs e)
     {
-        switch (e.ClickedItem?.Text)
+        switch (_menu.Items.IndexOf(e.ClickedItem!))
         {
-            case "Homepage":
+            case 0:
                 await Launcher.LaunchUriAsync(new Uri(Software.Homepage));
+                break;
+            case 2:
+                #pragma warning disable WFO5002
+                await new SoftwareInfoForm(Software).ShowDialogAsync(ParentForm!);
+                #pragma warning restore WFO5002
                 break;
         }
     }

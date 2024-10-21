@@ -55,6 +55,9 @@
       <Compile Update="Forms\SuggestionForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\SoftwareInfoForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

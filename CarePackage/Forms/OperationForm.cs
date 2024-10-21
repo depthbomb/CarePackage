@@ -123,7 +123,7 @@ public partial class OperationForm : Form
                     {
                         FileName        = Application.ExecutablePath,
                         UseShellExecute = true,
-                        Arguments       = string.Join(',', _downloader.Queue.Select(s => s.Key)),
+                        Arguments       = $"/Software {string.Join(',', _downloader.Queue.Select(s => s.Key))}",
                         Verb            = "runas"
                     });
                     
@@ -144,7 +144,6 @@ public partial class OperationForm : Form
         c_InstallSilentlyCheckBox.Enabled    = false;
         c_CleanUpExecutablesCheckBox.Enabled = false;
         c_StartOperationButton.Enabled       = false;
-        // c_Spinner.IsSpinning                 = true;
 
         var files = await _downloader.DownloadQueueAsync(_cts.Token);
 

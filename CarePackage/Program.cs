@@ -4,12 +4,12 @@ namespace CarePackage;
 
 internal static class Program
 {
-    private static string[] _args = [];
-    
     [STAThread]
     private static async Task Main(string[] args)
     {
-        _args = args;
+        ArgParser.AddArg("debug", "d", false);
+        ArgParser.AddArg("software", "s", new List<string>());
+        ArgParser.ParseArgs(args);
         
         var services = CreateServiceProvider();
 
@@ -25,6 +25,5 @@ internal static class Program
                                                               .AddControls()
                                                               .AddHttpClients()
                                                               .AddForms()
-                                                              .AddSingleton(_args)
                                                               .BuildServiceProvider();
 }

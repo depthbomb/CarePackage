@@ -9,17 +9,18 @@ public partial class MainForm : Form
     private readonly DownloadService    _downloader;
     private readonly InstallerService   _installer;
     private readonly MaintenanceService _maintenance;
+    private readonly bool               _debug;
 
     public MainForm(SoftwareService       software,
                     DownloadService       downloader,
                     InstallerService      installer,
                     MaintenanceService    maintenance,
-                    SoftwareSelectionTabs softwareSelectionControl,
-                    string[]              args)
+                    SoftwareSelectionTabs softwareSelectionControl)
     {
         _downloader  = downloader;
         _installer   = installer;
         _maintenance = maintenance;
+        _debug       = ArgParser.GetArg<bool>("debug");
 
         InitializeComponent();
 
@@ -33,9 +34,11 @@ public partial class MainForm : Form
         c_HeadingLabel.ForeColor = Theming.GetAccentColor(ColorType.Dark3);
 
         c_SoftwareSelectionSlotPanel.Controls.Add(softwareSelectionControl);
-        #if RELEASE
-        c_Debug_SelectAllButton.Dispose();
-        #endif
+
+        if (!_debug)
+        {
+            c_Debug_SelectAllButton.Dispose();
+        }
 
         Load        += OnLoad;
         FormClosing += OnFormClosing;
@@ -45,15 +48,16 @@ public partial class MainForm : Form
         c_LatestReleaseLinkLabel.Click += C_LatestReleaseLinkLabelOnClick;
         c_SuggestionLinkLabel.Click    += C_SuggestionLinkLabelOnClick;
         c_AboutLinkLabel.Click         += C_AboutLinkLabelOnClick;
-        #if DEBUG
-        c_Debug_SelectAllButton.Click += (_, _) =>
+        if (_debug)
         {
-            foreach (var sw in software.GetDefinitions())
+            c_Debug_SelectAllButton.Click += (_, _) =>
             {
-                _downloader.Queue.Add(sw);
-            }
-        };
-        #endif
+                foreach (var sw in software.GetDefinitions())
+                {
+                    _downloader.Queue.Add(sw);
+                }
+            };
+        }
 
         _downloader.Queue.CollectionChanged += (_, _) =>
         {
@@ -64,11 +68,11 @@ public partial class MainForm : Form
         _installer.SoftwareInstallingCompleted += (_, _) => _downloader.Queue.Clear();
 
         // Iterate through the launch arguments and try to pre-select software
-        if (args.Length > 0)
+        var softwareFromArgs = ArgParser.GetArg<List<string>>("software");
+        if (softwareFromArgs.Count > 0)
         {
             var definitions = software.GetDefinitions();
-            foreach (var arg in args)
-            foreach (var softwareKey in arg.Split(','))
+            foreach (var softwareKey in softwareFromArgs)
             {
                 var sw = definitions.FirstOrDefault(d => d.Key == softwareKey);
                 if (sw != null)

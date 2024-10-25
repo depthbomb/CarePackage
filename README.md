@@ -15,3 +15,7 @@ What CarePackage **DOESN'T DO**
 ### Installing CarePackage
 
 CarePackage is a single executable and doesn't require any installation. You can download the latest `carepackage.exe` [here.](https://github.com/depthbomb/CarePackage/releases/latest)
+
+Unfortunately CarePackage requires the [.NET 9.0 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) despite being published as self-contained because using WinRT APIs causes the published application to not actually include the runtime files. However, you will be prompted to download and install the runtime on launch so there is minimal effort required.
+
+![Runtime Installation Prompt](art/ss.png)

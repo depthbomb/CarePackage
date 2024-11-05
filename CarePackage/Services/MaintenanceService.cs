@@ -8,7 +8,7 @@ namespace CarePackage.Services;
 internal record GithubRelease
 {
     [JsonPropertyName("tag_name")]
-    public required string Tag { get; set; }
+    public required string Tag { get; init; }
 }
 
 public class MaintenanceService
@@ -51,6 +51,8 @@ public class MaintenanceService
 
     public async Task<bool> IsUpdateAvailableAsync(CancellationToken ct = default)
     {
+        var currentVersion = Assembly.GetExecutingAssembly().GetName().Version!;
+
         try
         {
             using (var http = new HttpClient())
@@ -60,8 +62,14 @@ public class MaintenanceService
                 var res        = await http.GetAsync("https://api.github.com/repos/depthbomb/carepackage/releases/latest", ct);
                 var data       = await res.Content.ReadFromJsonAsync<GithubRelease>(ct);
                 var tagVersion = new Version(data!.Tag);
-                
-                return tagVersion > Assembly.GetExecutingAssembly().GetName().Version;
+
+                // Force update if we are currently using calver and the latest release is semver
+                if (currentVersion.Major.ToString().Length == 4 && tagVersion.Major.ToString().Length < 4)
+                {
+                    return true;
+                }
+
+                return tagVersion > currentVersion;
             }
         }
         #if DEBUG
@@ -72,7 +80,7 @@ public class MaintenanceService
             return false;
         }
         #else
-        catch (Exception)
+        catch
         {
             return false;
         }

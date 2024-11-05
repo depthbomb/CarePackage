@@ -173,7 +173,7 @@ public partial class OperationForm : Form
         {
             await Launcher.LaunchFolderPathAsync(GlobalShared.DownloadFolder);
 
-            _downloader.Queue.Clear(); // TODO always clear queue?
+            _downloader.Queue.Clear();
         }
 
         _shouldClose = true;

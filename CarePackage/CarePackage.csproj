@@ -11,20 +11,16 @@
         <Company>Caprine Logic</Company>
         <Authors>Caprine Logic</Authors>
         <Product>CarePackage Software Management</Product>
-        <CalVer>$([System.DateTime]::Now.ToString(yyyy.M.dd.H))</CalVer>
-        <AssemblyVersion>$(CalVer)</AssemblyVersion>
-        <Version>$(CalVer)</Version>
+        <AssemblyVersion>2024.11.04.18</AssemblyVersion>
+        <Version>2024.11.04.18</Version>
         <NeutralLanguage>en</NeutralLanguage>
+        <InvariantGlobalization>true</InvariantGlobalization>
     </PropertyGroup>
 
     <ItemGroup>
       <None Include="..\icon.ico">
         <Link>icon.ico</Link>
       </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-rc.2.24473.5" />
     </ItemGroup>
 
     <ItemGroup>
@@ -68,6 +64,10 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Images.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-rc.2.24473.5" />
     </ItemGroup>
 
 </Project>

@@ -11,8 +11,9 @@
         <Company>Caprine Logic</Company>
         <Authors>Caprine Logic</Authors>
         <Product>CarePackage Software Management</Product>
-        <AssemblyVersion>2024.11.04.18</AssemblyVersion>
-        <Version>2024.11.04.18</Version>
+        <SemVer>1.2.2.0</SemVer>
+        <AssemblyVersion>$(SemVer)</AssemblyVersion>
+        <Version>$(SemVer)</Version>
         <NeutralLanguage>en</NeutralLanguage>
         <InvariantGlobalization>true</InvariantGlobalization>
     </PropertyGroup>

@@ -1,4 +1,18 @@
-﻿# 2024.11.04.18
+﻿# 1.2.2.0
+
+**There are no changes from the last release.**
+
+Previous changelog:
+
+- Added the following programs:
+  - _Caesium Image Compressor_
+  - _dnSpy_
+  - _Elgato Stream Deck_
+  - _GOG GALAXY_
+  - _JetBrains Toolbox_
+- Adjusted the style of selected programs
+
+# 2024.11.04.18
 
 **This release also serves as transitional update as the project will return to semantic versioning.**
 

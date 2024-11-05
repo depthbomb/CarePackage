@@ -152,6 +152,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dnspy {
+            get {
+                object obj = ResourceManager.GetObject("dnspy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dolphin_emu {
             get {
                 object obj = ResourceManager.GetObject("dolphin_emu", resourceCulture);
@@ -175,6 +185,16 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap dropbox {
             get {
                 object obj = ResourceManager.GetObject("dropbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elgato_stream_deck {
+            get {
+                object obj = ResourceManager.GetObject("elgato_stream_deck", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -232,6 +252,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gog_galaxy {
+            get {
+                object obj = ResourceManager.GetObject("gog_galaxy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap google_chrome {
             get {
                 object obj = ResourceManager.GetObject("google_chrome", resourceCulture);
@@ -255,6 +285,16 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap insomnia {
             get {
                 object obj = ResourceManager.GetObject("insomnia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jetbrains_toolbox {
+            get {
+                object obj = ResourceManager.GetObject("jetbrains_toolbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

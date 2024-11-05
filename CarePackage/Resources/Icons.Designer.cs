@@ -72,6 +72,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arc {
+            get {
+                object obj = ResourceManager.GetObject("arc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap audacity {
             get {
                 object obj = ResourceManager.GetObject("audacity", resourceCulture);
@@ -185,6 +195,16 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap dropbox {
             get {
                 object obj = ResourceManager.GetObject("dropbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ea_app {
+            get {
+                object obj = ResourceManager.GetObject("ea_app", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -605,6 +625,16 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap thunderbird {
             get {
                 object obj = ResourceManager.GetObject("thunderbird", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ubisoft_connect {
+            get {
+                object obj = ResourceManager.GetObject("ubisoft_connect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,7 +1,19 @@
-﻿# 2024.10.20.20
+﻿# 2024.11.04.18
+
+**This release also serves as transitional update as the project will return to semantic versioning.**
+
+- Added the following programs:
+  - _Caesium Image Compressor_
+  - _dnSpy_
+  - _Elgato Stream Deck_
+  - _GOG GALAXY_
+  - _JetBrains Toolbox_
+- Adjusted the style of selected programs
+
+# 2024.10.20.20
 
 - Better handle URL resolving errors
-- Fixed the application not closing when it restarts with administrator priviledges
+- Fixed the application not closing when it restarts with administrator privileges
 - Moved _Audacity_ to the **Media** category
 
 # 2024.10.18.23

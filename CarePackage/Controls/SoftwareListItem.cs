@@ -10,11 +10,13 @@ public partial class SoftwareListItem : UserControl
     public event EventHandler<BaseSoftware>? SoftwareSelected;
     public event EventHandler<BaseSoftware>? SoftwareDeselected;
 
-    private bool _hovered;
-    private bool _selected;
+    private          bool _hovered;
+    private          bool _selected;
 
     private readonly Bitmap           _activeIcon;
     private readonly Bitmap           _inactiveIcon;
+    private readonly Font             _deselectedFont;
+    private readonly Font             _selectedFont;
     private readonly Color            _foreColor;
     private readonly Color            _backColor;
     private readonly ContextMenuStrip _menu;
@@ -23,10 +25,10 @@ public partial class SoftwareListItem : UserControl
     {
         Software = software;
 
-        _activeIcon   = software.Icon;
-        _inactiveIcon = software.Icon.ToGrayScale();
-        _backColor    = Theming.GetAccentColor(ColorType.Light3);
-        _foreColor    = Theming.GetAccentColor(ColorType.Dark3);
+        _activeIcon     = software.Icon;
+        _inactiveIcon   = software.Icon.ToGrayScale();
+        _backColor      = Theming.GetAccentColor(ColorType.Light3);
+        _foreColor      = Theming.GetAccentColor(ColorType.Dark3);
         _menu = new ContextMenuStrip
         {
             ShowImageMargin   = false,
@@ -44,6 +46,9 @@ public partial class SoftwareListItem : UserControl
         }
 
         InitializeComponent();
+        
+        _deselectedFont = c_SoftwareName.Font;
+        _selectedFont   = new Font(_deselectedFont.FontFamily, _deselectedFont.Size, FontStyle.Bold);
 
         SubscribeToClickEvent(this);
         SubscribeToMouseEnterOrLeaveEvents(this);
@@ -61,6 +66,7 @@ public partial class SoftwareListItem : UserControl
         BackColor                = _backColor;
         c_SoftwareIcon.Image     = _activeIcon;
         c_SoftwareName.ForeColor = _foreColor;
+        c_SoftwareName.Font      = _selectedFont;
     }
 
     public void SetDeselected()
@@ -69,6 +75,7 @@ public partial class SoftwareListItem : UserControl
         BackColor                = Color.Transparent;
         c_SoftwareIcon.Image     = _hovered ? _activeIcon : _inactiveIcon;
         c_SoftwareName.ForeColor = _hovered ? Color.Black : Color.DimGray;
+        c_SoftwareName.Font      = _deselectedFont;
     }
 
     #region Event Handlers

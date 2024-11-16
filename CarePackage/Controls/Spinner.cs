@@ -61,7 +61,7 @@ public sealed class Spinner : Label
 
         _pfc = new PrivateFontCollection();
 
-        LoadBootFont();
+        ApplyBootFont();
 
         var form = FindForm();
         if (form != null)
@@ -84,22 +84,25 @@ public sealed class Spinner : Label
         Dispose();
     }
 
-    private void LoadBootFont()
+    private void ApplyBootFont()
     {
         var windowsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
         var bootFolder        = Path.Combine(windowsFolderPath, BootFontPath);
         var fontFilePath      = Path.Combine(bootFolder, FontFileName);
 
         _pfc.AddFontFile(fontFilePath);
+        
+        Font = new Font(_pfc.Families[0], Font.Size, FontStyle.Regular);
     }
 
-    private async void OnIsSpinningChanged(EventArgs e)
+    private async Task OnIsSpinningChanged(EventArgs e)
     {
         IsSpinningChanged?.Invoke(this, e);
         
         if (_cts is not null)
         {
-            _cts.Cancel();
+            await _cts.CancelAsync();
+            
             _cts.Dispose();
             _cts = null;
 

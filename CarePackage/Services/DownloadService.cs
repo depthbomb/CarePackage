@@ -2,20 +2,12 @@
 
 public class DownloadService
 {
-    public event EventHandler?               QueueDownloadingStarted;
-    public event EventHandler?               QueueDownloadingComplete;
     public event EventHandler<BaseSoftware>? SoftwareDownloadUrlResolving;
     public event EventHandler<BaseSoftware>? SoftwareDownloadUrlResolvingError;
     public event EventHandler<BaseSoftware>? SoftwareDownloadStarted;
-    public event ProgressChangedHandler?     SoftwareDownloadProgressChanged;
     public event EventHandler<BaseSoftware>? SoftwareDownloadCompleted;
 
     public readonly ObservableCollection<BaseSoftware> Queue = [];
-
-    public delegate void ProgressChangedHandler(long?        totalFileSize,
-                                                long         totalBytesDownloaded,
-                                                double?      progressPercentage,
-                                                BaseSoftware software);
 
     private readonly HttpClient                 _http;
     private readonly Dictionary<string, string> _urlCache = [];
@@ -27,8 +19,6 @@ public class DownloadService
 
     public async Task<List<SoftwareInstallationInfo>> DownloadQueueAsync(CancellationToken ct = default)
     {
-        QueueDownloadingStarted?.Invoke(this, EventArgs.Empty);
-
         var payloads = new List<SoftwareInstallationInfo>();
 
         foreach (var software in Queue)
@@ -67,39 +57,11 @@ public class DownloadService
                     );
                     continue;
                 }
-
-                var totalBytes = res.Content.Headers.ContentLength;
-
+                
                 await using (var cs = await res.Content.ReadAsStreamAsync(ct))
+                await using (var fs = new FileStream(downloadFile, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
                 {
-                    var totalBytesRead = 0L;
-                    var readCount      = 0L;
-                    var buffer         = new byte[8192];
-                    var isMoreToRead   = true;
-
-                    await using (var fileStream = new FileStream(downloadFile, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
-                    {
-                        do
-                        {
-                            var bytesRead = await cs.ReadAsync(buffer, ct);
-                            if (bytesRead == 0)
-                            {
-                                isMoreToRead = false;
-                                TriggerProgressChanged(totalBytes, totalBytesRead, software);
-                                continue;
-                            }
-
-                            await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), ct);
-
-                            totalBytesRead += bytesRead;
-                            readCount      += 1;
-
-                            if (readCount % 100 == 0)
-                            {
-                                TriggerProgressChanged(totalBytes, totalBytesRead, software);
-                            }
-                        } while (isMoreToRead);
-                    }
+                    await cs.CopyToAsync(fs, ct);
                 }
 
                 SoftwareDownloadCompleted?.Invoke(this, software);
@@ -120,24 +82,6 @@ public class DownloadService
             }
         }
 
-        QueueDownloadingComplete?.Invoke(this, EventArgs.Empty);
-
         return payloads;
-    }
-
-    private void TriggerProgressChanged(long? totalDownloadSize, long totalBytesRead, BaseSoftware software)
-    {
-        if (SoftwareDownloadProgressChanged == null)
-        {
-            return;
-        }
-
-        double? progressPercentage = null;
-        if (totalDownloadSize.HasValue)
-        {
-            progressPercentage = Math.Round((double)totalBytesRead / totalDownloadSize.Value * 100, 2);
-        }
-
-        SoftwareDownloadProgressChanged(totalDownloadSize, totalBytesRead, progressPercentage, software);
     }
 }

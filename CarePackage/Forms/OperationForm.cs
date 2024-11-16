@@ -36,7 +36,6 @@ public partial class OperationForm : Form
         _downloader.SoftwareDownloadUrlResolving      += DownloaderOnSoftwareDownloadUrlResolving;
         _downloader.SoftwareDownloadUrlResolvingError += DownloaderOnSoftwareDownloadUrlResolvingError;
         _downloader.SoftwareDownloadStarted           += DownloaderOnSoftwareDownloadStarted;
-        _downloader.SoftwareDownloadProgressChanged   += DownloaderOnSoftwareDownloadProgressChanged;
         _downloader.SoftwareDownloadCompleted         += DownloaderOnSoftwareDownloadCompleted;
         _installer.SoftwareInstallingStarted          += InstallerOnSoftwareInstallingStarted;
         _installer.SoftwareExecutableStarted          += InstallerOnSoftwareExecutableStarted;
@@ -81,16 +80,15 @@ public partial class OperationForm : Form
 
     private async void C_StartOperationButtonOnClick(object? sender, EventArgs e)
     {
+        c_Spinner.IsSpinning = true;
+        
         if (_downloader.Queue.Any(s => s.IsArchive) && !c_OpenDownloadFolderCheckBox.Checked)
         {
             var res = await this.ShowMessageDialogAsync(
                 "Downloading archive files",
                 "One or more of the selected programs will be downloaded as compressed archives. Would you like to open the folder containing the downloaded files when everything is done downloading?",
                 [
-                    new UICommand("&Yes", _ =>
-                    {
-                        
-                    }),
+                    new UICommand("&Yes"),
                     new UICommand("&No"),
                     new UICommand("&Cancel")
                 ], cancelCommandIndex: 2);
@@ -156,6 +154,8 @@ public partial class OperationForm : Form
                 _cts.Token
             );
         }
+        
+        c_Spinner.IsSpinning = false;
 
         if (_failedResolutions.Count > 0)
         {
@@ -209,47 +209,16 @@ public partial class OperationForm : Form
 
     #region Service Event Handlers
     private void DownloaderOnSoftwareDownloadUrlResolving(object? _, BaseSoftware s)
-    {
-        c_ProgressBar.Style       = ProgressBarStyle.Marquee;
-        c_StatusLabel.Text        = $"Resolving URL: {s.Name}";
-        c_ProgressLabel.Text      = "...";
-        c_PercentStatusLabel.Text = string.Empty;
-    }
+        => c_StatusLabel.Text = $"Resolving URL: {s.Name}";
 
     private void DownloaderOnSoftwareDownloadUrlResolvingError(object? sender, BaseSoftware s)
         => _failedResolutions.Add(s);
 
     private void DownloaderOnSoftwareDownloadStarted(object? _, BaseSoftware s)
-    {
-        c_StatusLabel.Text        = $"Starting download: {s.Name}";
-        c_ProgressBar.Value       = 0;
-        c_ProgressBar.Style       = ProgressBarStyle.Blocks;
-        c_ProgressLabel.Text      = "...";
-        c_PercentStatusLabel.Text = string.Empty;
-    }
-
-    private void DownloaderOnSoftwareDownloadProgressChanged(long?        totalFileSize,
-                                                             long         totalBytesDownloaded,
-                                                             double?      progressPercentage,
-                                                             BaseSoftware software)
-    {
-        c_StatusLabel.Text = $"Downloading: {software.Name}";
-        if (totalFileSize is not null)
-        {
-            var downloadedSize = totalBytesDownloaded.ToFileSize();
-            var totalSize      = ((long)totalFileSize).ToFileSize();
-
-            c_ProgressBar.Value       = (int)Math.Round(progressPercentage ?? 0);
-            c_ProgressLabel.Text      = $"{downloadedSize}/{totalSize}";
-            c_PercentStatusLabel.Text = $"{progressPercentage}%";
-        }
-    }
+        => c_StatusLabel.Text = $"Downloading: {s.Name}";
 
     private void DownloaderOnSoftwareDownloadCompleted(object? _, BaseSoftware s)
-    {
-        c_StatusLabel.Text  = $"Finished: {s.Name}";
-        c_ProgressBar.Value = 100;
-    }
+        => c_StatusLabel.Text = $"Finished: {s.Name}";
 
     private void InstallerOnSoftwareInstallingStarted(object? _, EventArgs e)
         => c_StatusLabel.Text = "Preparing to install software...";

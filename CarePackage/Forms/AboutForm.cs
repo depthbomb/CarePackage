@@ -10,7 +10,7 @@ public partial class AboutForm : Form
 
         c_VersionLabel.Text     =  Assembly.GetExecutingAssembly().GetName().Version!.ToString();
         c_GithubLinkLabel.Click += C_GithubLinkLabelOnClick;
-        
+
         Theming.ApplyTheme(this);
     }
 

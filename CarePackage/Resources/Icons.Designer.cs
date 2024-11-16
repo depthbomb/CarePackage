@@ -122,6 +122,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brave_browser {
+            get {
+                object obj = ResourceManager.GetObject("brave_browser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap caesium_image_compressor {
             get {
                 object obj = ResourceManager.GetObject("caesium_image_compressor", resourceCulture);

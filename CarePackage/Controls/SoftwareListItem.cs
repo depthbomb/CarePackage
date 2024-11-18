@@ -10,8 +10,8 @@ public partial class SoftwareListItem : UserControl
     public event EventHandler<BaseSoftware>? SoftwareSelected;
     public event EventHandler<BaseSoftware>? SoftwareDeselected;
 
-    private          bool _hovered;
-    private          bool _selected;
+    private bool _hovered;
+    private bool _selected;
 
     private readonly Bitmap           _activeIcon;
     private readonly Bitmap           _inactiveIcon;
@@ -25,10 +25,10 @@ public partial class SoftwareListItem : UserControl
     {
         Software = software;
 
-        _activeIcon     = software.Icon;
-        _inactiveIcon   = software.Icon.ToGrayScale();
-        _backColor      = Theming.GetAccentColor(ColorType.Light3);
-        _foreColor      = Theming.GetAccentColor(ColorType.Dark3);
+        _activeIcon   = software.Icon;
+        _inactiveIcon = software.Icon.ToGrayScale();
+        _backColor    = Theming.GetAccentColor(ColorType.Light3);
+        _foreColor    = Theming.GetAccentColor(ColorType.Dark3);
         _menu = new ContextMenuStrip
         {
             ShowImageMargin   = false,

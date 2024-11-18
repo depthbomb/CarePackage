@@ -37,9 +37,9 @@ public class SettingsService
             var file   = await folder.GetFileAsync("Settings");
             if (file.IsAvailable)
             {
-                await using var sr       = await file.OpenStreamForReadAsync();
-                var             settings = await JsonSerializer.DeserializeAsync<Settings>(sr);
+                await using var sr = await file.OpenStreamForReadAsync();
 
+                var settings = await JsonSerializer.DeserializeAsync<Settings>(sr);
                 if (settings != null)
                 {
                     _settings = settings;

@@ -108,21 +108,21 @@ public partial class MainForm : Form
         }
     }
 
-    private void C_StartOperationButtonOnClick(object? sender, EventArgs e)
+    private async void C_StartOperationButtonOnClick(object? sender, EventArgs e)
     {
         c_PrepareOperationButton.Enabled = false;
 
-        new OperationForm(_downloader, _installer).ShowDialog(this);
+        await new OperationForm(_downloader, _installer).ShowDialogAsync(this);
 
         c_PrepareOperationButton.Enabled = true;
     }
 
     private void C_ClearSelectionButtonOnClick(object? sender, EventArgs e) => _downloader.Queue.Clear();
 
-    private void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e) => new SuggestionForm().ShowDialog(this);
+    private async void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e) => await new SuggestionForm().ShowDialogAsync(this);
 
     private async void C_LatestReleaseLinkLabelOnClick(object? sender, EventArgs e)
         => await Launcher.LaunchUriAsync(new Uri(GlobalShared.LatestReleasePermalink));
 
-    private void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialog(this);
+    private async void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialogAsync(this);
 }

@@ -18,6 +18,10 @@
         <InvariantGlobalization>true</InvariantGlobalization>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);WFO5002</NoWarn>
+    </PropertyGroup>
+
     <ItemGroup>
       <None Include="..\icon.ico">
         <Link>icon.ico</Link>
@@ -68,7 +72,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-rc.2.24473.5" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     </ItemGroup>
 
 </Project>

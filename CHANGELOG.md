@@ -1,14 +1,17 @@
 ﻿# 1.3.1.0
 
-- Removed _.NET 6_-related programs as it is now end-of-life
+- Removed _.NET 7_-related programs as it is now end-of-life
 - Added the following programs:
-  - _.NET 7 Runtime_
-  - _.NET 7 ASP.NET Core Runtime_
   - _.NET 6 Runtime_
   - _.NET 6 ASP.NET Core Runtime_
+  - _.NET 6 SDK_
+  - _.NET 8 Runtime_
+  - _.NET 8 ASP.NET Core Runtime_
+  - _.NET 8 SDK_
   - _.NET 9 Runtime_
   - _.NET 9 Desktop Runtime_
   - _.NET 9 ASP.NET Core Runtime_
+  - _.NET 9 SDK_
   - _Logitech G HUB_
   - _PlayStation Accessories_
   - _DB Browser for SQLite_

@@ -13,5 +13,5 @@ public class DotNet6DesktopRuntime : BaseSoftware
     public override string           Homepage       { get; set; } = "https://dot.net";
 
     public override Task<string> GetDownloadUrlAsync(CancellationToken ct)
-        => Task.FromResult("https://download.visualstudio.microsoft.com/download/pr/3ebc1f91-a5ba-477e-9353-198fa4e13371/35f447d6820b078fd18523764a4f0213/windowsdesktop-runtime-6.0.33-win-x64.exe");
+        => Task.FromResult("https://download.visualstudio.microsoft.com/download/pr/f6b6c5dc-e02d-4738-9559-296e938dabcb/b66d365729359df8e8ea131197715076/windowsdesktop-runtime-6.0.36-win-x64.exe");
 }

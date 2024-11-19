@@ -152,6 +152,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap db_browser_for_sqlite {
+            get {
+                object obj = ResourceManager.GetObject("db_browser_for_sqlite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap defraggler {
             get {
                 object obj = ResourceManager.GetObject("defraggler", resourceCulture);
@@ -342,6 +352,16 @@ namespace CarePackage.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logitech_g_hub {
+            get {
+                object obj = ResourceManager.GetObject("logitech_g_hub", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap malwarebytes {
             get {
                 object obj = ResourceManager.GetObject("malwarebytes", resourceCulture);
@@ -495,6 +515,16 @@ namespace CarePackage.Resources {
         internal static System.Drawing.Bitmap pcsx2 {
             get {
                 object obj = ResourceManager.GetObject("pcsx2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playstation_accessories {
+            get {
+                object obj = ResourceManager.GetObject("playstation_accessories", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

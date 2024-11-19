@@ -119,10 +119,12 @@ public partial class MainForm : Form
 
     private void C_ClearSelectionButtonOnClick(object? sender, EventArgs e) => _downloader.Queue.Clear();
 
-    private async void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e) => await new SuggestionForm().ShowDialogAsync(this);
+    private async void C_SuggestionLinkLabelOnClick(object? sender, EventArgs e)
+        => await new SuggestionForm().ShowDialogAsync(this);
 
     private async void C_LatestReleaseLinkLabelOnClick(object? sender, EventArgs e)
         => await Launcher.LaunchUriAsync(new Uri(GlobalShared.LatestReleasePermalink));
 
-    private async void C_AboutLinkLabelOnClick(object? sender, EventArgs e) => new AboutForm().ShowDialogAsync(this);
+    private async void C_AboutLinkLabelOnClick(object? sender, EventArgs e)
+        => await new AboutForm().ShowDialogAsync(this);
 }

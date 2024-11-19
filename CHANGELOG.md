@@ -1,4 +1,26 @@
-﻿# 1.2.2.0
+﻿# 1.3.1.0
+
+- Removed _.NET 6_-related programs as it is now end-of-life
+- Added the following programs:
+  - _.NET 7 Runtime_
+  - _.NET 7 ASP.NET Core Runtime_
+  - _.NET 6 Runtime_
+  - _.NET 6 ASP.NET Core Runtime_
+  - _.NET 9 Runtime_
+  - _.NET 9 Desktop Runtime_
+  - _.NET 9 ASP.NET Core Runtime_
+  - _Logitech G HUB_
+  - _PlayStation Accessories_
+  - _DB Browser for SQLite_
+- Updated code to use new .NET 9 features
+
+# 1.3.0.0
+
+- Migrated to the release version of .NET 9
+- Added _Brave_
+- Simplified the operation window
+
+# 1.2.2.0
 
 **There are no changes from the last release.**
 

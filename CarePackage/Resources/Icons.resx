@@ -313,4 +313,13 @@
   <data name="brave_browser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Icons\brave-browser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="db_browser_for_sqlite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\db-browser-for-sqlite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logitech_g_hub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\logitech-g-hub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playstation_accessories" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Icons\playstation-accessories.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

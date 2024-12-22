@@ -12,7 +12,7 @@ What CarePackage **DOESN'T DO**
 
 ### Installing CarePackage
 
-CarePackage comes in two flavors: **portable** and **standalone**. The portable version is a single executable that doesn't require any installation. Standalone, on the other hand, is installed on the system.
+CarePackage comes in two flavors: **portable** (`carepackage.exe`) and **standalone** (`carepackage_installer.exe`). The portable version is a single executable that doesn't require any installation. Standalone, on the other hand, is installed on the system.
 
 Functionally the two versions are the same but the standalone version will check for new releases of the application and has configurable settings.
 

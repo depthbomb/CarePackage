@@ -6,6 +6,7 @@ from PySide6.QtWidgets import (
     QWidget,
     QDialog,
     QComboBox,
+    QCheckBox,
     QMessageBox,
     QPushButton,
     QFormLayout,
@@ -21,7 +22,7 @@ class SettingsWindow(QDialog):
         self.sweeper.start()
 
         self.setLayout(self._create_layout())
-        self.setMinimumWidth(350)
+        self.setMinimumWidth(360)
         self.adjustSize()
         self.setFixedSize(self.size())
 
@@ -30,6 +31,9 @@ class SettingsWindow(QDialog):
         )
         self.download_timeout_combobox.setCurrentIndex(
             self.download_timeout_combobox.findData(user_settings.value(UserSettingsKeys.DownloadTimeout, 0, int))
+        )
+        self.show_software_count_checkbox.setChecked(
+            user_settings.value(UserSettingsKeys.ShowCategorySoftwareCount, False, bool)
         )
 
     #region Slots
@@ -68,6 +72,7 @@ class SettingsWindow(QDialog):
     def _on_save_button_clicked(self):
         user_settings.setValue(UserSettingsKeys.Theme, self.theme_combobox.currentData())
         user_settings.setValue(UserSettingsKeys.DownloadTimeout, self.download_timeout_combobox.currentData())
+        user_settings.setValue(UserSettingsKeys.ShowCategorySoftwareCount, self.show_software_count_checkbox.isChecked())
         self.accept()
     #endregion
 
@@ -75,6 +80,7 @@ class SettingsWindow(QDialog):
         self.layout = QFormLayout(self)
         self.layout.addRow('Theme', self._create_theme_row())
         self.layout.addRow('Download timeout', self._create_download_timeout_row())
+        self.layout.addRow('', self._create_software_count_row())
         self.layout.addRow('', self._create_sweeper_button())
         self.layout.addWidget(self._create_footer_row())
 
@@ -95,6 +101,11 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.addItem('30 minutes', DownloadTimeout.ThirtyMinutes.value)
 
         return self.download_timeout_combobox
+
+    def _create_software_count_row(self):
+        self.show_software_count_checkbox = QCheckBox('Show software count per category', self)
+
+        return self.show_software_count_checkbox
 
     def _create_sweeper_button(self):
         self.sweeper_button = QPushButton('&Clean up downloads', self)

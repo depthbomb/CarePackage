@@ -13,6 +13,7 @@ from winrt.windows.ui.viewmanagement import UIColorType
 from src.windows.operation_window import OperationWindow
 from src.widgets.simple_link_label import SimpleLinkLabel
 from src.windows.suggestion_window import SuggestionWindow
+from src.lib.settings import user_settings, UserSettingsKeys
 from src import IS_ADMIN, IS_ONEFILE, IS_COMPILED, SOFTWARE_CATALOGUE
 from PySide6.QtWidgets import (
     QLabel,
@@ -47,6 +48,8 @@ class MainWindow(QMainWindow):
         self._populate_software_rows()
         self.setWindowIcon(QIcon(':icons/icon.ico'))
         self.setMinimumSize(1100, 600)
+
+        self._update_tab_names()
 
     #region Slots
     @Slot(str)
@@ -93,6 +96,7 @@ class MainWindow(QMainWindow):
     def _on_settings_link_clicked(self):
         settings_window = SettingsWindow(self)
         settings_window.exec()
+        self._update_tab_names()
 
     @Slot()
     def _on_suggest_software_link_clicked(self):
@@ -228,8 +232,10 @@ class MainWindow(QMainWindow):
 
     def _populate_software_rows(self):
         # Sort the catalogue alphabetically but keep the .NET category as the last item
-        for cat, software in sorted(SOFTWARE_CATALOGUE.items(), key=lambda x: (x[0].startswith('.'), x[0])):
+        for category, software in sorted(SOFTWARE_CATALOGUE.items(), key=lambda x: (x[0].startswith('.'), x[0])):
             scroll_area = QScrollArea(self.software_tabs)
+            scroll_area.setProperty('tab_category', category)
+            scroll_area.setProperty('tab_software', software)
             scroll_area.setWidgetResizable(True)
             scroll_area.setStyleSheet('''
                 QScrollArea { background: transparent; }
@@ -237,22 +243,22 @@ class MainWindow(QMainWindow):
                 QScrollArea > QWidget > QScrollBar { background: 1; }
             ''')
 
-            widget = QWidget(self)
-            layout = QVBoxLayout(widget)
-            layout.setSpacing(0)
-            layout.setContentsMargins(0, 0, 0, 0)
-            layout.setAlignment(Qt.AlignmentFlag.AlignTop)
+            category_widget = QWidget(self)
+            category_layout = QVBoxLayout(category_widget)
+            category_layout.setSpacing(0)
+            category_layout.setContentsMargins(0, 0, 0, 0)
+            category_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
+            category_widget.setLayout(category_layout)
 
-            widget.setLayout(layout)
-            scroll_area.setWidget(widget)
+            scroll_area.setWidget(category_widget)
 
             for s in sorted(software, key=lambda sw: sw.name.lower()):
-                row = SoftwareRow(s, widget)
+                row = SoftwareRow(s, category_widget)
                 row.selection_changed.connect(self._on_software_row_selection_changed)
-                layout.addWidget(row)
+                category_layout.addWidget(row)
                 self.software_widgets.append(row)
 
-            self.software_tabs.addTab(scroll_area, cat)
+            self.software_tabs.addTab(scroll_area, f'{category} ({len(software)})')
 
     def _select_all(self):
         for widget in [w for w in self.software_widgets if w.selected is False]:
@@ -261,3 +267,14 @@ class MainWindow(QMainWindow):
     def _clear_selection(self):
         for widget in [w for w in self.software_widgets if w.selected is True]:
             widget.set_selection(False)
+
+    def _update_tab_names(self):
+        for i in range(self.software_tabs.count()):
+            tab_widget = self.software_tabs.widget(i)
+            tab_category = cast(str, tab_widget.property('tab_category'))
+            tab_software = cast(list[BaseSoftware], tab_widget.property('tab_software'))
+
+            if user_settings.value(UserSettingsKeys.ShowCategorySoftwareCount, False, bool):
+                self.software_tabs.setTabText(i, f'{tab_category} ({len(tab_software)})')
+            else:
+                self.software_tabs.setTabText(i, tab_category)

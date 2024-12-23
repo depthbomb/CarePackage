@@ -31,6 +31,7 @@
 		<file>images/software/go.png</file>
 		<file>images/software/gog-galaxy.png</file>
 		<file>images/software/google-chrome.png</file>
+		<file>images/software/google-drive.png</file>
 		<file>images/software/handbrake.png</file>
 		<file>images/software/inkscape.png</file>
 		<file>images/software/insomnia.png</file>
@@ -48,6 +49,7 @@
 		<file>images/software/notepad-plus-plus.png</file>
 		<file>images/software/nvidia.png</file>
 		<file>images/software/obs-studio.png</file>
+		<file>images/software/onedrive.png</file>
 		<file>images/software/opera.png</file>
 		<file>images/software/operagx.png</file>
 		<file>images/software/overwolf.png</file>
@@ -66,12 +68,14 @@
 		<file>images/software/qt.png</file>
 		<file>images/software/rust.png</file>
 		<file>images/software/sharex.png</file>
+		<file>images/software/skype.png</file>
 		<file>images/software/speccy.png</file>
 		<file>images/software/spotify.png</file>
 		<file>images/software/steam.png</file>
 		<file>images/software/streamlabs-desktop.png</file>
 		<file>images/software/streamlink.png</file>
 		<file>images/software/system-informer.png</file>
+		<file>images/software/teamviewer.png</file>
 		<file>images/software/telegram.png</file>
 		<file>images/software/thunderbird.png</file>
 		<file>images/software/ubisoft-connect.png</file>
@@ -80,6 +84,7 @@
 		<file>images/software/visual-studio-community.png</file>
 		<file>images/software/vlc-media-player.png</file>
 		<file>images/software/windirstat.png</file>
+		<file>images/software/winrar.png</file>
 		<file>images/software/winscp.png</file>
 	</qresource>
 </RCC>

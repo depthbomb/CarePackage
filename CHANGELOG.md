@@ -1,4 +1,22 @@
-﻿# 2.0.0.0
+﻿# 2.1.0.0
+
+- Added a setting to show the number of software for each category's tab
+- Default settings will no longer be written for portable versions
+- Renamed _Developer Tools_ category to _Development_
+- Moved the following software to the _Development_ category:
+  - _Go_
+  - _Python 3.13.x_
+  - _Python 3.13.x_
+  - _Rustup_
+- Added the following software:
+  - _Google Drive_
+  - _OneDrive_
+  - _WinRAR_
+  - _Skype_
+  - _TeamViewer_
+- _Brave_ is no longer flagged as requiring administrator privileges
+
+# 2.0.0.0
 
 - Completely rewritten in Python and Qt, eliminating any runtime requirement
 - Updated the design of the operation window:

@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 0, 0, 0)
+APP_VERSION = (2, 1, 0, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'
@@ -95,6 +95,7 @@ from src.lib.software.github_cli import GitHubCli
 from src.lib.software.gog_galaxy import GogGalaxy
 from src.lib.software.golang import Golang
 from src.lib.software.google_chrome import GoogleChrome
+from src.lib.software.google_drive import GoogleDrive
 from src.lib.software.handbrake import HandBrake
 from src.lib.software.inkscape import Inkscape
 from src.lib.software.insomnia import Insomnia
@@ -113,6 +114,7 @@ from src.lib.software.notepad_plus_plus import NotepadPlusPlus
 from src.lib.software.nvidia_app import NvidiaApp
 from src.lib.software.nvidia_geforce_experience import NvidiaGeForceExperience
 from src.lib.software.obs_studio import ObsStudio
+from src.lib.software.onedrive import OneDrive
 from src.lib.software.opera import Opera
 from src.lib.software.opera_gx import OperaGx
 from src.lib.software.overwolf import Overwolf
@@ -133,12 +135,14 @@ from src.lib.software.qt_oss import QtOss
 from src.lib.software.rustup import Rustup
 from src.lib.software.sevenzip import SevenZip
 from src.lib.software.sharex import ShareX
+from src.lib.software.skype import Skype
 from src.lib.software.speccy import Speccy
 from src.lib.software.spotify import Spotify
 from src.lib.software.steam import Steam
 from src.lib.software.streamlabs_desktop import StreamlabsDesktop
 from src.lib.software.streamlink import Streamlink
 from src.lib.software.system_informer import SystemInformer
+from src.lib.software.teamviewer import TeamViewer
 from src.lib.software.telegram_desktop import TelegramDesktop
 from src.lib.software.thunderbird import Thunderbird
 from src.lib.software.ubisoft_connect import UbisoftConnect
@@ -148,6 +152,7 @@ from src.lib.software.visual_studio_community import VisualStudioCommunity
 from src.lib.software.vlc_media_player import VlcMediaPlayer
 from src.lib.software.webview2_runtime import WebView2Runtime
 from src.lib.software.windirstat import WinDirStat
+from src.lib.software.winrar import Winrar
 from src.lib.software.winscp import WinScp
 
 ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
@@ -187,6 +192,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     GogGalaxy,
     Golang,
     GoogleChrome,
+    GoogleDrive,
     HandBrake,
     Inkscape,
     Insomnia,
@@ -205,6 +211,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     NvidiaApp,
     NvidiaGeForceExperience,
     ObsStudio,
+    OneDrive,
     Opera,
     OperaGx,
     Overwolf,
@@ -225,12 +232,14 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Rustup,
     SevenZip,
     ShareX,
+    Skype,
     Speccy,
     Spotify,
     Steam,
     StreamlabsDesktop,
     Streamlink,
     SystemInformer,
+    TeamViewer,
     TelegramDesktop,
     Thunderbird,
     UbisoftConnect,
@@ -240,6 +249,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     VlcMediaPlayer,
     WebView2Runtime,
     WinDirStat,
+    Winrar,
     WinScp,
 ])
 SOFTWARE_CATALOGUE = cast(DefaultDict[str, list[BaseSoftware]], defaultdict(list))

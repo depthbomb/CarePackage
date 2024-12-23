@@ -5,7 +5,7 @@
 - Renamed _Developer Tools_ category to _Development_
 - Moved the following software to the _Development_ category:
   - _Go_
-  - _Python 3.13.x_
+  - _Python 3.12.x_
   - _Python 3.13.x_
   - _Rustup_
 - Added the following software:

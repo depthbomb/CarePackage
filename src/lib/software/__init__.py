@@ -13,8 +13,7 @@ class SoftwareCategory(StrEnum):
     DotNet = '.NET'
     Runtime = 'Runtimes'
     Peripheral = 'Peripherals'
-    ProgrammingLanguage = 'Programming Languages'
-    Development = 'Developer Tools'
+    Development = 'Development'
     Creative = 'Creative Tools'
     Security = 'Security'
 

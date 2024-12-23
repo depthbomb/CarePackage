@@ -6,7 +6,7 @@ class Rustup(BaseSoftware):
 
         self.key = 'rustup'
         self.name = 'Rustup'
-        self.category = SoftwareCategory.ProgrammingLanguage
+        self.category = SoftwareCategory.Development
         self.download_name = 'rustup-init.exe'
         self.is_archive = False
         self.should_cache_url = False

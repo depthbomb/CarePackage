@@ -9,7 +9,7 @@ class Golang(BaseSoftware):
 
         self.key = 'go'
         self.name = 'Go'
-        self.category = SoftwareCategory.ProgrammingLanguage
+        self.category = SoftwareCategory.Development
         self.download_name = 'go.windows-amd64.msi'
         self.is_archive = False
         self.should_cache_url = True

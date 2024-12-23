@@ -9,7 +9,7 @@ class Python313(BaseSoftware):
 
         self.key = 'python-313'
         self.name = 'Python 3.13.x'
-        self.category = SoftwareCategory.ProgrammingLanguage
+        self.category = SoftwareCategory.Development
         self.download_name = 'python3.13.x-amd64.exe'
         self.is_archive = False
         self.should_cache_url = True

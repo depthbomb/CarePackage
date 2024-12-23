@@ -8,7 +8,7 @@ class Python312(BaseSoftware):
 
         self.key = 'python-312'
         self.name = 'Python 3.12.x'
-        self.category = SoftwareCategory.ProgrammingLanguage
+        self.category = SoftwareCategory.Development
         self.download_name = 'python3.12.x-amd64.exe'
         self.is_archive = False
         self.should_cache_url = True

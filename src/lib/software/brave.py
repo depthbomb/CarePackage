@@ -10,7 +10,7 @@ class Brave(BaseSoftware):
         self.download_name = 'BraveBrowserSetup.exe'
         self.is_archive = False
         self.should_cache_url = False
-        self.requires_admin = True
+        self.requires_admin = False
         self.icon = 'brave-browser.png'
         self.homepage = 'https://brave.net'
 

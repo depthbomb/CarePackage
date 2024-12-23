@@ -5,4 +5,4 @@ winrt-windows.foundation==2.3.0
 winrt-windows.ui==2.3.0
 winrt-windows.ui.viewmanagement==2.3.0
 
-nuitka==2.5.7
+nuitka==2.5.8

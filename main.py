@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     if not IS_ONEFILE:
         if not user_settings.value(UserSettingsKeys.DownloadTimeout, None, int):
-            user_settings.setValue(UserSettingsKeys.DownloadTimeout, DownloadTimeout.ThreeMinutes.value)
+            user_settings.setValue(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value)
 
         if user_settings.value(UserSettingsKeys.Theme, None) is None:
             user_settings.setValue(UserSettingsKeys.Theme, True)

@@ -21,8 +21,10 @@ class SuggestionWindow(QDialog):
         self.layout.addWidget(self.category_combobox)
 
         self.setLayout(self.layout)
+        self.setMinimumWidth(256)
         self.adjustSize()
         self.setFixedSize(self.size())
+        self.setWindowTitle('Suggestion Software')
 
     @Slot(int)
     def _on_category_combobox_current_index_changed(self, index: int):

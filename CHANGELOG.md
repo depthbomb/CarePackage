@@ -1,4 +1,9 @@
-﻿# 2.1.0.0
+﻿# 2.1.1.0
+
+- Adjusted size of the software suggestion window
+- Adjusted the color of progress bars when using the _Fusion_ theme
+
+# 2.1.0.0
 
 - Added a setting to show the number of software for each category's tab
 - Default settings will no longer be written for portable versions

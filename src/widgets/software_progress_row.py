@@ -6,7 +6,7 @@ from PySide6.QtGui import QPixmap, QPalette
 from src.lib.colors import get_accent_color
 from src import DOWNLOAD_DIR, BROWSER_USER_AGENT
 from winrt.windows.ui.viewmanagement import UIColorType
-from src.lib.settings import user_settings, UserSettingsKeys
+from src.lib.settings import user_settings, DownloadTimeout, UserSettingsKeys
 from PySide6.QtCore import Qt, Slot, QFile, Signal, QTimer, QProcess, QIODevice
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
 from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy, QHBoxLayout, QProgressBar
@@ -42,7 +42,7 @@ class SoftwareProgressRow(QWidget):
         self.download_reply  = cast(Optional[QNetworkReply], None)
         self.download_timeout_timer = QTimer(self)
         self.download_timeout_timer.setSingleShot(True)
-        self.download_timeout_timer.setInterval(user_settings.value(UserSettingsKeys.DownloadTimeout, 0, int))
+        self.download_timeout_timer.setInterval(user_settings.value(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
         self.download_timeout_timer.timeout.connect(self._on_downloader_timeout_timer_timeout)
 
         self.downloader = QNetworkAccessManager(self)

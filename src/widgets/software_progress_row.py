@@ -1,9 +1,11 @@
 from enum import auto, Enum
 from typing import cast, Optional
-from PySide6.QtGui import QPixmap
 from src.widgets.spinner import Spinner
 from src.lib.software import BaseSoftware
+from PySide6.QtGui import QPixmap, QPalette
+from src.lib.colors import get_accent_color
 from src import DOWNLOAD_DIR, BROWSER_USER_AGENT
+from winrt.windows.ui.viewmanagement import UIColorType
 from src.lib.settings import user_settings, UserSettingsKeys
 from PySide6.QtCore import Qt, Slot, QFile, Signal, QTimer, QProcess, QIODevice
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
@@ -154,6 +156,9 @@ class SoftwareProgressRow(QWidget):
         self.progress_bar = QProgressBar(self)
         self.progress_bar.setVisible(False)
         self.progress_bar.setValue(0)
+        palette = self.progress_bar.palette()
+        palette.setColor(QPalette.ColorRole.Highlight, get_accent_color(UIColorType.ACCENT))
+        self.progress_bar.setPalette(palette)
 
         self.layout.addWidget(self.progress_bar)
         self.layout.addStretch()

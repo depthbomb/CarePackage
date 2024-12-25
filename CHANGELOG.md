@@ -1,4 +1,9 @@
-﻿# 2.1.1.0
+﻿# 2.1.1.1
+
+- Fixed downloads timing out on portable installations
+- Changed the default timeout for downloads to 5 minutes
+
+# 2.1.1.0
 
 - Adjusted size of the software suggestion window
 - Adjusted the color of progress bars when using the _Fusion_ theme

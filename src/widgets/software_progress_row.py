@@ -33,6 +33,11 @@ class SoftwareProgressRow(QWidget):
         self.install_silently = False
         self.cleanup_postinstall = False
 
+        self.current_bytes = 0
+        self.last_bytes = 0
+        self.current_speed = 0
+        self.formatted_speed = ''
+
         self.software = software
         self.software.url_resolve_error.connect(self._on_software_download_url_resolve_error_occurred)
         self.software.url_resolved.connect(self._on_software_download_url_resolved)
@@ -44,6 +49,9 @@ class SoftwareProgressRow(QWidget):
         self.download_timeout_timer.setSingleShot(True)
         self.download_timeout_timer.setInterval(user_settings.value(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
         self.download_timeout_timer.timeout.connect(self._on_downloader_timeout_timer_timeout)
+        self.download_speed_timer = QTimer(self)
+        self.download_speed_timer.setInterval(1_000)
+        self.download_speed_timer.timeout.connect(self._on_downloader_speed_timer_timeout)
 
         self.downloader = QNetworkAccessManager(self)
         self.downloader.finished.connect(self._on_downloader_finished)
@@ -79,6 +87,14 @@ class SoftwareProgressRow(QWidget):
         self._emit_error(self.OperationError.DownloadURLResolveError)
 
     @Slot()
+    def _on_downloader_speed_timer_timeout(self):
+        bytes_diff = self.current_bytes - self.last_bytes
+
+        self.current_speed = bytes_diff
+        self.last_bytes = self.current_bytes
+        self.formatted_speed = self._format_speed(self.current_speed)
+
+    @Slot()
     def _on_downloader_timeout_timer_timeout(self):
         if self.download_reply is None:
             return
@@ -90,14 +106,22 @@ class SoftwareProgressRow(QWidget):
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):
         if not self.progress_bar.isVisible() and total_bytes > 0:
+            self.name.setVisible(False)
             self.progress_bar.setVisible(True)
             self.progress_bar.setMaximum(total_bytes)
 
         if total_bytes > 0:
             self.progress_bar.setValue(current_bytes)
-            self.status.setText(f'Downloading: {self._format_bytes(current_bytes)}/{self._format_bytes(total_bytes)}')
+            status_text = f'Downloading: {self._format_bytes(current_bytes)}/{self._format_bytes(total_bytes)}'
         else:
-            self.status.setText(f'Downloading: {self._format_bytes(current_bytes)}')
+            status_text = f'Downloading: {self._format_bytes(current_bytes)}'
+
+        if self.formatted_speed != '':
+            status_text += f' ({self.formatted_speed})'
+
+        self.status.setText(status_text)
+
+        self.current_bytes = current_bytes
 
     @Slot(QNetworkReply)
     def _on_downloader_finished(self, reply: QNetworkReply):
@@ -105,6 +129,10 @@ class SoftwareProgressRow(QWidget):
         if error == QNetworkReply.NetworkError.NoError:
             self.download_timeout_timer.stop()
             self.download_timeout_timer.deleteLater()
+
+            self.download_speed_timer.stop()
+            self.download_speed_timer.deleteLater()
+
             self.download_file = QFile(DOWNLOAD_DIR / self.software.download_name)
             if self.download_file.open(QIODevice.OpenModeFlag.WriteOnly):
                 self.download_file.write(reply.readAll())
@@ -135,11 +163,23 @@ class SoftwareProgressRow(QWidget):
     #endregion
 
     #region UI Setup
+    def _create_progress_bar(self):
+        self.progress_bar = QProgressBar(self)
+        self.progress_bar.setVisible(False)
+        self.progress_bar.setFixedWidth(100)
+        self.progress_bar.setValue(0)
+        palette = self.progress_bar.palette()
+        palette.setColor(QPalette.ColorRole.Highlight, get_accent_color(UIColorType.ACCENT))
+        self.progress_bar.setPalette(palette)
+
+        return self.progress_bar
+
     def _create_layout(self):
         self.image = QLabel()
         self.image.setFixedSize(16, 16)
         self.image.setScaledContents(True)
         self.image.setPixmap(QPixmap(f':images/software/{self.software.icon}'))
+        self.image.setToolTip(self.software.name)
 
         self.name = QLabel(self.software.name, self)
         self.name.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -152,15 +192,7 @@ class SoftwareProgressRow(QWidget):
         self.layout = QHBoxLayout(self)
         self.layout.addWidget(self.image)
         self.layout.addWidget(self.name)
-
-        self.progress_bar = QProgressBar(self)
-        self.progress_bar.setVisible(False)
-        self.progress_bar.setValue(0)
-        palette = self.progress_bar.palette()
-        palette.setColor(QPalette.ColorRole.Highlight, get_accent_color(UIColorType.ACCENT))
-        self.progress_bar.setPalette(palette)
-
-        self.layout.addWidget(self.progress_bar)
+        self.layout.addWidget(self._create_progress_bar())
         self.layout.addStretch()
         self.layout.addWidget(self.spinner)
         self.layout.addWidget(self.status)
@@ -229,6 +261,7 @@ class SoftwareProgressRow(QWidget):
         self.download_reply.downloadProgress.connect(self._on_downloader_download_progress)
 
         self.download_timeout_timer.start()
+        self.download_speed_timer.start()
 
     def _emit_error(self, error: OperationError):
         match error:
@@ -257,3 +290,17 @@ class SoftwareProgressRow(QWidget):
             size_in_bytes /= 1024.0
 
         return f'{size_in_bytes:.1f} Y{size_in_bytes}'
+
+    def _format_speed(self, speed_bps):
+        if speed_bps == 0:
+            return "0 B/s"
+
+        units = ['B/s', 'KB/s', 'MB/s', 'GB/s']
+        speed = float(speed_bps)
+        unit_index = 0
+
+        while speed >= 1024.0 and unit_index < len(units) - 1:
+            speed /= 1024.0
+            unit_index += 1
+
+        return f"{speed:.2f} {units[unit_index]}"

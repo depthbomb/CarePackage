@@ -184,7 +184,7 @@ class SoftwareProgressRow(QWidget):
         self.name = QLabel(self.software.name, self)
         self.name.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.spinner = Spinner(Spinner.SpinnerStyle.Dots, self)
+        self.spinner = Spinner(Spinner.SpinnerStyle.Solid, self)
         self.spinner.setVisible(False)
 
         self.status = QLabel(self)

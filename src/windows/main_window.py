@@ -176,15 +176,16 @@ class MainWindow(QMainWindow):
 
         footer_links_widget.setLayout(footer_links_layout)
 
-        if not IS_ONEFILE:
-            self.update_link = SimpleLinkLabel('Update available', '', self)
-            self.update_link.setVisible(False)
+        #region Update checking
+        self.update_link = SimpleLinkLabel('Update available', '', self)
+        self.update_link.setVisible(False)
 
-            footer_links_layout.addWidget(self.update_link)
+        footer_links_layout.addWidget(self.update_link)
 
-            self.update_checker = UpdateChecker(self)
-            self.update_checker.update_available.connect(self._on_update_available)
-            self.update_checker.start_checking()
+        self.update_checker = UpdateChecker(self)
+        self.update_checker.update_available.connect(self._on_update_available)
+        self.update_checker.start_checking()
+        #endregion
 
         self.suggestion_link = LinkLabel('Suggest software', self)
         self.suggestion_link.clicked.connect(self._on_suggest_software_link_clicked)

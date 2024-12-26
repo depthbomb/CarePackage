@@ -39,6 +39,7 @@ class OperationWindow(QDialog):
 
         for sw in software:
             software_row = SoftwareProgressRow(sw, self)
+            software_row.file_downloading.connect(self._on_software_row_file_downloading)
             software_row.finished.connect(self._on_software_row_finished)
 
             self.software_rows.append(software_row)
@@ -126,6 +127,10 @@ class OperationWindow(QDialog):
             self.accept()
         else:
             self.reject()
+
+    @Slot(str)
+    def _on_software_row_file_downloading(self, url: str):
+        self.software_progress_container.verticalScrollBar().setValue(0)
 
     @Slot(SoftwareProgressRow.OperationError)
     def _on_software_row_finished(self, error: SoftwareProgressRow.OperationError):

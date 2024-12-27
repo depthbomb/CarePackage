@@ -12,7 +12,7 @@ class VisualStudioCommunity(BaseSoftware):
         self.category = SoftwareCategory.Development
         self.download_name = 'VisualStudioSetup.exe'
         self.is_archive = False
-        self.should_cache_url = False
+        self.should_cache_url = True
         self.requires_admin = False
         self.icon = 'visual-studio-community.png'
         self.homepage = 'https://visualstudio.microsoft.com'

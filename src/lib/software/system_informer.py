@@ -35,7 +35,7 @@ class SystemInformer(BaseSoftware):
             if not match:
                 self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             else:
-                req = QNetworkRequest(f'https://sourceforge.net/settings/mirror_choices?projectname=systeminformer&filename={match.group(1)}&selected=auto&dialog=true')
+                req = QNetworkRequest(f'https://sourceforge.net/settings/mirror_choices?projectname=systeminformer&filename={match.group(1)}&dialog=true')
                 self.manager.get(req)
         else:
             download_url_pattern = compile(r'<a href="(.*)" rel="nofollow">')
@@ -46,4 +46,4 @@ class SystemInformer(BaseSoftware):
                 self.url_resolved.emit(match.group(1))
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://systeminformer.sourceforge.io/downloads'))
+        self.manager.get(QNetworkRequest(self._initial_url))

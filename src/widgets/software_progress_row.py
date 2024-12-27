@@ -221,6 +221,7 @@ class SoftwareProgressRow(QWidget):
             self.software.resolve_download_url()
 
     def start_installation(self):
+        self.name.setVisible(True)
         self.progress_bar.setVisible(False)
 
         if self.skip_installation or self.software.is_archive or not self.download_file.exists():

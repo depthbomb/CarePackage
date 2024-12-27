@@ -243,14 +243,14 @@ class SoftwareProgressRow(QWidget):
             extra_args.append('/S')
             extra_args.append('/s')
 
+        self.status.setText(f'Waiting for <b>{self.software.download_name}</b> to exit...')
+
         executable = self.download_file.fileName()
         if executable.endswith('.msi'):
             # MSI executables cannot be run via `QProcess.start()` for some reason
             self.installation_proc.start('cmd.exe', ['/c', executable] + extra_args)
         else:
             self.installation_proc.start(executable, extra_args)
-
-        self.status.setText(f'Waiting for <b>{self.software.download_name}</b> to exit...')
 
     def _start_download(self, url: str):
         self.file_downloading.emit(url)

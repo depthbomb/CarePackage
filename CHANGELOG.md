@@ -8,7 +8,7 @@
 - Update checking is now enabled for portable installations
 - The operation window will now scroll to the software that has just started downloading
 - Adjusted some software so that they are not flagged as requiring admin privileges
-- Fixed some cases where software that errored during the installation step would now show an erroneous status
+- Fixed some cases where software that errored during the installation step would not show an erroneous status
 - Added the following software:
   - _Playnite_
   - _Waterfox_

@@ -13,7 +13,7 @@ class OracleVirtualBox(BaseSoftware):
         self.download_name = 'VirtualBox-Win.exe'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = False
+        self.requires_admin = True
         self.icon = 'oracle-virtualbox.png'
         self.homepage = 'https://virtualbox.org'
 

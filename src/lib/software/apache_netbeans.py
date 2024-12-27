@@ -12,7 +12,7 @@ class ApacheNetBeans(BaseSoftware):
         self.download_name = 'Apache-NetBeans-bin-windows-x64.exe'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = False
+        self.requires_admin = True
         self.icon = 'apache-netbeans.png'
         self.homepage = 'https://netbeans.apache.org'
 

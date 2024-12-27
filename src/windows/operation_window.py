@@ -130,7 +130,7 @@ class OperationWindow(QDialog):
 
     @Slot(str)
     def _on_software_row_file_downloading(self, url: str):
-        self.software_progress_container.verticalScrollBar().setValue(0)
+        self.software_progress_container.ensureWidgetVisible(self.sender(), 0, 0)
 
     @Slot(SoftwareProgressRow.OperationError)
     def _on_software_row_finished(self, error: SoftwareProgressRow.OperationError):

@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 1, 1, 1)
+APP_VERSION = (2, 2, 0, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'
@@ -57,18 +57,24 @@ USER_SETTINGS_FILE_PATH = DATA_DIR / 'user.settings'
 #endregion
 
 #region Software Definitions
+from src.lib.software.apache_netbeans import ApacheNetBeans
 from src.lib.software.arc import Arc
 from src.lib.software.audacity import Audacity
+from src.lib.software.autohotkey import AutoHotkey
 from src.lib.software.battlenet import BattleNet
+from src.lib.software.bitwarden import Bitwarden
 from src.lib.software.blender import Blender
 from src.lib.software.borderless_gaming import BorderlessGaming
 from src.lib.software.brave import Brave
 from src.lib.software.caesium_image_compressor import CaesiumImageCompressor
+from src.lib.software.cmake import CMake
 from src.lib.software.corsair_icue import CorsairIcue
 from src.lib.software.db_browser_for_sqlite import DBBrowserForSQLite
 from src.lib.software.defraggler import Defraggler
 from src.lib.software.discord import Discord
+from src.lib.software.display_driver_uninstaller import DisplayDriverUninstaller
 from src.lib.software.dnspy import DnSpy
+from src.lib.software.docker_desktop import DockerDesktop
 from src.lib.software.dolphin_emulator import DolphinEmulator
 #region .NET
 from src.lib.software.dotnet_6_aspnetcore_runtime import DotNet6AspNetCoreRuntime
@@ -86,28 +92,40 @@ from src.lib.software.dotnet_9_sdk import DotNet9Sdk
 #endregion
 from src.lib.software.dropbox import Dropbox
 from src.lib.software.ea_app import EaApp
+from src.lib.software.eclipse_ide import EclipseIDE
 from src.lib.software.elgato_stream_deck import ElgatoStreamDeck
 from src.lib.software.epic_games_launcher import EpicGamesLauncher
 from src.lib.software.filezilla import FileZilla
+from src.lib.software.flutter_sdk import FlutterSDK
 from src.lib.software.foobar2000 import Foobar2000
 from src.lib.software.gimp import Gimp
+from src.lib.software.git_for_windows import GitForWindows
 from src.lib.software.github_cli import GitHubCli
+from src.lib.software.godot import Godot
+from src.lib.software.godot_cs import GodotCS
 from src.lib.software.gog_galaxy import GogGalaxy
 from src.lib.software.golang import Golang
 from src.lib.software.google_chrome import GoogleChrome
 from src.lib.software.google_drive import GoogleDrive
 from src.lib.software.handbrake import HandBrake
 from src.lib.software.inkscape import Inkscape
+from src.lib.software.inno_setup import InnoSetup
 from src.lib.software.insomnia import Insomnia
 from src.lib.software.jetbrains_toolbox import JetBrainsToolbox
+from src.lib.software.keepass import KeePass
 from src.lib.software.krita import Krita
+from src.lib.software.lazarus import Lazarus
+from src.lib.software.librewolf import LibreWolf
 from src.lib.software.logictech_ghub import LogitechGHub
 from src.lib.software.malwarebytes import Malwarebytes
 from src.lib.software.microsoft_edge import MicrosoftEdge
+from src.lib.software.microsoft_teams import MicrosoftTeams
 from src.lib.software.minecraft_launcher import MinecraftLauncher
 from src.lib.software.minecraft_launcher_legacy import MinecraftLauncherLegacy
+from src.lib.software.mingw import MinGW
 from src.lib.software.mozilla_firefox import MozillaFirefox
 from src.lib.software.msvc import Msvc
+from src.lib.software.msys2 import MSYS2
 from src.lib.software.nodejs import NodeJs
 from src.lib.software.nodejs_lts import NodeJsLts
 from src.lib.software.notepad_plus_plus import NotepadPlusPlus
@@ -117,13 +135,16 @@ from src.lib.software.obs_studio import ObsStudio
 from src.lib.software.onedrive import OneDrive
 from src.lib.software.opera import Opera
 from src.lib.software.opera_gx import OperaGx
+from src.lib.software.oracle_virtualbox import OracleVirtualBox
 from src.lib.software.overwolf import Overwolf
 from src.lib.software.paintdotnet import PaintDotNet
 from src.lib.software.parsec import Parsec
 from src.lib.software.pcsx2 import PCSX2
+from src.lib.software.playnite import Playnite
 from src.lib.software.playstation_accessories import PlayStationAccessories
 from src.lib.software.plex_desktop import PlexDesktop
 from src.lib.software.plex_media_server import PlexMediaServer
+from src.lib.software.plexamp import Plexamp
 from src.lib.software.postman import Postman
 from src.lib.software.powershell_core import PowerShellCore
 from src.lib.software.powertoys import PowerToys
@@ -132,15 +153,21 @@ from src.lib.software.python_312 import Python312
 from src.lib.software.python_313 import Python313
 from src.lib.software.qbittorrent import QBitTorrent
 from src.lib.software.qt_oss import QtOss
+from src.lib.software.razer_cortex import RazerCortex
+from src.lib.software.revolt import Revolt
+from src.lib.software.rufus import Rufus
 from src.lib.software.rustup import Rustup
 from src.lib.software.sevenzip import SevenZip
 from src.lib.software.sharex import ShareX
+from src.lib.software.signal import Signal
 from src.lib.software.skype import Skype
+from src.lib.software.slack import Slack
 from src.lib.software.speccy import Speccy
 from src.lib.software.spotify import Spotify
 from src.lib.software.steam import Steam
 from src.lib.software.streamlabs_desktop import StreamlabsDesktop
 from src.lib.software.streamlink import Streamlink
+from src.lib.software.sublime_text import SublimeText
 from src.lib.software.system_informer import SystemInformer
 from src.lib.software.teamviewer import TeamViewer
 from src.lib.software.telegram_desktop import TelegramDesktop
@@ -149,25 +176,34 @@ from src.lib.software.ubisoft_connect import UbisoftConnect
 from src.lib.software.unity_hub import UnityHub
 from src.lib.software.visual_studio_code import VisualStudioCode
 from src.lib.software.visual_studio_community import VisualStudioCommunity
+from src.lib.software.vivaldi import Vivaldi
 from src.lib.software.vlc_media_player import VlcMediaPlayer
+from src.lib.software.waterfox import Waterfox
 from src.lib.software.webview2_runtime import WebView2Runtime
 from src.lib.software.windirstat import WinDirStat
 from src.lib.software.winrar import Winrar
 from src.lib.software.winscp import WinScp
+from src.lib.software.zulip import Zulip
 
 ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
+    ApacheNetBeans,
     Arc,
     Audacity,
+    AutoHotkey,
     BattleNet,
+    Bitwarden,
     Blender,
     BorderlessGaming,
     Brave,
     CaesiumImageCompressor,
+    CMake,
     CorsairIcue,
     DBBrowserForSQLite,
     Defraggler,
     Discord,
+    DisplayDriverUninstaller,
     DnSpy,
+    DockerDesktop,
     DolphinEmulator,
     DotNet6AspNetCoreRuntime,
     DotNet6DesktopRuntime,
@@ -183,28 +219,40 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     DotNet9Sdk,
     Dropbox,
     EaApp,
+    EclipseIDE,
     ElgatoStreamDeck,
     EpicGamesLauncher,
     FileZilla,
+    FlutterSDK,
     Foobar2000,
     Gimp,
+    GitForWindows,
     GitHubCli,
+    Godot,
+    GodotCS,
     GogGalaxy,
     Golang,
     GoogleChrome,
     GoogleDrive,
     HandBrake,
     Inkscape,
+    InnoSetup,
     Insomnia,
     JetBrainsToolbox,
+    KeePass,
     Krita,
+    Lazarus,
+    LibreWolf,
     LogitechGHub,
     Malwarebytes,
     MicrosoftEdge,
+    MicrosoftTeams,
     MinecraftLauncher,
     MinecraftLauncherLegacy,
+    MinGW,
     MozillaFirefox,
     Msvc,
+    MSYS2,
     NodeJs,
     NodeJsLts,
     NotepadPlusPlus,
@@ -214,13 +262,16 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     OneDrive,
     Opera,
     OperaGx,
+    OracleVirtualBox,
     Overwolf,
     PaintDotNet,
     Parsec,
     PCSX2,
+    Playnite,
     PlayStationAccessories,
     PlexDesktop,
     PlexMediaServer,
+    Plexamp,
     Postman,
     PowerShellCore,
     PowerToys,
@@ -229,15 +280,21 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Python313,
     QBitTorrent,
     QtOss,
+    RazerCortex,
+    Revolt,
+    Rufus,
     Rustup,
     SevenZip,
     ShareX,
+    Signal,
     Skype,
+    Slack,
     Speccy,
     Spotify,
     Steam,
     StreamlabsDesktop,
     Streamlink,
+    SublimeText,
     SystemInformer,
     TeamViewer,
     TelegramDesktop,
@@ -246,11 +303,14 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     UnityHub,
     VisualStudioCode,
     VisualStudioCommunity,
+    Vivaldi,
     VlcMediaPlayer,
+    Waterfox,
     WebView2Runtime,
     WinDirStat,
     Winrar,
     WinScp,
+    Zulip,
 ])
 SOFTWARE_CATALOGUE = cast(DefaultDict[str, list[BaseSoftware]], defaultdict(list))
 for software in ALL_SOFTWARE:

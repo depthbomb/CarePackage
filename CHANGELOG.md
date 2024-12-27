@@ -1,4 +1,46 @@
-﻿# 2.1.1.1
+﻿# 2.2.0.0
+
+- Renamed the _Creative Tools_ category to _Creative_
+- Updated the design of the operation window:
+  - Current download speed is now displayed while software is downloading
+  - The download progress bar will now replace the software name when possible
+  - Changed spinner style
+- Update checking is now enabled for portable installations
+- The operation window will now scroll to the software that has just started downloading
+- Adjusted some software so that they are not flagged as requiring admin privileges
+- Fixed some cases where software that errored during the installation step would now show an erroneous status
+- Added the following software:
+  - _Playnite_
+  - _Waterfox_
+  - _LibreWolf_
+  - _Vivaldi_
+  - _AutoHotkey_
+  - _Plexamp_
+  - _Git for Windows_
+  - _Docker Desktop_
+  - _Bitwarden_
+  - _KeePass_
+  - _Razer Cortex_
+  - _Signal_
+  - _Zulip_
+  - _Slack_
+  - _Microsoft Teams_
+  - _Rufus_
+  - _Display Driver Uninstaller_
+  - _Eclipse IDE_
+  - _CMake_
+  - _Oracle VirtualBox_
+  - _Apache NetBeans_
+  - _Revolt_
+  - _Sublime Text_
+  - _Godot_
+  - _Lazarus_
+  - _MinGW_
+  - _MSYS2_
+  - _Flutter SDK_
+  - _Inno Setup_
+
+# 2.1.1.1
 
 - Fixed downloads timing out on portable installations
 - Changed the default timeout for downloads to 5 minutes

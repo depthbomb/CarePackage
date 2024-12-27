@@ -25,7 +25,7 @@ class Audacity(BaseSoftware):
         if asset:
             self.url_resolved.emit(asset)
         else:
-            self.error_occurred.emit(self.ResolveError.GitHubAssetNotFoundError)
+            self.url_resolve_error.emit(self.ResolveError.GitHubAssetNotFoundError)
 
     def resolve_download_url(self):
         self._gh.get_repo_releases()

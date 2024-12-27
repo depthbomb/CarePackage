@@ -15,7 +15,7 @@ class CaesiumImageCompressor(BaseSoftware):
         self.download_name = 'caesium-image-compressor-win-setup.exe'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = True
+        self.requires_admin = False
         self.icon = 'caesium-image-compressor.png'
         self.homepage = 'https://saerasoft.com/caesium'
 

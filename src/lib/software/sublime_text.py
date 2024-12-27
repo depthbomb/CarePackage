@@ -13,7 +13,7 @@ class SublimeText(BaseSoftware):
         self.download_name = 'sublime_text_build_x64_setup.exe'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = True
+        self.requires_admin = False
         self.icon = 'sublime-text.png'
         self.homepage = 'https://sublimetext.com'
 

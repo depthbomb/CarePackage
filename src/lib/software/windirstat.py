@@ -16,7 +16,7 @@ class WinDirStat(BaseSoftware):
         self.download_name = 'WinDirStat-x64.msi'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = True
+        self.requires_admin = False
         self.icon = 'windirstat.png'
         self.homepage = 'https://windirstat.net'
 

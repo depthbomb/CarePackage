@@ -16,7 +16,7 @@ class GitForWindows(BaseSoftware):
 
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = True
+        self.requires_admin = False
         self.icon = 'git.png'
         self.homepage = 'https://git-scm.com'
 

@@ -14,7 +14,7 @@ class SoftwareCategory(StrEnum):
     Runtime = 'Runtimes'
     Peripheral = 'Peripherals'
     Development = 'Development'
-    Creative = 'Creative Tools'
+    Creative = 'Creative'
     Security = 'Security'
 
 class BaseSoftware(QObject):

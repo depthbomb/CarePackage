@@ -4,47 +4,64 @@
 		<file>images/icon.png</file>
 		<!-- Software Icons -->
 		<file>images/software/7zip.png</file>
+		<file>images/software/apache-netbeans.png</file>
 		<file>images/software/arc.png</file>
 		<file>images/software/audacity.png</file>
+		<file>images/software/autohotkey.png</file>
 		<file>images/software/battlenet.png</file>
+		<file>images/software/bitwarden.png</file>
 		<file>images/software/blender.png</file>
 		<file>images/software/borderless-gaming.png</file>
 		<file>images/software/brave-browser.png</file>
 		<file>images/software/caesium-image-compressor.png</file>
+		<file>images/software/cmake.png</file>
 		<file>images/software/corsair-icue.png</file>
 		<file>images/software/db-browser-for-sqlite.png</file>
+		<file>images/software/ddu.png</file>
 		<file>images/software/defraggler.png</file>
 		<file>images/software/discord.png</file>
 		<file>images/software/dnspy.png</file>
+		<file>images/software/docker-desktop.png</file>
 		<file>images/software/dolphin-emu.png</file>
 		<file>images/software/dotnet.png</file>
 		<file>images/software/dropbox.png</file>
 		<file>images/software/ea-app.png</file>
+		<file>images/software/eclipse-ide.png</file>
 		<file>images/software/elgato-stream-deck.png</file>
 		<file>images/software/epic-games-launcher.png</file>
 		<file>images/software/filezilla.png</file>
+		<file>images/software/flutter.png</file>
 		<file>images/software/foobar2000.png</file>
 		<file>images/software/generic.png</file>
 		<file>images/software/generic-2.png</file>
 		<file>images/software/gimp.png</file>
+		<file>images/software/git.png</file>
 		<file>images/software/github.png</file>
 		<file>images/software/go.png</file>
+		<file>images/software/godot.png</file>
 		<file>images/software/gog-galaxy.png</file>
 		<file>images/software/google-chrome.png</file>
 		<file>images/software/google-drive.png</file>
 		<file>images/software/handbrake.png</file>
 		<file>images/software/inkscape.png</file>
+		<file>images/software/inno-setup.png</file>
 		<file>images/software/insomnia.png</file>
 		<file>images/software/jetbrains-toolbox.png</file>
+		<file>images/software/keepass.png</file>
 		<file>images/software/krita.png</file>
+		<file>images/software/lazarus.png</file>
+		<file>images/software/librewolf.png</file>
 		<file>images/software/logitech-g-hub.png</file>
 		<file>images/software/malwarebytes.png</file>
 		<file>images/software/microsoft-edge.png</file>
 		<file>images/software/microsoft-edge-webview2-runtime.png</file>
+		<file>images/software/microsoft-teams.png</file>
 		<file>images/software/minecraft-launcher.png</file>
 		<file>images/software/minecraft-launcher-legacy.png</file>
+		<file>images/software/mingw.png</file>
 		<file>images/software/mozilla-firefox.png</file>
 		<file>images/software/msvc.png</file>
+		<file>images/software/msys2.png</file>
 		<file>images/software/nodejs.png</file>
 		<file>images/software/notepad-plus-plus.png</file>
 		<file>images/software/nvidia.png</file>
@@ -52,13 +69,16 @@
 		<file>images/software/onedrive.png</file>
 		<file>images/software/opera.png</file>
 		<file>images/software/operagx.png</file>
+		<file>images/software/oracle-virtualbox.png</file>
 		<file>images/software/overwolf.png</file>
 		<file>images/software/paintdotnet.png</file>
 		<file>images/software/parsec.png</file>
 		<file>images/software/pcsx2.png</file>
+		<file>images/software/playnite.png</file>
 		<file>images/software/playstation-accessories.png</file>
 		<file>images/software/plex-desktop.png</file>
 		<file>images/software/plex-media-server.png</file>
+		<file>images/software/plexamp.png</file>
 		<file>images/software/postman.png</file>
 		<file>images/software/powershell-core.png</file>
 		<file>images/software/powertoys.png</file>
@@ -66,14 +86,20 @@
 		<file>images/software/python.png</file>
 		<file>images/software/qbittorrent.png</file>
 		<file>images/software/qt.png</file>
+		<file>images/software/razer-cortex.png</file>
+		<file>images/software/revolt.png</file>
+		<file>images/software/rufus.png</file>
 		<file>images/software/rust.png</file>
 		<file>images/software/sharex.png</file>
+		<file>images/software/signal.png</file>
 		<file>images/software/skype.png</file>
+		<file>images/software/slack.png</file>
 		<file>images/software/speccy.png</file>
 		<file>images/software/spotify.png</file>
 		<file>images/software/steam.png</file>
 		<file>images/software/streamlabs-desktop.png</file>
 		<file>images/software/streamlink.png</file>
+		<file>images/software/sublime-text.png</file>
 		<file>images/software/system-informer.png</file>
 		<file>images/software/teamviewer.png</file>
 		<file>images/software/telegram.png</file>
@@ -82,9 +108,12 @@
 		<file>images/software/unity-hub.png</file>
 		<file>images/software/visual-studio-code.png</file>
 		<file>images/software/visual-studio-community.png</file>
+		<file>images/software/vivaldi.png</file>
 		<file>images/software/vlc-media-player.png</file>
+		<file>images/software/waterfox.png</file>
 		<file>images/software/windirstat.png</file>
 		<file>images/software/winrar.png</file>
 		<file>images/software/winscp.png</file>
+		<file>images/software/zulip.png</file>
 	</qresource>
 </RCC>

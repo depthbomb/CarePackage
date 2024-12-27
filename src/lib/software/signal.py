@@ -14,7 +14,7 @@ class Signal(BaseSoftware):
         self.is_archive = False
         self.should_cache_url = True
         self.requires_admin = False
-        self.icon = 'desktop.png'
+        self.icon = 'signal.png'
         self.homepage = 'https://signal.org'
 
     @Slot(QNetworkReply)

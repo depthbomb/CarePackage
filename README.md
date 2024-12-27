@@ -17,3 +17,10 @@ CarePackage comes in two flavors: **portable** (`carepackage.exe`) and **standal
 Functionally the two versions are the same but the standalone version will check for new releases of the application and has configurable settings.
 
 You find the latest download with the URL: `https://bit.ly/get-carepackage`
+
+### Screenshots
+
+![The main window of CarePackage, showing the contents of the Creative tab](art/1.png "The main window of CarePackage, showing the contents of the Creative tab")
+![The main window of CarePackage, showing various programs selected in the Development tab](art/2.png "The main window of CarePackage, showing various programs selected in the Development tab")
+![The operation window of CarePackage, showing the pre-operation options as well as the pending programs](art/3.png "The operation window of CarePackage, showing the pre-operation options as well as the pending programs")
+![The operation window of CarePackage, showing a program being downloaded while the others are pending](art/4.png "The operation window of CarePackage, showing a program being downloaded while the others are pending")

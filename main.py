@@ -5,16 +5,14 @@ from src.windows.disclaimer_window import DisclaimerWindow
 from src import APP_ORG, APP_NAME, IS_ONEFILE, DOWNLOAD_DIR, APP_DISPLAY_NAME, APP_VERSION_STRING
 from src.lib.settings import app_settings, user_settings, DownloadTimeout, AppSettingsKeys, UserSettingsKeys
 
-argv += ['-platform', 'windows:darkmode=0']
-
-app = QApplication(argv)
-app.setApplicationName(APP_NAME)
-app.setApplicationDisplayName(APP_DISPLAY_NAME)
-app.setApplicationVersion(APP_VERSION_STRING)
-app.setOrganizationName(APP_ORG)
-
 if __name__ == '__main__':
-    DOWNLOAD_DIR.mkdir(exist_ok=True)
+    argv += ['-platform', 'windows:darkmode=0']
+
+    app = QApplication(argv)
+    app.setApplicationName(APP_NAME)
+    app.setApplicationDisplayName(APP_DISPLAY_NAME)
+    app.setApplicationVersion(APP_VERSION_STRING)
+    app.setOrganizationName(APP_ORG)
 
     if not bool(app_settings.value(AppSettingsKeys.SeenDisclaimer, False, bool)):
         if DisclaimerWindow().exec() != 2:
@@ -33,6 +31,8 @@ if __name__ == '__main__':
             app.setStyle('Fusion')
     else:
         app.setStyle('Fusion')
+
+    DOWNLOAD_DIR.mkdir(exist_ok=True)
 
     w = MainWindow()
     w.show()

@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 2, 0, 0)
+APP_VERSION = (2, 2, 1, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'
@@ -57,6 +57,7 @@ USER_SETTINGS_FILE_PATH = DATA_DIR / 'user.settings'
 #endregion
 
 #region Software Definitions
+from src.lib.software.adobe_creative_cloud import AdobeCreativeCloud
 from src.lib.software.apache_netbeans import ApacheNetBeans
 from src.lib.software.arc import Arc
 from src.lib.software.audacity import Audacity
@@ -186,6 +187,7 @@ from src.lib.software.winscp import WinScp
 from src.lib.software.zulip import Zulip
 
 ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
+    AdobeCreativeCloud,
     ApacheNetBeans,
     Arc,
     Audacity,

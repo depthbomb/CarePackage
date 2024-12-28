@@ -1,5 +1,7 @@
 ﻿_CarePackage_ is a desktop application for Windows 10/11 heavily inspired by [Ninite](https://ninite.com/) that makes it quick and easy to download and install all of your favorite programs at once. CarePackage's intended use case is to be used on a new installation of Windows, but of course you can use it however you'd like!
 
+You can view all software that is managed by CarePackage in [SOFTWARE.md](SOFTWARE.md).
+
 What CarePackage **DOES**:
 - Downloads the __latest__ versions of the programs you select
 - Installs each program, one after another, or presents the files if the downloaded programs are compressed archives

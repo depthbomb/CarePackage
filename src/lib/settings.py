@@ -27,4 +27,3 @@ class UserSettingsKeys(StrEnum):
     DownloadTimeout = 'user/download_timeout'
     DownloadDir = 'user/download_dir'
     ShowCategorySoftwareCount = 'user/show_category_software_count'
-    SweepFilesOnClose = 'user/sweep_files_on_close'

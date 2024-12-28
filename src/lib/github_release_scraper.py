@@ -30,7 +30,8 @@ class GithubReleaseScraper(QObject):
 
         url = reply.url()
         path = url.path()
-        code = int(reply.attribute(QNetworkRequest.Attribute.HttpStatusCodeAttribute))
+        status_code_attr = reply.attribute(QNetworkRequest.Attribute.HttpStatusCodeAttribute)
+        code = int(status_code_attr) if status_code_attr else 999
 
         if 'releases/tag' in path:
             if code > 299:

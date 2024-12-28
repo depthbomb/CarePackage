@@ -112,6 +112,7 @@ from src.lib.software.handbrake import HandBrake
 from src.lib.software.inkscape import Inkscape
 from src.lib.software.inno_setup import InnoSetup
 from src.lib.software.insomnia import Insomnia
+from src.lib.software.installforge import InstallForge
 from src.lib.software.jetbrains_toolbox import JetBrainsToolbox
 from src.lib.software.keepass import KeePass
 from src.lib.software.krita import Krita
@@ -130,6 +131,7 @@ from src.lib.software.msys2 import MSYS2
 from src.lib.software.nodejs import NodeJs
 from src.lib.software.nodejs_lts import NodeJsLts
 from src.lib.software.notepad_plus_plus import NotepadPlusPlus
+from src.lib.software.nsis import NSIS
 from src.lib.software.nvidia_app import NvidiaApp
 from src.lib.software.nvidia_geforce_experience import NvidiaGeForceExperience
 from src.lib.software.obs_studio import ObsStudio
@@ -240,6 +242,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Inkscape,
     InnoSetup,
     Insomnia,
+    InstallForge,
     JetBrainsToolbox,
     KeePass,
     Krita,
@@ -258,6 +261,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     NodeJs,
     NodeJsLts,
     NotepadPlusPlus,
+    NSIS,
     NvidiaApp,
     NvidiaGeForceExperience,
     ObsStudio,

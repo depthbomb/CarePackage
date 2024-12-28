@@ -47,6 +47,7 @@
 		<file>images/software/inkscape.png</file>
 		<file>images/software/inno-setup.png</file>
 		<file>images/software/insomnia.png</file>
+		<file>images/software/installforge.png</file>
 		<file>images/software/jetbrains-toolbox.png</file>
 		<file>images/software/keepass.png</file>
 		<file>images/software/krita.png</file>
@@ -65,6 +66,7 @@
 		<file>images/software/msys2.png</file>
 		<file>images/software/nodejs.png</file>
 		<file>images/software/notepad-plus-plus.png</file>
+		<file>images/software/nsis.png</file>
 		<file>images/software/nvidia.png</file>
 		<file>images/software/obs-studio.png</file>
 		<file>images/software/onedrive.png</file>

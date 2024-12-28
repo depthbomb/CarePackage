@@ -45,10 +45,12 @@ class SoftwareProgressRow(QWidget):
         self.download_url = cast(Optional[str], None)
         self.download_file = cast(Optional[QFile], None)
         self.download_reply  = cast(Optional[QNetworkReply], None)
+
         self.download_timeout_timer = QTimer(self)
-        self.download_timeout_timer.setSingleShot(True)
         self.download_timeout_timer.setInterval(user_settings.value(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
+        self.download_timeout_timer.setSingleShot(True)
         self.download_timeout_timer.timeout.connect(self._on_downloader_timeout_timer_timeout)
+
         self.download_speed_timer = QTimer(self)
         self.download_speed_timer.setInterval(1_000)
         self.download_speed_timer.timeout.connect(self._on_downloader_speed_timer_timeout)
@@ -87,14 +89,6 @@ class SoftwareProgressRow(QWidget):
         self._emit_error(self.OperationError.DownloadURLResolveError)
 
     @Slot()
-    def _on_downloader_speed_timer_timeout(self):
-        bytes_diff = self.current_bytes - self.last_bytes
-
-        self.current_speed = bytes_diff
-        self.last_bytes = self.current_bytes
-        self.formatted_speed = self._format_speed(self.current_speed)
-
-    @Slot()
     def _on_downloader_timeout_timer_timeout(self):
         if self.download_reply is None:
             return
@@ -102,6 +96,14 @@ class SoftwareProgressRow(QWidget):
         self.download_reply.abort()
         self.download_reply.deleteLater()
         self.download_reply = None
+
+    @Slot()
+    def _on_downloader_speed_timer_timeout(self):
+        bytes_diff = self.current_bytes - self.last_bytes
+
+        self.current_speed = bytes_diff
+        self.last_bytes = self.current_bytes
+        self.formatted_speed = self._format_speed(self.current_speed)
 
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):

@@ -29,7 +29,6 @@ class BaseSoftware(QObject):
         super().__init__(parent)
 
         self.manager = QNetworkAccessManager(self)
-        self.manager.setTransferTimeout(5_000)
         self.manager.finished.connect(self.on_manager_finished)
 
         self.cached_url = cast(Optional[str], None)

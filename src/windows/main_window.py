@@ -4,6 +4,7 @@ from src.lib.software import BaseSoftware
 from src.lib.colors import get_accent_color
 from src.widgets.link_label import LinkLabel
 from PySide6.QtCore import Qt, Slot, QProcess
+from lib.download_sweeper import DownloadSweeper
 from src.lib.update_checker import UpdateChecker
 from src.lib.settings import PostOperationAction
 from src.widgets.software_row import SoftwareRow
@@ -33,9 +34,10 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.update_checker = cast(Optional[UpdateChecker], None)
-
         self.selected_software = cast(list[BaseSoftware], [])
         self.software_widgets = cast(list[SoftwareRow], [])
+
+        self.sweeper = cast(Optional[DownloadSweeper], None)
 
         self.main_widget = QWidget()
         self.main_layout = QVBoxLayout()
@@ -50,6 +52,16 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(1100, 600)
 
         self._update_tab_names()
+
+    #region Overrides
+    def closeEvent(self, event):
+        if user_settings.value(UserSettingsKeys.SweepFilesOnClose, False, bool):
+            self.sweeper = DownloadSweeper(DownloadSweeper.Mode.CleanUp)
+            self.sweeper.finished_sweeping.connect(lambda: event.accept())
+            self.sweeper.start()
+        else:
+            event.accept()
+    #endregion
 
     #region Slots
     @Slot(str)

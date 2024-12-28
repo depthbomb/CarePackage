@@ -23,7 +23,8 @@ class AppSettingsKeys(StrEnum):
     SeenDisclaimer = 'app/seen_disclaimer'
 
 class UserSettingsKeys(StrEnum):
-    Theme = 'app/theme'
+    Theme = 'user/theme'
     DownloadTimeout = 'user/download_timeout'
     DownloadDir = 'user/download_dir'
     ShowCategorySoftwareCount = 'user/show_category_software_count'
+    SweepFilesOnClose = 'user/sweep_files_on_close'

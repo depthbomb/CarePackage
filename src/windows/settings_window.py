@@ -32,6 +32,9 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.setCurrentIndex(
             self.download_timeout_combobox.findData(user_settings.value(UserSettingsKeys.DownloadTimeout, 0, int))
         )
+        self.sweep_on_close_checkbox.setChecked(
+            user_settings.value(UserSettingsKeys.SweepFilesOnClose, False, bool)
+        )
         self.show_software_count_checkbox.setChecked(
             user_settings.value(UserSettingsKeys.ShowCategorySoftwareCount, False, bool)
         )
@@ -72,6 +75,7 @@ class SettingsWindow(QDialog):
     def _on_save_button_clicked(self):
         user_settings.setValue(UserSettingsKeys.Theme, self.theme_combobox.currentData())
         user_settings.setValue(UserSettingsKeys.DownloadTimeout, self.download_timeout_combobox.currentData())
+        user_settings.setValue(UserSettingsKeys.SweepFilesOnClose, self.sweep_on_close_checkbox.isChecked())
         user_settings.setValue(UserSettingsKeys.ShowCategorySoftwareCount, self.show_software_count_checkbox.isChecked())
         self.accept()
     #endregion
@@ -80,6 +84,7 @@ class SettingsWindow(QDialog):
         self.layout = QFormLayout(self)
         self.layout.addRow('Theme', self._create_theme_row())
         self.layout.addRow('Download timeout', self._create_download_timeout_row())
+        self.layout.addRow('', self._create_sweep_on_close_row())
         self.layout.addRow('', self._create_software_count_row())
         self.layout.addRow('', self._create_sweeper_button())
         self.layout.addWidget(self._create_footer_row())
@@ -101,6 +106,11 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.addItem('30 minutes', DownloadTimeout.ThirtyMinutes.value)
 
         return self.download_timeout_combobox
+
+    def _create_sweep_on_close_row(self):
+        self.sweep_on_close_checkbox = QCheckBox('Delete downloaded files on quit', self)
+
+        return self.sweep_on_close_checkbox
 
     def _create_software_count_row(self):
         self.show_software_count_checkbox = QCheckBox('Show software count per category', self)

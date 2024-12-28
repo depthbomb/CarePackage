@@ -45,6 +45,4 @@ class Blender(BaseSoftware):
                 self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        self.manager.get(
-            QNetworkRequest(self._download_page)
-        )
+        self.manager.get(QNetworkRequest(self._download_page))

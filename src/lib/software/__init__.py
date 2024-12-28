@@ -20,6 +20,7 @@ class SoftwareCategory(StrEnum):
 class BaseSoftware(QObject):
     class ResolveError(Enum):
         URLResolveError = auto()
+        GitHubRequestError = auto()
         GitHubAssetNotFoundError = auto()
 
     url_resolved = Signal(str)
@@ -29,6 +30,7 @@ class BaseSoftware(QObject):
         super().__init__(parent)
 
         self.manager = QNetworkAccessManager(self)
+        self.manager.setTransferTimeout(5_000)
         self.manager.finished.connect(self.on_manager_finished)
 
         self.cached_url = cast(Optional[str], None)

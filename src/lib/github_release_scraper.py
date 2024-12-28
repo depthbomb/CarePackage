@@ -1,16 +1,12 @@
 from re import compile
-from enum import auto, Enum
 from typing import cast, Optional
 from src import BROWSER_USER_AGENT
+from src.lib.software import BaseSoftware
 from PySide6.QtCore import Slot, Signal, QObject
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
 
 class GithubReleaseScraper(QObject):
-    class ScraperError(Enum):
-        RequestError = auto()
-
     releases_scraped = Signal(list)
-    error_occurred = Signal(ScraperError)
 
     def __init__(self, owner: str, repo: str, parent: Optional[QObject] = None):
         super().__init__(parent)
@@ -26,6 +22,8 @@ class GithubReleaseScraper(QObject):
     #region Slots
     @Slot(QNetworkReply)
     def _on_manager_finished(self, reply: QNetworkReply):
+        parent = cast(BaseSoftware, self.parent())
+
         reply.deleteLater()
 
         url = reply.url()
@@ -35,7 +33,7 @@ class GithubReleaseScraper(QObject):
 
         if 'releases/tag' in path:
             if code > 299:
-                self.error_occurred.emit(self.ScraperError.RequestError)
+                parent.url_resolve_error.emit(parent.ResolveError.GitHubRequestError)
                 return
 
             self._tag = path.split('/')[-1]
@@ -55,7 +53,7 @@ class GithubReleaseScraper(QObject):
                 matches = self._release_href_pattern.findall(html)
                 self.releases_scraped.emit([f'https://github.com{p}' for p in matches])
             else:
-                self.error_occurred.emit(self.ScraperError.RequestError)
+                parent.url_resolve_error.emit(parent.ResolveError.GitHubRequestError)
     #endregion
 
     def get_repo_releases(self):

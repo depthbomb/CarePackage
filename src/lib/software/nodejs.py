@@ -11,7 +11,7 @@ class NodeJs(BaseSoftware):
 
         self.key = 'nodejs-current'
         self.name = 'Node.js'
-        self.category = SoftwareCategory.Runtime
+        self.category = SoftwareCategory.Development
         self.download_name = 'node-x64.msi'
         self.is_archive = False
         self.should_cache_url = True

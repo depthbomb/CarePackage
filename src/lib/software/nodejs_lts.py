@@ -10,7 +10,7 @@ class NodeJsLts(BaseSoftware):
 
         self.key = 'nodejs-lts'
         self.name = 'Node.js (LTS)'
-        self.category = SoftwareCategory.Runtime
+        self.category = SoftwareCategory.Development
         self.download_name = 'node-lts-x64.msi'
         self.is_archive = False
         self.should_cache_url = True

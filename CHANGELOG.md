@@ -1,4 +1,17 @@
-﻿# 2.2.0.0
+﻿# 2.2.1.0
+
+- Added the following software:
+  - _Adobe Creative Cloud_
+  - _NSIS_
+  - _InstallForge_
+- Moved _Node.js_ and _Node.js (LTS)_ to the _Development_ category
+- Fixed software that download from GitHub releases not going into an error state and holding up the queue if a release could not be found
+- Fixed _Apache NetBeans_ using the wrong error state when it fails to resolve a URL
+- Fixed _Apache NetBeans_ sometimes not being put in an error state when it should and holding up the queue
+- Fixed _Python 3.12.x_ using the wrong error state when it fails to resolve a URL
+- Fixed _Python 3.12.x_ sometimes not being put in an error state when it should and holding up the queue
+
+# 2.2.0.0
 
 - Renamed the _Creative Tools_ category to _Creative_
 - Updated the design of the operation window:

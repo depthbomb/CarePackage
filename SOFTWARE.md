@@ -148,11 +148,11 @@ This file was generated from `scripts/generate_software_table.py`
 |  | Name | Homepage | Is Archive? | Requires Admin? |
 | :-: | --- | --- | :-: | :-: |
 | ![Corsair iCUE](./resources/images/software/corsair-icue.png "Corsair iCUE") | Corsair iCUE | [https://corsair.com/us/en/s/icue](https://corsair.com/us/en/s/icue) | ❌ | ✔️ |
-| ![Elgato Stream Deck](./resources/images/software/elgato-stream-deck.png "Elgato Stream Deck") | Elgato Stream Deck | [https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-De...](https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes) | ❌ | ❌ |
+| ![Elgato Stream Deck](./resources/images/software/elgato-stream-deck.png "Elgato Stream Deck") | Elgato Stream Deck | [https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream...](https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes) | ❌ | ❌ |
 | ![Logitech G HUB](./resources/images/software/logitech-g-hub.png "Logitech G HUB") | Logitech G HUB | [https://www.logitechg.com/en-us/innovation/g-hub.html](https://www.logitechg.com/en-us/innovation/g-hub.html) | ❌ | ✔️ |
 | ![NVIDIA App](./resources/images/software/nvidia.png "NVIDIA App") | NVIDIA App | [https://www.nvidia.com/en-us/software/nvidia-app/](https://www.nvidia.com/en-us/software/nvidia-app/) | ❌ | ✔️ |
 | ![NVIDIA GeForce Experience](./resources/images/software/nvidia.png "NVIDIA GeForce Experience") | NVIDIA GeForce Experience | [https://nvidia.com/en-us/geforce/geforce-experience](https://nvidia.com/en-us/geforce/geforce-experience) | ❌ | ✔️ |
-| ![PlayStation Accessories](./resources/images/software/playstation-accessories.png "PlayStation Accessories") | PlayStation Accessories | [https://controller.dl.playstation.net/controller/lang/en/2100004.html](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔️ |
+| ![PlayStation Accessories](./resources/images/software/playstation-accessories.png "PlayStation Accessories") | PlayStation Accessories | [https://controller.dl.playstation.net/controller/lang/en/2100004.html...](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔️ |
 
 ---
 
@@ -204,7 +204,7 @@ This file was generated from `scripts/generate_software_table.py`
 
 |  | Name | Homepage | Is Archive? | Requires Admin? |
 | :-: | --- | --- | :-: | :-: |
-| ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | Microsoft Visual C++ 2015-2022 Redistributable | [https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist...](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | ❌ |
+| ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | Microsoft Visual C++ 2015-2022 Redistributable | [https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-red...](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | ❌ |
 | ![Microsoft Edge WebView2 Runtime](./resources/images/software/microsoft-edge-webview2-runtime.png "Microsoft Edge WebView2 Runtime") | Microsoft Edge WebView2 Runtime | [https://developer.microsoft.com/en-us/microsoft-edge/webview2](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | ❌ |
 
 ---

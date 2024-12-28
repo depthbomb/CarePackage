@@ -17,7 +17,7 @@ for (category, software_list) in SOFTWARE_CATALOGUE.items():
         icon_path = f'./resources/images/software/{software.icon}'
         is_archive = '✔️' if software.is_archive else '❌'
         requires_admin = '✔️' if software.requires_admin else '❌'
-        homepage_text = software.homepage if len(software.homepage) < 72 else software.homepage[:72] + '...'
+        homepage_text = software.homepage if len(software.homepage) < 47 else software.homepage[:47] + '...'
         markdown += f'\n| ![{software.name}]({icon_path} "{software.name}") | {software.name} | [{homepage_text}]({software.homepage}) | {is_archive} | {requires_admin} |'
     markdown += '\n\n---'
 

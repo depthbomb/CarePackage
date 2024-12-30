@@ -8,7 +8,7 @@ class NvidiaGeForceExperience(BaseSoftware):
         super().__init__()
 
         self.key = 'nvidia-geforce-experience'
-        self.name = 'NVIDIA GeForce Experience'
+        self.name = 'NVIDIA GeForce Experience (Deprecated)'
         self.category = SoftwareCategory.Peripheral
         self.download_name = 'GeForce_Experience.exe'
         self.is_archive = False
@@ -34,4 +34,4 @@ class NvidiaGeForceExperience(BaseSoftware):
             self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://www.nvidia.com/en-us/geforce/geforce-experience/download/'))
+        self.manager.get(QNetworkRequest('https://www.nvidia.com/en-ph/geforce/geforce-experience/'))

@@ -1,5 +1,6 @@
 from typing import cast, Optional
 from PySide6.QtCore import Slot, QObject
+from src import IS_COMPILED, SOFTWARE_CATALOGUE
 from src.lib.download_sweeper import DownloadSweeper
 from src.lib.settings import user_settings, DownloadTimeout, UserSettingsKeys
 from PySide6.QtWidgets import (
@@ -54,6 +55,15 @@ class SettingsWindow(QDialog):
         self.sweeper.finished_sweeping.connect(self._on_sweeper_finished_sweeping)
         self.sweeper.start()
 
+    @Slot()
+    def _on_clear_url_cache_button_clicked(self):
+        self.clear_cache_button.setEnabled(False)
+        for (_, software_list) in SOFTWARE_CATALOGUE.items():
+            for software in software_list:
+                software.cached_url = None
+
+        self.clear_cache_button.setEnabled(True)
+
     @Slot(int)
     def _on_sweeper_finished_sweeping(self, found_files: int):
         if found_files > 0:
@@ -82,6 +92,8 @@ class SettingsWindow(QDialog):
         self.layout.addRow('Download timeout', self._create_download_timeout_row())
         self.layout.addRow('', self._create_software_count_row())
         self.layout.addRow('', self._create_sweeper_button())
+        if not IS_COMPILED:
+            self.layout.addRow('', self._create_clear_url_cache_button())
         self.layout.addWidget(self._create_footer_row())
 
         return self.layout
@@ -108,11 +120,17 @@ class SettingsWindow(QDialog):
         return self.show_software_count_checkbox
 
     def _create_sweeper_button(self):
-        self.sweeper_button = QPushButton('&Clean up downloads', self)
+        self.sweeper_button = QPushButton('Clean up downloads', self)
         self.sweeper_button.setEnabled(False)
         self.sweeper_button.clicked.connect(self._on_sweeper_button_clicked)
 
         return self.sweeper_button
+
+    def _create_clear_url_cache_button(self):
+        self.clear_cache_button = QPushButton('Clear resolved URL cache (debug)', self)
+        self.clear_cache_button.clicked.connect(self._on_clear_url_cache_button_clicked)
+
+        return self.clear_cache_button
 
     def _create_footer_row(self):
         widget = QWidget(self)

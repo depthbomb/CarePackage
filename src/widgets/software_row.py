@@ -4,7 +4,7 @@ from PySide6.QtCore import Qt, Slot, Signal
 from src.lib.colors import get_accent_color
 from winrt.windows.ui.viewmanagement import UIColorType
 from PySide6.QtGui import QFont, QPixmap, QDesktopServices
-from PySide6.QtWidgets import QWidget, QLabel, QPushButton, QHBoxLayout, QSizePolicy
+from PySide6.QtWidgets import QWidget, QLabel, QPushButton, QHBoxLayout, QSizePolicy, QMessageBox
 
 SELECTED_STYLESHEET = f'''
     #SoftwareRow {{
@@ -52,6 +52,15 @@ class SoftwareRow(QWidget):
         self.layout.addWidget(self.image)
         self.layout.addWidget(self.name)
 
+        if self.software.is_deprecated:
+            warning_badge = QLabel(self)
+            warning_badge.setFixedSize(16, 16)
+            warning_badge.setScaledContents(True)
+            warning_badge.setPixmap(QPixmap(':icons/warning.ico'))
+            warning_badge.setToolTip('This software is deprecated and no longer recommended.')
+            warning_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
+            self.layout.addWidget(warning_badge, alignment=Qt.AlignmentFlag.AlignVCenter)
+
         if self.software.requires_admin:
             admin_badge = QLabel(self)
             admin_badge.setFixedSize(16, 16)
@@ -92,7 +101,23 @@ class SoftwareRow(QWidget):
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
-            self.set_selection(not self.selected)
+            if self.software.is_deprecated and not self.selected:
+                message = 'This software has been deprecated and is no longer recommended.'
+                if self.software.alternative:
+                    alt_sw = self.software.alternative()
+                    message += f' It is recommended that you download {alt_sw.name} instead.'
+                    del alt_sw
+                message += '\nWould you like to keep this software selected?'
+
+                mb = QMessageBox(self)
+                mb.setWindowTitle('Deprecated software')
+                mb.setIcon(QMessageBox.Icon.Warning)
+                mb.setText(message)
+                mb.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+                if mb.exec() == QMessageBox.StandardButton.Yes:
+                    self.set_selection(True)
+            else:
+                self.set_selection(not self.selected)
     #endregion
 
     #region Slots

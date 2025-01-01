@@ -1,6 +1,6 @@
 from abc import abstractmethod
-from typing import cast, Optional
 from enum import auto, Enum, StrEnum
+from typing import cast, Type, Optional
 from PySide6.QtCore import Slot, Signal, QObject
 from PySide6.QtNetwork import QNetworkReply, QNetworkAccessManager
 
@@ -42,6 +42,8 @@ class BaseSoftware(QObject):
         self._is_archive = cast(Optional[bool], None)
         self._should_cache_url = cast(Optional[bool], None)
         self._requires_admin = cast(Optional[bool], None)
+        self._deprecated = cast(Optional[bool], None)
+        self._alternative = cast(Optional[Type[BaseSoftware]], None)
         self._icon = cast(Optional[str], None)
         self._homepage = cast(Optional[str], None)
 
@@ -115,6 +117,26 @@ class BaseSoftware(QObject):
     @abstractmethod
     def requires_admin(self, requires_admin: bool):
         self._requires_admin = requires_admin
+
+    @property
+    @abstractmethod
+    def is_deprecated(self) -> bool:
+        return self._deprecated
+
+    @is_deprecated.setter
+    @abstractmethod
+    def is_deprecated(self, is_deprecated: bool):
+        self._deprecated = is_deprecated
+
+    @property
+    @abstractmethod
+    def alternative(self) -> Type['BaseSoftware']:
+        return self._alternative
+
+    @alternative.setter
+    @abstractmethod
+    def alternative(self, alternative: Type['BaseSoftware']):
+        self._alternative = alternative
 
     @property
     @abstractmethod

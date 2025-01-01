@@ -5,10 +5,10 @@ from src.windows.disclaimer_window import DisclaimerWindow
 from src import APP_ORG, APP_NAME, IS_ONEFILE, DOWNLOAD_DIR, APP_DISPLAY_NAME, APP_VERSION_STRING
 from src.lib.settings import app_settings, user_settings, DownloadTimeout, AppSettingsKeys, UserSettingsKeys
 
-if __name__ == '__main__':
-    argv += ['-platform', 'windows:darkmode=0']
+def main(args) -> int:
+    args += ['-platform', 'windows:darkmode=0']
 
-    app = QApplication(argv)
+    app = QApplication(args)
     app.setApplicationName(APP_NAME)
     app.setApplicationDisplayName(APP_DISPLAY_NAME)
     app.setApplicationVersion(APP_VERSION_STRING)
@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     if not bool(app_settings.value(AppSettingsKeys.SeenDisclaimer, False, bool)):
         if DisclaimerWindow().exec() != 2:
-            exit(0)
+            return 0
         else:
             app_settings.setValue(AppSettingsKeys.SeenDisclaimer, True)
 
@@ -37,4 +37,7 @@ if __name__ == '__main__':
     w = MainWindow()
     w.show()
 
-    exit(app.exec())
+    return app.exec()
+
+if __name__ == '__main__':
+    exit(main(argv))

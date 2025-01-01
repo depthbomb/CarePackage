@@ -1,5 +1,6 @@
 from re import compile
 from PySide6.QtCore import Slot
+from src.lib.software.nvidia_app import NvidiaApp
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
@@ -8,12 +9,14 @@ class NvidiaGeForceExperience(BaseSoftware):
         super().__init__()
 
         self.key = 'nvidia-geforce-experience'
-        self.name = 'NVIDIA GeForce Experience (Deprecated)'
+        self.name = 'NVIDIA GeForce Experience'
         self.category = SoftwareCategory.Peripheral
         self.download_name = 'GeForce_Experience.exe'
         self.is_archive = False
         self.should_cache_url = True
         self.requires_admin = True
+        self.is_deprecated = True
+        self.alternative = NvidiaApp
         self.icon = 'nvidia.png'
         self.homepage = 'https://nvidia.com/en-us/geforce/geforce-experience'
 

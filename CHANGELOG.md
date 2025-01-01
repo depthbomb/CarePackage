@@ -1,4 +1,13 @@
-﻿# 2.2.1.0
+﻿# 2.3.0.0
+
+- Added _iTunes_
+- Software may now be marked as _deprecated_ meaning that it is no longer recommended
+  - Deprecated software may be removed from CarePackage in the future
+  - Alternatives may be recommended when selecting deprecated software
+- Fixed the download URL for _NVIDIA GeForce Experience_ failing to resolve
+- _NVIDIA GeForce Experience_ has been marked as deprecated
+
+# 2.2.1.0
 
 - Added the following software:
   - _Adobe Creative Cloud_

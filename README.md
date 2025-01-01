@@ -20,6 +20,10 @@ Functionally the two versions are the same but the standalone version will check
 
 You find the latest download with the URL: `https://bit.ly/get-carepackage`
 
+### Planned Features
+
+- Selecting different "versions" of software to manage, for example instead of having two listings of _Godot_ for the normal version and the C# version, it will be a single listing that lets you choose which version to manage
+
 ### Screenshots
 
 ![The main window of CarePackage, showing the contents of the Creative tab](art/1.png "The main window of CarePackage, showing the contents of the Creative tab")

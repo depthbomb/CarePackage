@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 2, 1, 0)
+APP_VERSION = (2, 3, 0, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'
@@ -113,6 +113,7 @@ from src.lib.software.inkscape import Inkscape
 from src.lib.software.inno_setup import InnoSetup
 from src.lib.software.insomnia import Insomnia
 from src.lib.software.installforge import InstallForge
+from src.lib.software.itunes import ITunes
 from src.lib.software.jetbrains_toolbox import JetBrainsToolbox
 from src.lib.software.keepass import KeePass
 from src.lib.software.krita import Krita
@@ -243,6 +244,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     InnoSetup,
     Insomnia,
     InstallForge,
+    ITunes,
     JetBrainsToolbox,
     KeePass,
     Krita,

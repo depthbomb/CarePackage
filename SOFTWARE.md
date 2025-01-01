@@ -85,6 +85,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Audacity](./resources/images/software/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | ❌ |
 | ![foobar2000](./resources/images/software/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | ❌ |
 | ![HandBrake](./resources/images/software/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔️ |
+| ![iTunes](./resources/images/software/itunes.png "iTunes") | [iTunes](https://apple.com/itunes) | ❌ | ❌ |
 | ![OBS Studio](./resources/images/software/obs-studio.png "OBS Studio") | [OBS Studio](https://obsproject.com) | ❌ | ✔️ |
 | ![Plex Desktop](./resources/images/software/plex-desktop.png "Plex Desktop") | [Plex Desktop](https://plex.tv) | ❌ | ❌ |
 | ![Plex Media Server](./resources/images/software/plex-media-server.png "Plex Media Server") | [Plex Media Server](https://plex.tv) | ❌ | ❌ |

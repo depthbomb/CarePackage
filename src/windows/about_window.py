@@ -1,7 +1,7 @@
 from typing import Optional
-from PySide6.QtCore import Qt, Slot, QObject
-from src.widgets.link_label import LinkLabel
-from PySide6.QtGui import QFont, QPixmap, QDesktopServices
+from PySide6.QtCore import Qt, QObject
+from PySide6.QtGui import QFont, QPixmap
+from src.widgets.simple_link_label import SimpleLinkLabel
 from PySide6.QtWidgets import QLabel, QDialog, QVBoxLayout
 from src import APP_REPO_URL, APP_DISPLAY_NAME, APP_VERSION_STRING
 
@@ -22,8 +22,7 @@ class AboutWindow(QDialog):
 
         self.version_label = QLabel(APP_VERSION_STRING, self)
 
-        self.repo_link = LinkLabel('GitHub', self)
-        self.repo_link.clicked.connect(self._on_repo_link_clicked)
+        self.repo_link = SimpleLinkLabel('GitHub', APP_REPO_URL)
 
         self.layout.addWidget(self.logo, alignment=Qt.AlignmentFlag.AlignHCenter)
         self.layout.addWidget(self.title_label, alignment=Qt.AlignmentFlag.AlignHCenter)
@@ -33,7 +32,3 @@ class AboutWindow(QDialog):
         self.setLayout(self.layout)
         self.setWindowTitle('About')
         self.setFixedSize(200, 200)
-
-    @Slot()
-    def _on_repo_link_clicked(self):
-        QDesktopServices.openUrl(APP_REPO_URL)

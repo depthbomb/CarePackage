@@ -22,7 +22,7 @@ class ApacheNetBeans(BaseSoftware):
     def on_manager_finished(self, reply: QNetworkReply):
         reply.deleteLater()
         status_code_attr = reply.attribute(QNetworkRequest.Attribute.HttpStatusCodeAttribute)
-        status_code =  int(status_code_attr) if status_code_attr else 404
+        status_code = int(status_code_attr) if status_code_attr else 404
         if status_code == 404:
             if self._current_ver <= 0:
                 self.url_resolve_error.emit(self.ResolveError.URLResolveError)

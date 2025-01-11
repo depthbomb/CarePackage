@@ -35,6 +35,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ |
 | ![GitHub CLI](./resources/images/software/github.png "GitHub CLI") | [GitHub CLI](https://cli.github.com) | ❌ | ❌ |
 | ![Go](./resources/images/software/go.png "Go") | [Go](https://go.dev) | ❌ | ❌ |
+| ![Hoppscotch](./resources/images/software/hoppscotch.png "Hoppscotch") | [Hoppscotch](https://hoppscotch.io) | ❌ | ❌ |
 | ![Inno Setup](./resources/images/software/inno-setup.png "Inno Setup") | [Inno Setup](https://jrsoftware.org/isinfo.php) | ❌ | ❌ |
 | ![Insomnia](./resources/images/software/insomnia.png "Insomnia") | [Insomnia](https://insomnia.rest) | ❌ | ❌ |
 | ![InstallForge](./resources/images/software/installforge.png "InstallForge") | [InstallForge](https://installforge.net) | ❌ | ✔️ |

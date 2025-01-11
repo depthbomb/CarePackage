@@ -138,6 +138,7 @@ from src.lib.software.nsis import NSIS
 from src.lib.software.nvidia_app import NvidiaApp
 from src.lib.software.nvidia_geforce_experience import NvidiaGeForceExperience
 from src.lib.software.obs_studio import ObsStudio
+from src.lib.software.obsidian import Obsidian
 from src.lib.software.onedrive import OneDrive
 from src.lib.software.opera import Opera
 from src.lib.software.opera_gx import OperaGx
@@ -178,6 +179,7 @@ from src.lib.software.sublime_text import SublimeText
 from src.lib.software.system_informer import SystemInformer
 from src.lib.software.teamviewer import TeamViewer
 from src.lib.software.telegram_desktop import TelegramDesktop
+from src.lib.software.teracopy import TeraCopy
 from src.lib.software.thunderbird import Thunderbird
 from src.lib.software.ubisoft_connect import UbisoftConnect
 from src.lib.software.unity_hub import UnityHub
@@ -272,6 +274,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     NvidiaApp,
     NvidiaGeForceExperience,
     ObsStudio,
+    Obsidian,
     OneDrive,
     Opera,
     OperaGx,
@@ -312,6 +315,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     SystemInformer,
     TeamViewer,
     TelegramDesktop,
+    TeraCopy,
     Thunderbird,
     UbisoftConnect,
     UnityHub,

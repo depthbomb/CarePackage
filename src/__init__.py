@@ -62,6 +62,7 @@ from src.lib.software.apache_netbeans import ApacheNetBeans
 from src.lib.software.arc import Arc
 from src.lib.software.audacity import Audacity
 from src.lib.software.autohotkey import AutoHotkey
+from src.lib.software.balenaetcher import BalenaEtcher
 from src.lib.software.battlenet import BattleNet
 from src.lib.software.bitwarden import Bitwarden
 from src.lib.software.blender import Blender
@@ -195,6 +196,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Arc,
     Audacity,
     AutoHotkey,
+    BalenaEtcher,
     BattleNet,
     Bitwarden,
     Blender,

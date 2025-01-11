@@ -6,7 +6,7 @@ class Bitwarden(BaseSoftware):
 
         self.key = 'bitwarden-desktop'
         self.name = 'Bitwarden'
-        self.category = SoftwareCategory.Development
+        self.category = SoftwareCategory.Security
         self.download_name = 'Bitwarden-Installer.exe'
         self.is_archive = False
         self.should_cache_url = False

@@ -110,6 +110,7 @@ from src.lib.software.golang import Golang
 from src.lib.software.google_chrome import GoogleChrome
 from src.lib.software.google_drive import GoogleDrive
 from src.lib.software.handbrake import HandBrake
+from src.lib.software.heroic_games_launcher import HeroicGamesLauncher
 from src.lib.software.inkscape import Inkscape
 from src.lib.software.inno_setup import InnoSetup
 from src.lib.software.insomnia import Insomnia
@@ -243,6 +244,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     GoogleChrome,
     GoogleDrive,
     HandBrake,
+    HeroicGamesLauncher,
     Inkscape,
     InnoSetup,
     Insomnia,

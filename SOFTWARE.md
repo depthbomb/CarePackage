@@ -28,7 +28,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | ❌ |
 | ![CMake](./resources/images/software/cmake.png "CMake") | [CMake](https://cmake.org) | ❌ | ❌ |
 | ![DB Browser for SQLite](./resources/images/software/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ |
-| ![dnSpy](./resources/images/software/dnspy.png "dnSpy") | [dnSpy](https://github.com/dnSpyEx/dnSpy) | ✔️ | ❌ |
+| ![dnSpy (Fork)](./resources/images/software/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔️ | ❌ |
 | ![Docker Desktop](./resources/images/software/docker-desktop.png "Docker Desktop") | [Docker Desktop](https://docker.com/products/docker-desktop) | ❌ | ❌ |
 | ![Eclipse IDE](./resources/images/software/eclipse-ide.png "Eclipse IDE") | [Eclipse IDE](https://eclipseide.org) | ❌ | ❌ |
 | ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ |
@@ -102,6 +102,7 @@ This file was generated from `scripts/generate_software_table.py`
 |  | Name | Is Archive? | Requires Admin? |
 | :-: | --- | :-: | :-: |
 | ![AutoHotkey](./resources/images/software/autohotkey.png "AutoHotkey") | [AutoHotkey](https://autohotkey.com) | ❌ | ❌ |
+| ![balenaEtcher](./resources/images/software/balenaetcher.png "balenaEtcher") | [balenaEtcher](https://etcher.io) | ❌ | ❌ |
 | ![Borderless Gaming](./resources/images/software/borderless-gaming.png "Borderless Gaming") | [Borderless Gaming](https://github.com/codeusa/borderless-gaming) | ❌ | ❌ |
 | ![Caesium Image Compressor](./resources/images/software/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | ❌ |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔️ |
@@ -112,6 +113,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Oracle VirtualBox](./resources/images/software/oracle-virtualbox.png "Oracle VirtualBox") | [Oracle VirtualBox](https://virtualbox.org) | ❌ | ✔️ |
 | ![PowerToys](./resources/images/software/powertoys.png "PowerToys") | [PowerToys](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ |
 | ![qBittorrent](./resources/images/software/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ |
+| ![Raspberry Pi Imager](./resources/images/software/raspberry-pi-imager.png "Raspberry Pi Imager") | [Raspberry Pi Imager](https://raspberrypi.com/software) | ❌ | ✔️ |
 | ![Rufus](./resources/images/software/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔️ |
 | ![7-Zip](./resources/images/software/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ |
 | ![ShareX](./resources/images/software/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | ❌ |
@@ -132,6 +134,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![EA App](./resources/images/software/ea-app.png "EA App") | [EA App](https://ea.com/ea-app) | ❌ | ❌ |
 | ![Epic Games Launcher](./resources/images/software/epic-games-launcher.png "Epic Games Launcher") | [Epic Games Launcher](https://store.epicgames.com) | ❌ | ❌ |
 | ![GOG Galaxy](./resources/images/software/gog-galaxy.png "GOG Galaxy") | [GOG Galaxy](https://gog.com/galaxy) | ❌ | ❌ |
+| ![Heroic Games Launcher](./resources/images/software/heroic-games-launcher.png "Heroic Games Launcher") | [Heroic Games Launcher](https://heroicgameslauncher.com) | ❌ | ❌ |
 | ![Minecraft Launcher](./resources/images/software/minecraft-launcher.png "Minecraft Launcher") | [Minecraft Launcher](https://minecraft.net) | ❌ | ❌ |
 | ![Minecraft Launcher (Legacy)](./resources/images/software/minecraft-launcher-legacy.png "Minecraft Launcher (Legacy)") | [Minecraft Launcher (Legacy)](https://minecraft.net) | ❌ | ❌ |
 | ![Overwolf](./resources/images/software/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ✔️ | ❌ |

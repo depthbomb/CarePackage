@@ -25,7 +25,6 @@ This file was generated from `scripts/generate_software_table.py`
 |  | Name | Is Archive? | Requires Admin? |
 | :-: | --- | :-: | :-: |
 | ![Apache NetBeans](./resources/images/software/apache-netbeans.png "Apache NetBeans") | [Apache NetBeans](https://netbeans.apache.org) | ❌ | ✔️ |
-| ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | ❌ |
 | ![CMake](./resources/images/software/cmake.png "CMake") | [CMake](https://cmake.org) | ❌ | ❌ |
 | ![DB Browser for SQLite](./resources/images/software/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ |
 | ![dnSpy (Fork)](./resources/images/software/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔️ | ❌ |
@@ -47,6 +46,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Node.js (LTS)](./resources/images/software/nodejs.png "Node.js (LTS)") | [Node.js (LTS)](https://nodejs.org) | ❌ | ❌ |
 | ![Notepad++](./resources/images/software/notepad-plus-plus.png "Notepad++") | [Notepad++](https://notepad-plus-plus.org) | ❌ | ✔️ |
 | ![NSIS](./resources/images/software/nsis.png "NSIS") | [NSIS](https://nsis.sourceforge.io) | ❌ | ✔️ |
+| ![Obsidian](./resources/images/software/obsidian.png "Obsidian") | [Obsidian](https://obsidian.md) | ❌ | ❌ |
 | ![Postman](./resources/images/software/postman.png "Postman") | [Postman](https://postman.com) | ❌ | ❌ |
 | ![PowerShell 7](./resources/images/software/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ |
 | ![PuTTY](./resources/images/software/putty.png "PuTTY") | [PuTTY](https://putty.org) | ❌ | ❌ |
@@ -120,6 +120,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Speccy](./resources/images/software/speccy.png "Speccy") | [Speccy](https://www.ccleaner.com/speccy) | ❌ | ✔️ |
 | ![System Informer](./resources/images/software/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ |
 | ![TeamViewer](./resources/images/software/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | ❌ |
+| ![TeraCopy](./resources/images/software/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ |
 | ![WinDirStat](./resources/images/software/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ |
 | ![WinRAR](./resources/images/software/winrar.png "WinRAR") | [WinRAR](https://www.win-rar.com) | ❌ | ❌ |
 
@@ -135,6 +136,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Epic Games Launcher](./resources/images/software/epic-games-launcher.png "Epic Games Launcher") | [Epic Games Launcher](https://store.epicgames.com) | ❌ | ❌ |
 | ![GOG Galaxy](./resources/images/software/gog-galaxy.png "GOG Galaxy") | [GOG Galaxy](https://gog.com/galaxy) | ❌ | ❌ |
 | ![Heroic Games Launcher](./resources/images/software/heroic-games-launcher.png "Heroic Games Launcher") | [Heroic Games Launcher](https://heroicgameslauncher.com) | ❌ | ❌ |
+| ![Medal](./resources/images/software/medal.png "Medal") | [Medal](https://medal.tv) | ❌ | ❌ |
 | ![Minecraft Launcher](./resources/images/software/minecraft-launcher.png "Minecraft Launcher") | [Minecraft Launcher](https://minecraft.net) | ❌ | ❌ |
 | ![Minecraft Launcher (Legacy)](./resources/images/software/minecraft-launcher-legacy.png "Minecraft Launcher (Legacy)") | [Minecraft Launcher (Legacy)](https://minecraft.net) | ❌ | ❌ |
 | ![Overwolf](./resources/images/software/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ✔️ | ❌ |
@@ -144,6 +146,16 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Razer Cortex](./resources/images/software/razer-cortex.png "Razer Cortex") | [Razer Cortex](https://razer.com/cortex) | ❌ | ✔️ |
 | ![Steam](./resources/images/software/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | ✔️ |
 | ![Ubisoft Connect](./resources/images/software/ubisoft-connect.png "Ubisoft Connect") | [Ubisoft Connect](https://ubisoft.com/en-us/ubisoft-connect) | ❌ | ✔️ |
+
+---
+
+## Security
+
+|  | Name | Is Archive? | Requires Admin? |
+| :-: | --- | :-: | :-: |
+| ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | ❌ |
+| ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | ❌ |
+| ![Malwarebytes](./resources/images/software/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | ✔️ |
 
 ---
 
@@ -192,15 +204,6 @@ This file was generated from `scripts/generate_software_table.py`
 | ![.NET 9.0 Desktop Runtime](./resources/images/software/dotnet.png ".NET 9.0 Desktop Runtime") | [.NET 9.0 Desktop Runtime](https://dot.net) | ❌ | ❌ |
 | ![.NET 9.0 Runtime](./resources/images/software/dotnet.png ".NET 9.0 Runtime") | [.NET 9.0 Runtime](https://dot.net) | ❌ | ❌ |
 | ![.NET 9.0 SDK](./resources/images/software/dotnet.png ".NET 9.0 SDK") | [.NET 9.0 SDK](https://dot.net) | ❌ | ❌ |
-
----
-
-## Security
-
-|  | Name | Is Archive? | Requires Admin? |
-| :-: | --- | :-: | :-: |
-| ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | ❌ |
-| ![Malwarebytes](./resources/images/software/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | ✔️ |
 
 ---
 

@@ -123,6 +123,7 @@ from src.lib.software.lazarus import Lazarus
 from src.lib.software.librewolf import LibreWolf
 from src.lib.software.logictech_ghub import LogitechGHub
 from src.lib.software.malwarebytes import Malwarebytes
+from src.lib.software.medal import Medal
 from src.lib.software.microsoft_edge import MicrosoftEdge
 from src.lib.software.microsoft_teams import MicrosoftTeams
 from src.lib.software.minecraft_launcher import MinecraftLauncher
@@ -259,6 +260,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     LibreWolf,
     LogitechGHub,
     Malwarebytes,
+    Medal,
     MicrosoftEdge,
     MicrosoftTeams,
     MinecraftLauncher,

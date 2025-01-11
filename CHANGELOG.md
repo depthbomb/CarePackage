@@ -1,4 +1,17 @@
-﻿# 2.3.0.0
+﻿# 2.3.1.0
+
+- When enabled, the download folder will only be opened if at least one selected software downloads successfully
+- Fixed _Bitwarden_ being in the incorrect category
+- Added the following software:
+  - _balenaEtcher_
+  - _Raspberry Pi Imager_
+  - _Obsidian_
+  - _Heroic Games Launcher_
+  - _TeraCopy_
+  - _Medal_
+  - _Hoppscotch_
+
+# 2.3.0.0
 
 - Added _iTunes_
 - Software may now be marked as _deprecated_ meaning that it is no longer recommended

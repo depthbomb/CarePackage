@@ -1,9 +1,9 @@
 #define MyAppName "CarePackage"
 #define MyAppDescription "Software Management Tool"
-#define MyAppVersion "2.3.0.0"
+#define MyAppVersion "2.3.1.0"
 #define MyAppPublisher "Caprine Logic"
 #define MyAppExeName "carepackage.exe"
-#define MyAppCopyright "Copyright (C) 2024 Caprine Logic"
+#define MyAppCopyright "Copyright (C) 2024-2025 Caprine Logic"
 
 [Setup]
 AppId={{74749A6F-089B-43D0-A213-C8F4258F8FF6}

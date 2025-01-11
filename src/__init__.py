@@ -158,6 +158,7 @@ from src.lib.software.python_312 import Python312
 from src.lib.software.python_313 import Python313
 from src.lib.software.qbittorrent import QBitTorrent
 from src.lib.software.qt_oss import QtOss
+from src.lib.software.raspberry_pi_imager import RaspberryPiImager
 from src.lib.software.razer_cortex import RazerCortex
 from src.lib.software.revolt import Revolt
 from src.lib.software.rufus import Rufus
@@ -290,6 +291,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Python313,
     QBitTorrent,
     QtOss,
+    RaspberryPiImager,
     RazerCortex,
     Revolt,
     Rufus,

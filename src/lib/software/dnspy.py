@@ -10,7 +10,7 @@ class DnSpy(BaseSoftware):
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
         self.key = 'dnspy-ex'
-        self.name = 'dnSpy'
+        self.name = 'dnSpy (Fork)'
         self.category = SoftwareCategory.Development
         self.download_name = 'dnSpy-net-win64.zip'
         self.is_archive = True

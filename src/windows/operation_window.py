@@ -31,6 +31,7 @@ class OperationWindow(QDialog):
 
         self.software_rows = cast(Deque[SoftwareProgressRow], deque([], len(software)))
 
+        self.downloaded_software = cast(list[BaseSoftware], [])
         self.errored_software = cast(list[BaseSoftware], [])
         self.has_archives = len([sw for sw in software if sw.is_archive]) > 0
         self.has_elevated_installers = len([sw for sw in software if sw.requires_admin]) > 0
@@ -138,12 +139,13 @@ class OperationWindow(QDialog):
         if error != SoftwareProgressRow.OperationError.NoError:
             self.errored_software.append(software_row.software)
         else:
+            self.downloaded_software.append(software_row.software)
             software_row.deleteLater()
 
         if len(self.software_rows) == 0:
             self.cancel_button.setText('&Close')
 
-            if self.postinstall_open_dir_checkbox.isChecked():
+            if self.postinstall_open_dir_checkbox.isChecked() and len(self.downloaded_software) > 0:
                 QDesktopServices.openUrl(DOWNLOAD_DIR.as_posix())
 
             if len(self.errored_software) > 0:

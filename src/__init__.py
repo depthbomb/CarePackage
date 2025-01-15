@@ -103,6 +103,7 @@ from src.lib.software.foobar2000 import Foobar2000
 from src.lib.software.gimp import Gimp
 from src.lib.software.git_for_windows import GitForWindows
 from src.lib.software.github_cli import GitHubCli
+from src.lib.software.github_desktop import GitHubDesktop
 from src.lib.software.godot import Godot
 from src.lib.software.godot_cs import GodotCS
 from src.lib.software.gog_galaxy import GogGalaxy
@@ -241,6 +242,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Gimp,
     GitForWindows,
     GitHubCli,
+    GitHubDesktop,
     Godot,
     GodotCS,
     GogGalaxy,

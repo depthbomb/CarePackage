@@ -34,6 +34,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Flutter SDK](./resources/images/software/flutter.png "Flutter SDK") | [Flutter SDK](https://docs.flutter.dev) | ✔️ | ❌ |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ |
 | ![GitHub CLI](./resources/images/software/github.png "GitHub CLI") | [GitHub CLI](https://cli.github.com) | ❌ | ❌ |
+| ![GitHub Desktop](./resources/images/software/github-desktop.png "GitHub Desktop") | [GitHub Desktop](https://desktop.github.com) | ❌ | ❌ |
 | ![Go](./resources/images/software/go.png "Go") | [Go](https://go.dev) | ❌ | ❌ |
 | ![Hoppscotch](./resources/images/software/hoppscotch.png "Hoppscotch") | [Hoppscotch](https://hoppscotch.io) | ❌ | ❌ |
 | ![Inno Setup](./resources/images/software/inno-setup.png "Inno Setup") | [Inno Setup](https://jrsoftware.org/isinfo.php) | ❌ | ❌ |

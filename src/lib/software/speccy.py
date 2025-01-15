@@ -1,5 +1,5 @@
 from re import compile
-from PySide6.QtCore import Slot
+from PySide6.QtCore import QUrl, Slot
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
@@ -17,6 +17,8 @@ class Speccy(BaseSoftware):
         self.icon = 'speccy.png'
         self.homepage = 'https://www.ccleaner.com/speccy'
 
+        self._download_page = QUrl('https://www.ccleaner.com/speccy/download/standard')
+
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
         reply.deleteLater()
@@ -25,13 +27,22 @@ class Speccy(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        download_url_pattern = compile(r'https://download\.ccleaner\.com/spsetup\d{3,}\.exe')
         html = reply.readAll().data().decode()
-        match = download_url_pattern.search(html)
-        if not match:
-            self.url_resolve_error.emit(self.ResolveError.URLResolveError)
+
+        if reply.url() == self._download_page:
+            module_page_pattern = compile(r'/en-us/api/modular-page\?guid=[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}')
+            match = module_page_pattern.search(html)
+            if not match:
+                self.url_resolve_error.emit(self.ResolveError.URLResolveError)
+            else:
+                self.manager.get(QNetworkRequest(f'https://www.ccleaner.com{match.group(0)}'))
         else:
-            self.url_resolved.emit(match.group(0))
+            download_url_pattern = compile(r'https://download\.ccleaner\.com/spsetup\d{2,3}\.exe')
+            match = download_url_pattern.search(html)
+            if not match:
+                self.url_resolve_error.emit(self.ResolveError.URLResolveError)
+            else:
+                self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://www.ccleaner.com/speccy/download/standard'))
+        self.manager.get(QNetworkRequest(self._download_page))

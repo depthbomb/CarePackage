@@ -1,4 +1,11 @@
-﻿# 2.3.1.0
+﻿# 2.3.2.0
+
+- Fixed URL resolving for the following software:
+  - _Defraggler_
+  - _Speccy_
+- Added _GitHub Desktop_
+
+# 2.3.1.0
 
 - When enabled, the download folder will only be opened if at least one selected software downloads successfully
 - Fixed _Bitwarden_ being in the incorrect category

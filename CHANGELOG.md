@@ -1,4 +1,10 @@
-﻿# 2.3.2.0
+﻿# 2.3.3.0
+
+- Updated to Qt 6.8.2
+- Fixed _Display Driver Uninstaller_ failing to download due to download URL changes
+- Removed _NVIDIA GeForce Experience_
+
+# 2.3.2.0
 
 - Fixed URL resolving for the following software:
   - _Defraggler_

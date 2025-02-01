@@ -15,4 +15,4 @@ class DisplayDriverUninstaller(BaseSoftware):
         self.homepage = 'https://guru3d.com/download/display-driver-uninstaller-download'
 
     def resolve_download_url(self):
-        self.url_resolved.emit('https://ftp.nluug.nl/pub/games/PC/guru3d/ddu/[Guru3D.com]-DDU.zip')
+        self.url_resolved.emit('https://download-eu2.guru3d.com/ddu/[Guru3D]-DDU.zip')

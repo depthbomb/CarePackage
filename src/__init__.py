@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 3, 2, 0)
+APP_VERSION = (2, 3, 3, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'
@@ -139,7 +139,6 @@ from src.lib.software.nodejs_lts import NodeJsLts
 from src.lib.software.notepad_plus_plus import NotepadPlusPlus
 from src.lib.software.nsis import NSIS
 from src.lib.software.nvidia_app import NvidiaApp
-from src.lib.software.nvidia_geforce_experience import NvidiaGeForceExperience
 from src.lib.software.obs_studio import ObsStudio
 from src.lib.software.obsidian import Obsidian
 from src.lib.software.onedrive import OneDrive
@@ -278,7 +277,6 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     NotepadPlusPlus,
     NSIS,
     NvidiaApp,
-    NvidiaGeForceExperience,
     ObsStudio,
     Obsidian,
     OneDrive,

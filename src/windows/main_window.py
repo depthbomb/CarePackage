@@ -127,9 +127,6 @@ class MainWindow(QMainWindow):
                 QProcess.startDetached('shutdown', ['/r', '/t', '60'])
             case PostOperationAction.ShutDown:
                 QProcess.startDetached('shutdown', ['/s', '/t', '60'])
-
-        if action > 2:
-            self.close()
     #endregion
 
     #region UI Setup

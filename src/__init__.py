@@ -127,6 +127,7 @@ from src.lib.software.logictech_ghub import LogitechGHub
 from src.lib.software.malwarebytes import Malwarebytes
 from src.lib.software.medal import Medal
 from src.lib.software.microsoft_edge import MicrosoftEdge
+from src.lib.software.microsoft_powertoys import MicrosoftPowerToys
 from src.lib.software.microsoft_teams import MicrosoftTeams
 from src.lib.software.minecraft_launcher import MinecraftLauncher
 from src.lib.software.minecraft_launcher_legacy import MinecraftLauncherLegacy
@@ -156,7 +157,6 @@ from src.lib.software.plex_media_server import PlexMediaServer
 from src.lib.software.plexamp import Plexamp
 from src.lib.software.postman import Postman
 from src.lib.software.powershell_core import PowerShellCore
-from src.lib.software.powertoys import PowerToys
 from src.lib.software.putty import Putty
 from src.lib.software.python_312 import Python312
 from src.lib.software.python_313 import Python313
@@ -265,6 +265,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Malwarebytes,
     Medal,
     MicrosoftEdge,
+    MicrosoftPowerToys,
     MicrosoftTeams,
     MinecraftLauncher,
     MinecraftLauncherLegacy,
@@ -294,7 +295,6 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Plexamp,
     Postman,
     PowerShellCore,
-    PowerToys,
     Putty,
     Python312,
     Python313,

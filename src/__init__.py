@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 3, 3, 0)
+APP_VERSION = (2, 3, 4, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'
@@ -71,6 +71,7 @@ from src.lib.software.brave import Brave
 from src.lib.software.caesium_image_compressor import CaesiumImageCompressor
 from src.lib.software.cmake import CMake
 from src.lib.software.corsair_icue import CorsairIcue
+from src.lib.software.cpuz import CPUZ
 from src.lib.software.db_browser_for_sqlite import DBBrowserForSQLite
 from src.lib.software.defraggler import Defraggler
 from src.lib.software.discord import Discord
@@ -113,11 +114,14 @@ from src.lib.software.google_drive import GoogleDrive
 from src.lib.software.handbrake import HandBrake
 from src.lib.software.heroic_games_launcher import HeroicGamesLauncher
 from src.lib.software.hoppscotch import Hoppscotch
+from src.lib.software.hwmonitor import HWMonitor
 from src.lib.software.inkscape import Inkscape
 from src.lib.software.inno_setup import InnoSetup
 from src.lib.software.insomnia import Insomnia
 from src.lib.software.installforge import InstallForge
 from src.lib.software.itunes import ITunes
+from src.lib.software.java_sdk_21 import JavaSEDevelopmentKit21
+from src.lib.software.java_sdk_23 import JavaSEDevelopmentKit23
 from src.lib.software.jetbrains_toolbox import JetBrainsToolbox
 from src.lib.software.keepass import KeePass
 from src.lib.software.krita import Krita
@@ -211,6 +215,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     CaesiumImageCompressor,
     CMake,
     CorsairIcue,
+    CPUZ,
     DBBrowserForSQLite,
     Defraggler,
     Discord,
@@ -251,11 +256,14 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     HandBrake,
     HeroicGamesLauncher,
     Hoppscotch,
+    HWMonitor,
     Inkscape,
     InnoSetup,
     Insomnia,
     InstallForge,
     ITunes,
+    JavaSEDevelopmentKit21,
+    JavaSEDevelopmentKit23,
     JetBrainsToolbox,
     KeePass,
     Krita,

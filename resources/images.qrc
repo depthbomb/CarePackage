@@ -18,6 +18,7 @@
 		<file>images/software/caesium-image-compressor.png</file>
 		<file>images/software/cmake.png</file>
 		<file>images/software/corsair-icue.png</file>
+		<file>images/software/cpuz.png</file>
 		<file>images/software/db-browser-for-sqlite.png</file>
 		<file>images/software/ddu.png</file>
 		<file>images/software/defraggler.png</file>
@@ -48,11 +49,13 @@
 		<file>images/software/handbrake.png</file>
 		<file>images/software/heroic-games-launcher.png</file>
 		<file>images/software/hoppscotch.png</file>
+		<file>images/software/hwmonitor.png</file>
 		<file>images/software/inkscape.png</file>
 		<file>images/software/inno-setup.png</file>
 		<file>images/software/insomnia.png</file>
 		<file>images/software/installforge.png</file>
 		<file>images/software/itunes.png</file>
+		<file>images/software/java.png</file>
 		<file>images/software/jetbrains-toolbox.png</file>
 		<file>images/software/keepass.png</file>
 		<file>images/software/krita.png</file>

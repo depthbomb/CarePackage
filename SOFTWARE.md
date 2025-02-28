@@ -40,6 +40,8 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Inno Setup](./resources/images/software/inno-setup.png "Inno Setup") | [Inno Setup](https://jrsoftware.org/isinfo.php) | ❌ | ❌ |
 | ![Insomnia](./resources/images/software/insomnia.png "Insomnia") | [Insomnia](https://insomnia.rest) | ❌ | ❌ |
 | ![InstallForge](./resources/images/software/installforge.png "InstallForge") | [InstallForge](https://installforge.net) | ❌ | ✔️ |
+| ![Java SE Development Kit 21.x](./resources/images/software/java.png "Java SE Development Kit 21.x") | [Java SE Development Kit 21.x](https://oracle.com/java/technologies/downloads) | ❌ | ❌ |
+| ![Java SE Development Kit 23.x](./resources/images/software/java.png "Java SE Development Kit 23.x") | [Java SE Development Kit 23.x](https://oracle.com/java/technologies/downloads) | ❌ | ❌ |
 | ![JetBrains Toolbox](./resources/images/software/jetbrains-toolbox.png "JetBrains Toolbox") | [JetBrains Toolbox](https://jetbrains.com/toolbox-app) | ❌ | ❌ |
 | ![Lazarus](./resources/images/software/lazarus.png "Lazarus") | [Lazarus](https://lazarus-ide.org) | ❌ | ❌ |
 | ![MinGW](./resources/images/software/mingw.png "MinGW") | [MinGW](https://sourceforge.net/projects/mingw) | ❌ | ❌ |
@@ -107,13 +109,15 @@ This file was generated from `scripts/generate_software_table.py`
 | ![balenaEtcher](./resources/images/software/balenaetcher.png "balenaEtcher") | [balenaEtcher](https://etcher.io) | ❌ | ❌ |
 | ![Borderless Gaming](./resources/images/software/borderless-gaming.png "Borderless Gaming") | [Borderless Gaming](https://github.com/codeusa/borderless-gaming) | ❌ | ❌ |
 | ![Caesium Image Compressor](./resources/images/software/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | ❌ |
+| ![CPU-Z (Classic)](./resources/images/software/cpuz.png "CPU-Z (Classic)") | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | ❌ |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔️ |
 | ![Display Driver Uninstaller](./resources/images/software/ddu.png "Display Driver Uninstaller") | [Display Driver Uninstaller](https://guru3d.com/download/display-driver-uninstaller-download) | ✔️ | ❌ |
 | ![Dropbox](./resources/images/software/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ |
 | ![Google Drive](./resources/images/software/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔️ |
+| ![HWMonitor](./resources/images/software/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ |
+| ![Microsoft PowerToys (Preview)](./resources/images/software/powertoys.png "Microsoft PowerToys (Preview)") | [Microsoft PowerToys (Preview)](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ |
 | ![OneDrive](./resources/images/software/onedrive.png "OneDrive") | [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ |
 | ![Oracle VirtualBox](./resources/images/software/oracle-virtualbox.png "Oracle VirtualBox") | [Oracle VirtualBox](https://virtualbox.org) | ❌ | ✔️ |
-| ![PowerToys](./resources/images/software/powertoys.png "PowerToys") | [PowerToys](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ |
 | ![qBittorrent](./resources/images/software/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ |
 | ![Raspberry Pi Imager](./resources/images/software/raspberry-pi-imager.png "Raspberry Pi Imager") | [Raspberry Pi Imager](https://raspberrypi.com/software) | ❌ | ✔️ |
 | ![Rufus](./resources/images/software/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔️ |

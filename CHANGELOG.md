@@ -1,4 +1,13 @@
-﻿# 2.3.3.0
+﻿# 2.3.4.0
+
+- Added the following software:
+  - Java SE Development Kit 23
+  - Java SE Development Kit 21
+  - CPU-Z
+  - HWMonitor
+- Renamed _PowerToys_ to _Microsoft PowerToys (Preview)_
+
+# 2.3.3.0
 
 - Updated to Qt 6.8.2
 - Fixed _Display Driver Uninstaller_ failing to download due to download URL changes

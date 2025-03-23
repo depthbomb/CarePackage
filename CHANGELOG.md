@@ -2,7 +2,6 @@
 
 - Fixed failing to resolve download URL for _KeePass_
 - Removed _Borderless Gaming_ as they have removed binaries from all releases 🙄
-- 
 
 # 2.3.4.0
 

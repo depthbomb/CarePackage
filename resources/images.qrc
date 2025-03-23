@@ -13,7 +13,7 @@
 		<file>images/software/battlenet.png</file>
 		<file>images/software/bitwarden.png</file>
 		<file>images/software/blender.png</file>
-		<file>images/software/borderless-gaming.png</file>
+		<!--<file>images/software/borderless-gaming.png</file>-->
 		<file>images/software/brave-browser.png</file>
 		<file>images/software/caesium-image-compressor.png</file>
 		<file>images/software/cmake.png</file>

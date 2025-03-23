@@ -1,4 +1,10 @@
-﻿# 2.3.4.0
+﻿# 2.3.5.0
+
+- Fixed failing to resolve download URL for _KeePass_
+- Removed _Borderless Gaming_ as they have removed binaries from all releases 🙄
+- 
+
+# 2.3.4.0
 
 - Added the following software:
   - Java SE Development Kit 23

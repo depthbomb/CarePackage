@@ -107,7 +107,6 @@ This file was generated from `scripts/generate_software_table.py`
 | :-: | --- | :-: | :-: |
 | ![AutoHotkey](./resources/images/software/autohotkey.png "AutoHotkey") | [AutoHotkey](https://autohotkey.com) | ❌ | ❌ |
 | ![balenaEtcher](./resources/images/software/balenaetcher.png "balenaEtcher") | [balenaEtcher](https://etcher.io) | ❌ | ❌ |
-| ![Borderless Gaming](./resources/images/software/borderless-gaming.png "Borderless Gaming") | [Borderless Gaming](https://github.com/codeusa/borderless-gaming) | ❌ | ❌ |
 | ![Caesium Image Compressor](./resources/images/software/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | ❌ |
 | ![CPU-Z (Classic)](./resources/images/software/cpuz.png "CPU-Z (Classic)") | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | ❌ |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔️ |

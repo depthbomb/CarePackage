@@ -30,7 +30,7 @@ class KeePass(BaseSoftware):
         html = reply.readAll().data().decode()
 
         if reply.url() == self._initial_url:
-            download_file_name_pattern = compile(r'https://sourceforge\.net/projects/keepass/files/(KeePass%202\.x/\d+\.\d+\.\d+/KeePass-\d+\.\d+\.\d+-Setup\.exe)/download')
+            download_file_name_pattern = compile(r'https://sourceforge\.net/projects/keepass/files/(KeePass%202\.x/\d+\.\d+(\.\d+)?/KeePass-\d+\.\d+(\.\d+)?-Setup\.exe)/download')
             match = download_file_name_pattern.search(html)
             if not match:
                 self.url_resolve_error.emit(self.ResolveError.URLResolveError)

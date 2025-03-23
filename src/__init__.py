@@ -66,7 +66,7 @@ from src.lib.software.balenaetcher import BalenaEtcher
 from src.lib.software.battlenet import BattleNet
 from src.lib.software.bitwarden import Bitwarden
 from src.lib.software.blender import Blender
-from src.lib.software.borderless_gaming import BorderlessGaming
+# from src.lib.software.borderless_gaming import BorderlessGaming
 from src.lib.software.brave import Brave
 from src.lib.software.caesium_image_compressor import CaesiumImageCompressor
 from src.lib.software.cmake import CMake
@@ -210,7 +210,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     BattleNet,
     Bitwarden,
     Blender,
-    BorderlessGaming,
+    # BorderlessGaming,
     Brave,
     CaesiumImageCompressor,
     CMake,

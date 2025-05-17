@@ -29,9 +29,19 @@ class UpdateChecker(QObject):
             return
 
         data = reply.readAll()
-        json = QJsonDocument.fromJson(data).object()
-        release_url = str(json['html_url'])
-        latest_tag = str(json['tag_name'])
+        json = QJsonDocument.fromJson(data).array()
+        release = None
+        for i in range(json.size()):
+            item = json.at(i).toObject()
+            if not bool(item['prerelease']):
+                release = item
+                break
+
+        if not release:
+            return
+
+        release_url = str(release['html_url'])
+        latest_tag = str(release['tag_name'])
 
         current_version = Version(APP_VERSION_STRING)
         release_version = Version(latest_tag)
@@ -45,7 +55,7 @@ class UpdateChecker(QObject):
         self._check_for_updates()
 
     def _check_for_updates(self):
-        req = QNetworkRequest('https://api.github.com/repos/depthbomb/carepackage/releases/latest')
+        req = QNetworkRequest('https://api.github.com/repos/depthbomb/carepackage/releases')
         req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, USER_AGENT)
 
         self.manager.get(req)

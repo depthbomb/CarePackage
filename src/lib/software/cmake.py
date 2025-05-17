@@ -13,7 +13,6 @@ class CMake(BaseSoftware):
         self.name = 'CMake'
         self.category = SoftwareCategory.Development
         self.download_name = 'cmake-windows-x86_64.msi'
-
         self.is_archive = False
         self.should_cache_url = True
         self.requires_admin = False

@@ -1,8 +1,8 @@
-packaging==24.2
-pyside6==6.8.2.1
+packaging==25.0
+pyside6==6.9.0
 
 winrt-windows.foundation==3.0.0
 winrt-windows.ui==3.0.0
 winrt-windows.ui.viewmanagement==3.0.0
 
-nuitka==2.6.8
+nuitka==2.7.2

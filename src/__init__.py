@@ -25,7 +25,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (2, 3, 5, 0)
+APP_VERSION = (2, 3, 5, 1)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 if IS_COMPILED:
     APP_REPO_URL = 'https://bit.ly/carepackage-repo'

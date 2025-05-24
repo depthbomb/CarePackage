@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { Button } from './components/Button';
 import { Spinner } from './components/Spinner';
 import { Titlebar } from './components/Titlebar';
+import { useKeyCombo } from './hooks/useKeyCombo';
 import { DownloadQueue } from './components/DownloadQueue';
 import { DownloadOptions } from './components/DownloadOptions';
 import { SoftwareCatalogue } from './components/SoftwareCatalogue';
@@ -35,7 +36,7 @@ export const App = () => {
 	const [onUnmaximized]                               = useIpc(IpcChannel.MainWindow_Restored);
 	const [onOutdated]                                  = useIpc(IpcChannel.Updater_Outdated);
 
-	const onPrimaryButtonClick = async () => {
+	const performPrimaryAction = async () => {
 		// Step 1 = Catalogue
 		// Step 2 = Options
 		// Step 3 = Download Queue
@@ -92,14 +93,16 @@ export const App = () => {
 		setStep(p => p + 1);
 	};
 
-	const onSecondaryButtonClick = async () => {
+	const performSecondaryAction = async (fromKeybind: boolean = false) => {
 		// Step 1 = Catalogue
 		// Step 2 = Options
 		// Step 3 = Download Queue
 
 		switch (step) {
 			case 1:
-				setSelectedSoftware([]);
+				if (!fromKeybind) {
+					setSelectedSoftware([]);
+				}
 				break;
 			case 2:
 				setStep(1);
@@ -122,6 +125,9 @@ export const App = () => {
 
 		await window.api.openExternalUrl(releaseUrl);
 	};
+
+	useKeyCombo({ key: 'ENTER' }, performPrimaryAction);
+	useKeyCombo({ key: 'ESCAPE' }, () => performSecondaryAction(true));
 
 	useEffect(() => {
 		window.api.isElevated().then(setIsElevated);
@@ -186,20 +192,20 @@ export const App = () => {
 				<footer className="py-4 px-5 space-x-2 flex items-center">
 					<Button
 						variant="brand"
-						onClick={onPrimaryButtonClick}
+						onClick={performPrimaryAction}
 						disabled={selectedSoftware.length === 0 || step === 3}
 					>
 						<span>Continue</span>
 						<Icon path={mdiArrowRight} className="size-4"/>
 					</Button>
 					{step === 1 && (
-						<Button onClick={onSecondaryButtonClick} disabled={selectedSoftware.length === 0}>
+						<Button onClick={() => performSecondaryAction(false)} disabled={selectedSoftware.length === 0}>
 							<Icon path={mdiRefresh} className="size-4"/>
 							<span>Reset</span>
 						</Button>
 					)}
 					{(step === 2 || step === 3) && (
-						<Button onClick={onSecondaryButtonClick} disabled={selectedSoftware.length === 0} variant="danger">
+						<Button onClick={() => performSecondaryAction(false)} disabled={selectedSoftware.length === 0} variant="danger">
 							<Icon path={mdiCancel} className="size-4"/>
 							<span>Cancel</span>
 						</Button>

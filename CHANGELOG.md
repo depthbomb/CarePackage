@@ -6,6 +6,11 @@ This release brings yet another complete rewrite of _CarePackage_ along with the
 - Added UWP visual elements
 - You can now search for software by text
 - Filtering by category is now done via a selection box rather than tabs
+- Added hotkeys:
+  - `CTRL+A` selects all software currently displayed in the catalogue
+  - `CTRL+D` deselects all selected software
+  - `ENTER` proceeds to the next step
+  - `ESCAPE` cancels the download and installation process
 - Extra info about software, such as being able to visit their homepage, can now be accessed by right-clicking them
 - The number of selected software is now displayed
 - Installation options and download queue are now part of the main window

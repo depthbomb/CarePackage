@@ -1,3 +1,82 @@
+# 3.0.0
+
+This release brings yet another complete rewrite of _CarePackage_ along with the following features:
+
+- New logo
+- Added UWP visual elements
+- You can now search for software by text
+- Filtering by category is now done via a selection box rather than tabs
+- Extra info about software, such as being able to visit their homepage, can now be accessed by right-clicking them
+- The number of selected software is now displayed
+- Installation options and download queue are now part of the main window
+- Hovering over options on the options screen now shows detailed info about the option
+- Restarts and shutdown post-operation actions are now delayed instead of instantly happening
+- Selected software is persisted after restarting the app as administrator
+- Portable distributions have been discontinued
+- Software downloads are now handled with [aria2](https://aria2.github.io)
+- Files can now be downloaded concurrently
+- Added an option to control how many attempts will be made to download a file
+- Added an option to control how many files are downloaded concurrently
+- Added an option to control the file download speed
+- Added an option to control the maximum connections per for each download
+- Software can now be in multiple categories
+- The categories that each software belongs to is now shown in its row
+- Added the following new categories:
+  - _3D Modelling_
+  - _Audio & Sound_
+  - _Emulation_
+  - _File Management_
+  - _Network Tools_
+  - _Notes & Productivity_
+- Updated the categories of various software
+- Updated icon for _GIMP_
+- Improved download URL resolving for the following software:
+  - _.NET 8.0 ASP.NET Core Runtime_
+  - _.NET 8.0 Desktop Runtime_
+  - _.NET 8.0 Runtime_
+  - _.NET 8.0 SDK_
+  - _.NET 9.0 ASP.NET Core Runtime_
+  - _.NET 9.0 Desktop Runtime_
+  - _.NET 9.0 Runtime_
+  - _.NET 9.0 SDK_
+  - _Apache NetBeans_
+  - _Blender_
+  - _Node.js_
+  - _Node.js (LTS)_
+  - _NSIS_
+  - _Python 3.12.x_
+  - _Python 3.13.x_
+- Added the following software:
+  - _Azahar_
+  - _Cemu_
+  - _Cheat Engine_
+  - _darktable_
+  - _DuckStation_
+  - _Equalizer APO_
+  - _GlassWire_
+  - _itch_
+  - _Java SE Development Kit 24.x_
+  - _Joplin_
+  - _LightShot_
+  - _MEGAsync_
+  - _melonDS_
+  - _PeaZip_
+  - _PPSSPP_
+  - _Rainmeter_
+  - _Recuva_
+  - _RPCS3_
+  - _ShadPS4_
+  - _Vita3K_
+  - _Wireshark_
+  - _Zoom_
+- Removed the following software:
+  - _.NET 6.0 ASP.NET Core Runtime_
+  - _.NET 6.0 Desktop Runtime_
+  - _.NET 6.0 Runtime_
+  - _.NET 6.0 SDK_
+  - _Skype_
+  - _Java SE Development Kit 23.x_
+
 # 2.3.5.0
 
 - Fixed failing to resolve download URL for _KeePass_

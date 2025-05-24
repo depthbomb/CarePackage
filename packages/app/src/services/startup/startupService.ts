@@ -15,7 +15,7 @@ export class StartupService {
 	private async applyDefaultSettings() {
 		await this.settings.setDefault(SettingsKey.UI_ShowCategoryBadges, true);
 		await this.settings.setDefault(SettingsKey.Aria2_MaxTries, 5);
-		await this.settings.setDefault(SettingsKey.Aria2_MaxConcurrentDownloads, 1);
+		await this.settings.setDefault(SettingsKey.Aria2_MaxConcurrentDownloads, 5);
 		await this.settings.setDefault(SettingsKey.Aria2_MaxDownloadLimit, '0', { skipHooks: true });
 		await this.settings.setDefault(SettingsKey.Aria2_MaxConnectionsPerServer, 1);
 	}

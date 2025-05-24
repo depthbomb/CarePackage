@@ -1,4 +1,4 @@
-﻿_CarePackage_ is a desktop application for Windows 10/11 heavily inspired by [Ninite](https://ninite.com/) that makes it quick and easy to download and install all of your favorite programs at once. CarePackage's intended use case is to be used on a new installation of Windows, but of course you can use it however you'd like!
+_CarePackage_ is a desktop application for Windows 10/11 heavily inspired by [Ninite](https://ninite.com/) that makes it quick and easy to download and install all of your favorite programs at once. CarePackage's intended use case is to be used on a new installation of Windows, but of course you can use it however you'd like!
 
 You can view all software that is managed by CarePackage in [SOFTWARE.md](SOFTWARE.md).
 
@@ -14,11 +14,9 @@ What CarePackage **DOESN'T DO**
 
 ### Installing CarePackage
 
-CarePackage comes in two flavors: **portable** (`carepackage.exe`) and **standalone** (`carepackage_installer.exe`). The portable version is a single executable that doesn't require any installation. Standalone, on the other hand, is installed on the system.
+The latest version of CarePackage can be downloaded from the [releases](https://github.com/depthbomb/CarePackage/releases/latest).
 
-Functionally the two versions are the same but the standalone version will check for new releases of the application and has configurable settings.
-
-You find the latest download with the URL: `https://bit.ly/get-carepackage`
+Alternatively, you can use this URL: `https://bit.ly/get-carepackage`
 
 ### Planned Features
 
@@ -27,7 +25,7 @@ You find the latest download with the URL: `https://bit.ly/get-carepackage`
 
 ### Screenshots
 
-![The main window of CarePackage, showing the contents of the Creative tab](art/1.png "The main window of CarePackage, showing the contents of the Creative tab")
-![The main window of CarePackage, showing various programs selected in the Development tab](art/2.png "The main window of CarePackage, showing various programs selected in the Development tab")
-![The operation window of CarePackage, showing the pre-operation options as well as the pending programs](art/3.png "The operation window of CarePackage, showing the pre-operation options as well as the pending programs")
-![The operation window of CarePackage, showing a program being downloaded while the others are pending](art/4.png "The operation window of CarePackage, showing a program being downloaded while the others are pending")
+![The main window of CarePackage, showing all available programs uncategorized](art/1.png "The main window of CarePackage, showing all available programs uncategorized")
+![The main window of CarePackage, showing various programs selected in the Development category](art/2.png "The main window of CarePackage, showing various programs selected in the Development category")
+![The download options screen of CarePackage, showing the pre-operation options](art/3.png "The download options screen of CarePackage, showing the pre-operation options")
+![The download queue screen of CarePackage, showing some programs downloading while others are waiting in queue](art/4.png "The download queue screen of CarePackage, showing some programs downloading while others are waiting in queue")

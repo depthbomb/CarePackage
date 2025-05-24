@@ -1,5 +1,17 @@
-.idea/*
-.venv/*
-build/*
+build/
+release/
 
-*.pyc
+packages/bootloader
+
+node_modules/
+
+static/extra/*.asar
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.env.*

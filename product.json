@@ -1,0 +1,14 @@
+{
+	"version": "3.0.0",
+	"author": "Caprine Logic",
+	"nameLong": "CarePackage",
+	"applicationName": "carepackage",
+	"description": "Software management application",
+	"mutexName": "CarePackage",
+	"dirName": "CarePackage",
+	"appId": "{{46384CA4-0464-4E71-B636-A31B83585DFD}",
+	"clsid": "27D38DA5-634E-4725-B86E-D27AC9763BDE",
+	"appUserModelId": "CaprineLogic.CarePackage",
+	"urlProtocol": "carepackage",
+	"repoURL": "https://github.com/depthbomb/CarePackage"
+}

@@ -1,7 +1,3 @@
-﻿# 2.3.5.1
-
-- Updater will now skip prerelease versions
-
 # 2.3.5.0
 
 - Fixed failing to resolve download URL for _KeePass_

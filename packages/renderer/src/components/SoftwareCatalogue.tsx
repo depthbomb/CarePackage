@@ -30,7 +30,9 @@ export const SoftwareCatalogue: FC<SoftwareCatalogueProps> = ({ software }) => {
 	};
 
 	const onSelectAll = () => {
-		setSelectedSoftware(filteredSoftware);
+		setSelectedSoftware(p =>
+			[...p, ...filteredSoftware.filter(fs => !p.some(ps => ps.key === fs.key))]
+		);
 	};
 
 	const onDeselect = () => {

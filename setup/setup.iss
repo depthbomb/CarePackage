@@ -25,8 +25,6 @@ ArchitecturesAllowed=x64compatible
 MinVersion=10.0
 WizardStyle=modern
 WizardResizable=no
-WizardImageFile=.\images\Image_*.bmp
-WizardSmallImageFile=.\images\SmallImage_*.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

@@ -5,10 +5,6 @@
 			"path": "packages/app"
 		},
 		{
-			"name": "Bootloader",
-			"path": "packages/bootloader"
-		},
-		{
 			"name": "Renderer",
 			"path": "packages/renderer"
 		},

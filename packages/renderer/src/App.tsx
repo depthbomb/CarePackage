@@ -217,6 +217,11 @@ export const App = () => {
 							)}
 						</>
 					)}
+					{import.meta.env.DEV && (
+						<Button onClick={() => setSelectedSoftware(softwareDefinitions)} disabled={isWorking}>
+							<span>Select all</span>
+						</Button>
+					)}
 					{import.meta.env.DEV && <p className="shrink-0">DEBUG: Step #{step}</p>}
 					{updateAvailable && (
 						<Button onClick={onUpdateButtonClick} variant="brand" size="sm" className="ml-auto">

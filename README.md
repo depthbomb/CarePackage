@@ -21,7 +21,6 @@ Alternatively, you can use this URL: `https://bit.ly/get-carepackage`
 ### Planned Features
 
 - Selecting different "versions" of software to manage, for example instead of having two listings of _Godot_ for the normal version and the C# version, it will be a single listing that lets you choose which version to manage
-- The ability to text search software
 
 ### Screenshots
 

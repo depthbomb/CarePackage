@@ -12,7 +12,7 @@ import { useKeyCombo } from './hooks/useKeyCombo';
 import { DownloadQueue } from './components/DownloadQueue';
 import { DownloadOptions } from './components/DownloadOptions';
 import { SoftwareCatalogue } from './components/SoftwareCatalogue';
-import { mdiUpdate, mdiCancel, mdiRefresh, mdiSecurity, mdiArrowRight } from '@mdi/js';
+import { mdiUpdate, mdiCancel, mdiRefresh, mdiSecurity, mdiArrowRight, mdiResizeBottomRight } from '@mdi/js';
 
 import logo from '~/assets/img/logo.png';
 
@@ -218,6 +218,11 @@ export const App = () => {
 						</Button>
 					)}
 				</footer>
+			)}
+			{!windowMaximized && (
+				<div className="absolute right-0 bottom-0">
+					<Icon path={mdiResizeBottomRight} className="size-6 text-gray-600"/>
+				</div>
 			)}
 		</div>
 	);

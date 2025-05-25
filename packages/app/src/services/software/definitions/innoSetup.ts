@@ -1,5 +1,5 @@
-import { ok } from 'neverthrow';
-import { SoftwareCategory } from 'shared';
+import { ok, err } from 'neverthrow';
+import { DownloadUrlResolveError, SoftwareCategory } from 'shared';
 import type { ISoftwareDefinition } from 'shared';
 
 export default class implements ISoftwareDefinition {
@@ -8,13 +8,18 @@ export default class implements ISoftwareDefinition {
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'innosetup.exe';
 	public isArchive = false;
-	public shouldCacheUrl = false;
+	public shouldCacheUrl = true;
 	public requiresAdmin = false;
 	public deprecated = false;
 	public icon = 'inno-setup.png';
 	public homepage = 'https://jrsoftware.org/isinfo.php';
 
 	public async resolveDownloadUrl() {
-		return ok('https://jrsoftware.org/download.php/is.exe?site=1');
+		const res = await fetch('https://jrsoftware.org/download.php/is.exe?site=1');
+		if (!res.ok) {
+			return err(DownloadUrlResolveError.HTTPResponseError);
+		}
+
+		return ok(res.url);
 	}
 }

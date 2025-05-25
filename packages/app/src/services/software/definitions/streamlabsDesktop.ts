@@ -1,5 +1,5 @@
-import { ok } from 'neverthrow';
-import { SoftwareCategory } from 'shared';
+import { ok, err } from 'neverthrow';
+import { SoftwareCategory, DownloadUrlResolveError } from 'shared';
 import type { ISoftwareDefinition } from 'shared';
 
 export default class implements ISoftwareDefinition {
@@ -15,6 +15,11 @@ export default class implements ISoftwareDefinition {
 	public homepage = 'https://streamlabs.com/streamlabs-live-streaming-software';
 
 	public async resolveDownloadUrl() {
-		return ok('https://streamlabs.com/streamlabs-desktop/download?sdb=0');
+		const res = await fetch('https://streamlabs.com/streamlabs-desktop/download?sdb=0');
+		if (!res.ok) {
+			return err(DownloadUrlResolveError.HTTPResponseError);
+		}
+
+		return ok(res.url);
 	}
 }

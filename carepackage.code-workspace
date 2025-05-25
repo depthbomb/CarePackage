@@ -17,6 +17,10 @@
 			"path": "packages/shared"
 		},
 		{
+			"name": "Software Definitions",
+			"path": "packages/app/src/services/software/definitions"
+		},
+		{
 			"name": "Root",
 			"path": "."
 		}

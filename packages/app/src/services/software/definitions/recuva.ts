@@ -26,7 +26,7 @@ export default class implements ISoftwareDefinition {
 		}
 
 		const text               = await res.text();
-		const downloadUrlPattern = /https:\/\/download\.ccleaner\.com\/spsetup(\d){2,3}\.exe/;
+		const downloadUrlPattern = /https:\/\/download\.ccleaner\.com\/rcsetup(\d){2,3}\.exe/;
 		const match              = text.match(downloadUrlPattern);
 		if (!match) {
 			return err(DownloadUrlResolveError.Generic);
@@ -36,7 +36,7 @@ export default class implements ISoftwareDefinition {
 	}
 
 	private async getDownloadPageUrl() {
-		const res = await fetch('https://www.ccleaner.com/speccy/download/standard');
+		const res = await fetch('https://www.ccleaner.com/recuva/download/standard');
 		if (!res.ok) {
 			return null;
 		}

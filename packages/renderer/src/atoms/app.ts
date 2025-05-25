@@ -5,6 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 
 const isElevatedAtom          = atom<boolean>(false);
 const isWorkingAtom           = atom<boolean>(false);
+const hasErrorsAtom           = atom<boolean>(false);
 const updateAvailable         = atom<boolean>(false);
 const softwareDefinitionsAtom = atom<ISoftwareDefinition[]>([]);
 const selectedSoftwareAtom    = atom<ISoftwareDefinition[]>([]);
@@ -25,6 +26,7 @@ const resetOptionsAtom = atom(null, (_get, set) => {
 export const app = {
 	isElevatedAtom,
 	isWorkingAtom,
+	hasErrorsAtom,
 	updateAvailable,
 	softwareDefinitionsAtom,
 	selectedSoftwareAtom,

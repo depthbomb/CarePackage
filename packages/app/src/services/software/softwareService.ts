@@ -84,6 +84,16 @@ export class SoftwareService implements IBootstrappable {
 			this.downloadProgress++;
 			this.window.getMainWindow()?.setProgressBar(this.downloadProgressTotal === 0 ? 0 : this.downloadProgress / this.downloadProgressTotal, { mode: 'normal' });
 		});
+		this.aria2.events.on('downloadError', gid => {
+			if (this.aborted) {
+				return;
+			}
+
+			const software = this.gidToSoftwareMap.get(gid)!;
+			this.window.emitMain(IpcChannel.Software_DownloadError, software);
+			this.erroredSoftware.add(software);
+			this.gidToSoftwareMap.delete(gid);
+		});
 
 		this.ipc.registerHandler(IpcChannel.Software_GetDefinitions, () => this.definitions.values().toArray());
 		this.ipc.registerHandler(IpcChannel.Software_GetPreviousSelection, () => {
@@ -179,18 +189,22 @@ export class SoftwareService implements IBootstrappable {
 			return;
 		}
 
-		if (this.erroredSoftware.size > 0) {
+		const hasErrors = this.erroredSoftware.size > 0;
+		if (hasErrors) {
+			this.window.getMainWindow()?.setProgressBar(1, { mode: 'error' });
+
 			await dialog.showMessageBox({
 				type: 'error',
 				title: 'Error',
-				message: 'Some software failed to resolve to a valid download URL or failed to download entirely. Please try again later'
+				message: 'Some software failed to resolve to a valid download URL or failed to download entirely.\nPlease try again later. If the issue persists then please submit an issue on GitHub'
 			});
 		}
 
-		this.window.getMainWindow()?.setProgressBar(1, { mode: 'indeterminate' });
 		this.window.emitMain(IpcChannel.Software_DownloadsFinished);
 
 		if (!options.skipInstallation && !this.aborted) {
+			this.window.getMainWindow()?.setProgressBar(1, { mode: 'indeterminate' });
+
 			for (const software of softwares.filter(sw => !sw.isArchive)) {
 				if (this.aborted) {
 					break;
@@ -220,7 +234,7 @@ export class SoftwareService implements IBootstrappable {
 
 		this.window.getMainWindow()?.setProgressBar(0, { mode: 'none' });
 		this.window.getMainWindow()?.flashFrame(true);
-		this.window.emitMain(IpcChannel.Software_AllDone);
+		this.window.emitMain(IpcChannel.Software_AllDone, hasErrors);
 		this.working = false;
 	}
 

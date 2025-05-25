@@ -11,18 +11,19 @@ import { Titlebar } from './components/Titlebar';
 import { DownloadQueue } from './components/DownloadQueue';
 import { DownloadOptions } from './components/DownloadOptions';
 import { SoftwareCatalogue } from './components/SoftwareCatalogue';
-import { mdiUpdate, mdiCancel, mdiRefresh, mdiSecurity, mdiArrowRight, mdiResizeBottomRight } from '@mdi/js';
+import { mdiUpdate, mdiCancel, mdiRefresh, mdiSecurity, mdiArrowLeft, mdiArrowRight, mdiResizeBottomRight } from '@mdi/js';
 
 import logo from '~/assets/img/logo.png';
 
-// TODO major cleanup
+// TODO This is extremely messy and is due for a cleanup/restructuring.
 
 export const App = () => {
 	const [step, setStep]                               = useState(1);
 	const [loading, setLoading]                         = useState(true);
 	const [windowMaximized, setWindowMaximized]         = useState(false);
 	const [isElevated, setIsElevated]                   = useAtom(app.isElevatedAtom);
-	const [,setIsWorking]                               = useAtom(app.isWorkingAtom);
+	const [isWorking, setIsWorking]                     = useAtom(app.isWorkingAtom);
+	const [hasErrors, setHasErrors]                     = useAtom(app.hasErrorsAtom);
 	const [updateAvailable, setUpdateAvailable]         = useAtom(app.updateAvailable);
 	const [softwareDefinitions, setSoftwareDefinitions] = useAtom(app.softwareDefinitionsAtom);
 	const [selectedSoftware, setSelectedSoftware]       = useAtom(app.selectedSoftwareAtom);
@@ -92,21 +93,20 @@ export const App = () => {
 		setStep(p => p + 1);
 	};
 
-	const performSecondaryAction = async (fromKeybind: boolean = false) => {
+	const performSecondaryAction = async () => {
 		// Step 1 = Catalogue
 		// Step 2 = Options
 		// Step 3 = Download Queue
 
 		switch (step) {
 			case 1:
-				if (!fromKeybind) {
-					setSelectedSoftware([]);
-				}
+				setSelectedSoftware([]);
 				break;
 			case 2:
 				setStep(1);
 				break;
 			case 3:
+				setHasErrors(false);
 				setSelectedSoftware([]);
 				setStep(1);
 				await window.api.cancelDownload();
@@ -135,11 +135,10 @@ export const App = () => {
 	}, []);
 
 	useEffect(() => {
-		if (selectedSoftware.length === 0) {
+		if (!isWorking && !hasErrors) {
 			setStep(1);
-			setIsWorking(false);
 		}
-	}, [selectedSoftware]);
+	}, [isWorking, hasErrors]);
 
 	useEffect(() => {
 		if (!loading) {
@@ -186,25 +185,37 @@ export const App = () => {
 			)}
 			{!loading && (
 				<footer className="py-4 px-5 space-x-2 flex items-center">
-					<Button
-						variant="brand"
-						onClick={performPrimaryAction}
-						disabled={selectedSoftware.length === 0 || step === 3}
-					>
-						<span>Continue</span>
-						<Icon path={mdiArrowRight} className="size-4"/>
-					</Button>
-					{step === 1 && (
-						<Button onClick={() => performSecondaryAction(false)} disabled={selectedSoftware.length === 0}>
-							<Icon path={mdiRefresh} className="size-4"/>
-							<span>Reset</span>
+					{hasErrors ? (
+						<Button onClick={() => {
+							setHasErrors(false);
+							setSelectedSoftware([]);
+							setStep(1);
+						}}>
+							<Icon path={mdiArrowLeft} className="size-4"/>
+							<span>Return to catalogue</span>
 						</Button>
-					)}
-					{(step === 2 || step === 3) && (
-						<Button onClick={() => performSecondaryAction(false)} disabled={selectedSoftware.length === 0} variant="danger">
-							<Icon path={mdiCancel} className="size-4"/>
-							<span>Cancel</span>
-						</Button>
+					) : (
+						<>
+							<Button
+								variant="brand"
+								onClick={performPrimaryAction}
+								disabled={selectedSoftware.length === 0 || step === 3}>
+								<span>Continue</span>
+								<Icon path={mdiArrowRight} className="size-4"/>
+							</Button>
+							{step === 1 && (
+								<Button onClick={performSecondaryAction} disabled={selectedSoftware.length === 0}>
+									<Icon path={mdiRefresh} className="size-4"/>
+									<span>Reset</span>
+								</Button>
+							)}
+							{(step === 2 || step === 3) && (
+								<Button onClick={performSecondaryAction} disabled={selectedSoftware.length === 0} variant="danger">
+									<Icon path={mdiCancel} className="size-4"/>
+									<span>Cancel</span>
+								</Button>
+							)}
+						</>
 					)}
 					{import.meta.env.DEV && <p className="shrink-0">DEBUG: Step #{step}</p>}
 					{updateAvailable && (

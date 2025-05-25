@@ -53,7 +53,6 @@ export class Aria2Service implements IBootstrappable {
 
 		const maxConcurrentDownloads  = this.settings.get<number>(SettingsKey.Aria2_MaxConcurrentDownloads);
 		const maxDownloadLimit        = this.settings.get<string>(SettingsKey.Aria2_MaxDownloadLimit);
-		const maxConnectionsPerServer = this.settings.get<number>(SettingsKey.Aria2_MaxConnectionsPerServer);
 
 		this.proc = spawn(this.binaryPath, [
 			'--enable-rpc=true',
@@ -65,10 +64,11 @@ export class Aria2Service implements IBootstrappable {
 			'--allow-overwrite=true',
 			'--always-resume=false',
 			`--user-agent=${BROWSER_USER_AGENT}`,
+			'--max-connection-per-server=1',
+			'--file-allocation=none',
 			//
 			`--max-concurrent-downloads=${maxConcurrentDownloads}`,
 			`--max-overall-download-limit=${maxDownloadLimit}`,
-			`--max-connection-per-server=${maxConnectionsPerServer}`,
 		], { detached: true });
 
 		if (import.meta.env.DEV) {

@@ -5,7 +5,6 @@ export enum SettingsKey {
 	Aria2_MaxTries                = 'aria2_maxTries',
 	Aria2_MaxConcurrentDownloads  = 'aria2_maxConcurrentDownloads',
 	Aria2_MaxDownloadLimit        = 'aria2_maxDownloadLimit',
-	Aria2_MaxConnectionsPerServer = 'aria2_maxConnectionsPerServer',
 }
 
 export const SettingsKeys = Object.values(SettingsKey);

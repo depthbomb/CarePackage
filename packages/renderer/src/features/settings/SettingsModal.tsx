@@ -17,16 +17,15 @@ import { TitlebarButton } from '~/components/Titlebar/TitlebarButton';
 import type { FC, ChangeEvent } from 'react';
 
 export const SettingsModal: FC = () => {
-	const [show, setShow]                                       = useState(false);
-	const [totalFiles, setTotalFiles]                           = useState(0);
-	const [totalSize, setTotalSize]                             = useState(0);
-	const [sweepButtonDisabled, setSweepButtonDisabled]         = useState(true);
-	const [isWorking]                                           = useAtom(app.isWorkingAtom);
-	const [showCategoryBadges, setShowCategoryBadges]           = useSetting<boolean>(SettingsKey.UI_ShowCategoryBadges, { reactive: false });
-	const [maxTries, setMaxTries]                               = useSetting<number>(SettingsKey.Aria2_MaxTries, { reactive: false });
-	const [maxConcurrentDownloads, setMaxConcurrentDownloads]   = useSetting<number>(SettingsKey.Aria2_MaxConcurrentDownloads, { reactive: false });
-	const [maxDownloadLimit, setMaxDownloadLimit]               = useSetting<string>(SettingsKey.Aria2_MaxDownloadLimit);
-	const [maxConnectionsPerServer, setMaxConnectionsPerServer] = useSetting<number>(SettingsKey.Aria2_MaxConnectionsPerServer, { reactive: false });
+	const [show, setShow]                                     = useState(false);
+	const [totalFiles, setTotalFiles]                         = useState(0);
+	const [totalSize, setTotalSize]                           = useState(0);
+	const [sweepButtonDisabled, setSweepButtonDisabled]       = useState(true);
+	const [isWorking]                                         = useAtom(app.isWorkingAtom);
+	const [showCategoryBadges, setShowCategoryBadges]         = useSetting<boolean>(SettingsKey.UI_ShowCategoryBadges, { reactive: false });
+	const [maxTries, setMaxTries]                             = useSetting<number>(SettingsKey.Aria2_MaxTries, { reactive: false });
+	const [maxConcurrentDownloads, setMaxConcurrentDownloads] = useSetting<number>(SettingsKey.Aria2_MaxConcurrentDownloads, { reactive: false });
+	const [maxDownloadLimit, setMaxDownloadLimit]             = useSetting<string>(SettingsKey.Aria2_MaxDownloadLimit);
 
 	useEffect(() => {
 		if (!show) {
@@ -47,7 +46,6 @@ export const SettingsModal: FC = () => {
 		const { value } = e.target;
 		setMaxDownloadLimit(value);
 	};
-	const onMaxConnectionsPerServerInputChanged = (e: ChangeEvent<HTMLInputElement>) => setMaxConnectionsPerServer(parseInt(e.target.value));
 	const onSweepButtonClicked = async () => {
 		setSweepButtonDisabled(true);
 
@@ -99,11 +97,6 @@ export const SettingsModal: FC = () => {
 						<label>Max overall download speed</label>
 						<Input onChange={onMaxDownloadLimitInputChanged} value={maxDownloadLimit} type="text" className="w-full"/>
 						<p className="text-xs">Use <code>0</code> for unlimited. Examples: <code>100K</code>, <code>20M</code>, <code>1G</code>.</p>
-					</Fieldset>
-					<Fieldset>
-						<label>Max connections per download</label>
-						<Input onChange={onMaxConnectionsPerServerInputChanged} value={maxConnectionsPerServer} min={1} max={8} type="number" className="w-full"/>
-						<p className="text-xs">Setting this too high may result in rate limits while downloading.</p>
 					</Fieldset>
 				</SettingsSection>
 				<SettingsSection title="Cleanup">

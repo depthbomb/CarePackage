@@ -5,7 +5,6 @@ import { useSetting } from '~/hooks';
 import { Select } from './Input/Select';
 import { SoftwareRow } from './SoftwareRow';
 import { useState, useEffect } from 'react';
-import { useKeyCombo } from '~/hooks/useKeyCombo';
 import { SettingsKey, SoftwareCategory } from 'shared';
 import type { FC, ChangeEvent } from 'react';
 import type { Maybe, ISoftwareDefinition } from 'shared';
@@ -18,7 +17,7 @@ export const SoftwareCatalogue: FC<SoftwareCatalogueProps> = ({ software }) => {
 	const [searchedName, setSearchedName]         = useState('');
 	const [category, setCategory]                 = useState<Maybe<SoftwareCategory>>();
 	const [filteredSoftware, setFilteredSoftware] = useState<ISoftwareDefinition[]>(software);
-	const [selectedSoftware, setSelectedSoftware] = useAtom(app.selectedSoftwareAtom);
+	const [selectedSoftware]                      = useAtom(app.selectedSoftwareAtom);
 	const [showCategoryBadges]                    = useSetting<boolean>(SettingsKey.UI_ShowCategoryBadges, { reactive: true });
 
 	const onSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,19 +27,6 @@ export const SoftwareCatalogue: FC<SoftwareCatalogueProps> = ({ software }) => {
 	const onCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
 		setCategory(event.target.value as SoftwareCategory);
 	};
-
-	const onSelectAll = () => {
-		setSelectedSoftware(p =>
-			[...p, ...filteredSoftware.filter(fs => !p.some(ps => ps.key === fs.key))]
-		);
-	};
-
-	const onDeselect = () => {
-		setSelectedSoftware([]);
-	};
-
-	useKeyCombo({ key: 'a', ctrl: true }, onSelectAll);
-	useKeyCombo({ key: 'd', ctrl: true }, onDeselect);
 
 	useEffect(() => {
 		if (searchedName !== '') {
@@ -72,7 +58,7 @@ export const SoftwareCatalogue: FC<SoftwareCatalogueProps> = ({ software }) => {
 				</div>
 			) : (
 				<div className="size-full flex flex-col items-center justify-center">
-					<p className="text-8xl text-gray-700">¯\_(ツ)_/¯</p>
+					<p className="text-8xl text-gray-800">¯\_(ツ)_/¯</p>
 				</div>
 			)}
 		</div>

@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 import { Button } from './components/Button';
 import { Spinner } from './components/Spinner';
 import { Titlebar } from './components/Titlebar';
-import { useKeyCombo } from './hooks/useKeyCombo';
 import { DownloadQueue } from './components/DownloadQueue';
 import { DownloadOptions } from './components/DownloadOptions';
 import { SoftwareCatalogue } from './components/SoftwareCatalogue';
@@ -125,9 +124,6 @@ export const App = () => {
 
 		await window.api.openExternalUrl(releaseUrl);
 	};
-
-	useKeyCombo({ key: 'ENTER' }, performPrimaryAction);
-	useKeyCombo({ key: 'ESCAPE' }, () => performSecondaryAction(true));
 
 	useEffect(() => {
 		window.api.isElevated().then(setIsElevated);

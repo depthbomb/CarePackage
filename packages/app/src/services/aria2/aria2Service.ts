@@ -18,7 +18,11 @@ import type { IBootstrappable } from '~/common/IBootstrappable';
 
 @injectable()
 export class Aria2Service implements IBootstrappable {
-	public readonly events = mitt<{ downloadStarted: string; downloadCompleted: string; }>();
+	public readonly events = mitt<{
+		downloadStarted: string;
+		downloadError: string;
+		downloadCompleted: string;
+	}>();
 
 	private id: number                = 1;
 	private ws: Maybe<WebSocket>;
@@ -200,6 +204,9 @@ export class Aria2Service implements IBootstrappable {
 			switch (data.method) {
 				case 'aria2.onDownloadStart':
 					this.events.emit('downloadStarted', data.params[0].gid);
+					break;
+				case 'aria2.onDownloadError':
+					this.events.emit('downloadError', data.params[0].gid);
 					break;
 				case 'aria2.onDownloadComplete':
 					this.events.emit('downloadCompleted', data.params[0].gid);

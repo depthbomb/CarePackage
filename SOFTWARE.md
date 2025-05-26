@@ -4,6 +4,7 @@
 
 |  | Name | Is Archive? | Requires Admin? | Additional Categories |
 | :-: | --- | :-: | :-: | :-: |
+| ![AIMP](./static/extra/software-icons/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | ❌ | Media
 | ![Audacity](./static/extra/software-icons/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | ❌ | Media
 | ![Equalizer APO](./static/extra/software-icons/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔ | Utilities
 | ![foobar2000](./static/extra/software-icons/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Media
@@ -89,6 +90,7 @@
 | ![Sublime Text](./static/extra/software-icons/sublime-text.png "Sublime Text") | [Sublime Text](https://sublimetext.com) | ❌ | ❌ | None
 | ![Visual Studio Code](./static/extra/software-icons/visual-studio-code.png "Visual Studio Code") | [Visual Studio Code](https://code.visualstudio.com) | ❌ | ❌ | None
 | ![Visual Studio 2022 Community](./static/extra/software-icons/visual-studio-community.png "Visual Studio 2022 Community") | [Visual Studio 2022 Community](https://visualstudio.microsoft.com) | ❌ | ❌ | None
+| ![Windows App SDK](./static/extra/software-icons/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | ❌ | Runtimes
 
 ---
 
@@ -132,7 +134,9 @@
 | ![Dropbox](./static/extra/software-icons/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ | Utilities
 | ![FileZilla](./static/extra/software-icons/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, Network Tools
 | ![Git for Windows](./static/extra/software-icons/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ | Development
+| ![Jackett](./static/extra/software-icons/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | Utilities
 | ![MEGAsync](./static/extra/software-icons/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | Utilities
+| ![Motrix](./static/extra/software-icons/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | Utilities
 | ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | Network Tools, Utilities
 | ![Rufus](./static/extra/software-icons/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔ | Utilities
 | ![7-Zip](./static/extra/software-icons/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ | Utilities
@@ -190,6 +194,7 @@
 
 |  | Name | Is Archive? | Requires Admin? | Additional Categories |
 | :-: | --- | :-: | :-: | :-: |
+| ![AIMP](./static/extra/software-icons/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | ❌ | Audio & Sound
 | ![Audacity](./static/extra/software-icons/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | ❌ | Audio & Sound
 | ![darktable](./static/extra/software-icons/darktable.png "darktable") | [darktable](https://darktable.org) | ❌ | ✔ | Creative
 | ![foobar2000](./static/extra/software-icons/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Audio & Sound
@@ -248,7 +253,9 @@
 
 |  | Name | Is Archive? | Requires Admin? | Additional Categories |
 | :-: | --- | :-: | :-: | :-: |
+| ![Evernote](./static/extra/software-icons/evernote.png "Evernote") | [Evernote](https://evernote.com) | ❌ | ❌ | None
 | ![Joplin](./static/extra/software-icons/joplin.png "Joplin") | [Joplin](https://joplinapp.org) | ❌ | ❌ | None
+| ![LibreOffice](./static/extra/software-icons/libreoffice.png "LibreOffice") | [LibreOffice](https://libreoffice.org) | ❌ | ❌ | None
 | ![Obsidian](./static/extra/software-icons/obsidian.png "Obsidian") | [Obsidian](https://obsidian.md) | ❌ | ❌ | None
 | ![Thunderbird](./static/extra/software-icons/thunderbird.png "Thunderbird") | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Social
 
@@ -264,6 +271,7 @@
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./static/extra/software-icons/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | ❌ | None
 | ![Node.js](./static/extra/software-icons/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | ❌ | Development
 | ![Node.js (LTS)](./static/extra/software-icons/nodejs.png "Node.js (LTS)") | [Node.js (LTS)](https://nodejs.org) | ❌ | ❌ | Development
+| ![Windows App SDK](./static/extra/software-icons/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | ❌ | Development
 
 ---
 
@@ -291,6 +299,7 @@
 | ![TeamViewer](./static/extra/software-icons/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Utilities
 | ![Telegram](./static/extra/software-icons/telegram.png "Telegram") | [Telegram](https://telegram.org) | ❌ | ❌ | None
 | ![Thunderbird](./static/extra/software-icons/thunderbird.png "Thunderbird") | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Notes & Productivity
+| ![Trillian](./static/extra/software-icons/trillian.png "Trillian") | [Trillian](https://trillian.im) | ❌ | ❌ | None
 | ![Zoom Workplace](./static/extra/software-icons/zoom.png "Zoom Workplace") | [Zoom Workplace](https://zoom.us) | ❌ | ❌ | None
 | ![Zulip](./static/extra/software-icons/zulip.png "Zulip") | [Zulip](https://zulip.com) | ❌ | ❌ | None
 
@@ -315,10 +324,12 @@
 | ![Google Drive](./static/extra/software-icons/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | None
 | ![HandBrake](./static/extra/software-icons/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔ | Media
 | ![HWMonitor](./static/extra/software-icons/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | None
+| ![Jackett](./static/extra/software-icons/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | File Management
 | ![Lightshot](./static/extra/software-icons/lightshot.png "Lightshot") | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Media
 | ![MEGAsync](./static/extra/software-icons/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | File Management
 | ![Microsoft OneDrive](./static/extra/software-icons/microsoft-onedrive.png "Microsoft OneDrive") | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | None
 | ![Microsoft PowerToys (Preview)](./static/extra/software-icons/powertoys.png "Microsoft PowerToys (Preview)") | [Microsoft PowerToys (Preview)](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ | None
+| ![Motrix](./static/extra/software-icons/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | File Management
 | ![Oracle VirtualBox](./static/extra/software-icons/oracle-virtualbox.png "Oracle VirtualBox") | [Oracle VirtualBox](https://virtualbox.org) | ❌ | ✔ | None
 | ![PeaZip](./static/extra/software-icons/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | ❌ | None
 | ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | File Management, Network Tools

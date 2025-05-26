@@ -1,3 +1,20 @@
+# 3.1.0
+
+- Removed keybinds as they caused too many conflicts with other parts of the UI
+- Removed _Max connections per download_ option as changing it can cause issues when downloading from some sources
+- Improved handling of failed downloads
+- Fixed download URL resolving for the following software:
+  - _Inno Setup_
+  - _Streamlabs Desktop_
+- Added the following software:
+  - _AIMP_
+  - _Evernote_
+  - _Jackett_
+  - _LibreOffice_
+  - _Motrix_
+  - _Trillian_
+  - _Windows App SDK_
+
 # 3.0.0
 
 This release brings yet another complete rewrite of _CarePackage_ along with the following features:

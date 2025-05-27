@@ -122,11 +122,59 @@ Napi::Value IsElevatedWrapped(const Napi::CallbackInfo& info) {
     return Napi::Boolean::New(env, elevation.TokenIsElevated != 0);
 }
 
+Napi::Value RunAsAdminWrapped(const Napi::CallbackInfo& info) {
+    const Napi::Env env = info.Env();
+
+    if (info.Length() < 2 || !info[0].IsString() || !info[1].IsArray()) {
+        Napi::TypeError::New(env, "Expected arguments: (path: string, args: string[])").ThrowAsJavaScriptException();
+        return env.Null();
+    }
+
+    std::string exePathUtf8 = info[0].As<Napi::String>().Utf8Value();
+    const std::wstring exePathW(exePathUtf8.begin(), exePathUtf8.end());
+
+    const auto argsArray = info[1].As<Napi::Array>();
+    std::wstring argumentsW;
+
+    for (uint32_t i = 0; i < argsArray.Length(); ++i) {
+        if (!argsArray.Get(i).IsString()) {
+            Napi::TypeError::New(env, "All arguments in args array must be strings").ThrowAsJavaScriptException();
+            return env.Null();
+        }
+
+        std::string argUtf8 = argsArray.Get(i).As<Napi::String>().Utf8Value();
+        const std::wstring argW(argUtf8.begin(), argUtf8.end());
+
+        if (!argumentsW.empty()) {
+            argumentsW += L" ";
+        }
+
+        argumentsW += argW;
+    }
+
+    HINSTANCE result = ShellExecuteW(
+        nullptr,
+        L"runas",               // Run as admin
+        exePathW.c_str(),       // Executable path
+        argumentsW.c_str(),     // Arguments
+        nullptr,                // Default directory
+        SW_SHOWNORMAL           // Show the window normally
+    );
+
+    if (reinterpret_cast<INT_PTR>(result) <= 32) {
+        Napi::Error::New(env, "Failed to launch process as admin, error code: " + std::to_string(reinterpret_cast<INT_PTR>(result))).ThrowAsJavaScriptException();
+        return env.Null();
+    }
+
+    return env.Undefined();
+}
+
 Napi::Object Init(const Napi::Env env, const Napi::Object exports) {
     exports.Set(Napi::String::New(env, "exitWindows"), Napi::Function::New(env, ExitWindowsWrapped));
     exports.Set(Napi::String::New(env, "lockWorkStation"), Napi::Function::New(env, LockWorkStationWrapped));
     exports.Set(Napi::String::New(env, "scheduleShutdown"), Napi::Function::New(env, ScheduleShutdownWrapped));
     exports.Set(Napi::String::New(env, "isElevated"), Napi::Function::New(env, IsElevatedWrapped));
+    exports.Set(Napi::String::New(env, "runAsAdmin"), Napi::Function::New(env, RunAsAdminWrapped));
     return exports;
 }
 

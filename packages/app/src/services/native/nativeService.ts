@@ -34,4 +34,8 @@ export class NativeService {
 	public isElevated(): boolean {
 		return this.nativeLib.isElevated();
 	}
+
+	public runAsAdmin(path: string, args: string[] = []): boolean {
+		return this.nativeLib.runAsAdmin(path, args);
+	}
 }

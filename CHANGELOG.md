@@ -1,3 +1,7 @@
+# 3.1.1
+
+- Fixed restarting as administrator not persisting selected software
+
 # 3.1.0
 
 - Removed keybinds as they caused too many conflicts with other parts of the UI

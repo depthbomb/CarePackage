@@ -1,5 +1,6 @@
-import { spawn } from 'node:child_process';
+import { x } from 'tinyexec';
 import { injectable } from '@needle-di/core';
+import type { Output } from 'tinyexec';
 import type { ChildProcess } from 'node:child_process';
 
 @injectable()
@@ -29,22 +30,13 @@ export class InstallationService {
 			args.push(...this.silentArgs);
 		}
 
-		return new Promise<number>((res, rej) => {
-			let child: ChildProcess;
-			if (exePath.endsWith('.msi')) {
-				child = spawn('cmd.exe', ['/c', exePath, ...args]);
-			} else {
-				child = spawn(exePath, args);
-			}
+		let proc: Output;
+		if (exePath.endsWith('.msi')) {
+			proc = await x('cmd.exe', ['/c', exePath, ...args]);
+		} else {
+			proc = await x(exePath, args);
+		}
 
-			child.once('exit', code => {
-				console.log('process', exePath, 'exited with code', code);
-				res(code as number);
-			});
-			child.once('error', err => {
-				console.log('error executing process', exePath, '-', err);
-				rej(err);
-			});
-		});
+		return proc.exitCode ?? 0;
 	}
 }

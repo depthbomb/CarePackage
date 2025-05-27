@@ -59,7 +59,8 @@ export class MainService {
 		this.ipc.registerHandler(
 			IpcChannel.RestartAsElevated,
 			(_, softwareKeys: string[]) => {
-				app.relaunch({ args: [`--software ${softwareKeys.join(',')}`] });
+				this.mainWindow.browserWindow?.hide();
+				this.native.runAsAdmin(app.getPath('exe'), [`--software ${softwareKeys.join(',')}`]);
 				app.quit();
 			}
 		);

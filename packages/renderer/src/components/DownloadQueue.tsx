@@ -66,22 +66,30 @@ export const DownloadQueue: FC = () => {
 			updateSoftwareInQueue(software.key, () => ({ error: true, status: 'Download failed', spinner: false }));
 		});
 		onDownloadCompleted((software: ISoftwareDefinition) => {
-			updateSoftwareInQueue(
-				software.key,
-				() => ({
-					status: (skipInstallation || software.isArchive) ? 'Done' : 'Waiting for downloads to finish...',
-					spinner: false
-				})
-			);
+			if (skipInstallation) {
+				setSoftwareQueue(p => p.filter(s => s.key !== software.key));
+			} else {
+				updateSoftwareInQueue(
+					software.key,
+					() => ({
+						status: software.isArchive ? 'Done' : 'Waiting for downloads to finish...',
+						spinner: false
+					})
+				);
+			}
 		});
 		onDownloadsFinished(async () => {
 			if (skipInstallation) {
 				return;
 			}
 
-			for (const sw of softwareQueue.filter(sw => !sw.isArchive)) {
-				updateSoftwareInQueue(sw.key, () => ({ status: 'Waiting to install...', spinner: false }));
-			}
+			setSoftwareQueue(queue =>
+				queue.map(item => {
+					item.status = 'Waiting to install...';
+					item.spinner = false;
+					return { ...item };
+				})
+			);
 		});
 		onRunningExecutable((software: ISoftwareDefinition) => {
 			updateSoftwareInQueue(software.key, () => ({ status: `Waiting for ${software.downloadName} to exit...`, spinner: true }));

@@ -133,6 +133,8 @@ export class SoftwareService implements IBootstrappable {
 		this.gidToSoftwareMap.clear();
 		this.erroredSoftware.clear();
 
+		await this.aria2.startProcess(this.abort.signal);
+
 		for (const software of softwares) {
 			if (this.aborted) {
 				break;
@@ -181,6 +183,8 @@ export class SoftwareService implements IBootstrappable {
 		while (this.gidToSoftwareMap.keys().toArray().length > 0 && !this.aborted) {
 			await timeout(100);
 		}
+
+		await this.aria2.stopProcess();
 
 		if (this.aborted) {
 			this.working = false;
@@ -245,13 +249,9 @@ export class SoftwareService implements IBootstrappable {
 
 		this.aborted = true;
 		this.abort.abort();
-
-		await this.aria2.forcePauseAll();
-		for (const gid of this.gidToSoftwareMap.keys().toArray()) {
-			await this.aria2.forceRemove(gid);
-		}
-
 		this.gidToSoftwareMap.clear();
+
+		await this.aria2.stopProcess();
 	}
 
 	private performPostOperationAction(action: PostOperationAction) {

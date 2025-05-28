@@ -20,7 +20,8 @@ export const DownloadQueue: FC = () => {
 	const [,setHasErrors]                         = useAtom(app.hasErrorsAtom);
 	const [selectedSoftware, setSelectedSoftware] = useAtom(app.selectedSoftwareAtom);
 	const [skipInstallation]                      = useAtom(app.skipInstallationAtom);
-	const [softwareQueue, setSoftwareQueue]       = useState<QueuedSoftware[]>(selectedSoftware.map(sw => ({ ...sw, progress: 0, status: 'In queue' })));
+	const [softwareQueue, setSoftwareQueue]       = useState<QueuedSoftware[]>(selectedSoftware.map(sw => ({ ...sw, progress: 0, status: 'Waiting for download manager...' })));
+	const [onAria2Ready]                          = useIpc(IpcChannel.Aria2_Ready);
 	const [onResolvingDownloadUrl]                = useIpc(IpcChannel.Software_ResolvingDownloadUrl);
 	const [onUrlResolveError]                     = useIpc(IpcChannel.Software_UrlResolveError);
 	const [onResolvedDownloadUrl]                 = useIpc(IpcChannel.Software_ResolvedDownloadUrl);
@@ -41,6 +42,14 @@ export const DownloadQueue: FC = () => {
 	};
 
 	useEffect(() => {
+		onAria2Ready(() => {
+			setSoftwareQueue(queue =>
+				queue.map(item => {
+					item.status = 'In queue';
+					return { ...item };
+				})
+			);
+		});
 		onResolvingDownloadUrl((software: ISoftwareDefinition) => {
 			updateSoftwareInQueue(software.key, () => ({ status: 'Resolving download URL...', spinner: true }));
 		});

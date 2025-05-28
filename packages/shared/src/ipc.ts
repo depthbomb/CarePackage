@@ -16,6 +16,8 @@ export enum IpcChannel {
 	Settings_Set     = 'settings:set',
 	Settings_Reset   = 'settings:reset',
 	Settings_Changed = 'settings:changed',
+	// Aria2 channels
+	Aria2_Ready = 'aria2:ready',
 	// Software channels
 	Software_GetDefinitions       = 'software:get-definitions',
 	Software_GetPreviousSelection = 'software:get-previous-selection',

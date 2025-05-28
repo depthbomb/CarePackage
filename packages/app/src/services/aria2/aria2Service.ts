@@ -1,19 +1,19 @@
 import mitt from 'mitt';
-import { SettingsKey } from 'shared';
+import { x } from 'tinyexec';
 import { timeout } from '~/common/async';
 import { randomUUID } from 'node:crypto';
-import { spawn } from 'node:child_process';
 import { getExtraFilePath } from '~/utils';
 import { HttpService } from '~/services/http';
 import { findFreePort } from '~/common/ports';
 import { dirname, basename } from 'node:path';
+import { IpcChannel, SettingsKey } from 'shared';
+import { WindowService } from '~/services/window';
 import { inject, injectable } from '@needle-di/core';
 import { SettingsService } from '~/services/settings';
 import { LifecycleService } from '~/services/lifecycle';
 import { USER_AGENT, BROWSER_USER_AGENT } from '~/constants';
 import type { Maybe } from 'shared';
 import type { HttpClient } from '~/services/http';
-import type { ChildProcess } from 'node:child_process';
 import type { IBootstrappable } from '~/common/IBootstrappable';
 
 @injectable()
@@ -24,10 +24,10 @@ export class Aria2Service implements IBootstrappable {
 		downloadCompleted: string;
 	}>();
 
-	private id: number                = 1;
+	private id: number   = 1;
+	private port: number = 6800;
 	private ws: Maybe<WebSocket>;
-	private port: number              = 6800;
-	private proc: Maybe<ChildProcess> = undefined;
+	private proc: Maybe<ReturnType<typeof x>>;
 
 	private readonly client: HttpClient;
 	private readonly rpcSecret: string;
@@ -36,6 +36,7 @@ export class Aria2Service implements IBootstrappable {
 
 	public constructor(
 		private readonly lifecycle = inject(LifecycleService),
+		private readonly window    = inject(WindowService),
 		private readonly settings  = inject(SettingsService),
 		private readonly http      = inject(HttpService),
 	) {
@@ -46,45 +47,12 @@ export class Aria2Service implements IBootstrappable {
 	}
 
 	public async bootstrap() {
-		this.port = await findFreePort(this.port, 5, 5_000);
-		if (this.port === 0) {
-			throw new Error('Unable to find free port for aria2c');
-		}
-
-		const maxConcurrentDownloads  = this.settings.get<number>(SettingsKey.Aria2_MaxConcurrentDownloads);
-		const maxDownloadLimit        = this.settings.get<string>(SettingsKey.Aria2_MaxDownloadLimit);
-
-		this.proc = spawn(this.binaryPath, [
-			'--enable-rpc=true',
-			`--rpc-secret=${this.rpcSecret}`,
-			`--rpc-listen-port=${this.port}`,
-			'--rpc-listen-all=false',
-			'--rpc-allow-origin-all=true',
-			'--auto-file-renaming=false',
-			'--allow-overwrite=true',
-			'--always-resume=false',
-			`--user-agent=${BROWSER_USER_AGENT}`,
-			'--max-connection-per-server=1',
-			'--file-allocation=none',
-			//
-			`--max-concurrent-downloads=${maxConcurrentDownloads}`,
-			`--max-overall-download-limit=${maxDownloadLimit}`,
-		], { detached: true });
-
-		if (import.meta.env.DEV) {
-			this.proc.stdout?.on('data', data => {
-				const line = data.toString().trim();
-				if (line.length === 0) {
-					return;
-				}
-
-				console.debug(line);
-			});
-		}
-
 		this.lifecycle.events.on('shutdown', async () => {
-			await this.callMethod('aria2.forceShutdown');
-			this.proc?.kill();
+			if (this.proc && (!this.proc.killed || !this.proc.aborted)) {
+				await this.callMethod('aria2.forceShutdown');
+			}
+
+			this.stopProcess();
 		});
 
 		// Modify the download limit before saving it to valid it
@@ -115,8 +83,64 @@ export class Aria2Service implements IBootstrappable {
 
 			return number;
 		});
+	}
 
-		this.connectToWs();
+	public async startProcess(signal: AbortSignal) {
+		if (!this.proc?.killed || !this.proc?.aborted) {
+			await this.stopProcess();
+		}
+
+		this.port = await findFreePort(this.port, 5, 5_000);
+		if (this.port === 0) {
+			throw new Error('Unable to find free port for aria2c');
+		}
+
+		const maxConcurrentDownloads = this.settings.get<number>(SettingsKey.Aria2_MaxConcurrentDownloads);
+		const maxDownloadLimit       = this.settings.get<string>(SettingsKey.Aria2_MaxDownloadLimit);
+
+		this.proc = x(this.binaryPath, [
+			'--enable-rpc=true',
+			`--rpc-secret=${this.rpcSecret}`,
+			`--rpc-listen-port=${this.port}`,
+			'--rpc-listen-all=false',
+			'--rpc-allow-origin-all=true',
+			'--auto-file-renaming=false',
+			'--allow-overwrite=true',
+			'--always-resume=false',
+			`--user-agent=${BROWSER_USER_AGENT}`,
+			'--max-connection-per-server=1',
+			'--file-allocation=none',
+			//
+			`--max-concurrent-downloads=${maxConcurrentDownloads}`,
+			`--max-overall-download-limit=${maxDownloadLimit}`,
+		], {
+			signal,
+			nodeOptions: { detached: true }
+		});
+
+		if (import.meta.env.DEV) {
+			this.consumeOutput(this.proc);
+		}
+
+		await this.connectToWs();
+
+		this.window.emitMain(IpcChannel.Aria2_Ready);
+	}
+
+	public async stopProcess() {
+		if (this.proc?.killed) {
+			return;
+		}
+
+		this.proc?.kill();
+
+		return new Promise<void>(res => {
+			setInterval(() => {
+				if (!this.proc || this.proc.killed || this.proc.aborted) {
+					res();
+				}
+			}, 100);
+		});
 	}
 
 	public async addUri(uri: string[], destination: string, gid: string) {
@@ -159,6 +183,10 @@ export class Aria2Service implements IBootstrappable {
 	}
 
 	private async callMethod<T>(method: string, params: unknown[] = []) {
+		if (!this.proc || this.proc?.killed || this.proc?.aborted) {
+			return null;
+		}
+
 		try {
 			const payload = {
 				jsonrpc: '2.0',
@@ -189,15 +217,13 @@ export class Aria2Service implements IBootstrappable {
 
 			try {
 				const res = await this.callMethod<object>('aria2.getVersion');
-				connected = 'version' in res;
+				connected = !!res && 'version' in res;
 			} catch {}
 		}
 
 		this.ws = new WebSocket(`ws://localhost:${this.port}/jsonrpc`);
 		if (import.meta.env.DEV) {
-			this.ws.addEventListener('open', () => {
-				console.log('Connected to aria2 websocket');
-			});
+			this.ws.addEventListener('open', () => console.log('Connected to aria2 websocket'));
 		}
 		this.ws.addEventListener('message', e => {
 			const data = JSON.parse(e.data) as { method: string; params: any[]; };
@@ -213,5 +239,14 @@ export class Aria2Service implements IBootstrappable {
 					break;
 			}
 		});
+	}
+
+	private async consumeOutput(iterator: AsyncIterable<string>) {
+		for await (let line of iterator) {
+			line = line.trim();
+			if (line.length > 0) {
+				console.debug(line);
+			}
+		}
 	}
 }

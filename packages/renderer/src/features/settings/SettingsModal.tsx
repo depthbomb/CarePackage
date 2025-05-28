@@ -1,12 +1,11 @@
 import Icon from '@mdi/react';
 import { useAtom } from 'jotai';
+import { mdiCog } from '@mdi/js';
 import { app } from '~/atoms/app';
 import { useSetting } from '~/hooks';
 import { mdiTrashCan } from '@mdi/js';
-import { Alert } from '~/components/Alert';
 import { Modal } from '~/components/Modal';
 import { Input } from '~/components/Input';
-import { mdiCog, mdiAlert } from '@mdi/js';
 import { useState, useEffect } from 'react';
 import { Button } from '~/components/Button';
 import { Switch } from '~/components/Switch';
@@ -80,9 +79,6 @@ export const SettingsModal: FC = () => {
 					</Fieldset>
 				</SettingsSection>
 				<SettingsSection title="Downloads" divider>
-					<Alert icon={mdiAlert} variant="warning">
-						<p>Changes to these settings requires an app restart.</p>
-					</Alert>
 					<Fieldset>
 						<label>Max tries</label>
 						<Input onChange={onMaxTriesInputChanged} value={maxTries} min={0} type="number" className="w-full"/>

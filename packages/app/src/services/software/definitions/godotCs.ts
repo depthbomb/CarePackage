@@ -6,10 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'godot-cs';
 	public name = 'Godot (C# support)';
-	public category = [
-		SoftwareCategory.Creative,
-		SoftwareCategory.GameDevelopment,
-	];
+	public category = [SoftwareCategory.Creative, SoftwareCategory.GameDevelopment];
 	public downloadName = 'Godot-stable_mono_win64.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;

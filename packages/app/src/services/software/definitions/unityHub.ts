@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'unity-hub';
 	public name = 'Unity Hub';
-	public category = [
-		SoftwareCategory.Creative,
-		SoftwareCategory.GameDevelopment,
-	];
+	public category = [SoftwareCategory.Creative, SoftwareCategory.GameDevelopment];
 	public downloadName = 'UnityHubSetup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

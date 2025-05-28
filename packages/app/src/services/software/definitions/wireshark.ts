@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'wireshark';
 	public name = 'Wireshark';
-	public category = [
-		SoftwareCategory.Network,
-		SoftwareCategory.Utility,
-	];
+	public category = [SoftwareCategory.Network, SoftwareCategory.Utility];
 	public downloadName = 'Wireshark-x64.exe';
 	public isArchive = false;
 	public shouldCacheUrl = true;

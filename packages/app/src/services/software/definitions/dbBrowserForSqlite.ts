@@ -6,10 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'db-browser-for-sqlite';
 	public name = 'DB Browser for SQLite';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.Utility,
-	];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Utility];
 	public downloadName = 'DB.Browser.for.SQLite-win64.msi';
 	public isArchive = false;
 	public shouldCacheUrl = true;

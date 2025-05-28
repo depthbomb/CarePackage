@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'thunderbird';
 	public name = 'Thunderbird';
-	public category = [
-		SoftwareCategory.Productivity,
-		SoftwareCategory.Social,
-	];
+	public category = [SoftwareCategory.Productivity, SoftwareCategory.Social];
 	public downloadName = 'Thunderbird_Setup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = true;

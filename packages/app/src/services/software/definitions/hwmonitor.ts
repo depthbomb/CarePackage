@@ -5,7 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'hwmonitor';
 	public name = 'HWMonitor';
-	public category = [SoftwareCategory.Utility];
+	public category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'hwmonitor.exe';
 	public isArchive = false;
 	public shouldCacheUrl = true;

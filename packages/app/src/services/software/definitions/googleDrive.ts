@@ -5,7 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'google-drive';
 	public name = 'Google Drive';
-	public category = [SoftwareCategory.Utility];
+	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'GoogleDriveSetup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

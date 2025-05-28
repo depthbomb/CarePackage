@@ -5,11 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'qbittorrent';
 	public name = 'qBittorrent';
-	public category = [
-		SoftwareCategory.FileManagement,
-		SoftwareCategory.Network,
-		SoftwareCategory.Utility,
-	];
+	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Network, SoftwareCategory.Utility];
 	public downloadName = 'qbittorrent_x64_setup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

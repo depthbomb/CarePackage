@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'nodejs-lts';
 	public name = 'Node.js (LTS)';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.Runtime,
-	];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
 	public downloadName = 'node-lts-x64.msi';
 	public isArchive = false;
 	public shouldCacheUrl = true;

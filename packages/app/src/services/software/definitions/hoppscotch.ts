@@ -6,10 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'hoppscotch-desktop';
 	public name = 'Hoppscotch';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.Network,
-	];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Network];
 	public downloadName = 'Hoppscotch_win_x64.msi';
 	public isArchive = false;
 	public shouldCacheUrl = true;

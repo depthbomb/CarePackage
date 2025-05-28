@@ -6,7 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'peazip';
 	public name = 'PeaZip';
-	public category = [SoftwareCategory.Utility];
+	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'peazip.WIN64.exe';
 	public isArchive = false;
 	public shouldCacheUrl = true;

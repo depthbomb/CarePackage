@@ -5,7 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'microsoft-onedrive';
 	public name = 'Microsoft OneDrive';
-	public category = [SoftwareCategory.Utility];
+	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'OneDriveSetup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

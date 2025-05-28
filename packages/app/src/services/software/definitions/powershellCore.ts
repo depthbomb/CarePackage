@@ -6,7 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'powershell-core';
 	public name = 'PowerShell 7';
-	public category = [SoftwareCategory.Development];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Utility];
 	public downloadName = 'powershell-win-x64.msi';
 	public isArchive = false;
 	public shouldCacheUrl = true;

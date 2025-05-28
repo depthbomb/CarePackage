@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'winscp';
 	public name = 'WinSCP';
-	public category = [
-		SoftwareCategory.Network,
-		SoftwareCategory.Utility,
-	];
+	public category = [SoftwareCategory.Network, SoftwareCategory.Utility];
 	public downloadName = 'WinSCP-Setup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'insomnia';
 	public name = 'Insomnia';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.Network,
-	];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Network];
 	public downloadName = 'Insomnia.Core.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

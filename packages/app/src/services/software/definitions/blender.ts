@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'blender';
 	public name = 'Blender';
-	public category = [
-		SoftwareCategory.Creative,
-		SoftwareCategory.Modelling,
-	];
+	public category = [SoftwareCategory.Creative, SoftwareCategory.Modelling];
 	public downloadName = 'blender-windows-x64.msi';
 	public isArchive = false;
 	public shouldCacheUrl = true;

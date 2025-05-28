@@ -6,7 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'windirstat';
 	public name = 'WinDirStat';
-	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
+	public category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'WinDirStat-x64.msi';
 	public isArchive = false;
 	public shouldCacheUrl = true;

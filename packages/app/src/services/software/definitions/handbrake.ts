@@ -6,10 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'handbrake';
 	public name = 'HandBrake';
-	public category = [
-		SoftwareCategory.Media,
-		SoftwareCategory.Utility,
-	];
+	public category = [SoftwareCategory.Media, SoftwareCategory.Utility];
 	public downloadName = 'HandBrake-x86_64-Win_GUI.exe';
 	public isArchive = false;
 	public shouldCacheUrl = true;

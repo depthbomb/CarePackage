@@ -25,6 +25,7 @@ export enum SoftwareCategory {
 	Runtime = 'Runtimes',
 	Security = 'Security',
 	Social = 'Social',
+	SystemManagement = 'System Management',
 	Utility = 'Utilities',
 }
 

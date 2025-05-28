@@ -5,7 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'system-informer';
 	public name = 'System Informer';
-	public category = [SoftwareCategory.Utility];
+	public category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'systeminformer-setup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

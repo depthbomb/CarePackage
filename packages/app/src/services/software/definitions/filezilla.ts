@@ -6,11 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'filezilla';
 	public name = 'FileZilla';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.FileManagement,
-		SoftwareCategory.Network,
-	];
+	public category = [SoftwareCategory.Development, SoftwareCategory.FileManagement, SoftwareCategory.Network];
 	public downloadName = 'FileZilla_win64-setup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

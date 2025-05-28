@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'postman';
 	public name = 'Postman';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.Network,
-	];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Network];
 	public downloadName = 'Postman-win64-Setup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

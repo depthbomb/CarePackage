@@ -1,3 +1,13 @@
+# 3.2.0
+
+- Fixed the settings button being disabled after cancelling an operation
+- Fixed download URL failing to resolve for _FileZilla_
+- Download-related settings no longer require an app restart to apply
+- Downloaded software is removed from the queue when opting to skip installation
+- Update link now leads to the original URL rather than going through bit.ly
+- Added the new _System Management_ category
+- Added _CCleaner_
+
 # 3.1.1
 
 - Fixed restarting as administrator not persisting selected software
@@ -27,11 +37,11 @@ This release brings yet another complete rewrite of _CarePackage_ along with the
 - Added UWP visual elements
 - You can now search for software by text
 - Filtering by category is now done via a selection box rather than tabs
-- Added hotkeys:
-  - `CTRL+A` selects all software currently displayed in the catalogue
-  - `CTRL+D` deselects all selected software
-  - `ENTER` proceeds to the next step
-  - `ESCAPE` cancels the download and installation process
+- ~~Added hotkeys:~~
+  - ~~`CTRL+A` selects all software currently displayed in the catalogue~~
+  - ~~`CTRL+D` deselects all selected software~~
+  - ~~`ENTER` proceeds to the next step~~
+  - ~~`ESCAPE` cancels the download and installation process~~
 - Extra info about software, such as being able to visit their homepage, can now be accessed by right-clicking them
 - The number of selected software is now displayed
 - Installation options and download queue are now part of the main window
@@ -44,7 +54,7 @@ This release brings yet another complete rewrite of _CarePackage_ along with the
 - Added an option to control how many attempts will be made to download a file
 - Added an option to control how many files are downloaded concurrently
 - Added an option to control the file download speed
-- Added an option to control the maximum connections per for each download
+- ~~Added an option to control the maximum connections per for each download~~
 - Software can now be in multiple categories
 - The categories that each software belongs to is now shown in its row
 - Added the following new categories:

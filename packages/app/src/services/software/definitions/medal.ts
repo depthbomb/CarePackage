@@ -5,10 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'medal';
 	public name = 'Medal';
-	public category = [
-		SoftwareCategory.Gaming,
-		SoftwareCategory.Social,
-	];
+	public category = [SoftwareCategory.Gaming, SoftwareCategory.Social];
 	public downloadName = 'MedalSetup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = false;

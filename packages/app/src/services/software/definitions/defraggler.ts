@@ -5,7 +5,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'defraggler';
 	public name = 'Defraggler';
-	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
+	public category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'dfsetup.exe';
 	public isArchive = false;
 	public shouldCacheUrl = true;

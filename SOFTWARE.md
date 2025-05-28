@@ -82,7 +82,7 @@
 | ![Notepad++](./static/extra/software-icons/notepad-plus-plus.png "Notepad++") | [Notepad++](https://notepad-plus-plus.org) | ❌ | ✔ | None
 | ![NSIS](./static/extra/software-icons/nsis.png "NSIS") | [NSIS](https://nsis.sourceforge.io/Download) | ❌ | ✔ | None
 | ![Postman](./static/extra/software-icons/postman.png "Postman") | [Postman](https://postman.com) | ❌ | ❌ | Network Tools
-| ![PowerShell 7](./static/extra/software-icons/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | None
+| ![PowerShell 7](./static/extra/software-icons/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | Utilities
 | ![Python 3.12.x](./static/extra/software-icons/python.png "Python 3.12.x") | [Python 3.12.x](https://python.org) | ❌ | ❌ | None
 | ![Python 3.13.x](./static/extra/software-icons/python.png "Python 3.13.x") | [Python 3.13.x](https://python.org) | ❌ | ❌ | None
 | ![Qt](./static/extra/software-icons/qt.png "Qt") | [Qt](https://qt.io/download-open-source) | ❌ | ❌ | None
@@ -130,18 +130,22 @@
 
 |  | Name | Is Archive? | Requires Admin? | Additional Categories |
 | :-: | --- | :-: | :-: | :-: |
-| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | Utilities
+| ![CCleaner](./static/extra/software-icons/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔ | System Management, Utilities
+| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | System Management, Utilities
 | ![Dropbox](./static/extra/software-icons/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ | Utilities
 | ![FileZilla](./static/extra/software-icons/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, Network Tools
 | ![Git for Windows](./static/extra/software-icons/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ | Development
+| ![Google Drive](./static/extra/software-icons/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | Utilities
 | ![Jackett](./static/extra/software-icons/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | Utilities
 | ![MEGAsync](./static/extra/software-icons/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | Utilities
+| ![Microsoft OneDrive](./static/extra/software-icons/microsoft-onedrive.png "Microsoft OneDrive") | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | Utilities
 | ![Motrix](./static/extra/software-icons/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | Utilities
+| ![PeaZip](./static/extra/software-icons/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | ❌ | Utilities
 | ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | Network Tools, Utilities
 | ![Rufus](./static/extra/software-icons/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔ | Utilities
 | ![7-Zip](./static/extra/software-icons/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ | Utilities
 | ![TeraCopy](./static/extra/software-icons/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | Utilities
-| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | Utilities
+| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | System Management, Utilities
 | ![WinRAR](./static/extra/software-icons/winrar.png "WinRAR") | [WinRAR](https://win-rar.com) | ❌ | ❌ | Utilities
 
 ---
@@ -305,6 +309,20 @@
 
 ---
 
+## System Management
+
+|  | Name | Is Archive? | Requires Admin? | Additional Categories |
+| :-: | --- | :-: | :-: | :-: |
+| ![CCleaner](./static/extra/software-icons/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔ | File Management, Utilities
+| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management, Utilities
+| ![HWMonitor](./static/extra/software-icons/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | Utilities
+| ![Recuva](./static/extra/software-icons/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | Utilities
+| ![Speccy](./static/extra/software-icons/speccy.png "Speccy") | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | Utilities
+| ![System Informer](./static/extra/software-icons/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | Utilities
+| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, Utilities
+
+---
+
 ## Utilities
 
 |  | Name | Is Archive? | Requires Admin? | Additional Categories |
@@ -312,38 +330,40 @@
 | ![AutoHotKey](./static/extra/software-icons/autohotkey.png "AutoHotKey") | [AutoHotKey](https://autohotkey.com) | ❌ | ❌ | None
 | ![balenaEtcher](./static/extra/software-icons/balenaetcher.png "balenaEtcher") | [balenaEtcher](https://etcher.io) | ❌ | ❌ | None
 | ![Caesium Image Compressor](./static/extra/software-icons/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | ❌ | None
+| ![CCleaner](./static/extra/software-icons/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔ | File Management, System Management
 | ![Cheat Engine](./static/extra/software-icons/cheat-engine.png "Cheat Engine") | [Cheat Engine](https://cheatengine.org) | ❌ | ❌ | Gaming
 | ![CPU-Z (Classic)](./static/extra/software-icons/cpuz.png "CPU-Z (Classic)") | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | ❌ | None
 | ![DB Browser for SQLite](./static/extra/software-icons/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ | Development
-| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management
+| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management, System Management
 | ![Display Driver Uninstaller](./static/extra/software-icons/ddu.png "Display Driver Uninstaller") | [Display Driver Uninstaller](https://guru3d.com/download/display-driver-uninstaller-download) | ✔ | ❌ | None
 | ![dnSpy (Fork)](./static/extra/software-icons/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔ | ❌ | Development
 | ![Dropbox](./static/extra/software-icons/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ | File Management
 | ![Equalizer APO](./static/extra/software-icons/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔ | Audio & Sound
 | ![GlassWire](./static/extra/software-icons/glasswire.png "GlassWire") | [GlassWire](https://glasswire.com) | ❌ | ✔ | Network Tools
-| ![Google Drive](./static/extra/software-icons/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | None
+| ![Google Drive](./static/extra/software-icons/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | File Management
 | ![HandBrake](./static/extra/software-icons/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔ | Media
-| ![HWMonitor](./static/extra/software-icons/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | None
+| ![HWMonitor](./static/extra/software-icons/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | System Management
 | ![Jackett](./static/extra/software-icons/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | File Management
 | ![Lightshot](./static/extra/software-icons/lightshot.png "Lightshot") | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Media
 | ![MEGAsync](./static/extra/software-icons/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | File Management
-| ![Microsoft OneDrive](./static/extra/software-icons/microsoft-onedrive.png "Microsoft OneDrive") | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | None
+| ![Microsoft OneDrive](./static/extra/software-icons/microsoft-onedrive.png "Microsoft OneDrive") | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | File Management
 | ![Microsoft PowerToys (Preview)](./static/extra/software-icons/powertoys.png "Microsoft PowerToys (Preview)") | [Microsoft PowerToys (Preview)](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ | None
 | ![Motrix](./static/extra/software-icons/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | File Management
 | ![Oracle VirtualBox](./static/extra/software-icons/oracle-virtualbox.png "Oracle VirtualBox") | [Oracle VirtualBox](https://virtualbox.org) | ❌ | ✔ | None
-| ![PeaZip](./static/extra/software-icons/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | ❌ | None
+| ![PeaZip](./static/extra/software-icons/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | ❌ | File Management
+| ![PowerShell 7](./static/extra/software-icons/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | Development
 | ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | File Management, Network Tools
 | ![Rainmeter](./static/extra/software-icons/rainmeter.png "Rainmeter") | [Rainmeter](https://rainmeter.net) | ❌ | ❌ | None
 | ![Raspberry Pi Imager](./static/extra/software-icons/raspberry-pi-imager.png "Raspberry Pi Imager") | [Raspberry Pi Imager](https://raspberrypi.com/software) | ❌ | ✔ | None
-| ![Recuva](./static/extra/software-icons/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | None
+| ![Recuva](./static/extra/software-icons/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | System Management
 | ![Rufus](./static/extra/software-icons/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔ | File Management
 | ![7-Zip](./static/extra/software-icons/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ | File Management
 | ![ShareX](./static/extra/software-icons/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | ❌ | Media
-| ![Speccy](./static/extra/software-icons/speccy.png "Speccy") | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | None
-| ![System Informer](./static/extra/software-icons/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | None
+| ![Speccy](./static/extra/software-icons/speccy.png "Speccy") | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | System Management
+| ![System Informer](./static/extra/software-icons/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | System Management
 | ![TeamViewer](./static/extra/software-icons/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Social
 | ![TeraCopy](./static/extra/software-icons/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | File Management
-| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management
+| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, System Management
 | ![WinRAR](./static/extra/software-icons/winrar.png "WinRAR") | [WinRAR](https://win-rar.com) | ❌ | ❌ | File Management
 | ![WinSCP](./static/extra/software-icons/winscp.png "WinSCP") | [WinSCP](https://winscp.net) | ❌ | ❌ | Network Tools
 | ![Wireshark](./static/extra/software-icons/wireshark.png "Wireshark") | [Wireshark](https://wireshark.org) | ❌ | ✔ | Network Tools

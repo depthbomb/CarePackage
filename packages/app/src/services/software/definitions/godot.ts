@@ -6,10 +6,7 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'godot';
 	public name = 'Godot';
-	public category = [
-		SoftwareCategory.Creative,
-		SoftwareCategory.GameDevelopment,
-	];
+	public category = [SoftwareCategory.Creative, SoftwareCategory.GameDevelopment];
 	public downloadName = 'Godot-stable_win64.exe.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;

@@ -16,8 +16,6 @@ What CarePackage **DOESN'T DO**
 
 The latest version of CarePackage can be downloaded from the [releases](https://github.com/depthbomb/CarePackage/releases/latest).
 
-Alternatively, you can use this URL: `https://bit.ly/get-carepackage`
-
 ### Planned Features
 
 - Selecting different "versions" of software to manage, for example instead of having two listings of _Godot_ for the normal version and the C# version, it will be a single listing that lets you choose which version to manage

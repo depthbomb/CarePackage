@@ -115,14 +115,7 @@ export const App = () => {
 	};
 
 	const onUpdateButtonClick = async () => {
-		let releaseUrl: string;
-		if (import.meta.env.DEV) {
-			releaseUrl = 'https://github.com/depthbomb/CarePackage/releases/latest';
-		} else {
-			releaseUrl = 'https://bit.ly/get-carepackage';
-		}
-
-		await window.api.openExternalUrl(releaseUrl);
+		await window.api.openExternalUrl('https://github.com/depthbomb/CarePackage/releases/latest');
 	};
 
 	useEffect(() => {

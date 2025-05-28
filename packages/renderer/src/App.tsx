@@ -112,6 +112,8 @@ export const App = () => {
 				await window.api.cancelDownload();
 				break;
 		}
+
+		setIsWorking(false);
 	};
 
 	const onUpdateButtonClick = async () => {

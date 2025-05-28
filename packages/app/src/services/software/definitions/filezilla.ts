@@ -23,7 +23,8 @@ export default class implements ISoftwareDefinition {
 		const res = await fetch('https://filezilla-project.org/download.php?show_all=1', {
 			headers: {
 				'user-agent': BROWSER_USER_AGENT,
-				'accept': '*/*'
+				'accept': '*/*',
+				'referer': 'https://filezilla-project.org'
 			}
 		});
 		if (!res.ok) {

@@ -25,7 +25,7 @@
 		"packages/shared"
 	],
 	"devDependencies": {
-		"@types/node": "^22.15.23",
+		"@types/node": "^22.15.24",
 		"cross-env": "^7.0.3",
 		"electron-builder": "26.0.15",
 		"node-gyp": "^11.2.0",

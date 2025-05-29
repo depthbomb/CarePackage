@@ -28,7 +28,7 @@ export const AboutModal: FC = () => {
 				}/>
 			}>
 			<div className="space-y-4 flex flex-col">
-				<p>CarePackage is a desktop application for Windows 10/11 heavily inspired by <Anchor href="https://ninite.com" target="_blank">Ninite</Anchor> that makes it quick and easy to download and install all of your favorite programs at once.</p>
+				<p>CarePackage is a desktop application for Windows 10/11 heavily inspired by <Anchor href="https://ninite.com" target="_blank">Ninite</Anchor> that makes it quick and easy to download and install all of your favorite software at once.</p>
 				<p>CarePackage's intended use case is to be used on a new installation of Windows, but of course you can use it however you'd like!</p>
 				<div className="mt-auto space-x-4">
 					<Anchor href="https://github.com/depthbomb/CarePackage" target="_blank">GitHub</Anchor>

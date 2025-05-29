@@ -2,7 +2,7 @@ import cx from 'clsx/lite';
 import Icon from '@mdi/react';
 import { mdiClose } from '@mdi/js';
 import { createPortal } from 'react-dom';
-import { useId, useRef, useState, useEffect, forwardRef, cloneElement, useImperativeHandle } from 'react';
+import { useId, useState, useEffect, forwardRef, cloneElement, useImperativeHandle } from 'react';
 import type { JSX, ReactNode } from 'react';
 
 export type ModalProps = {
@@ -39,16 +39,12 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(({
 	const key = useId();
 	const [isVisible, setIsVisible] = useState(false);
 
-	const triggerElement = useRef(
-		!!trigger &&
-			cloneElement(trigger, {
-				id: key,
-				onClick: () => onVisibilityChange?.(true),
-			})
-	);
-
-	const contentCss = cx(contentBaseCss, isVisible && 'scale-[1] opacity-100');
-	const overlayCss = cx(overlayBaseCss, isVisible && 'opacity-100');
+	const contentCss     = cx(contentBaseCss, isVisible && 'scale-[1] opacity-100');
+	const overlayCss     = cx(overlayBaseCss, isVisible && 'opacity-100');
+	const triggerElement = !!trigger && cloneElement(trigger, {
+		id: key,
+		onClick: () => onVisibilityChange?.(true),
+	});
 
 	const closeModal = () => {
 		if (!canClose) return;
@@ -65,7 +61,7 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(({
 
 	return (
 		<>
-			{triggerElement.current}
+			{triggerElement}
 			{shown &&
 				createPortal(
 					<div

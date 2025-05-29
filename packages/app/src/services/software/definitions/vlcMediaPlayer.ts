@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'VLC Media Player';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Media];
 	public downloadName = 'vlc-win64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'vlc-media-player.png';
 	public homepage = 'https://videolan.org';
 

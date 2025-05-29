@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'LibreWolf';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'librewolf-windows-x86_64-setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'librewolf.png';
 	public homepage = 'https://librewolf.net';
 

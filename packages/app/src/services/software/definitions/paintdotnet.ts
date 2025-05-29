@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'Paint.NET.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'paintdotnet.png';
 	public homepage = 'https://getpaint.net';
 

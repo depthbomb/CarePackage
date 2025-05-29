@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'AIMP';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Media];
 	public downloadName = 'aimp_w64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'aimp.png';
 	public homepage = 'https://aimp.ru';
 

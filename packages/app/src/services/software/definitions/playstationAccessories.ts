@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'PlayStation Accessories';
 	public category = [SoftwareCategory.Gaming, SoftwareCategory.Peripheral];
 	public downloadName = 'PlayStationAccessoriesInstaller.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'playstation-accessories.png';
 	public homepage = 'https://controller.dl.playstation.net/controller/lang/en/2100004.html';
 

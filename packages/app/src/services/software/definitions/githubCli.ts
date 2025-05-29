@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'GitHub CLI';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'gh_windows_amd64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'github.png';
 	public homepage = 'https://cli.github.com';
 

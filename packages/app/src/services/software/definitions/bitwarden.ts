@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Bitwarden';
 	public category = [SoftwareCategory.Security];
 	public downloadName = 'Bitwarden-Installer.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'bitwarden.png';
 	public homepage = 'https://bitwarden.com';
 

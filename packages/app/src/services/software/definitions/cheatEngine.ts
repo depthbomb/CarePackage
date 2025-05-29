@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Cheat Engine';
 	public category = [SoftwareCategory.Gaming, SoftwareCategory.Utility];
 	public downloadName = 'CheatEngine.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'cheat-engine.png';
 	public homepage = 'https://cheatengine.org';
 

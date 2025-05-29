@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Visual Studio Code';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'VSCodeUserSetup-x64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'visual-studio-code.png';
 	public homepage = 'https://code.visualstudio.com';
 

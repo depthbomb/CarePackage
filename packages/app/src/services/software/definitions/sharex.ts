@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'ShareX';
 	public category = [SoftwareCategory.Media, SoftwareCategory.Utility];
 	public downloadName = 'ShareX-setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'sharex.png';
 	public homepage = 'https://getsharex.com';
 

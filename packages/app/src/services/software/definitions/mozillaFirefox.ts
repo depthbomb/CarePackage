@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Mozilla Firefox';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'Firefox Installer.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'mozilla-firefox.png';
 	public homepage = 'https://mozilla.org/firefox';
 

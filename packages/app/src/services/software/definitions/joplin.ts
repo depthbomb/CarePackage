@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Joplin';
 	public category = [SoftwareCategory.Productivity];
 	public downloadName = 'Joplin-Setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'joplin.png';
 	public homepage = 'https://joplinapp.org';
 

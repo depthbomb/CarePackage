@@ -9,8 +9,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'rpcs3-build-win64.7z';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'rpcs3.png';
 	public homepage = 'https://rpcs3.net';
 

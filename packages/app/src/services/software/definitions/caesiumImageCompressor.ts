@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Caesium Image Compressor';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'caesium-image-compressor-win-setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'caesium-image-compressor.png';
 	public homepage = 'https://saerasoft.com/caesium';
 

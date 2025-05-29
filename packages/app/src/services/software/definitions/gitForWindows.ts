@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Git for Windows';
 	public category = [SoftwareCategory.Development, SoftwareCategory.FileManagement];
 	public downloadName = 'Git-64-bit.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'git.png';
 	public homepage = 'https://git-scm.com';
 

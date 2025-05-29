@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Motrix';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'Motrix-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'motrix.png';
 	public homepage = 'https://motrix.app';
 

@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'dnSpy-net-win64.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'dnspy.png';
 	public homepage = 'https://github.com/dnSpyEx/dnSpy';
 

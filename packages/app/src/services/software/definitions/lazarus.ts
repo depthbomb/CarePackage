@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Lazarus';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'lazarus-fpc-win64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'lazarus.png';
 	public homepage = 'https://lazarus-ide.org';
 

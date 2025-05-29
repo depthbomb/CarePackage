@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'PuTTY';
 	public category = [SoftwareCategory.Network];
 	public downloadName = 'putty-64bit-installer.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'putty.png';
 	public homepage = 'https://putty.org';
 

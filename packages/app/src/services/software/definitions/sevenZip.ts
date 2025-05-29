@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = '7-Zip';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = '7zSetup.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = '7zip.png';
 	public homepage = 'https://7-zip.org';
 

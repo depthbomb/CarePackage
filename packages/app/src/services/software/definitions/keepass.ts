@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'KeePass';
 	public category = [SoftwareCategory.Security];
 	public downloadName = 'KeePass-Setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'keepass.png';
 	public homepage = 'https://keepass.info';
 

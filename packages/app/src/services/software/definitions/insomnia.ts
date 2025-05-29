@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Insomnia';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Network];
 	public downloadName = 'Insomnia.Core.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'insomnia.png';
 	public homepage = 'https://insomnia.rest';
 

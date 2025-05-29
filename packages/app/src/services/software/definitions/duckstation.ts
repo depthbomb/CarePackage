@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'duckstation-windows-x64-release.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'duckstation.png';
 	public homepage = 'https://duckstation.org';
 

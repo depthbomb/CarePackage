@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Microsoft Edge WebView2 Runtime';
 	public category = [SoftwareCategory.Runtime];
 	public downloadName = 'MicrosoftEdgeWebview2Setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'microsoft-edge-webview2-runtime.png';
 	public homepage = 'https://developer.microsoft.com/en-us/microsoft-edge/webview2';
 

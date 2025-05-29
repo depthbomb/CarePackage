@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Apache NetBeans';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'Apache-NetBeans.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'apache-netbeans.png';
 	public homepage = 'https://netbeans.apache.org';
 

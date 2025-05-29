@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'WinRAR';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'WinRAR.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'winrar.png';
 	public homepage = 'https://win-rar.com';
 

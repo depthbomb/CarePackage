@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Elgato Stream Deck';
 	public category = [SoftwareCategory.Peripheral];
 	public downloadName = 'Stream_Deck.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'elgato-stream-deck.png';
 	public homepage = 'https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes';
 

@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'TeraCopy';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'teracopy.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'teracopy.png';
 	public homepage = 'https://codesector.com/teracopy';
 

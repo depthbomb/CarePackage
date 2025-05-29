@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'TeamViewer';
 	public category = [SoftwareCategory.Social, SoftwareCategory.Utility];
 	public downloadName = 'TeamViewer_Setup_x64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'teamviewer.png';
 	public homepage = 'https://teamviewer.com';
 

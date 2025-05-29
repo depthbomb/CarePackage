@@ -14,8 +14,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'flutter_windows_stable.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'flutter.png';
 	public homepage = 'https://docs.flutter.dev';
 

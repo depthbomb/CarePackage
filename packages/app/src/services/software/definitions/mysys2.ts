@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'MSYS2';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'msys-x86_64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'msys2.png';
 	public homepage = 'https://msys2.org';
 

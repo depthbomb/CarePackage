@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'itch';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'itch-setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'itch.png';
 	public homepage = 'https://itch.io/app';
 

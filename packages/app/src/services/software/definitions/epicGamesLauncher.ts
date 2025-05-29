@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Epic Games Launcher';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'EpicGamesLauncherInstaller.msi';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'epic-games-launcher.png';
 	public homepage = 'https://store.epicgames.com';
 

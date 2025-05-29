@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Raspberry Pi Imager';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'imager_latest.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'raspberry-pi-imager.png';
 	public homepage = 'https://raspberrypi.com/software';
 

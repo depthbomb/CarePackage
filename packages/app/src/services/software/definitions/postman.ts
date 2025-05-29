@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Postman';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Network];
 	public downloadName = 'Postman-win64-Setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'postman.png';
 	public homepage = 'https://postman.com';
 

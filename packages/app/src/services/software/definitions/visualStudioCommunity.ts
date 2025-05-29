@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Visual Studio 2022 Community';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'VisualStudioSetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'visual-studio-community.png';
 	public homepage = 'https://visualstudio.microsoft.com';
 

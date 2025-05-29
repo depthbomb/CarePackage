@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'PeaZip';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'peazip.WIN64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'peazip.png';
 	public homepage = 'https://peazip.github.io';
 

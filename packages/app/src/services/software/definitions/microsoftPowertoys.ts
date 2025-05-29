@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Microsoft PowerToys (Preview)';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'PowerToysUserSetup-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'powertoys.png';
 	public homepage = 'https://learn.microsoft.com/en-us/windows/powertoys';
 

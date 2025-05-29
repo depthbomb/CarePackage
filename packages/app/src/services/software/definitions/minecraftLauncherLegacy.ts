@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Minecraft Launcher (Legacy)';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'MinecraftInstaller.msi';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'minecraft-launcher-legacy.png';
 	public homepage = 'https://minecraft.net';
 

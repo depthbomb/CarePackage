@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Ubisoft Connect';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'UbisoftConnectInstaller.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'ubisoft-connect.png';
 	public homepage = 'https://ubisoft.com/en-us/ubisoft-connect';
 

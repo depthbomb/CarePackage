@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Audacity';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Media];
 	public downloadName = 'audacity-win-64bit.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'audacity.png';
 	public homepage = 'https://audacityteam.org';
 

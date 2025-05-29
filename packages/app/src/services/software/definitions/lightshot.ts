@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Lightshot';
 	public category = [SoftwareCategory.Media, SoftwareCategory.Utility];
 	public downloadName = 'setup-lightshot.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'lightshot.png';
 	public homepage = 'https://app.prntscr.com';
 

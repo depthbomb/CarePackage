@@ -9,8 +9,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'OverwolfSetup.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'overwolf.png';
 	public homepage = 'https://overwolf.com';
 

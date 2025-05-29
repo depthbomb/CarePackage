@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Microsoft Edge';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'MicrosoftEdgeSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'microsoft-edge.png';
 	public homepage = 'https://microsoft.com/en-us/edge';
 

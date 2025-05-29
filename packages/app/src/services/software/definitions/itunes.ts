@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'iTunes';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Media];
 	public downloadName = 'iTunes64Setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'itunes.png';
 	public homepage = 'https://apple.com/itunes';
 

@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Rainmeter';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'Rainmeter.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'rainmeter.png';
 	public homepage = 'https://rainmeter.net';
 

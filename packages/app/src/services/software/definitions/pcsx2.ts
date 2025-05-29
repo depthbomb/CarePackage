@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'PCSX2.7z';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'pcsx2.png';
 	public homepage = 'https://pcsx2.net';
 

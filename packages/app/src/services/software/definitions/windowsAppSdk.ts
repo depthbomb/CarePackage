@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Windows App SDK';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
 	public downloadName = 'WindowsAppRuntimeInstall-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'generic.png';
 	public homepage = 'https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk';
 

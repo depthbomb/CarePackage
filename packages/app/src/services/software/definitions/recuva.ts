@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Recuva';
 	public category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'rcsetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'recuva.png';
 	public homepage = 'https://ccleaner.com/recuva';
 

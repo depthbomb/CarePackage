@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'WinSCP';
 	public category = [SoftwareCategory.Network, SoftwareCategory.Utility];
 	public downloadName = 'WinSCP-Setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'winscp.png';
 	public homepage = 'https://winscp.net';
 

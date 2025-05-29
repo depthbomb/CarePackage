@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Go';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'go.windows-amd64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'go.png';
 	public homepage = 'https://go.dev';
 

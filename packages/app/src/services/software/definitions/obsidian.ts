@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Obsidian';
 	public category = [SoftwareCategory.Productivity];
 	public downloadName = 'Obsidian.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'obsidian.png';
 	public homepage = 'https://obsidian.md';
 

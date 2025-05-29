@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Plex Desktop';
 	public category = [SoftwareCategory.Media];
 	public downloadName = 'Plex-x86_64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'plex-desktop.png';
 	public homepage = 'https://plex.tv';
 

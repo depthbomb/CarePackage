@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Equalizer APO';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Utility];
 	public downloadName = 'EqualizerAPO-x64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'equalizer-apo.png';
 	public homepage = 'https://sourceforge.net/projects/equalizerapo';
 

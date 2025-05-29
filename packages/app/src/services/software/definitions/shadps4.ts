@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'shadps4-win64-qt.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'shadps4.png';
 	public homepage = 'https://shadps4.net';
 

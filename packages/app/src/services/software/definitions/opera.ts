@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Opera';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'OperaSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'opera.png';
 	public homepage = 'https://opera.com';
 

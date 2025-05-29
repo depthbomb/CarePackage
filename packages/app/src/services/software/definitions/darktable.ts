@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'darktable';
 	public category = [SoftwareCategory.Creative, SoftwareCategory.Media];
 	public downloadName = 'darktable-win64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'darktable.png';
 	public homepage = 'https://darktable.org';
 

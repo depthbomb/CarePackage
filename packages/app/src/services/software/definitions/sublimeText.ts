@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Sublime Text';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'sublime_text_build_x64_setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'sublime-text.png';
 	public homepage = 'https://sublimetext.com';
 

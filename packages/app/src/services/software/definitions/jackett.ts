@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Jackett';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'Jackett.Installer.Windows.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'jackett.png';
 	public homepage = 'https://github.com/Jackett/Jackett';
 

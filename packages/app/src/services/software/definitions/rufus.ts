@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Rufus';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'rufus.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'rufus.png';
 	public homepage = 'https://rufus.ie';
 

@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Node.js (LTS)';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
 	public downloadName = 'node-lts-x64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'nodejs.png';
 	public homepage = 'https://nodejs.org';
 

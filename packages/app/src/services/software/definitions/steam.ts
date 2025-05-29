@@ -10,10 +10,7 @@ export default class implements ISoftwareDefinition {
 		SoftwareCategory.Social,
 	];
 	public downloadName = 'SteamSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'steam.png';
 	public homepage = 'https://store.steampowered.com';
 

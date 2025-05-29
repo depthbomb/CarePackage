@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Vivaldi';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'Vivaldi.x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'vivaldi.png';
 	public homepage = 'https://vivaldi.com';
 

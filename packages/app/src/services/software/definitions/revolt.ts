@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Revolt';
 	public category = [SoftwareCategory.Social];
 	public downloadName = 'Revolt-Setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'revolt.png';
 	public homepage = 'https://revolt.chat';
 

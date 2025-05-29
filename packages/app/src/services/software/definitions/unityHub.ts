@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Unity Hub';
 	public category = [SoftwareCategory.Creative, SoftwareCategory.GameDevelopment];
 	public downloadName = 'UnityHubSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'unity-hub.png';
 	public homepage = 'https://unity.com';
 

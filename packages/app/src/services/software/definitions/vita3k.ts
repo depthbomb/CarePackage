@@ -8,9 +8,6 @@ export default class implements ISoftwareDefinition {
 	public category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming];
 	public downloadName = 'vita3k-windows-latest.zip';
 	public isArchive = true;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'vita3k.png';
 	public homepage = 'https://vita3k.org';
 

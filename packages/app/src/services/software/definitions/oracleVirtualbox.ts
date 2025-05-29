@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Oracle VirtualBox';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'VirtualBox-Win.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'oracle-virtualbox.png';
 	public homepage = 'https://virtualbox.org';
 

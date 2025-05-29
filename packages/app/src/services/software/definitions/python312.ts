@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Python 3.12.x';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'python3.12.x-amd64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'python.png';
 	public homepage = 'https://python.org';
 

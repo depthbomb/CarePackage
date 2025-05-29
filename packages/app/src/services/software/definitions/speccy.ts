@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Speccy';
 	public category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'spsetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'speccy.png';
 	public homepage = 'https://ccleaner.com/speccy';
 

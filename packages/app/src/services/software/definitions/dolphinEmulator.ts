@@ -9,8 +9,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'DolphinEmu.7z';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'dolphin-emu.png';
 	public homepage = 'https://dolphin-emu.org';
 

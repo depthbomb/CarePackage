@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Evernote';
 	public category = [SoftwareCategory.Productivity];
 	public downloadName = 'Evernote-latest.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'evernote.png';
 	public homepage = 'https://evernote.com';
 

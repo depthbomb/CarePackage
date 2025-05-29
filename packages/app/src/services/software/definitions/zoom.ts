@@ -19,10 +19,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Zoom Workplace';
 	public category = [SoftwareCategory.Social];
 	public downloadName = 'ZoomInstallerFull.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'zoom.png';
 	public homepage = 'https://zoom.us';
 

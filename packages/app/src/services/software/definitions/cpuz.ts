@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'CPU-Z (Classic)';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'cpu-z.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'cpuz.png';
 	public homepage = 'https://cpuid.com/softwares/cpu-z.html';
 

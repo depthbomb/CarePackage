@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'qBittorrent';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Network, SoftwareCategory.Utility];
 	public downloadName = 'qbittorrent_x64_setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'qbittorrent.png';
 	public homepage = 'https://qbittorrent.org';
 

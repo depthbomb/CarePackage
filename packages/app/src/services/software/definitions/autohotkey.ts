@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'AutoHotKey';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'AutoHotkey_setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'autohotkey.png';
 	public homepage = 'https://autohotkey.com';
 

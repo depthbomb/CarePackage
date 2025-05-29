@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Microsoft Visual C++ 2015-2022 Redistributable';
 	public category = [SoftwareCategory.Runtime];
 	public downloadName = 'VC_redist.x64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'msvc.png';
 	public homepage = 'https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170';
 

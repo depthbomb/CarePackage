@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Google Drive';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'GoogleDriveSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'google-drive.png';
 	public homepage = 'https://workspace.google.com/products/drive';
 

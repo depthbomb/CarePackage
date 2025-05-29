@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'cemu-windows-x64.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'cemu.png';
 	public homepage = 'https://cemu.info';
 

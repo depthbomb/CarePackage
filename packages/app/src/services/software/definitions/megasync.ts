@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'MEGAsync';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'MEGAsyncSetup64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'megasync.png';
 	public homepage = 'https://mega.io/desktop';
 

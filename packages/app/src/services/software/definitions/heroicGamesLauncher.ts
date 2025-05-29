@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Heroic Games Launcher';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'Heroic-Setup-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'heroic-games-launcher.png';
 	public homepage = 'https://heroicgameslauncher.com';
 

@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Thunderbird';
 	public category = [SoftwareCategory.Productivity, SoftwareCategory.Social];
 	public downloadName = 'Thunderbird_Setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'thunderbird.png';
 	public homepage = 'https://thunderbird.net';
 

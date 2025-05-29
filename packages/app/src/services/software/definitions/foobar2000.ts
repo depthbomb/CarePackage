@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'foobar2000';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Media];
 	public downloadName = 'foobar2000-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'foobar2000.png';
 	public homepage = 'https://foobar2000.org';
 

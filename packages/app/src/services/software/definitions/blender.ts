@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Blender';
 	public category = [SoftwareCategory.Creative, SoftwareCategory.Modelling];
 	public downloadName = 'blender-windows-x64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'blender.png';
 	public homepage = 'https://blender.org';
 

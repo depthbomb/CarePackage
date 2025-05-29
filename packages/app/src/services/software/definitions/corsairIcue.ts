@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Corsair iCUE';
 	public category = [SoftwareCategory.Peripheral];
 	public downloadName = 'Install_iCue.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'corsair-icue.png';
 	public homepage = 'https://corsair.com/us/en/s/icue';
 

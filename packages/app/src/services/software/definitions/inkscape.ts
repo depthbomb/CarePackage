@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Inkscape';
 	public category = [SoftwareCategory.Creative];
 	public downloadName = 'inkscape-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'inkscape.png';
 	public homepage = 'https://inkscape.org';
 

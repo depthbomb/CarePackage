@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'PowerShell 7';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Utility];
 	public downloadName = 'powershell-win-x64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'powershell-core.png';
 	public homepage = 'https://github.com/PowerShell/PowerShell';
 

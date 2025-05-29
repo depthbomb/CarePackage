@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Inno Setup';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'innosetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'inno-setup.png';
 	public homepage = 'https://jrsoftware.org/isinfo.php';
 

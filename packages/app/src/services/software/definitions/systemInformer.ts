@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'System Informer';
 	public category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'systeminformer-setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'system-informer.png';
 	public homepage = 'https://systeminformer.sourceforge.io';
 

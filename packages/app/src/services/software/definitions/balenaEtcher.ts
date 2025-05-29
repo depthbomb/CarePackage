@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'balenaEtcher';
 	public category = [SoftwareCategory.Utility];
 	public downloadName = 'balenaEtcher.Setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'balenaetcher.png';
 	public homepage = 'https://etcher.io';
 

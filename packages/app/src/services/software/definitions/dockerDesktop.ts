@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Docker Desktop';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'Docker Desktop Installer.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'docker-desktop.png';
 	public homepage = 'https://docker.com/products/docker-desktop';
 

@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Arc';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'ArcInstaller.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'arc.png';
 	public homepage = 'https://arc.net';
 

@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Battle.net';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'Battle.net-Setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'battlenet.png';
 	public homepage = 'https://battle.net';
 

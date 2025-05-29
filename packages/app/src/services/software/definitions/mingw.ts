@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'MinGW';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'mingw-get-setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'mingw.png';
 	public homepage = 'https://sourceforge.net/projects/mingw';
 

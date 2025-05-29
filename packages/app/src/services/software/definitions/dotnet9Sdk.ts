@@ -10,10 +10,7 @@ export default class implements ISoftwareDefinition {
 		SoftwareCategory.DotNet,
 	];
 	public downloadName = 'dotnet-sdk-9.0-win-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'dotnet.png';
 	public homepage = 'https://dot.net';
 

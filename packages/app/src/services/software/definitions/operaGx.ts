@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Opera GX';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'OperaGXSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'operagx.png';
 	public homepage = 'https://opera.com/gx';
 

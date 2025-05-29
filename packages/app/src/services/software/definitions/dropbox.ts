@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Dropbox';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility];
 	public downloadName = 'DropoboxInstaller.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'dropbox.png';
 	public homepage = 'https://dropbox.com';
 

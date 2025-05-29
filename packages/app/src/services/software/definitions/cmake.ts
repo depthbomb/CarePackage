@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'CMake';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'cmake-windows-x86_64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'cmake.png';
 	public homepage = 'https://cmake.org';
 

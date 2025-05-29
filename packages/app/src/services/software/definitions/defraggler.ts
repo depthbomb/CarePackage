@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Defraggler';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'dfsetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'defraggler.png';
 	public homepage = 'https://ccleaner.com/defraggler';
 

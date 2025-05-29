@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Logitech G HUB';
 	public category = [SoftwareCategory.Peripheral];
 	public downloadName = 'lghub_installer.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'logitech-g-hub.png';
 	public homepage = 'https://logitechg.com/en-us/innovation/g-hub.html';
 

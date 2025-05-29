@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'NSIS';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'nsis-setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'nsis.png';
 	public homepage = 'https://nsis.sourceforge.io/Download';
 

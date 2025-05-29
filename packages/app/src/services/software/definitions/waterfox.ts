@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Waterfox';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'Waterfox Setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'waterfox.png';
 	public homepage = 'https://waterfox.net';
 

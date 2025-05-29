@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Azahar';
 	public category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming];
 	public downloadName = 'azahar-windows-msys2-installer.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'azahar.png';
 	public homepage = 'https://azahar-emu.org';
 

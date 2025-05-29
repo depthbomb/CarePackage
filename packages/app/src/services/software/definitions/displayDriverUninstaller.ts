@@ -8,9 +8,6 @@ export default class implements ISoftwareDefinition {
 	public category = [SoftwareCategory.Utility];
 	public downloadName = '[Guru3D.com]-DDU.zip';
 	public isArchive = true;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'ddu.png';
 	public homepage = 'https://guru3d.com/download/display-driver-uninstaller-download';
 

@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Razer Cortex';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'RazerCortexInstaller.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'razer-cortex.png';
 	public homepage = 'https://razer.com/cortex';
 

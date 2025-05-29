@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'GitHub Desktop';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'GitHubDesktopSetup-x64.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'github-desktop.png';
 	public homepage = 'https://desktop.github.com';
 

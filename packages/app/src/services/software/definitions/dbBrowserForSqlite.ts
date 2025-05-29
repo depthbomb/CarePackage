@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'DB Browser for SQLite';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Utility];
 	public downloadName = 'DB.Browser.for.SQLite-win64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'db-browser-for-sqlite.png';
 	public homepage = 'https://sqlitebrowser.org';
 

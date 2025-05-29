@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = '.NET 8.0 ASP.NET Core Runtime';
 	public category = [SoftwareCategory.DotNet];
 	public downloadName = 'aspnetcore-runtime-8.0-win-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'dotnet.png';
 	public homepage = 'https://dot.net';
 

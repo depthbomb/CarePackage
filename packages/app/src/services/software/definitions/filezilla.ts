@@ -8,10 +8,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'FileZilla';
 	public category = [SoftwareCategory.Development, SoftwareCategory.FileManagement, SoftwareCategory.Network];
 	public downloadName = 'FileZilla_win64-setup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'filezilla.png';
 	public homepage = 'https://filezilla-project.org';
 

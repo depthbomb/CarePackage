@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'CCleaner';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'ccsetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'ccleaner.png';
 	public homepage = 'https://ccleaner.com';
 

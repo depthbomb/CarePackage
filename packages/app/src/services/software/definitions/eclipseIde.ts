@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Eclipse IDE';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'eclipse-inst-jre-win64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'eclipse-ide.png';
 	public homepage = 'https://eclipseide.org';
 

@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'PPSSPP';
 	public category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming];
 	public downloadName = 'PPSSPPSetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'ppsspp.png';
 	public homepage = 'https://ppsspp.org';
 

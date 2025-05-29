@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Notepad++';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'npp.Installer.x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'notepad-plus-plus.png';
 	public homepage = 'https://notepad-plus-plus.org';
 

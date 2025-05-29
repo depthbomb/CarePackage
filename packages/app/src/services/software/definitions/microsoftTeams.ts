@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Microsoft Teams';
 	public category = [SoftwareCategory.Social];
 	public downloadName = 'MSTeamsSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'microsoft-teams.png';
 	public homepage = 'https://microsoft.com/en-us/microsoft-teams';
 

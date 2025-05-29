@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Playnite';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'PlayniteInstaller.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'playnite.png';
 	public homepage = 'https://playnite.link';
 

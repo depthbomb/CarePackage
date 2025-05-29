@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Trillian';
 	public category = [SoftwareCategory.Social];
 	public downloadName = 'trillian.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'trillian.png';
 	public homepage = 'https://trillian.im';
 

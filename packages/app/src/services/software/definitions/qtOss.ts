@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Qt';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'qt-online-installer-windows-x64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'qt.png';
 	public homepage = 'https://qt.io/download-open-source';
 

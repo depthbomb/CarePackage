@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'Streamlink';
 	public category = [SoftwareCategory.Media];
 	public downloadName = 'streamlink-x86_64.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'streamlink.png';
 	public homepage = 'https://streamlink.github.io';
 

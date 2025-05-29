@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Krita';
 	public category = [SoftwareCategory.Creative];
 	public downloadName = 'krita-x64-setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'krita.png';
 	public homepage = 'https://krita.org';
 

@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Java SE Development Kit 24.x';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
 	public downloadName = 'jdk-24_windows-x64_bin.msi';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'java.png';
 	public homepage = 'https://oracle.com/java/technologies/downloads';
 

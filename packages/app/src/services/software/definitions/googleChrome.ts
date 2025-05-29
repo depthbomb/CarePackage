@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Google Chrome';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'ChromeSetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'google-chrome.png';
 	public homepage = 'https://google.com/chrome';
 

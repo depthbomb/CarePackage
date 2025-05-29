@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'OBS Studio';
 	public category = [SoftwareCategory.Media];
 	public downloadName = 'OBS-Studio-Windows-Installer.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'obs-studio.png';
 	public homepage = 'https://obsproject.com';
 

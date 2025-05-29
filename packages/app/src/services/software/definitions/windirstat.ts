@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'WinDirStat';
 	public category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'WinDirStat-x64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'windirstat.png';
 	public homepage = 'https://windirstat.net';
 

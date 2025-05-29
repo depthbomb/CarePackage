@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Parsec';
 	public category = [SoftwareCategory.Gaming];
 	public downloadName = 'parsec-windows.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'parsec.png';
 	public homepage = 'https://parsec.app';
 

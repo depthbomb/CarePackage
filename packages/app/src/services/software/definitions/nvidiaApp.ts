@@ -7,10 +7,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'NVIDIA App';
 	public category = [SoftwareCategory.Peripheral];
 	public downloadName = 'NVIDIA_app.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'nvidia.png';
 	public homepage = 'https://nvidia.com/en-us/software/nvidia-app';
 

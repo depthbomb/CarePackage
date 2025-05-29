@@ -10,8 +10,6 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'Godot-stable_mono_win64.zip';
 	public isArchive = true;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'godot.png';
 	public homepage = 'https://godotengine.org';
 

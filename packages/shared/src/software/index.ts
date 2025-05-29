@@ -51,12 +51,13 @@ export interface ISoftwareDefinition {
 	name: string;
 	category: SoftwareCategory[];
 	downloadName: string;
-	isArchive: boolean;
-	shouldCacheUrl: boolean;
-	requiresAdmin: boolean;
-	deprecated: boolean;
+	isArchive?: boolean;
+	shouldCacheUrl?: boolean;
+	requiresAdmin?: boolean;
+	deprecated?: boolean;
 	alternative?: ISoftwareDefinition;
+	variants?: number[];
 	icon: string;
 	homepage: string;
-	resolveDownloadUrl(): Promise<Result<string, DownloadUrlResolveError>>;
+	resolveDownloadUrl(variant?: number): Promise<Result<string, DownloadUrlResolveError>>;
 }

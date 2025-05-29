@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'HWMonitor';
 	public category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility];
 	public downloadName = 'hwmonitor.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'hwmonitor.png';
 	public homepage = 'https://cpuid.com/softwares/hwmonitor.html';
 

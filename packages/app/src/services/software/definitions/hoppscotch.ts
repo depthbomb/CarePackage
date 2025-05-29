@@ -8,10 +8,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Hoppscotch';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Network];
 	public downloadName = 'Hoppscotch_win_x64.msi';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'hoppscotch.png';
 	public homepage = 'https://hoppscotch.io';
 

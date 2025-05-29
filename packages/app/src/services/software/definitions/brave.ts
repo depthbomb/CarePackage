@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Brave';
 	public category = [SoftwareCategory.Browser];
 	public downloadName = 'BraveBrowserSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'brave-browser.png';
 	public homepage = 'https://brave.net';
 

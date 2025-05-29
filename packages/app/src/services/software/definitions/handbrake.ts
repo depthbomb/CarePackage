@@ -8,10 +8,8 @@ export default class implements ISoftwareDefinition {
 	public name = 'HandBrake';
 	public category = [SoftwareCategory.Media, SoftwareCategory.Utility];
 	public downloadName = 'HandBrake-x86_64-Win_GUI.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'handbrake.png';
 	public homepage = 'https://handbrake.fr';
 

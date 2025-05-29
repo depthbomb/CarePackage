@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'Plexamp';
 	public category = [SoftwareCategory.Audio, SoftwareCategory.Media];
 	public downloadName = 'Plexamp Setup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'plexamp.png';
 	public homepage = 'https://plex.tv';
 

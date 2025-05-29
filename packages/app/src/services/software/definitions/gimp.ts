@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'GIMP';
 	public category = [SoftwareCategory.Creative];
 	public downloadName = 'GimpSetup.exe';
-	public isArchive = false;
 	public shouldCacheUrl = true;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'gimp.png';
 	public homepage = 'https://gimp.org';
 

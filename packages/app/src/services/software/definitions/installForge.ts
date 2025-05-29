@@ -7,10 +7,7 @@ export default class implements ISoftwareDefinition {
 	public name = 'InstallForge';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'IFSetup.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
 	public requiresAdmin = true;
-	public deprecated = false;
 	public icon = 'installforge.png';
 	public homepage = 'https://installforge.net';
 

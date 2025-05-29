@@ -7,10 +7,6 @@ export default class implements ISoftwareDefinition {
 	public name = 'Rustup';
 	public category = [SoftwareCategory.Development];
 	public downloadName = 'rustup-init.exe';
-	public isArchive = false;
-	public shouldCacheUrl = false;
-	public requiresAdmin = false;
-	public deprecated = false;
 	public icon = 'rust.png';
 	public homepage = 'https://rust-lang.org/learn/get-started';
 

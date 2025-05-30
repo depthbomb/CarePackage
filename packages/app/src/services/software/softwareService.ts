@@ -314,7 +314,7 @@ export class SoftwareService implements IBootstrappable {
 			const categorySoftware = Array.from(this.definitions.values().filter(sw => sw.category.includes(category)));
 			markdown.push(
 				`\n## ${category}`,
-				'\n|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |',
+				'\n|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |',
 				'| :-: | --- | :-: | :-: | :-: | :-: |'
 			);
 
@@ -323,10 +323,9 @@ export class SoftwareService implements IBootstrappable {
 				const isArchive  = sw.isArchive ? '✔' : '❌';
 				const isUac      = sw.requiresAdmin ? '✔' : '❌';
 				const categories = sw.category.filter(c => c !== category).join(', ');
-				const variants   = sw.variants!.length > 0 ? sw.variants!.map(v => v.name).join(', ') : 'None';
 
 				markdown.push(
-					`| <img src="${icon}" title="${sw.name}" alt="${sw.name}" width="32" height="32"> | [${sw.name}](${sw.homepage}) | ${isArchive} | ${isUac} | ${categories.length ? categories : 'None'} | ${variants} |`
+					`| ![${sw.name}](${icon} "${sw.name}") | [${sw.name}](${sw.homepage}) | ${isArchive} | ${isUac} | ${categories.length ? categories : 'None'} | \`${sw.variants!.length}\``
 				);
 			}
 

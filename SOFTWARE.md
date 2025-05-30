@@ -2,345 +2,345 @@
 
 ## Audio & Sound
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/aimp.png" title="AIMP" alt="AIMP" width="32" height="32"> | [AIMP](https://aimp.ru) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/audacity.png" title="Audacity" alt="Audacity" width="32" height="32"> | [Audacity](https://audacityteam.org) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/equalizer-apo.png" title="Equalizer APO" alt="Equalizer APO" width="32" height="32"> | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/foobar2000.png" title="foobar2000" alt="foobar2000" width="32" height="32"> | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/itunes.png" title="iTunes" alt="iTunes" width="32" height="32"> | [iTunes](https://apple.com/itunes) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/plex-desktop.png" title="Plex" alt="Plex" width="32" height="32"> | [Plex](https://plex.tv) | ❌ | ❌ | Media | Plex Desktop, Plex Media Server, Plexamp |
-| <img src="./static/extra/software-icons/spotify.png" title="Spotify" alt="Spotify" width="32" height="32"> | [Spotify](https://spotify.com) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/vlc-media-player.png" title="VLC Media Player" alt="VLC Media Player" width="32" height="32"> | [VLC Media Player](https://videolan.org) | ❌ | ✔ | Media | None |
+| ![AIMP](./static/extra/software-icons/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | ❌ | Media | `0`
+| ![Audacity](./static/extra/software-icons/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | ❌ | Media | `0`
+| ![Equalizer APO](./static/extra/software-icons/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔ | Utilities | `0`
+| ![foobar2000](./static/extra/software-icons/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Media | `0`
+| ![iTunes](./static/extra/software-icons/itunes.png "iTunes") | [iTunes](https://apple.com/itunes) | ❌ | ❌ | Media | `0`
+| ![Plex](./static/extra/software-icons/plex-desktop.png "Plex") | [Plex](https://plex.tv) | ❌ | ❌ | Media | `3`
+| ![Spotify](./static/extra/software-icons/spotify.png "Spotify") | [Spotify](https://spotify.com) | ❌ | ❌ | Media | `0`
+| ![VLC Media Player](./static/extra/software-icons/vlc-media-player.png "VLC Media Player") | [VLC Media Player](https://videolan.org) | ❌ | ✔ | Media | `0`
 
 ---
 
 ## Web Browsers
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/arc.png" title="Arc" alt="Arc" width="32" height="32"> | [Arc](https://arc.net) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/brave-browser.png" title="Brave" alt="Brave" width="32" height="32"> | [Brave](https://brave.net) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/google-chrome.png" title="Google Chrome" alt="Google Chrome" width="32" height="32"> | [Google Chrome](https://google.com/chrome) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/librewolf.png" title="LibreWolf" alt="LibreWolf" width="32" height="32"> | [LibreWolf](https://librewolf.net) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/microsoft-edge.png" title="Microsoft Edge" alt="Microsoft Edge" width="32" height="32"> | [Microsoft Edge](https://microsoft.com/en-us/edge) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/mozilla-firefox.png" title="Mozilla Firefox" alt="Mozilla Firefox" width="32" height="32"> | [Mozilla Firefox](https://mozilla.org/firefox) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/opera.png" title="Opera" alt="Opera" width="32" height="32"> | [Opera](https://opera.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/operagx.png" title="Opera GX" alt="Opera GX" width="32" height="32"> | [Opera GX](https://opera.com/gx) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/vivaldi.png" title="Vivaldi" alt="Vivaldi" width="32" height="32"> | [Vivaldi](https://vivaldi.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/waterfox.png" title="Waterfox" alt="Waterfox" width="32" height="32"> | [Waterfox](https://waterfox.net) | ❌ | ❌ | None | None |
+| ![Arc](./static/extra/software-icons/arc.png "Arc") | [Arc](https://arc.net) | ❌ | ❌ | None | `0`
+| ![Brave](./static/extra/software-icons/brave-browser.png "Brave") | [Brave](https://brave.net) | ❌ | ❌ | None | `0`
+| ![Google Chrome](./static/extra/software-icons/google-chrome.png "Google Chrome") | [Google Chrome](https://google.com/chrome) | ❌ | ❌ | None | `0`
+| ![LibreWolf](./static/extra/software-icons/librewolf.png "LibreWolf") | [LibreWolf](https://librewolf.net) | ❌ | ✔ | None | `0`
+| ![Microsoft Edge](./static/extra/software-icons/microsoft-edge.png "Microsoft Edge") | [Microsoft Edge](https://microsoft.com/en-us/edge) | ❌ | ❌ | None | `0`
+| ![Mozilla Firefox](./static/extra/software-icons/mozilla-firefox.png "Mozilla Firefox") | [Mozilla Firefox](https://mozilla.org/firefox) | ❌ | ❌ | None | `0`
+| ![Opera](./static/extra/software-icons/opera.png "Opera") | [Opera](https://opera.com) | ❌ | ❌ | None | `0`
+| ![Opera GX](./static/extra/software-icons/operagx.png "Opera GX") | [Opera GX](https://opera.com/gx) | ❌ | ❌ | None | `0`
+| ![Vivaldi](./static/extra/software-icons/vivaldi.png "Vivaldi") | [Vivaldi](https://vivaldi.com) | ❌ | ❌ | None | `0`
+| ![Waterfox](./static/extra/software-icons/waterfox.png "Waterfox") | [Waterfox](https://waterfox.net) | ❌ | ❌ | None | `0`
 
 ---
 
 ## Creative
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/adobe-creative-cloud.png" title="Adobe Creative Cloud" alt="Adobe Creative Cloud" width="32" height="32"> | [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/blender.png" title="Blender" alt="Blender" width="32" height="32"> | [Blender](https://blender.org) | ❌ | ❌ | 3D Modelling | None |
-| <img src="./static/extra/software-icons/darktable.png" title="darktable" alt="darktable" width="32" height="32"> | [darktable](https://darktable.org) | ❌ | ✔ | Media | None |
-| <img src="./static/extra/software-icons/gimp.png" title="GIMP" alt="GIMP" width="32" height="32"> | [GIMP](https://gimp.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/godot.png" title="Godot" alt="Godot" width="32" height="32"> | [Godot](https://godotengine.org) | ❌ | ❌ | Video Game Development | Godot, Godot (C# support) |
-| <img src="./static/extra/software-icons/inkscape.png" title="Inkscape" alt="Inkscape" width="32" height="32"> | [Inkscape](https://inkscape.org) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/krita.png" title="Krita" alt="Krita" width="32" height="32"> | [Krita](https://krita.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/paintdotnet.png" title="Paint.NET" alt="Paint.NET" width="32" height="32"> | [Paint.NET](https://getpaint.net) | ✔ | ❌ | None | None |
-| <img src="./static/extra/software-icons/unity-hub.png" title="Unity Hub" alt="Unity Hub" width="32" height="32"> | [Unity Hub](https://unity.com) | ❌ | ✔ | Video Game Development | None |
+| ![Adobe Creative Cloud](./static/extra/software-icons/adobe-creative-cloud.png "Adobe Creative Cloud") | [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) | ❌ | ❌ | None | `0`
+| ![Blender](./static/extra/software-icons/blender.png "Blender") | [Blender](https://blender.org) | ❌ | ❌ | 3D Modelling | `0`
+| ![darktable](./static/extra/software-icons/darktable.png "darktable") | [darktable](https://darktable.org) | ❌ | ✔ | Media | `0`
+| ![GIMP](./static/extra/software-icons/gimp.png "GIMP") | [GIMP](https://gimp.org) | ❌ | ❌ | None | `0`
+| ![Godot](./static/extra/software-icons/godot.png "Godot") | [Godot](https://godotengine.org) | ❌ | ❌ | Video Game Development | `2`
+| ![Inkscape](./static/extra/software-icons/inkscape.png "Inkscape") | [Inkscape](https://inkscape.org) | ❌ | ✔ | None | `0`
+| ![Krita](./static/extra/software-icons/krita.png "Krita") | [Krita](https://krita.org) | ❌ | ❌ | None | `0`
+| ![Paint.NET](./static/extra/software-icons/paintdotnet.png "Paint.NET") | [Paint.NET](https://getpaint.net) | ✔ | ❌ | None | `0`
+| ![Unity Hub](./static/extra/software-icons/unity-hub.png "Unity Hub") | [Unity Hub](https://unity.com) | ❌ | ✔ | Video Game Development | `0`
 
 ---
 
 ## Development
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/apache-netbeans.png" title="Apache NetBeans" alt="Apache NetBeans" width="32" height="32"> | [Apache NetBeans](https://netbeans.apache.org) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/cmake.png" title="CMake" alt="CMake" width="32" height="32"> | [CMake](https://cmake.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/db-browser-for-sqlite.png" title="DB Browser for SQLite" alt="DB Browser for SQLite" width="32" height="32"> | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/dnspy.png" title="dnSpy (Fork)" alt="dnSpy (Fork)" width="32" height="32"> | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/docker-desktop.png" title="Docker Desktop" alt="Docker Desktop" width="32" height="32"> | [Docker Desktop](https://docker.com/products/docker-desktop) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/dotnet.png" title=".NET" alt=".NET" width="32" height="32"> | [.NET](https://dot.net) | ❌ | ❌ | Runtimes | .NET 8.0 ASP.NET Core Runtime, .NET 8.0 Desktop Runtime, .NET 8.0 Runtime, .NET 8.0 SDK, .NET 9.0 ASP.NET Core Runtime, .NET 9.0 Desktop Runtime, .NET 9.0 Runtime, .NET 9.0 SDK |
-| <img src="./static/extra/software-icons/eclipse-ide.png" title="Eclipse IDE" alt="Eclipse IDE" width="32" height="32"> | [Eclipse IDE](https://eclipseide.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/filezilla.png" title="FileZilla" alt="FileZilla" width="32" height="32"> | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | File Management, Network Tools | None |
-| <img src="./static/extra/software-icons/flutter.png" title="Flutter SDK" alt="Flutter SDK" width="32" height="32"> | [Flutter SDK](https://docs.flutter.dev) | ✔ | ❌ | None | None |
-| <img src="./static/extra/software-icons/git.png" title="Git for Windows" alt="Git for Windows" width="32" height="32"> | [Git for Windows](https://git-scm.com) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/github.png" title="GitHub CLI" alt="GitHub CLI" width="32" height="32"> | [GitHub CLI](https://cli.github.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/github-desktop.png" title="GitHub Desktop" alt="GitHub Desktop" width="32" height="32"> | [GitHub Desktop](https://desktop.github.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/go.png" title="Go" alt="Go" width="32" height="32"> | [Go](https://go.dev) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/hoppscotch.png" title="Hoppscotch" alt="Hoppscotch" width="32" height="32"> | [Hoppscotch](https://hoppscotch.io) | ❌ | ❌ | Network Tools | None |
-| <img src="./static/extra/software-icons/inno-setup.png" title="Inno Setup" alt="Inno Setup" width="32" height="32"> | [Inno Setup](https://jrsoftware.org/isinfo.php) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/insomnia.png" title="Insomnia" alt="Insomnia" width="32" height="32"> | [Insomnia](https://insomnia.rest) | ❌ | ❌ | Network Tools | None |
-| <img src="./static/extra/software-icons/installforge.png" title="InstallForge" alt="InstallForge" width="32" height="32"> | [InstallForge](https://installforge.net) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/java.png" title="Java SE Development Kit" alt="Java SE Development Kit" width="32" height="32"> | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | ❌ | Runtimes | Java SE Development Kit 21.x, Java SE Development Kit 24.x |
-| <img src="./static/extra/software-icons/jetbrains-toolbox.png" title="JetBrains Toolbox" alt="JetBrains Toolbox" width="32" height="32"> | [JetBrains Toolbox](https://jetbrains.com/toolbox-app) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/lazarus.png" title="Lazarus" alt="Lazarus" width="32" height="32"> | [Lazarus](https://lazarus-ide.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/mingw.png" title="MinGW" alt="MinGW" width="32" height="32"> | [MinGW](https://sourceforge.net/projects/mingw) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/msys2.png" title="MSYS2" alt="MSYS2" width="32" height="32"> | [MSYS2](https://msys2.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/nodejs.png" title="Node.js" alt="Node.js" width="32" height="32"> | [Node.js](https://nodejs.org) | ❌ | ❌ | Runtimes | Node.js, Node.js (LTS) |
-| <img src="./static/extra/software-icons/notepad-plus-plus.png" title="Notepad++" alt="Notepad++" width="32" height="32"> | [Notepad++](https://notepad-plus-plus.org) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/nsis.png" title="NSIS" alt="NSIS" width="32" height="32"> | [NSIS](https://nsis.sourceforge.io/Download) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/postman.png" title="Postman" alt="Postman" width="32" height="32"> | [Postman](https://postman.com) | ❌ | ❌ | Network Tools | None |
-| <img src="./static/extra/software-icons/powershell-core.png" title="PowerShell 7" alt="PowerShell 7" width="32" height="32"> | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/python.png" title="Python" alt="Python" width="32" height="32"> | [Python](https://python.org) | ❌ | ❌ | None | Python 3.12.x, Python 3.13.x |
-| <img src="./static/extra/software-icons/qt.png" title="Qt" alt="Qt" width="32" height="32"> | [Qt](https://qt.io/download-open-source) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/rust.png" title="Rustup" alt="Rustup" width="32" height="32"> | [Rustup](https://rust-lang.org/learn/get-started) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/sublime-text.png" title="Sublime Text" alt="Sublime Text" width="32" height="32"> | [Sublime Text](https://sublimetext.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/visual-studio-code.png" title="Visual Studio Code" alt="Visual Studio Code" width="32" height="32"> | [Visual Studio Code](https://code.visualstudio.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/visual-studio-community.png" title="Visual Studio 2022 Community" alt="Visual Studio 2022 Community" width="32" height="32"> | [Visual Studio 2022 Community](https://visualstudio.microsoft.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/generic.png" title="Windows App SDK" alt="Windows App SDK" width="32" height="32"> | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | ❌ | Runtimes | None |
+| ![Apache NetBeans](./static/extra/software-icons/apache-netbeans.png "Apache NetBeans") | [Apache NetBeans](https://netbeans.apache.org) | ❌ | ✔ | None | `0`
+| ![CMake](./static/extra/software-icons/cmake.png "CMake") | [CMake](https://cmake.org) | ❌ | ❌ | None | `0`
+| ![DB Browser for SQLite](./static/extra/software-icons/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ | Utilities | `0`
+| ![dnSpy (Fork)](./static/extra/software-icons/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔ | ❌ | Utilities | `0`
+| ![Docker Desktop](./static/extra/software-icons/docker-desktop.png "Docker Desktop") | [Docker Desktop](https://docker.com/products/docker-desktop) | ❌ | ❌ | None | `0`
+| ![.NET](./static/extra/software-icons/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | ❌ | Runtimes | `8`
+| ![Eclipse IDE](./static/extra/software-icons/eclipse-ide.png "Eclipse IDE") | [Eclipse IDE](https://eclipseide.org) | ❌ | ❌ | None | `0`
+| ![FileZilla](./static/extra/software-icons/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | File Management, Network Tools | `0`
+| ![Flutter SDK](./static/extra/software-icons/flutter.png "Flutter SDK") | [Flutter SDK](https://docs.flutter.dev) | ✔ | ❌ | None | `0`
+| ![Git for Windows](./static/extra/software-icons/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ | File Management | `0`
+| ![GitHub CLI](./static/extra/software-icons/github.png "GitHub CLI") | [GitHub CLI](https://cli.github.com) | ❌ | ❌ | None | `0`
+| ![GitHub Desktop](./static/extra/software-icons/github-desktop.png "GitHub Desktop") | [GitHub Desktop](https://desktop.github.com) | ❌ | ❌ | None | `0`
+| ![Go](./static/extra/software-icons/go.png "Go") | [Go](https://go.dev) | ❌ | ❌ | None | `0`
+| ![Hoppscotch](./static/extra/software-icons/hoppscotch.png "Hoppscotch") | [Hoppscotch](https://hoppscotch.io) | ❌ | ❌ | Network Tools | `0`
+| ![Inno Setup](./static/extra/software-icons/inno-setup.png "Inno Setup") | [Inno Setup](https://jrsoftware.org/isinfo.php) | ❌ | ❌ | None | `0`
+| ![Insomnia](./static/extra/software-icons/insomnia.png "Insomnia") | [Insomnia](https://insomnia.rest) | ❌ | ❌ | Network Tools | `0`
+| ![InstallForge](./static/extra/software-icons/installforge.png "InstallForge") | [InstallForge](https://installforge.net) | ❌ | ✔ | None | `0`
+| ![Java SE Development Kit](./static/extra/software-icons/java.png "Java SE Development Kit") | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | ❌ | Runtimes | `2`
+| ![JetBrains Toolbox](./static/extra/software-icons/jetbrains-toolbox.png "JetBrains Toolbox") | [JetBrains Toolbox](https://jetbrains.com/toolbox-app) | ❌ | ❌ | None | `0`
+| ![Lazarus](./static/extra/software-icons/lazarus.png "Lazarus") | [Lazarus](https://lazarus-ide.org) | ❌ | ❌ | None | `0`
+| ![MinGW](./static/extra/software-icons/mingw.png "MinGW") | [MinGW](https://sourceforge.net/projects/mingw) | ❌ | ❌ | None | `0`
+| ![MSYS2](./static/extra/software-icons/msys2.png "MSYS2") | [MSYS2](https://msys2.org) | ❌ | ❌ | None | `0`
+| ![Node.js](./static/extra/software-icons/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | ❌ | Runtimes | `2`
+| ![Notepad++](./static/extra/software-icons/notepad-plus-plus.png "Notepad++") | [Notepad++](https://notepad-plus-plus.org) | ❌ | ✔ | None | `0`
+| ![NSIS](./static/extra/software-icons/nsis.png "NSIS") | [NSIS](https://nsis.sourceforge.io/Download) | ❌ | ✔ | None | `0`
+| ![Postman](./static/extra/software-icons/postman.png "Postman") | [Postman](https://postman.com) | ❌ | ❌ | Network Tools | `0`
+| ![PowerShell 7](./static/extra/software-icons/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | Utilities | `0`
+| ![Python](./static/extra/software-icons/python.png "Python") | [Python](https://python.org) | ❌ | ❌ | None | `2`
+| ![Qt](./static/extra/software-icons/qt.png "Qt") | [Qt](https://qt.io/download-open-source) | ❌ | ❌ | None | `0`
+| ![Rustup](./static/extra/software-icons/rust.png "Rustup") | [Rustup](https://rust-lang.org/learn/get-started) | ❌ | ❌ | None | `0`
+| ![Sublime Text](./static/extra/software-icons/sublime-text.png "Sublime Text") | [Sublime Text](https://sublimetext.com) | ❌ | ❌ | None | `0`
+| ![Visual Studio Code](./static/extra/software-icons/visual-studio-code.png "Visual Studio Code") | [Visual Studio Code](https://code.visualstudio.com) | ❌ | ❌ | None | `0`
+| ![Visual Studio 2022 Community](./static/extra/software-icons/visual-studio-community.png "Visual Studio 2022 Community") | [Visual Studio 2022 Community](https://visualstudio.microsoft.com) | ❌ | ❌ | None | `0`
+| ![Windows App SDK](./static/extra/software-icons/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | ❌ | Runtimes | `0`
 
 ---
 
 ## Emulation
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/azahar.png" title="Azahar" alt="Azahar" width="32" height="32"> | [Azahar](https://azahar-emu.org) | ❌ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/cemu.png" title="Cemu" alt="Cemu" width="32" height="32"> | [Cemu](https://cemu.info) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/dolphin-emu.png" title="Dolphin Emulator" alt="Dolphin Emulator" width="32" height="32"> | [Dolphin Emulator](https://dolphin-emu.org) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/duckstation.png" title="DuckStation" alt="DuckStation" width="32" height="32"> | [DuckStation](https://duckstation.org) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/melonds.png" title="melonDS" alt="melonDS" width="32" height="32"> | [melonDS](https://melonds.kuribo64.net) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/pcsx2.png" title="PCSX2" alt="PCSX2" width="32" height="32"> | [PCSX2](https://pcsx2.net) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/ppsspp.png" title="PPSSPP" alt="PPSSPP" width="32" height="32"> | [PPSSPP](https://ppsspp.org) | ❌ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/rpcs3.png" title="RPCS3" alt="RPCS3" width="32" height="32"> | [RPCS3](https://rpcs3.net) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/shadps4.png" title="shadPS4" alt="shadPS4" width="32" height="32"> | [shadPS4](https://shadps4.net) | ✔ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/vita3k.png" title="Vita3K" alt="Vita3K" width="32" height="32"> | [Vita3K](https://vita3k.org) | ✔ | ❌ | Gaming | None |
+| ![Azahar](./static/extra/software-icons/azahar.png "Azahar") | [Azahar](https://azahar-emu.org) | ❌ | ❌ | Gaming | `0`
+| ![Cemu](./static/extra/software-icons/cemu.png "Cemu") | [Cemu](https://cemu.info) | ✔ | ❌ | Gaming | `0`
+| ![Dolphin Emulator](./static/extra/software-icons/dolphin-emu.png "Dolphin Emulator") | [Dolphin Emulator](https://dolphin-emu.org) | ✔ | ❌ | Gaming | `0`
+| ![DuckStation](./static/extra/software-icons/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ✔ | ❌ | Gaming | `0`
+| ![melonDS](./static/extra/software-icons/melonds.png "melonDS") | [melonDS](https://melonds.kuribo64.net) | ✔ | ❌ | Gaming | `0`
+| ![PCSX2](./static/extra/software-icons/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔ | ❌ | Gaming | `0`
+| ![PPSSPP](./static/extra/software-icons/ppsspp.png "PPSSPP") | [PPSSPP](https://ppsspp.org) | ❌ | ❌ | Gaming | `0`
+| ![RPCS3](./static/extra/software-icons/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔ | ❌ | Gaming | `0`
+| ![shadPS4](./static/extra/software-icons/shadps4.png "shadPS4") | [shadPS4](https://shadps4.net) | ✔ | ❌ | Gaming | `0`
+| ![Vita3K](./static/extra/software-icons/vita3k.png "Vita3K") | [Vita3K](https://vita3k.org) | ✔ | ❌ | Gaming | `0`
 
 ---
 
 ## File Management
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/ccleaner.png" title="CCleaner" alt="CCleaner" width="32" height="32"> | [CCleaner](https://ccleaner.com) | ❌ | ✔ | System Management, Utilities | None |
-| <img src="./static/extra/software-icons/defraggler.png" title="Defraggler" alt="Defraggler" width="32" height="32"> | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | System Management, Utilities | None |
-| <img src="./static/extra/software-icons/dropbox.png" title="Dropbox" alt="Dropbox" width="32" height="32"> | [Dropbox](https://dropbox.com) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/filezilla.png" title="FileZilla" alt="FileZilla" width="32" height="32"> | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, Network Tools | None |
-| <img src="./static/extra/software-icons/git.png" title="Git for Windows" alt="Git for Windows" width="32" height="32"> | [Git for Windows](https://git-scm.com) | ❌ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/google-drive.png" title="Google Drive" alt="Google Drive" width="32" height="32"> | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/jackett.png" title="Jackett" alt="Jackett" width="32" height="32"> | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/megasync.png" title="MEGAsync" alt="MEGAsync" width="32" height="32"> | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/microsoft-onedrive.png" title="Microsoft OneDrive" alt="Microsoft OneDrive" width="32" height="32"> | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/motrix.png" title="Motrix" alt="Motrix" width="32" height="32"> | [Motrix](https://motrix.app) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/peazip.png" title="PeaZip" alt="PeaZip" width="32" height="32"> | [PeaZip](https://peazip.github.io) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/qbittorrent.png" title="qBittorrent" alt="qBittorrent" width="32" height="32"> | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | Network Tools, Utilities | None |
-| <img src="./static/extra/software-icons/rufus.png" title="Rufus" alt="Rufus" width="32" height="32"> | [Rufus](https://rufus.ie) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/7zip.png" title="7-Zip" alt="7-Zip" width="32" height="32"> | [7-Zip](https://7-zip.org) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/teracopy.png" title="TeraCopy" alt="TeraCopy" width="32" height="32"> | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/windirstat.png" title="WinDirStat" alt="WinDirStat" width="32" height="32"> | [WinDirStat](https://windirstat.net) | ❌ | ❌ | System Management, Utilities | None |
-| <img src="./static/extra/software-icons/winrar.png" title="WinRAR" alt="WinRAR" width="32" height="32"> | [WinRAR](https://win-rar.com) | ❌ | ❌ | Utilities | None |
+| ![CCleaner](./static/extra/software-icons/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔ | System Management, Utilities | `0`
+| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | System Management, Utilities | `0`
+| ![Dropbox](./static/extra/software-icons/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ | Utilities | `0`
+| ![FileZilla](./static/extra/software-icons/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, Network Tools | `0`
+| ![Git for Windows](./static/extra/software-icons/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ | Development | `0`
+| ![Google Drive](./static/extra/software-icons/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | Utilities | `0`
+| ![Jackett](./static/extra/software-icons/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | Utilities | `0`
+| ![MEGAsync](./static/extra/software-icons/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | Utilities | `0`
+| ![Microsoft OneDrive](./static/extra/software-icons/microsoft-onedrive.png "Microsoft OneDrive") | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | Utilities | `0`
+| ![Motrix](./static/extra/software-icons/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | Utilities | `0`
+| ![PeaZip](./static/extra/software-icons/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | ❌ | Utilities | `0`
+| ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | Network Tools, Utilities | `0`
+| ![Rufus](./static/extra/software-icons/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔ | Utilities | `0`
+| ![7-Zip](./static/extra/software-icons/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ | Utilities | `0`
+| ![TeraCopy](./static/extra/software-icons/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | Utilities | `0`
+| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | System Management, Utilities | `0`
+| ![WinRAR](./static/extra/software-icons/winrar.png "WinRAR") | [WinRAR](https://win-rar.com) | ❌ | ❌ | Utilities | `0`
 
 ---
 
 ## Video Game Development
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/godot.png" title="Godot" alt="Godot" width="32" height="32"> | [Godot](https://godotengine.org) | ❌ | ❌ | Creative | Godot, Godot (C# support) |
-| <img src="./static/extra/software-icons/unity-hub.png" title="Unity Hub" alt="Unity Hub" width="32" height="32"> | [Unity Hub](https://unity.com) | ❌ | ✔ | Creative | None |
+| ![Godot](./static/extra/software-icons/godot.png "Godot") | [Godot](https://godotengine.org) | ❌ | ❌ | Creative | `2`
+| ![Unity Hub](./static/extra/software-icons/unity-hub.png "Unity Hub") | [Unity Hub](https://unity.com) | ❌ | ✔ | Creative | `0`
 
 ---
 
 ## Gaming
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/azahar.png" title="Azahar" alt="Azahar" width="32" height="32"> | [Azahar](https://azahar-emu.org) | ❌ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/battlenet.png" title="Battle.net" alt="Battle.net" width="32" height="32"> | [Battle.net](https://battle.net) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/cemu.png" title="Cemu" alt="Cemu" width="32" height="32"> | [Cemu](https://cemu.info) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/cheat-engine.png" title="Cheat Engine" alt="Cheat Engine" width="32" height="32"> | [Cheat Engine](https://cheatengine.org) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/dolphin-emu.png" title="Dolphin Emulator" alt="Dolphin Emulator" width="32" height="32"> | [Dolphin Emulator](https://dolphin-emu.org) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/duckstation.png" title="DuckStation" alt="DuckStation" width="32" height="32"> | [DuckStation](https://duckstation.org) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/ea-app.png" title="EA App" alt="EA App" width="32" height="32"> | [EA App](https://ea.com/ea-app) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/epic-games-launcher.png" title="Epic Games Launcher" alt="Epic Games Launcher" width="32" height="32"> | [Epic Games Launcher](https://store.epicgames.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/gog-galaxy.png" title="GOG Galaxy" alt="GOG Galaxy" width="32" height="32"> | [GOG Galaxy](https://gog.com/galaxy) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/heroic-games-launcher.png" title="Heroic Games Launcher" alt="Heroic Games Launcher" width="32" height="32"> | [Heroic Games Launcher](https://heroicgameslauncher.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/itch.png" title="itch" alt="itch" width="32" height="32"> | [itch](https://itch.io/app) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/medal.png" title="Medal" alt="Medal" width="32" height="32"> | [Medal](https://medal.tv) | ❌ | ❌ | Social | None |
-| <img src="./static/extra/software-icons/melonds.png" title="melonDS" alt="melonDS" width="32" height="32"> | [melonDS](https://melonds.kuribo64.net) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/minecraft-launcher.png" title="Minecraft Launcher" alt="Minecraft Launcher" width="32" height="32"> | [Minecraft Launcher](https://minecraft.net) | ❌ | ❌ | None | Minecraft Launcher, Minecraft Launcher (Legacy) |
-| <img src="./static/extra/software-icons/overwolf.png" title="Overwolf" alt="Overwolf" width="32" height="32"> | [Overwolf](https://overwolf.com) | ✔ | ❌ | None | None |
-| <img src="./static/extra/software-icons/parsec.png" title="Parsec" alt="Parsec" width="32" height="32"> | [Parsec](https://parsec.app) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/pcsx2.png" title="PCSX2" alt="PCSX2" width="32" height="32"> | [PCSX2](https://pcsx2.net) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/playnite.png" title="Playnite" alt="Playnite" width="32" height="32"> | [Playnite](https://playnite.link) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/playstation-accessories.png" title="PlayStation Accessories" alt="PlayStation Accessories" width="32" height="32"> | [PlayStation Accessories](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔ | Peripherals | None |
-| <img src="./static/extra/software-icons/ppsspp.png" title="PPSSPP" alt="PPSSPP" width="32" height="32"> | [PPSSPP](https://ppsspp.org) | ❌ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/razer-cortex.png" title="Razer Cortex" alt="Razer Cortex" width="32" height="32"> | [Razer Cortex](https://razer.com/cortex) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/rpcs3.png" title="RPCS3" alt="RPCS3" width="32" height="32"> | [RPCS3](https://rpcs3.net) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/shadps4.png" title="shadPS4" alt="shadPS4" width="32" height="32"> | [shadPS4](https://shadps4.net) | ✔ | ❌ | Emulation | None |
-| <img src="./static/extra/software-icons/steam.png" title="Steam" alt="Steam" width="32" height="32"> | [Steam](https://store.steampowered.com) | ❌ | ✔ | Social | None |
-| <img src="./static/extra/software-icons/ubisoft-connect.png" title="Ubisoft Connect" alt="Ubisoft Connect" width="32" height="32"> | [Ubisoft Connect](https://ubisoft.com/en-us/ubisoft-connect) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/vita3k.png" title="Vita3K" alt="Vita3K" width="32" height="32"> | [Vita3K](https://vita3k.org) | ✔ | ❌ | Emulation | None |
+| ![Azahar](./static/extra/software-icons/azahar.png "Azahar") | [Azahar](https://azahar-emu.org) | ❌ | ❌ | Emulation | `0`
+| ![Battle.net](./static/extra/software-icons/battlenet.png "Battle.net") | [Battle.net](https://battle.net) | ❌ | ❌ | None | `0`
+| ![Cemu](./static/extra/software-icons/cemu.png "Cemu") | [Cemu](https://cemu.info) | ✔ | ❌ | Emulation | `0`
+| ![Cheat Engine](./static/extra/software-icons/cheat-engine.png "Cheat Engine") | [Cheat Engine](https://cheatengine.org) | ❌ | ❌ | Utilities | `0`
+| ![Dolphin Emulator](./static/extra/software-icons/dolphin-emu.png "Dolphin Emulator") | [Dolphin Emulator](https://dolphin-emu.org) | ✔ | ❌ | Emulation | `0`
+| ![DuckStation](./static/extra/software-icons/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ✔ | ❌ | Emulation | `0`
+| ![EA App](./static/extra/software-icons/ea-app.png "EA App") | [EA App](https://ea.com/ea-app) | ❌ | ❌ | None | `0`
+| ![Epic Games Launcher](./static/extra/software-icons/epic-games-launcher.png "Epic Games Launcher") | [Epic Games Launcher](https://store.epicgames.com) | ❌ | ❌ | None | `0`
+| ![GOG Galaxy](./static/extra/software-icons/gog-galaxy.png "GOG Galaxy") | [GOG Galaxy](https://gog.com/galaxy) | ❌ | ❌ | None | `0`
+| ![Heroic Games Launcher](./static/extra/software-icons/heroic-games-launcher.png "Heroic Games Launcher") | [Heroic Games Launcher](https://heroicgameslauncher.com) | ❌ | ❌ | None | `0`
+| ![itch](./static/extra/software-icons/itch.png "itch") | [itch](https://itch.io/app) | ❌ | ❌ | None | `0`
+| ![Medal](./static/extra/software-icons/medal.png "Medal") | [Medal](https://medal.tv) | ❌ | ❌ | Social | `0`
+| ![melonDS](./static/extra/software-icons/melonds.png "melonDS") | [melonDS](https://melonds.kuribo64.net) | ✔ | ❌ | Emulation | `0`
+| ![Minecraft Launcher](./static/extra/software-icons/minecraft-launcher.png "Minecraft Launcher") | [Minecraft Launcher](https://minecraft.net) | ❌ | ❌ | None | `2`
+| ![Overwolf](./static/extra/software-icons/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ✔ | ❌ | None | `0`
+| ![Parsec](./static/extra/software-icons/parsec.png "Parsec") | [Parsec](https://parsec.app) | ❌ | ✔ | None | `0`
+| ![PCSX2](./static/extra/software-icons/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔ | ❌ | Emulation | `0`
+| ![Playnite](./static/extra/software-icons/playnite.png "Playnite") | [Playnite](https://playnite.link) | ❌ | ❌ | None | `0`
+| ![PlayStation Accessories](./static/extra/software-icons/playstation-accessories.png "PlayStation Accessories") | [PlayStation Accessories](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔ | Peripherals | `0`
+| ![PPSSPP](./static/extra/software-icons/ppsspp.png "PPSSPP") | [PPSSPP](https://ppsspp.org) | ❌ | ❌ | Emulation | `0`
+| ![Razer Cortex](./static/extra/software-icons/razer-cortex.png "Razer Cortex") | [Razer Cortex](https://razer.com/cortex) | ❌ | ✔ | None | `0`
+| ![RPCS3](./static/extra/software-icons/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔ | ❌ | Emulation | `0`
+| ![shadPS4](./static/extra/software-icons/shadps4.png "shadPS4") | [shadPS4](https://shadps4.net) | ✔ | ❌ | Emulation | `0`
+| ![Steam](./static/extra/software-icons/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | ✔ | Social | `0`
+| ![Ubisoft Connect](./static/extra/software-icons/ubisoft-connect.png "Ubisoft Connect") | [Ubisoft Connect](https://ubisoft.com/en-us/ubisoft-connect) | ❌ | ✔ | None | `0`
+| ![Vita3K](./static/extra/software-icons/vita3k.png "Vita3K") | [Vita3K](https://vita3k.org) | ✔ | ❌ | Emulation | `0`
 
 ---
 
 ## Media
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/aimp.png" title="AIMP" alt="AIMP" width="32" height="32"> | [AIMP](https://aimp.ru) | ❌ | ❌ | Audio & Sound | None |
-| <img src="./static/extra/software-icons/audacity.png" title="Audacity" alt="Audacity" width="32" height="32"> | [Audacity](https://audacityteam.org) | ❌ | ❌ | Audio & Sound | None |
-| <img src="./static/extra/software-icons/darktable.png" title="darktable" alt="darktable" width="32" height="32"> | [darktable](https://darktable.org) | ❌ | ✔ | Creative | None |
-| <img src="./static/extra/software-icons/foobar2000.png" title="foobar2000" alt="foobar2000" width="32" height="32"> | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Audio & Sound | None |
-| <img src="./static/extra/software-icons/handbrake.png" title="HandBrake" alt="HandBrake" width="32" height="32"> | [HandBrake](https://handbrake.fr) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/itunes.png" title="iTunes" alt="iTunes" width="32" height="32"> | [iTunes](https://apple.com/itunes) | ❌ | ❌ | Audio & Sound | None |
-| <img src="./static/extra/software-icons/lightshot.png" title="Lightshot" alt="Lightshot" width="32" height="32"> | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/obs-studio.png" title="OBS Studio" alt="OBS Studio" width="32" height="32"> | [OBS Studio](https://obsproject.com) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/plex-desktop.png" title="Plex" alt="Plex" width="32" height="32"> | [Plex](https://plex.tv) | ❌ | ❌ | Audio & Sound | Plex Desktop, Plex Media Server, Plexamp |
-| <img src="./static/extra/software-icons/sharex.png" title="ShareX" alt="ShareX" width="32" height="32"> | [ShareX](https://getsharex.com) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/spotify.png" title="Spotify" alt="Spotify" width="32" height="32"> | [Spotify](https://spotify.com) | ❌ | ❌ | Audio & Sound | None |
-| <img src="./static/extra/software-icons/streamlabs-desktop.png" title="Streamlabs Desktop" alt="Streamlabs Desktop" width="32" height="32"> | [Streamlabs Desktop](https://streamlabs.com/streamlabs-live-streaming-software) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/streamlink.png" title="Streamlink" alt="Streamlink" width="32" height="32"> | [Streamlink](https://streamlink.github.io) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/vlc-media-player.png" title="VLC Media Player" alt="VLC Media Player" width="32" height="32"> | [VLC Media Player](https://videolan.org) | ❌ | ✔ | Audio & Sound | None |
+| ![AIMP](./static/extra/software-icons/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | ❌ | Audio & Sound | `0`
+| ![Audacity](./static/extra/software-icons/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | ❌ | Audio & Sound | `0`
+| ![darktable](./static/extra/software-icons/darktable.png "darktable") | [darktable](https://darktable.org) | ❌ | ✔ | Creative | `0`
+| ![foobar2000](./static/extra/software-icons/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Audio & Sound | `0`
+| ![HandBrake](./static/extra/software-icons/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔ | Utilities | `0`
+| ![iTunes](./static/extra/software-icons/itunes.png "iTunes") | [iTunes](https://apple.com/itunes) | ❌ | ❌ | Audio & Sound | `0`
+| ![Lightshot](./static/extra/software-icons/lightshot.png "Lightshot") | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Utilities | `0`
+| ![OBS Studio](./static/extra/software-icons/obs-studio.png "OBS Studio") | [OBS Studio](https://obsproject.com) | ❌ | ✔ | None | `0`
+| ![Plex](./static/extra/software-icons/plex-desktop.png "Plex") | [Plex](https://plex.tv) | ❌ | ❌ | Audio & Sound | `3`
+| ![ShareX](./static/extra/software-icons/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | ❌ | Utilities | `0`
+| ![Spotify](./static/extra/software-icons/spotify.png "Spotify") | [Spotify](https://spotify.com) | ❌ | ❌ | Audio & Sound | `0`
+| ![Streamlabs Desktop](./static/extra/software-icons/streamlabs-desktop.png "Streamlabs Desktop") | [Streamlabs Desktop](https://streamlabs.com/streamlabs-live-streaming-software) | ❌ | ✔ | None | `0`
+| ![Streamlink](./static/extra/software-icons/streamlink.png "Streamlink") | [Streamlink](https://streamlink.github.io) | ❌ | ✔ | None | `0`
+| ![VLC Media Player](./static/extra/software-icons/vlc-media-player.png "VLC Media Player") | [VLC Media Player](https://videolan.org) | ❌ | ✔ | Audio & Sound | `0`
 
 ---
 
 ## 3D Modelling
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/blender.png" title="Blender" alt="Blender" width="32" height="32"> | [Blender](https://blender.org) | ❌ | ❌ | Creative | None |
+| ![Blender](./static/extra/software-icons/blender.png "Blender") | [Blender](https://blender.org) | ❌ | ❌ | Creative | `0`
 
 ---
 
 ## Network Tools
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/filezilla.png" title="FileZilla" alt="FileZilla" width="32" height="32"> | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, File Management | None |
-| <img src="./static/extra/software-icons/glasswire.png" title="GlassWire" alt="GlassWire" width="32" height="32"> | [GlassWire](https://glasswire.com) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/hoppscotch.png" title="Hoppscotch" alt="Hoppscotch" width="32" height="32"> | [Hoppscotch](https://hoppscotch.io) | ❌ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/insomnia.png" title="Insomnia" alt="Insomnia" width="32" height="32"> | [Insomnia](https://insomnia.rest) | ❌ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/postman.png" title="Postman" alt="Postman" width="32" height="32"> | [Postman](https://postman.com) | ❌ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/putty.png" title="PuTTY" alt="PuTTY" width="32" height="32"> | [PuTTY](https://putty.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/qbittorrent.png" title="qBittorrent" alt="qBittorrent" width="32" height="32"> | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | File Management, Utilities | None |
-| <img src="./static/extra/software-icons/winscp.png" title="WinSCP" alt="WinSCP" width="32" height="32"> | [WinSCP](https://winscp.net) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/wireshark.png" title="Wireshark" alt="Wireshark" width="32" height="32"> | [Wireshark](https://wireshark.org) | ❌ | ✔ | Utilities | None |
+| ![FileZilla](./static/extra/software-icons/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, File Management | `0`
+| ![GlassWire](./static/extra/software-icons/glasswire.png "GlassWire") | [GlassWire](https://glasswire.com) | ❌ | ✔ | Utilities | `0`
+| ![Hoppscotch](./static/extra/software-icons/hoppscotch.png "Hoppscotch") | [Hoppscotch](https://hoppscotch.io) | ❌ | ❌ | Development | `0`
+| ![Insomnia](./static/extra/software-icons/insomnia.png "Insomnia") | [Insomnia](https://insomnia.rest) | ❌ | ❌ | Development | `0`
+| ![Postman](./static/extra/software-icons/postman.png "Postman") | [Postman](https://postman.com) | ❌ | ❌ | Development | `0`
+| ![PuTTY](./static/extra/software-icons/putty.png "PuTTY") | [PuTTY](https://putty.org) | ❌ | ❌ | None | `0`
+| ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | File Management, Utilities | `0`
+| ![WinSCP](./static/extra/software-icons/winscp.png "WinSCP") | [WinSCP](https://winscp.net) | ❌ | ❌ | Utilities | `0`
+| ![Wireshark](./static/extra/software-icons/wireshark.png "Wireshark") | [Wireshark](https://wireshark.org) | ❌ | ✔ | Utilities | `0`
 
 ---
 
 ## Peripherals
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/corsair-icue.png" title="Corsair iCUE" alt="Corsair iCUE" width="32" height="32"> | [Corsair iCUE](https://corsair.com/us/en/s/icue) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/elgato-stream-deck.png" title="Elgato Stream Deck" alt="Elgato Stream Deck" width="32" height="32"> | [Elgato Stream Deck](https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/logitech-g-hub.png" title="Logitech G HUB" alt="Logitech G HUB" width="32" height="32"> | [Logitech G HUB](https://logitechg.com/en-us/innovation/g-hub.html) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/nvidia.png" title="NVIDIA App" alt="NVIDIA App" width="32" height="32"> | [NVIDIA App](https://nvidia.com/en-us/software/nvidia-app) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/playstation-accessories.png" title="PlayStation Accessories" alt="PlayStation Accessories" width="32" height="32"> | [PlayStation Accessories](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔ | Gaming | None |
+| ![Corsair iCUE](./static/extra/software-icons/corsair-icue.png "Corsair iCUE") | [Corsair iCUE](https://corsair.com/us/en/s/icue) | ❌ | ✔ | None | `0`
+| ![Elgato Stream Deck](./static/extra/software-icons/elgato-stream-deck.png "Elgato Stream Deck") | [Elgato Stream Deck](https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes) | ❌ | ❌ | None | `0`
+| ![Logitech G HUB](./static/extra/software-icons/logitech-g-hub.png "Logitech G HUB") | [Logitech G HUB](https://logitechg.com/en-us/innovation/g-hub.html) | ❌ | ✔ | None | `0`
+| ![NVIDIA App](./static/extra/software-icons/nvidia.png "NVIDIA App") | [NVIDIA App](https://nvidia.com/en-us/software/nvidia-app) | ❌ | ✔ | None | `0`
+| ![PlayStation Accessories](./static/extra/software-icons/playstation-accessories.png "PlayStation Accessories") | [PlayStation Accessories](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔ | Gaming | `0`
 
 ---
 
 ## Notes & Productivity
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/evernote.png" title="Evernote" alt="Evernote" width="32" height="32"> | [Evernote](https://evernote.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/joplin.png" title="Joplin" alt="Joplin" width="32" height="32"> | [Joplin](https://joplinapp.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/libreoffice.png" title="LibreOffice" alt="LibreOffice" width="32" height="32"> | [LibreOffice](https://libreoffice.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/obsidian.png" title="Obsidian" alt="Obsidian" width="32" height="32"> | [Obsidian](https://obsidian.md) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/thunderbird.png" title="Thunderbird" alt="Thunderbird" width="32" height="32"> | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Social | None |
+| ![Evernote](./static/extra/software-icons/evernote.png "Evernote") | [Evernote](https://evernote.com) | ❌ | ❌ | None | `0`
+| ![Joplin](./static/extra/software-icons/joplin.png "Joplin") | [Joplin](https://joplinapp.org) | ❌ | ❌ | None | `0`
+| ![LibreOffice](./static/extra/software-icons/libreoffice.png "LibreOffice") | [LibreOffice](https://libreoffice.org) | ❌ | ❌ | None | `0`
+| ![Obsidian](./static/extra/software-icons/obsidian.png "Obsidian") | [Obsidian](https://obsidian.md) | ❌ | ❌ | None | `0`
+| ![Thunderbird](./static/extra/software-icons/thunderbird.png "Thunderbird") | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Social | `0`
 
 ---
 
 ## Runtimes
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/dotnet.png" title=".NET" alt=".NET" width="32" height="32"> | [.NET](https://dot.net) | ❌ | ❌ | Development | .NET 8.0 ASP.NET Core Runtime, .NET 8.0 Desktop Runtime, .NET 8.0 Runtime, .NET 8.0 SDK, .NET 9.0 ASP.NET Core Runtime, .NET 9.0 Desktop Runtime, .NET 9.0 Runtime, .NET 9.0 SDK |
-| <img src="./static/extra/software-icons/java.png" title="Java SE Development Kit" alt="Java SE Development Kit" width="32" height="32"> | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | ❌ | Development | Java SE Development Kit 21.x, Java SE Development Kit 24.x |
-| <img src="./static/extra/software-icons/microsoft-edge-webview2-runtime.png" title="Microsoft Edge WebView2 Runtime" alt="Microsoft Edge WebView2 Runtime" width="32" height="32"> | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/msvc.png" title="Microsoft Visual C++ 2015-2022 Redistributable" alt="Microsoft Visual C++ 2015-2022 Redistributable" width="32" height="32"> | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/nodejs.png" title="Node.js" alt="Node.js" width="32" height="32"> | [Node.js](https://nodejs.org) | ❌ | ❌ | Development | Node.js, Node.js (LTS) |
-| <img src="./static/extra/software-icons/generic.png" title="Windows App SDK" alt="Windows App SDK" width="32" height="32"> | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | ❌ | Development | None |
+| ![.NET](./static/extra/software-icons/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | ❌ | Development | `8`
+| ![Java SE Development Kit](./static/extra/software-icons/java.png "Java SE Development Kit") | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | ❌ | Development | `2`
+| ![Microsoft Edge WebView2 Runtime](./static/extra/software-icons/microsoft-edge-webview2-runtime.png "Microsoft Edge WebView2 Runtime") | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | ❌ | None | `0`
+| ![Microsoft Visual C++ 2015-2022 Redistributable](./static/extra/software-icons/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | ❌ | None | `0`
+| ![Node.js](./static/extra/software-icons/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | ❌ | Development | `2`
+| ![Windows App SDK](./static/extra/software-icons/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | ❌ | Development | `0`
 
 ---
 
 ## Security
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/bitwarden.png" title="Bitwarden" alt="Bitwarden" width="32" height="32"> | [Bitwarden](https://bitwarden.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/keepass.png" title="KeePass" alt="KeePass" width="32" height="32"> | [KeePass](https://keepass.info) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/malwarebytes.png" title="Malwarebytes" alt="Malwarebytes" width="32" height="32"> | [Malwarebytes](https://malwarebytes.com) | ❌ | ✔ | None | None |
+| ![Bitwarden](./static/extra/software-icons/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | ❌ | None | `0`
+| ![KeePass](./static/extra/software-icons/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | ❌ | None | `0`
+| ![Malwarebytes](./static/extra/software-icons/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | ✔ | None | `0`
 
 ---
 
 ## Social
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/discord.png" title="Discord" alt="Discord" width="32" height="32"> | [Discord](https://discord.com) | ❌ | ❌ | None | Discord Canary, Discord PTB, Discord Stable |
-| <img src="./static/extra/software-icons/medal.png" title="Medal" alt="Medal" width="32" height="32"> | [Medal](https://medal.tv) | ❌ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/microsoft-teams.png" title="Microsoft Teams" alt="Microsoft Teams" width="32" height="32"> | [Microsoft Teams](https://microsoft.com/en-us/microsoft-teams) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/revolt.png" title="Revolt" alt="Revolt" width="32" height="32"> | [Revolt](https://revolt.chat) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/signal.png" title="Signal" alt="Signal" width="32" height="32"> | [Signal](https://signal.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/slack.png" title="Slack" alt="Slack" width="32" height="32"> | [Slack](https://slack.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/steam.png" title="Steam" alt="Steam" width="32" height="32"> | [Steam](https://store.steampowered.com) | ❌ | ✔ | Gaming | None |
-| <img src="./static/extra/software-icons/teamviewer.png" title="TeamViewer" alt="TeamViewer" width="32" height="32"> | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/telegram.png" title="Telegram" alt="Telegram" width="32" height="32"> | [Telegram](https://telegram.org) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/thunderbird.png" title="Thunderbird" alt="Thunderbird" width="32" height="32"> | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Notes & Productivity | None |
-| <img src="./static/extra/software-icons/trillian.png" title="Trillian" alt="Trillian" width="32" height="32"> | [Trillian](https://trillian.im) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/zoom.png" title="Zoom Workplace" alt="Zoom Workplace" width="32" height="32"> | [Zoom Workplace](https://zoom.us) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/zulip.png" title="Zulip" alt="Zulip" width="32" height="32"> | [Zulip](https://zulip.com) | ❌ | ❌ | None | None |
+| ![Discord](./static/extra/software-icons/discord.png "Discord") | [Discord](https://discord.com) | ❌ | ❌ | None | `3`
+| ![Medal](./static/extra/software-icons/medal.png "Medal") | [Medal](https://medal.tv) | ❌ | ❌ | Gaming | `0`
+| ![Microsoft Teams](./static/extra/software-icons/microsoft-teams.png "Microsoft Teams") | [Microsoft Teams](https://microsoft.com/en-us/microsoft-teams) | ❌ | ❌ | None | `0`
+| ![Revolt](./static/extra/software-icons/revolt.png "Revolt") | [Revolt](https://revolt.chat) | ❌ | ❌ | None | `0`
+| ![Signal](./static/extra/software-icons/signal.png "Signal") | [Signal](https://signal.org) | ❌ | ❌ | None | `0`
+| ![Slack](./static/extra/software-icons/slack.png "Slack") | [Slack](https://slack.com) | ❌ | ❌ | None | `0`
+| ![Steam](./static/extra/software-icons/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | ✔ | Gaming | `0`
+| ![TeamViewer](./static/extra/software-icons/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Utilities | `0`
+| ![Telegram](./static/extra/software-icons/telegram.png "Telegram") | [Telegram](https://telegram.org) | ❌ | ❌ | None | `0`
+| ![Thunderbird](./static/extra/software-icons/thunderbird.png "Thunderbird") | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Notes & Productivity | `0`
+| ![Trillian](./static/extra/software-icons/trillian.png "Trillian") | [Trillian](https://trillian.im) | ❌ | ❌ | None | `0`
+| ![Zoom Workplace](./static/extra/software-icons/zoom.png "Zoom Workplace") | [Zoom Workplace](https://zoom.us) | ❌ | ❌ | None | `0`
+| ![Zulip](./static/extra/software-icons/zulip.png "Zulip") | [Zulip](https://zulip.com) | ❌ | ❌ | None | `0`
 
 ---
 
 ## System Management
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/ccleaner.png" title="CCleaner" alt="CCleaner" width="32" height="32"> | [CCleaner](https://ccleaner.com) | ❌ | ✔ | File Management, Utilities | None |
-| <img src="./static/extra/software-icons/defraggler.png" title="Defraggler" alt="Defraggler" width="32" height="32"> | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management, Utilities | None |
-| <img src="./static/extra/software-icons/hwmonitor.png" title="HWMonitor" alt="HWMonitor" width="32" height="32"> | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/recuva.png" title="Recuva" alt="Recuva" width="32" height="32"> | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/speccy.png" title="Speccy" alt="Speccy" width="32" height="32"> | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | Utilities | None |
-| <img src="./static/extra/software-icons/system-informer.png" title="System Informer" alt="System Informer" width="32" height="32"> | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | Utilities | None |
-| <img src="./static/extra/software-icons/windirstat.png" title="WinDirStat" alt="WinDirStat" width="32" height="32"> | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, Utilities | None |
+| ![CCleaner](./static/extra/software-icons/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔ | File Management, Utilities | `0`
+| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management, Utilities | `0`
+| ![HWMonitor](./static/extra/software-icons/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | Utilities | `0`
+| ![Recuva](./static/extra/software-icons/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | Utilities | `0`
+| ![Speccy](./static/extra/software-icons/speccy.png "Speccy") | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | Utilities | `0`
+| ![System Informer](./static/extra/software-icons/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | Utilities | `0`
+| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, Utilities | `0`
 
 ---
 
 ## Utilities
 
-|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |
+|  | Name | Is Archive? | Requires Admin? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
-| <img src="./static/extra/software-icons/autohotkey.png" title="AutoHotKey" alt="AutoHotKey" width="32" height="32"> | [AutoHotKey](https://autohotkey.com) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/balenaetcher.png" title="balenaEtcher" alt="balenaEtcher" width="32" height="32"> | [balenaEtcher](https://etcher.io) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/caesium-image-compressor.png" title="Caesium Image Compressor" alt="Caesium Image Compressor" width="32" height="32"> | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/ccleaner.png" title="CCleaner" alt="CCleaner" width="32" height="32"> | [CCleaner](https://ccleaner.com) | ❌ | ✔ | File Management, System Management | None |
-| <img src="./static/extra/software-icons/cheat-engine.png" title="Cheat Engine" alt="Cheat Engine" width="32" height="32"> | [Cheat Engine](https://cheatengine.org) | ❌ | ❌ | Gaming | None |
-| <img src="./static/extra/software-icons/cpuz.png" title="CPU-Z (Classic)" alt="CPU-Z (Classic)" width="32" height="32"> | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/db-browser-for-sqlite.png" title="DB Browser for SQLite" alt="DB Browser for SQLite" width="32" height="32"> | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/defraggler.png" title="Defraggler" alt="Defraggler" width="32" height="32"> | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management, System Management | None |
-| <img src="./static/extra/software-icons/ddu.png" title="Display Driver Uninstaller" alt="Display Driver Uninstaller" width="32" height="32"> | [Display Driver Uninstaller](https://guru3d.com/download/display-driver-uninstaller-download) | ✔ | ❌ | None | None |
-| <img src="./static/extra/software-icons/dnspy.png" title="dnSpy (Fork)" alt="dnSpy (Fork)" width="32" height="32"> | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/dropbox.png" title="Dropbox" alt="Dropbox" width="32" height="32"> | [Dropbox](https://dropbox.com) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/equalizer-apo.png" title="Equalizer APO" alt="Equalizer APO" width="32" height="32"> | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔ | Audio & Sound | None |
-| <img src="./static/extra/software-icons/glasswire.png" title="GlassWire" alt="GlassWire" width="32" height="32"> | [GlassWire](https://glasswire.com) | ❌ | ✔ | Network Tools | None |
-| <img src="./static/extra/software-icons/google-drive.png" title="Google Drive" alt="Google Drive" width="32" height="32"> | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | File Management | None |
-| <img src="./static/extra/software-icons/handbrake.png" title="HandBrake" alt="HandBrake" width="32" height="32"> | [HandBrake](https://handbrake.fr) | ❌ | ✔ | Media | None |
-| <img src="./static/extra/software-icons/hwmonitor.png" title="HWMonitor" alt="HWMonitor" width="32" height="32"> | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | System Management | None |
-| <img src="./static/extra/software-icons/jackett.png" title="Jackett" alt="Jackett" width="32" height="32"> | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/lightshot.png" title="Lightshot" alt="Lightshot" width="32" height="32"> | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/megasync.png" title="MEGAsync" alt="MEGAsync" width="32" height="32"> | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/microsoft-onedrive.png" title="Microsoft OneDrive" alt="Microsoft OneDrive" width="32" height="32"> | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/powertoys.png" title="Microsoft PowerToys (Preview)" alt="Microsoft PowerToys (Preview)" width="32" height="32"> | [Microsoft PowerToys (Preview)](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/motrix.png" title="Motrix" alt="Motrix" width="32" height="32"> | [Motrix](https://motrix.app) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/oracle-virtualbox.png" title="Oracle VirtualBox" alt="Oracle VirtualBox" width="32" height="32"> | [Oracle VirtualBox](https://virtualbox.org) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/peazip.png" title="PeaZip" alt="PeaZip" width="32" height="32"> | [PeaZip](https://peazip.github.io) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/powershell-core.png" title="PowerShell 7" alt="PowerShell 7" width="32" height="32"> | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | Development | None |
-| <img src="./static/extra/software-icons/qbittorrent.png" title="qBittorrent" alt="qBittorrent" width="32" height="32"> | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | File Management, Network Tools | None |
-| <img src="./static/extra/software-icons/rainmeter.png" title="Rainmeter" alt="Rainmeter" width="32" height="32"> | [Rainmeter](https://rainmeter.net) | ❌ | ❌ | None | None |
-| <img src="./static/extra/software-icons/raspberry-pi-imager.png" title="Raspberry Pi Imager" alt="Raspberry Pi Imager" width="32" height="32"> | [Raspberry Pi Imager](https://raspberrypi.com/software) | ❌ | ✔ | None | None |
-| <img src="./static/extra/software-icons/recuva.png" title="Recuva" alt="Recuva" width="32" height="32"> | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | System Management | None |
-| <img src="./static/extra/software-icons/rufus.png" title="Rufus" alt="Rufus" width="32" height="32"> | [Rufus](https://rufus.ie) | ❌ | ✔ | File Management | None |
-| <img src="./static/extra/software-icons/7zip.png" title="7-Zip" alt="7-Zip" width="32" height="32"> | [7-Zip](https://7-zip.org) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/sharex.png" title="ShareX" alt="ShareX" width="32" height="32"> | [ShareX](https://getsharex.com) | ❌ | ❌ | Media | None |
-| <img src="./static/extra/software-icons/speccy.png" title="Speccy" alt="Speccy" width="32" height="32"> | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | System Management | None |
-| <img src="./static/extra/software-icons/system-informer.png" title="System Informer" alt="System Informer" width="32" height="32"> | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | System Management | None |
-| <img src="./static/extra/software-icons/teamviewer.png" title="TeamViewer" alt="TeamViewer" width="32" height="32"> | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Social | None |
-| <img src="./static/extra/software-icons/teracopy.png" title="TeraCopy" alt="TeraCopy" width="32" height="32"> | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/windirstat.png" title="WinDirStat" alt="WinDirStat" width="32" height="32"> | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, System Management | None |
-| <img src="./static/extra/software-icons/winrar.png" title="WinRAR" alt="WinRAR" width="32" height="32"> | [WinRAR](https://win-rar.com) | ❌ | ❌ | File Management | None |
-| <img src="./static/extra/software-icons/winscp.png" title="WinSCP" alt="WinSCP" width="32" height="32"> | [WinSCP](https://winscp.net) | ❌ | ❌ | Network Tools | None |
-| <img src="./static/extra/software-icons/wireshark.png" title="Wireshark" alt="Wireshark" width="32" height="32"> | [Wireshark](https://wireshark.org) | ❌ | ✔ | Network Tools | None |
+| ![AutoHotKey](./static/extra/software-icons/autohotkey.png "AutoHotKey") | [AutoHotKey](https://autohotkey.com) | ❌ | ❌ | None | `0`
+| ![balenaEtcher](./static/extra/software-icons/balenaetcher.png "balenaEtcher") | [balenaEtcher](https://etcher.io) | ❌ | ❌ | None | `0`
+| ![Caesium Image Compressor](./static/extra/software-icons/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | ❌ | None | `0`
+| ![CCleaner](./static/extra/software-icons/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔ | File Management, System Management | `0`
+| ![Cheat Engine](./static/extra/software-icons/cheat-engine.png "Cheat Engine") | [Cheat Engine](https://cheatengine.org) | ❌ | ❌ | Gaming | `0`
+| ![CPU-Z (Classic)](./static/extra/software-icons/cpuz.png "CPU-Z (Classic)") | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | ❌ | None | `0`
+| ![DB Browser for SQLite](./static/extra/software-icons/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | ❌ | Development | `0`
+| ![Defraggler](./static/extra/software-icons/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔ | File Management, System Management | `0`
+| ![Display Driver Uninstaller](./static/extra/software-icons/ddu.png "Display Driver Uninstaller") | [Display Driver Uninstaller](https://guru3d.com/download/display-driver-uninstaller-download) | ✔ | ❌ | None | `0`
+| ![dnSpy (Fork)](./static/extra/software-icons/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔ | ❌ | Development | `0`
+| ![Dropbox](./static/extra/software-icons/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ | File Management | `0`
+| ![Equalizer APO](./static/extra/software-icons/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔ | Audio & Sound | `0`
+| ![GlassWire](./static/extra/software-icons/glasswire.png "GlassWire") | [GlassWire](https://glasswire.com) | ❌ | ✔ | Network Tools | `0`
+| ![Google Drive](./static/extra/software-icons/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔ | File Management | `0`
+| ![HandBrake](./static/extra/software-icons/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔ | Media | `0`
+| ![HWMonitor](./static/extra/software-icons/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | System Management | `0`
+| ![Jackett](./static/extra/software-icons/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | File Management | `0`
+| ![Lightshot](./static/extra/software-icons/lightshot.png "Lightshot") | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Media | `0`
+| ![MEGAsync](./static/extra/software-icons/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | File Management | `0`
+| ![Microsoft OneDrive](./static/extra/software-icons/microsoft-onedrive.png "Microsoft OneDrive") | [Microsoft OneDrive](https://microsoft.com/en-us/microsoft-365/onedrive) | ❌ | ❌ | File Management | `0`
+| ![Microsoft PowerToys (Preview)](./static/extra/software-icons/powertoys.png "Microsoft PowerToys (Preview)") | [Microsoft PowerToys (Preview)](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | ❌ | None | `0`
+| ![Motrix](./static/extra/software-icons/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | File Management | `0`
+| ![Oracle VirtualBox](./static/extra/software-icons/oracle-virtualbox.png "Oracle VirtualBox") | [Oracle VirtualBox](https://virtualbox.org) | ❌ | ✔ | None | `0`
+| ![PeaZip](./static/extra/software-icons/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | ❌ | File Management | `0`
+| ![PowerShell 7](./static/extra/software-icons/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | ❌ | Development | `0`
+| ![qBittorrent](./static/extra/software-icons/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | ❌ | File Management, Network Tools | `0`
+| ![Rainmeter](./static/extra/software-icons/rainmeter.png "Rainmeter") | [Rainmeter](https://rainmeter.net) | ❌ | ❌ | None | `0`
+| ![Raspberry Pi Imager](./static/extra/software-icons/raspberry-pi-imager.png "Raspberry Pi Imager") | [Raspberry Pi Imager](https://raspberrypi.com/software) | ❌ | ✔ | None | `0`
+| ![Recuva](./static/extra/software-icons/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔ | System Management | `0`
+| ![Rufus](./static/extra/software-icons/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔ | File Management | `0`
+| ![7-Zip](./static/extra/software-icons/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ | File Management | `0`
+| ![ShareX](./static/extra/software-icons/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | ❌ | Media | `0`
+| ![Speccy](./static/extra/software-icons/speccy.png "Speccy") | [Speccy](https://ccleaner.com/speccy) | ❌ | ✔ | System Management | `0`
+| ![System Informer](./static/extra/software-icons/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | System Management | `0`
+| ![TeamViewer](./static/extra/software-icons/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Social | `0`
+| ![TeraCopy](./static/extra/software-icons/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | File Management | `0`
+| ![WinDirStat](./static/extra/software-icons/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, System Management | `0`
+| ![WinRAR](./static/extra/software-icons/winrar.png "WinRAR") | [WinRAR](https://win-rar.com) | ❌ | ❌ | File Management | `0`
+| ![WinSCP](./static/extra/software-icons/winscp.png "WinSCP") | [WinSCP](https://winscp.net) | ❌ | ❌ | Network Tools | `0`
+| ![Wireshark](./static/extra/software-icons/wireshark.png "Wireshark") | [Wireshark](https://wireshark.org) | ❌ | ✔ | Network Tools | `0`
 
 ---

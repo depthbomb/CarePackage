@@ -1,13 +1,13 @@
 import { join } from 'node:path';
 import { IpcChannel } from 'shared';
+import { fileExists } from '~/utils';
 import { CliService } from '~/services/cli';
 import { IpcService } from '~/services/ipc';
 import { WindowService } from '~/services/window';
 import { inject, injectable } from '@needle-di/core';
 import { SoftwareService } from '~/services/software';
 import { net, Menu, shell, protocol } from 'electron';
-import { fileExists, getExtraResourcePath } from '~/utils';
-import { PRELOAD_PATH, EXTERNAL_HOSTS_WHITELIST } from '~/constants';
+import { PRELOAD_PATH, RESOURCES_PATH, EXTERNAL_HOSTS_WHITELIST } from '~/constants';
 import type { Maybe } from 'shared';
 import type { BrowserWindow } from 'electron';
 import type { IBootstrappable } from '~/common/IBootstrappable';
@@ -68,15 +68,11 @@ export class MainWindowService implements IBootstrappable {
 		});
 
 		protocol.handle('software-icon', async ({ url }) => {
-			let iconPath = getExtraResourcePath(
-				join('software-icons', url.replace('software-icon://', ''))
-			);
+			let iconPath = join(RESOURCES_PATH, 'app.asar', 'software-icons', url.replace('software-icon://', ''));
 
 			const exists = await fileExists(iconPath);
 			if (!exists) {
-				iconPath = getExtraResourcePath(
-					join('software-icons', 'generic.png')
-				);
+				iconPath = join(RESOURCES_PATH, 'app.asar', 'software-icons', 'generic.png');
 			}
 
 			return net.fetch(`file://${iconPath}`);

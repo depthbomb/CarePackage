@@ -10,6 +10,7 @@ export default class implements ISoftwareDefinition {
 	public shouldCacheUrl = true;
 	public icon = 'plex-desktop.png';
 	public homepage = 'https://plex.tv';
+	public parent = 'plex';
 
 	public async resolveDownloadUrl() {
 		const res = await fetch('https://plex.tv/api/downloads/6.json');

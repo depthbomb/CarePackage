@@ -12,7 +12,6 @@ export enum SoftwareCategory {
 	Browser = 'Web Browsers',
 	Creative = 'Creative',
 	Development = 'Development',
-	DotNet = '.NET',
 	Emulation = 'Emulation',
 	FileManagement = 'File Management',
 	GameDevelopment = 'Video Game Development',
@@ -56,8 +55,9 @@ export interface ISoftwareDefinition {
 	requiresAdmin?: boolean;
 	deprecated?: boolean;
 	alternative?: ISoftwareDefinition;
-	variants?: number[];
+	variants?: ISoftwareDefinition[];
+	parent?: string;
 	icon: string;
 	homepage: string;
-	resolveDownloadUrl(variant?: number): Promise<Result<string, DownloadUrlResolveError>>;
+	resolveDownloadUrl(variantKey?: string): Promise<Result<string, DownloadUrlResolveError>>;
 }

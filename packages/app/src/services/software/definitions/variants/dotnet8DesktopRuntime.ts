@@ -3,16 +3,14 @@ import { SoftwareCategory, DownloadUrlResolveError } from 'shared';
 import type { ISoftwareDefinition } from 'shared';
 
 export default class implements ISoftwareDefinition {
-	public key = 'dotnet-9-sdk';
-	public name = '.NET 9.0 SDK';
-	public category = [
-		SoftwareCategory.Development,
-		SoftwareCategory.DotNet,
-	];
-	public downloadName = 'dotnet-sdk-9.0-win-x64.exe';
+	public key = 'dotnet-8-desktop-runtime';
+	public name = '.NET 8.0 Desktop Runtime';
+	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
+	public downloadName = 'windowsdesktop-runtime-8.0-win-x64.exe';
 	public shouldCacheUrl = true;
 	public icon = 'dotnet.png';
 	public homepage = 'https://dot.net';
+	public parent = 'dotnet';
 
 	public async resolveDownloadUrl() {
 		const downloadPageUrl = await this.getDownloadPageUrl();
@@ -26,7 +24,7 @@ export default class implements ISoftwareDefinition {
 		}
 
 		const html  = await res.text();
-		const match = html.match(/https:\/\/builds.dotnet.microsoft.com\/dotnet\/Sdk\/\d+\.\d+\.\d+\/dotnet-sdk-\d+\.\d+\.\d+-win-x64.exe/);
+		const match = html.match(/https:\/\/builds.dotnet.microsoft.com\/dotnet\/WindowsDesktop\/\d+\.\d+\.\d+\/windowsdesktop-runtime-\d+\.\d+\.\d+-win-x64.exe/);
 		if (!match) {
 			return err(DownloadUrlResolveError.Generic);
 		}
@@ -35,13 +33,13 @@ export default class implements ISoftwareDefinition {
 	}
 
 	private async getDownloadPageUrl() {
-		const res = await fetch('https://dotnet.microsoft.com/en-us/download/dotnet/9.0');
+		const res = await fetch('https://dotnet.microsoft.com/en-us/download/dotnet/8.0');
 		if (!res.ok) {
 			return null;
 		}
 
 		const html  = await res.text();
-		const match = html.match(/sdk-\d+\.\d+\.\d+-windows-x64-installer/);
+		const match = html.match(/runtime-desktop-\d+\.\d+\.\d+-windows-x64-installer/);
 		if (!match) {
 			return null;
 		}

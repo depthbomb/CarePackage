@@ -26,6 +26,7 @@ export const App = () => {
 	const [hasErrors, setHasErrors]                     = useAtom(app.hasErrorsAtom);
 	const [updateAvailable, setUpdateAvailable]         = useAtom(app.updateAvailable);
 	const [softwareDefinitions, setSoftwareDefinitions] = useAtom(app.softwareDefinitionsAtom);
+	const [softwareVariants, setSoftwareVariants]       = useAtom(app.softwareVariantsAtom);
 	const [selectedSoftware, setSelectedSoftware]       = useAtom(app.selectedSoftwareAtom);
 	const [skipInstallation]                            = useAtom(app.skipInstallationAtom);
 	const [installSilently]                             = useAtom(app.installSilentlyAtom);
@@ -123,8 +124,9 @@ export const App = () => {
 	useEffect(() => {
 		window.api.isElevated().then(setIsElevated);
 		window.api.getSoftwareDefinitions()
-			.then(defs => {
-				setSoftwareDefinitions(defs);
+			.then(({ definitions, variants }) => {
+				setSoftwareDefinitions(definitions);
+				setSoftwareVariants(variants);
 				setLoading(false);
 			});
 	}, []);
@@ -213,7 +215,10 @@ export const App = () => {
 						</>
 					)}
 					{import.meta.env.DEV && (
-						<Button onClick={() => setSelectedSoftware(softwareDefinitions)} disabled={isWorking}>
+						<Button onClick={() => {
+							const softwareWithoutVariants = softwareDefinitions.filter(sw => sw.variants!.length === 0);
+							setSelectedSoftware([...softwareWithoutVariants, ...softwareVariants]);
+						}} disabled={isWorking}>
 							<span>Select all</span>
 						</Button>
 					)}

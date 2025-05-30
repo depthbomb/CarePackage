@@ -31,7 +31,7 @@ export type CoreApi = {
 	setSettingsValue(key: SettingsKey, value: any, secure?: boolean): Promise<void>;
 	resetSettings(): Promise<void>;
 	//
-	getSoftwareDefinitions(): Promise<ISoftwareDefinition[]>;
+	getSoftwareDefinitions(): Promise<{ definitions: ISoftwareDefinition[]; variants: ISoftwareDefinition[]; }>;
 	startDownload(keys: string[], options: DownloadOptions): Promise<void>;
 	cancelDownload(): Promise<void>;
 	showSoftwareMenu(key: string): Promise<void>;

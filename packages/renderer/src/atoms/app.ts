@@ -8,6 +8,7 @@ const isWorkingAtom           = atom<boolean>(false);
 const hasErrorsAtom           = atom<boolean>(false);
 const updateAvailable         = atom<boolean>(false);
 const softwareDefinitionsAtom = atom<ISoftwareDefinition[]>([]);
+const softwareVariantsAtom    = atom<ISoftwareDefinition[]>([]);
 const selectedSoftwareAtom    = atom<ISoftwareDefinition[]>([]);
 const skipInstallationAtom    = atomWithReset<boolean>(false);
 const installSilentlyAtom     = atomWithReset<boolean>(false);
@@ -29,6 +30,7 @@ export const app = {
 	hasErrorsAtom,
 	updateAvailable,
 	softwareDefinitionsAtom,
+	softwareVariantsAtom,
 	selectedSoftwareAtom,
 	skipInstallationAtom,
 	installSilentlyAtom,

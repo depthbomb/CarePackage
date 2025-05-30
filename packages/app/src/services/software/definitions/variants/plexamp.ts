@@ -10,6 +10,7 @@ export default class implements ISoftwareDefinition {
 	public shouldCacheUrl = true;
 	public icon = 'plexamp.png';
 	public homepage = 'https://plex.tv';
+	public parent = 'plex';
 
 	public async resolveDownloadUrl() {
 		const res = await fetch('https://www.plex.tv/wp-json/plex/v1/downloads/plexamp');

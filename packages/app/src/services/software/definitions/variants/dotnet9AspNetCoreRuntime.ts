@@ -5,11 +5,12 @@ import type { ISoftwareDefinition } from 'shared';
 export default class implements ISoftwareDefinition {
 	public key = 'dotnet-9-aspnetcore-runtime';
 	public name = '.NET 9.0 ASP.NET Core Runtime';
-	public category = [SoftwareCategory.DotNet];
+	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
 	public downloadName = 'aspnetcore-runtime-9.0-win-x64.exe';
 	public shouldCacheUrl = true;
 	public icon = 'dotnet.png';
 	public homepage = 'https://dot.net';
+	public parent = 'dotnet';
 
 	public async resolveDownloadUrl() {
 		const downloadPageUrl = await this.getDownloadPageUrl();

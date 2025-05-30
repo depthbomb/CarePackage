@@ -43,7 +43,7 @@ export const SoftwareCatalogue: FC<SoftwareCatalogueProps> = ({ software }) => {
 	return (
 		<div className="space-y-3 h-full flex flex-col">
 			<div className="space-x-2.5 flex items-end">
-				<Input onChange={onSearchChange} placeholder={`Search ${software.length} software`}/>
+				<Input onChange={onSearchChange} placeholder="Search software"/>
 				<Select disabled={searchedName !== ''} onChange={onCategoryChange}>
 					<option value="">All categories</option>
 					{Object.values(SoftwareCategory).sort().map((cat) => (

@@ -9,6 +9,7 @@ export default class implements ISoftwareDefinition {
 	public downloadName = 'MinecraftInstaller.msi';
 	public icon = 'minecraft-launcher-legacy.png';
 	public homepage = 'https://minecraft.net';
+	public parent = 'minecraft-launcher';
 
 	public async resolveDownloadUrl() {
 		return ok('https://launcher.mojang.com/download/MinecraftInstaller.msi?ref=mcnet');

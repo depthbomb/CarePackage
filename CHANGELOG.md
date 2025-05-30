@@ -1,3 +1,19 @@
+# 3.3.0
+
+- Software can now have "variants"
+  - Variants are used when software has multiple versions that you may want to download and install over another, for example _Discord_ has the variants _Discord Canary_ and _Discord PTB_
+  - Clicking a software row that has variants will present you with a selection modal to select its variants
+- The following software now have variants:
+  - All _.NET_-related software
+  - _Discord_
+  - _Godot_
+  - _Java SDK_
+  - _Minecraft Launcher_
+  - _Node.js_
+  - _Plex_
+  - _Python_
+- Removed the _.NET_ category
+
 # 3.2.0
 
 - Fixed the settings button being disabled after cancelling an operation

@@ -18,7 +18,7 @@ export type ModalProps = {
 };
 
 export type ModalHandle = {
-	closeModal: () => void;
+	closeModal: (force?: boolean) => void;
 };
 
 const overlayBaseCss = 'absolute inset-0 m-auto w-[calc(100vw-2px)] h-[calc(100vh-2px)] flex items-center justify-center bg-black/66 backdrop-blur-[2px] backdrop-grayscale-100 opacity-0 -z-10 transition-[opacity,backdrop-filter] duration-250' as const;
@@ -46,8 +46,10 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(({
 		onClick: () => onVisibilityChange?.(true),
 	});
 
-	const closeModal = () => {
-		if (!canClose) return;
+	const closeModal = (force: boolean = false) => {
+		if (!canClose && !force) {
+			return;
+		}
 
 		setIsVisible(false);
 		setTimeout(() => onVisibilityChange?.(false), 250);
@@ -73,7 +75,7 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(({
 								{title}
 								{showCloseIcon && canClose && (
 									<button
-										onClick={closeModal}
+										onClick={() => closeModal()}
 										className="ml-auto size-6 flex items-center justify-center text-gray-400 hover:text-white rounded-xs transition-colors"
 										type="button"
 									>
@@ -81,12 +83,12 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(({
 									</button>
 								)}
 							</div>
-							<div className="p-3 overflow-y-auto [scrollbar-width:thin]">
+							<div className="p-3 h-full overflow-y-auto [scrollbar-width:thin]">
 								{children}
 							</div>
 							{footer}
 						</div>
-						<div onClick={closeModal} className={overlayCss} />
+						<div onClick={() => closeModal()} className={overlayCss} />
 					</div>,
 					document.getElementById(portalId)!,
 					key

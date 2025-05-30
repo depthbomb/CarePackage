@@ -10,6 +10,7 @@ export default class implements ISoftwareDefinition {
 	public shouldCacheUrl = true;
 	public icon = 'python.png';
 	public homepage = 'https://python.org';
+	public parent = 'python';
 
 	public async resolveDownloadUrl() {
 		const res = await fetch('https://python.org/api/v2/downloads/release');

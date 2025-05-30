@@ -20,6 +20,7 @@ import type { DownloadOptions, ISoftwareDefinition } from 'shared';
 @injectable()
 export class SoftwareService implements IBootstrappable {
 	public readonly definitions: Set<ISoftwareDefinition>;
+	public readonly variants: Set<ISoftwareDefinition>;
 
 	private abort                 = new AbortController();
 	private aborted               = false;
@@ -41,18 +42,35 @@ export class SoftwareService implements IBootstrappable {
 		private readonly installation = inject(InstallationService),
 	) {
 		this.definitions      = new Set();
+		this.variants         = new Set();
 		this.urlCache         = new Map();
 		this.gidToSoftwareMap = new Map();
 		this.erroredSoftware  = new Set();
 
-		const modules = import.meta.glob('./definitions/*.ts');
-		for (const path in modules) {
-			modules[path]().then((mod: any) => {
+		const variantModules = import.meta.glob('./definitions/variants/*.ts');
+		for (const path in variantModules) {
+			variantModules[path]().then((mod: any) => {
+				const defClass   = mod.default as new() => ISoftwareDefinition;
+				const definition = new defClass();
+				if (this.variants.has(definition)) {
+					return;
+				}
+
+				this.variants.add(definition);
+			});
+		}
+
+		const definitionModules = import.meta.glob('./definitions/*.ts');
+		for (const path in definitionModules) {
+			definitionModules[path]().then((mod: any) => {
 				const defClass   = mod.default as new() => ISoftwareDefinition;
 				const definition = new defClass();
 				if (this.definitions.has(definition)) {
 					return;
 				}
+
+				const variants = this.variants.values().filter(v => v.parent === definition.key).toArray();
+				definition.variants = [...variants];
 
 				this.definitions.add(definition);
 			});
@@ -95,7 +113,10 @@ export class SoftwareService implements IBootstrappable {
 			this.gidToSoftwareMap.delete(gid);
 		});
 
-		this.ipc.registerHandler(IpcChannel.Software_GetDefinitions, () => this.definitions.values().toArray());
+		this.ipc.registerHandler(IpcChannel.Software_GetDefinitions, () => ({
+			definitions: this.definitions.values().toArray(),
+			variants: this.variants.values().toArray()
+		}));
 		this.ipc.registerHandler(IpcChannel.Software_GetPreviousSelection, () => {
 			if (this.cli.flags.software) {
 				return this.cli.flags.software.split(',');
@@ -119,7 +140,10 @@ export class SoftwareService implements IBootstrappable {
 			return;
 		}
 
-		const softwares = this.definitions.values().filter(d => keys.includes(d.key)).toArray();
+		const softwares = [
+			...this.definitions.values().filter(d => keys.includes(d.key)).toArray(),
+			...this.variants.values().filter(d => keys.includes(d.key)).toArray(),
+		];
 		if (softwares.length === 0) {
 			throw new Error();
 		}
@@ -290,8 +314,8 @@ export class SoftwareService implements IBootstrappable {
 			const categorySoftware = Array.from(this.definitions.values().filter(sw => sw.category.includes(category)));
 			markdown.push(
 				`\n## ${category}`,
-				'\n|  | Name | Is Archive? | Requires Admin? | Additional Categories |',
-				'| :-: | --- | :-: | :-: | :-: |'
+				'\n|  | Name | Is Archive? | Requires Admin? | Additional Categories | Variants/Versions |',
+				'| :-: | --- | :-: | :-: | :-: | :-: |'
 			);
 
 			for (const sw of categorySoftware) {
@@ -299,9 +323,10 @@ export class SoftwareService implements IBootstrappable {
 				const isArchive  = sw.isArchive ? '✔' : '❌';
 				const isUac      = sw.requiresAdmin ? '✔' : '❌';
 				const categories = sw.category.filter(c => c !== category).join(', ');
+				const variants   = sw.variants!.length > 0 ? sw.variants!.map(v => v.name).join(', ') : 'None';
 
 				markdown.push(
-					`| ![${sw.name}](${icon} "${sw.name}") | [${sw.name}](${sw.homepage}) | ${isArchive} | ${isUac} | ${categories.length ? categories : 'None'}`
+					`| ![${sw.name}](${icon} "${sw.name}") | [${sw.name}](${sw.homepage}) | ${isArchive} | ${isUac} | ${categories.length ? categories : 'None'} | ${variants} |`
 				);
 			}
 

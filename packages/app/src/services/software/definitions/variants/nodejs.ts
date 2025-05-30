@@ -3,13 +3,14 @@ import { SoftwareCategory, DownloadUrlResolveError } from 'shared';
 import type { ISoftwareDefinition } from 'shared';
 
 export default class implements ISoftwareDefinition {
-	public key = 'nodejs-lts';
-	public name = 'Node.js (LTS)';
+	public key = 'nodejs-current';
+	public name = 'Node.js';
 	public category = [SoftwareCategory.Development, SoftwareCategory.Runtime];
-	public downloadName = 'node-lts-x64.msi';
+	public downloadName = 'node-x64.msi';
 	public shouldCacheUrl = true;
 	public icon = 'nodejs.png';
 	public homepage = 'https://nodejs.org';
+	public parent = 'nodejs';
 
 	public async resolveDownloadUrl() {
 		const res = await fetch('https://nodejs.org/dist/index.json');
@@ -18,7 +19,7 @@ export default class implements ISoftwareDefinition {
 		}
 
 		const json        = await res.json() as any[];
-		const { version } = json.find(r => r.lts !== false);
+		const { version } = json[0];
 
 		return ok(`https://nodejs.org/dist/${version}/node-${version}-x64.msi`);
 	}

@@ -54,7 +54,6 @@ const config = {
 		{ from: '../../static/extra/bin/aria2c.exe',                         to: 'bin/aria2c.exe' },
 	],
 	extraResources: [
-		{ from: '../../static/extra/software-icons.asar',    to: 'software-icons.asar' },
 		{ from: '../../static/extra/Square70x70Logo.png',    to: 'Square70x70Logo.png' },
 		{ from: '../../static/extra/Square150x150Logo.png',  to: 'Square150x150Logo.png' },
 		{ from: '../nativelib/build/Release/nativelib.node', to: 'native/nativelib.node' },

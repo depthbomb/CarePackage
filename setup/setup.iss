@@ -50,3 +50,18 @@ Type: filesandordirs; Name: "{userappdata}\{#Company}\{#NameLong}\*"
 Type: dirifempty; Name: "{userappdata}\{#Company}\{#NameLong}"
 Type: filesandordirs; Name: "{app}\*"
 Type: dirifempty; Name: "{app}"
+
+[Code]
+procedure CurStepChanged(CurStep: TSetupStep);
+var
+  ObsoleteFolder: string;
+begin
+  if CurStep = ssPostInstall then
+  begin
+    ObsoleteFolder := ExpandConstant('{app}\resources\software-icons');
+    if DirExists(ObsoleteFolder) then
+    begin
+      DelTree(ObsoleteFolder, True, True, True);
+    end;
+  end;
+end;

@@ -3,7 +3,7 @@
 - Your system's accent color will now be used for styling various UI elements
 - The download options screen now shows what software is in the queue
 - Settings can now be accessed while an operation is running
-- Software icons are now loaded from the app's resource archive instead of from directly from the file system
+- Software icons are now loaded from the app's resource archive instead of directly from the file system
 - Updated the app's icon and start menu assets
 
 # 3.3.0

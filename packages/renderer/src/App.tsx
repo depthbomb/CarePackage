@@ -159,7 +159,7 @@ export const App = () => {
 	}, []);
 
 	return (
-		<div className={cx('relative w-full h-screen flex flex-col items-stretch border', windowMaximized ? 'transparent' : windowFocused ? 'border-[color:var(--os-accent)]' : 'border-gray-700')}>
+		<div className={cx('relative w-full h-screen flex flex-col items-stretch border', windowMaximized ? 'border-gray-900' : windowFocused ? 'border-[color:var(--os-accent)]' : 'border-gray-700')}>
 			<Titlebar/>
 			<header className="px-5 h-15 flex items-center shrink-0">
 				<img src={logo} className="mr-2 size-8" width="32" height="32" draggable="false"/>

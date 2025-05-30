@@ -1,16 +1,17 @@
 import Icon from '@mdi/react';
 import { useAtom } from 'jotai';
-import { mdiCog } from '@mdi/js';
 import { app } from '~/atoms/app';
-import { useSetting } from '~/hooks';
 import { mdiTrashCan } from '@mdi/js';
+import { Alert } from '~/components/Alert';
 import { Modal } from '~/components/Modal';
 import { Input } from '~/components/Input';
+import { mdiCog, mdiAlert } from '@mdi/js';
 import { useState, useEffect } from 'react';
 import { Button } from '~/components/Button';
 import { Switch } from '~/components/Switch';
-import { ByteSize, SettingsKey } from 'shared';
+import { useIpc, useSetting } from '~/hooks';
 import { Fieldset } from '~/components/Fieldset';
+import { ByteSize, IpcChannel, SettingsKey } from 'shared';
 import { SettingsSection } from './components/SettingsSection';
 import { TitlebarButton } from '~/components/Titlebar/TitlebarButton';
 import type { FC, ChangeEvent } from 'react';
@@ -25,6 +26,7 @@ export const SettingsModal: FC = () => {
 	const [maxTries, setMaxTries]                             = useSetting<number>(SettingsKey.Aria2_MaxTries, { reactive: false });
 	const [maxConcurrentDownloads, setMaxConcurrentDownloads] = useSetting<number>(SettingsKey.Aria2_MaxConcurrentDownloads, { reactive: false });
 	const [maxDownloadLimit, setMaxDownloadLimit]             = useSetting<string>(SettingsKey.Aria2_MaxDownloadLimit);
+	const [onDownloadStats]                                   = useIpc(IpcChannel.Sweeper_DownloadsStats);
 
 	useEffect(() => {
 		if (!show) {
@@ -36,6 +38,13 @@ export const SettingsModal: FC = () => {
 			setTotalSize(totalSize);
 		});
 	}, [show]);
+
+	useEffect(() => {
+		onDownloadStats(([totalFiles, totalSize]) => {
+			setTotalFiles(totalFiles);
+			setTotalSize(totalSize);
+		});
+	}, []);
 
 	useEffect(() => setSweepButtonDisabled(totalFiles === 0 && totalSize === 0), [totalFiles, totalSize]);
 
@@ -65,7 +74,7 @@ export const SettingsModal: FC = () => {
 				</div>
 			}
 			trigger={
-				<TitlebarButton disabled={isWorking} action="custom" inner={
+				<TitlebarButton action="custom" inner={
 					<Icon path={mdiCog} className="size-4"/>
 				}/>
 			}>
@@ -79,6 +88,11 @@ export const SettingsModal: FC = () => {
 					</Fieldset>
 				</SettingsSection>
 				<SettingsSection title="Downloads" divider>
+					{isWorking && (
+						<Alert icon={mdiAlert} variant="warning">
+							<p>Changes to these settings will take effect the next time you start a new operation.</p>
+						</Alert>
+					)}
 					<Fieldset>
 						<label>Max tries</label>
 						<Input onChange={onMaxTriesInputChanged} value={maxTries} min={0} type="number" className="w-full"/>
@@ -96,8 +110,8 @@ export const SettingsModal: FC = () => {
 					</Fieldset>
 				</SettingsSection>
 				<SettingsSection title="Cleanup">
-					<Button variant="danger" onClick={onSweepButtonClicked} size="sm" disabled={sweepButtonDisabled}>
-						<Icon path={mdiTrashCan} className="size-4"/>
+					<Button variant="danger" onClick={onSweepButtonClicked} disabled={isWorking || sweepButtonDisabled}>
+						<Icon path={mdiTrashCan} className="size-5"/>
 						<span>Clean up downloads</span>
 					</Button>
 					{(totalFiles > 0 && totalSize > 0) && (

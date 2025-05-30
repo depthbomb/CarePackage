@@ -2,19 +2,32 @@ import { join } from 'node:path';
 import { IpcChannel } from 'shared';
 import { DOWNLOAD_DIR } from '~/constants';
 import { IpcService } from '~/services/ipc';
+import { WindowService } from '~/services/window';
 import { inject, injectable } from '@needle-di/core';
+import { LifecycleService } from '~/services/lifecycle';
 import { stat, unlink, readdir } from 'node:fs/promises';
 import type { IBootstrappable } from '~/common/IBootstrappable';
 
 @injectable()
 export class SweeperService implements IBootstrappable {
+	private readonly interval: NodeJS.Timeout;
+
 	public constructor(
-		private readonly ipc = inject(IpcService),
-	) {}
+		private readonly lifecycle = inject(LifecycleService),
+		private readonly window    = inject(WindowService),
+		private readonly ipc       = inject(IpcService),
+	) {
+		this.interval = setInterval(async () => {
+			const stats = await this.calculateDownloadsSize();
+			this.window.emitMain(IpcChannel.Sweeper_DownloadsStats, stats);
+		}, 1_500);
+	}
 
 	public async bootstrap() {
 		this.ipc.registerHandler(IpcChannel.Sweeper_CalculateDownloadsSize, async () => await this.calculateDownloadsSize());
 		this.ipc.registerHandler(IpcChannel.Sweeper_PerformSweep, async () => await this.sweepDownloads());
+
+		this.lifecycle.events.on('shutdown', () => clearInterval(this.interval));
 	}
 
 	public async sweepDownloads() {

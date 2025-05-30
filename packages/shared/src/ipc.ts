@@ -38,6 +38,7 @@ export enum IpcChannel {
 	Software_Aborted              = 'software:aborted',
 	Software_AllDone              = 'software:all-done',
 	// Sweeper channels
+	Sweeper_DownloadsStats         = 'sweeper:downloads-stats',
 	Sweeper_CalculateDownloadsSize = 'sweeper:calculate-downloads-size',
 	Sweeper_PerformSweep           = 'sweeper:perform-sweep',
 	// Updater channels

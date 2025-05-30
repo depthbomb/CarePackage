@@ -11,7 +11,7 @@ export const SettingsSection: FC<SettingsSectionProps> = ({ title, divider = fal
 		<>
 			<div id={useId()} className="w-full">
 				<h3 className="mb-4 text-lg font-display font-bold">{title}</h3>
-				<div className="space-y-6">
+				<div className="space-y-4">
 					{children}
 				</div>
 			</div>

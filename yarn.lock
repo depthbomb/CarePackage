@@ -3062,6 +3062,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chroma-js@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@types/chroma-js@npm:3.1.1"
+  checksum: 10/24770bd645425a1d90e3651dbb18bc5977290a2d2fc6e9f32d3892d4c43c1e9f554fb324cd0f4e20a23b734ee652278330a0d331973a7da824e0c15192ba129b
+  languageName: node
+  linkType: hard
+
 "@types/debug@npm:^4.1.6":
   version: 4.1.12
   resolution: "@types/debug@npm:4.1.12"
@@ -3143,12 +3150,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.15.27":
-  version: 22.15.27
-  resolution: "@types/node@npm:22.15.27"
+"@types/node@npm:^22.15.29":
+  version: 22.15.29
+  resolution: "@types/node@npm:22.15.29"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/22ec9b8f2802437d60e1e9957340fed838f4322f5163e7e9046ff2e19c79d9d12a77b1c16205c21854b68c589b1fc7c3506b8ebd7cd4e7c5ebfcddb8b8083989
+  checksum: 10/3426790c5aa22df445213d7f37e57ea261cf3013030fe9b3025d87c302097799a9db3b848e2a9bdb07cab8ec6c7e9947ac770cf11e12e420148296b63d63e7db
   languageName: node
   linkType: hard
 
@@ -3862,7 +3869,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "carepackage-root@workspace:."
   dependencies:
-    "@types/node": "npm:^22.15.27"
+    "@types/node": "npm:^22.15.29"
     cross-env: "npm:^7.0.3"
     electron-builder: "npm:26.0.15"
     node-gyp: "npm:^11.2.0"
@@ -3878,7 +3885,7 @@ __metadata:
     "@needle-di/core": "npm:1.0.0"
     "@swc-node/sourcemap-support": "npm:^0.5.1"
     "@types/eslint": "npm:^9.6.1"
-    "@types/node": "npm:^22.15.27"
+    "@types/node": "npm:^22.15.29"
     "@types/semver": "npm:^7.7.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.33.0"
     "@typescript-eslint/parser": "npm:^8.33.0"
@@ -3931,6 +3938,13 @@ __metadata:
   version: 3.0.0
   resolution: "chownr@npm:3.0.0"
   checksum: 10/b63cb1f73d171d140a2ed8154ee6566c8ab775d3196b0e03a2a94b5f6a0ce7777ee5685ca56849403c8d17bd457a6540672f9a60696a6137c7a409097495b82c
+  languageName: node
+  linkType: hard
+
+"chroma-js@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "chroma-js@npm:3.1.2"
+  checksum: 10/ea09b27d04b477a8fdc3314bfa6dc8de05feab47999ff1acdeba6cf3c32c76338baa5b4562d949d33d8adeca57754e5ea591c15b9985d65583c8771e7e07c2ef
   languageName: node
   linkType: hard
 
@@ -7035,9 +7049,11 @@ __metadata:
     "@mdi/js": "npm:^7.4.47"
     "@mdi/react": "npm:^1.6.1"
     "@tailwindcss/vite": "npm:^4.1.8"
+    "@types/chroma-js": "npm:^3.1.1"
     "@types/react": "npm:^19.1.6"
     "@types/react-dom": "npm:^19.1.5"
     "@vitejs/plugin-react-swc": "npm:^3.10.0"
+    chroma-js: "npm:^3.1.2"
     clsx: "npm:^2.1.1"
     electron: "npm:36.3.2"
     eslint: "npm:^9.27.0"
@@ -7054,6 +7070,7 @@ __metadata:
     sass-embedded: "npm:^1.89.0"
     shared: "workspace:*"
     tailwindcss: "npm:^4.1.8"
+    tailwindcss-palette-generator: "npm:^1.5.0"
     terser: "npm:^5.40.0"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.33.0"
@@ -7936,6 +7953,17 @@ __metadata:
   version: 1.1.3
   resolution: "sync-message-port@npm:1.1.3"
   checksum: 10/a84b681afd678f28af4498074c4bc5cd5c763395fbf169f1bc9777c2e01aa8d41a3046dcca43a41e81102a7fd697713dfc03e155d1c662fec88af9481b249b8a
+  languageName: node
+  linkType: hard
+
+"tailwindcss-palette-generator@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "tailwindcss-palette-generator@npm:1.5.0"
+  dependencies:
+    chroma-js: "npm:^3.1.2"
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: 10/01a53bb6d2ae605f93e20724f5c30b5f0e7ec2bb1dff8cec76abdbd2f1669df2e9abe734618a147e471f2ce5f60161f17813c6324c9193c87084ddd78752d709
   languageName: node
   linkType: hard
 

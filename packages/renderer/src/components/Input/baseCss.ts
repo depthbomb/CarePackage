@@ -5,5 +5,5 @@ export const baseCss = [
 	'hover:border-gray-600',
 	'focus:placeholder:text-gray-300',
 	'focus:bg-gray-950',
-	'focus:border-gray-600'
+	'focus:border-accent-500'
 ] as const;

@@ -82,6 +82,11 @@ export class ThemeService implements IBootstrappable {
 	}
 
 	public async bootstrap() {
+		systemPreferences.addListener('accent-color-changed', async () => {
+			await this.removeInjectedThemeCss();
+			await this.injectThemeCss();
+		});
+
 		this.window.events.on('windowCreated', this.injectThemeCssIntoWindow.bind(this));
 	}
 

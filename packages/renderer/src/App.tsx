@@ -11,6 +11,7 @@ import { Titlebar } from './components/Titlebar';
 import { DownloadQueue } from './components/DownloadQueue';
 import { DownloadOptions } from './components/DownloadOptions';
 import { SoftwareCatalogue } from './components/SoftwareCatalogue';
+import { useAccentColor } from './hooks/useAccentColor';
 import { mdiUpdate, mdiCancel, mdiRefresh, mdiSecurity, mdiArrowLeft, mdiArrowRight, mdiResizeBottomRight } from '@mdi/js';
 
 import logo from '~/assets/img/logo.png';
@@ -39,6 +40,8 @@ export const App = () => {
 	const [onMaximized]                                 = useIpc(IpcChannel.MainWindow_Maximized);
 	const [onUnmaximized]                               = useIpc(IpcChannel.MainWindow_Restored);
 	const [onOutdated]                                  = useIpc(IpcChannel.Updater_Outdated);
+
+	useAccentColor();
 
 	const performPrimaryAction = async () => {
 		// Step 1 = Catalogue
@@ -159,7 +162,7 @@ export const App = () => {
 	}, []);
 
 	return (
-		<div className={cx('relative w-full h-screen flex flex-col items-stretch border', windowMaximized ? 'border-gray-900' : windowFocused ? 'border-[color:var(--os-accent)]' : 'border-gray-700')}>
+		<div className={cx('relative w-full h-screen flex flex-col items-stretch border', windowMaximized ? 'border-gray-900' : windowFocused ? 'border-accent-500' : 'border-gray-700')}>
 			<Titlebar/>
 			<header className="px-5 h-15 flex items-center shrink-0">
 				<img src={logo} className="mr-2 size-8" width="32" height="32" draggable="false"/>
@@ -199,7 +202,7 @@ export const App = () => {
 					) : (
 						<>
 							<Button
-								variant="brand"
+								variant="accent"
 								onClick={performPrimaryAction}
 								disabled={selectedSoftware.length === 0 || step === 3}>
 								<span>Continue</span>

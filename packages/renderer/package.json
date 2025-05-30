@@ -16,6 +16,7 @@
 		"@fontsource-variable/noto-sans-mono": "^5.2.7",
 		"@mdi/js": "^7.4.47",
 		"@mdi/react": "^1.6.1",
+		"chroma-js": "^3.1.2",
 		"clsx": "^2.1.1",
 		"jotai": "^2.12.5",
 		"neverthrow": "^8.2.0",
@@ -23,11 +24,13 @@
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-router": "^7.6.1",
-		"shared": "workspace:*"
+		"shared": "workspace:*",
+		"tailwindcss-palette-generator": "^1.5.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.27.0",
 		"@tailwindcss/vite": "^4.1.8",
+		"@types/chroma-js": "^3.1.1",
 		"@types/react": "^19.1.6",
 		"@types/react-dom": "^19.1.5",
 		"@vitejs/plugin-react-swc": "^3.10.0",

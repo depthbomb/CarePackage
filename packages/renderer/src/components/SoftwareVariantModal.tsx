@@ -24,7 +24,7 @@ const SoftwareVariantButton = forwardRef<HTMLButtonElement, SoftwareVariantButto
 	return (
 		<button
 			ref={ref}
-			className={cx('p-3 space-x-3 flex items-center', selected ? 'font-bold bg-gradient-to-r from bg-rose-500 to-gray-950' : 'hover:bg-gray-800')}
+			className={cx('p-3 space-x-3 flex items-center', selected ? 'font-bold text-accent-foreground bg-gradient-to-r from bg-accent-500 to-gray-950' : 'hover:bg-gray-800')}
 			{...props}
 			type="button"
 		>
@@ -85,7 +85,7 @@ export const SoftwareVariantModal: FC<SoftwareVariantModalProps> = ({
 			footer={
 				<div className="p-3 space-x-2 flex items-center justify-end border-t border-gray-700">
 					<Button onClick={onCancelButtonClicked}>Cancel</Button>
-					<Button onClick={onContinueButtonClicked} variant="brand" disabled={!hasVariantsSelected}>Continue</Button>
+					<Button onClick={onContinueButtonClicked} variant="accent" disabled={!hasVariantsSelected}>Continue</Button>
 				</div>
 			}
 			{...props}>

@@ -47,7 +47,7 @@ export const SoftwareRow: FC<SoftwareRowProps> = ({ software, showCategoryBadges
 			)}
 			<a
 				key={software.key}
-				className={cx('p-3 space-x-3 w-full flex items-center cursor-pointer', selected ? 'text-white bg-gradient-to-r from bg-rose-500 to-gray-950' : 'text-gray-300 hover:text-white hover:bg-gray-800')}
+				className={cx('p-3 space-x-3 w-full flex items-center cursor-pointer', selected ? 'text-accent-foreground bg-gradient-to-r from bg-accent-500 to-gray-950' : 'hover:bg-gray-800')}
 				onClick={onClicked}
 				onContextMenu={() => window.api.showSoftwareMenu(software.key)}>
 				<img src={`software-icon://${software.icon}`} className="drop-shadow drop-shadow-black/33" draggable="false"/>

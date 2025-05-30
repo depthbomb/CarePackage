@@ -3,7 +3,7 @@ import { memo, forwardRef } from 'react';
 import type { ButtonHTMLAttributes } from 'react';
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
-	variant?: 'normal' | 'brand' | 'success' | 'info' | 'warning' | 'danger';
+	variant?: 'accent' | 'normal' | 'brand' | 'success' | 'info' | 'warning' | 'danger';
 	size?: 'sm' | 'lg' | 'xl';
 };
 
@@ -14,6 +14,7 @@ export const Button = memo(forwardRef<HTMLButtonElement, ButtonProps>(({ variant
 		baseCss,
 		{
 			// Variant classes
+			'text-accent-foreground bg-accent-500 hover:bg-accent-300 active:bg-accent-600': variant === 'accent',
 			'text-white bg-gray-700 hover:bg-gray-600 active:bg-gray-800': variant === 'normal' || !variant,
 			'text-white bg-rose-500 hover:bg-rose-400 active:bg-rose-600': variant === 'brand',
 			'text-green-50 bg-green-500 hover:bg-green-600 active:bg-green-700': variant === 'success',

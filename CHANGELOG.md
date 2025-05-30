@@ -1,8 +1,9 @@
 # 3.4.0
 
+- Your system's accent color will now be used for styling various UI elements
 - The download options screen now shows what software is in the queue
+- Settings can now be accessed while an operation is running
 - Software icons are now loaded from the app's resource archive instead of from directly from the file system
-- The main window border now uses your system's accent color
 - Updated the app's icon and start menu assets
 
 # 3.3.0

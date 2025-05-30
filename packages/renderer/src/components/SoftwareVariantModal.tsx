@@ -24,7 +24,7 @@ const SoftwareVariantButton = forwardRef<HTMLButtonElement, SoftwareVariantButto
 	return (
 		<button
 			ref={ref}
-			className={cx('-mx-3 p-3 space-x-3 flex items-center', selected ? 'bg-rose-500' : 'bg-gray-800 hover:bg-gray-700 transition-colors')}
+			className={cx('p-3 space-x-3 flex items-center', selected ? 'font-bold bg-gradient-to-r from bg-rose-500 to-gray-950' : 'hover:bg-gray-800')}
 			{...props}
 			type="button"
 		>
@@ -83,22 +83,20 @@ export const SoftwareVariantModal: FC<SoftwareVariantModalProps> = ({
 				</div>
 			}
 			footer={
-				<div className="p-3 space-x-2 flex items-center justify-end">
+				<div className="p-3 space-x-2 flex items-center justify-end border-t border-gray-700">
 					<Button onClick={onCancelButtonClicked}>Cancel</Button>
 					<Button onClick={onContinueButtonClicked} variant="brand" disabled={!hasVariantsSelected}>Continue</Button>
 				</div>
 			}
 			{...props}>
-			<div className="h-full flex flex-col items-stretch justify-between">
-				<div className="-mt-3 flex flex-col">
-					{variants.current.map(v => (
-						<SoftwareVariantButton
-							key={v.key}
-							variant={v}
-							selected={selectedSoftware.some(sw => sw.key === v.key)}
-							onClick={() => onSoftwareVariantButtonClicked(v)}/>
-					))}
-				</div>
+			<div className="flex flex-col">
+				{variants.current.map(v => (
+					<SoftwareVariantButton
+						key={v.key}
+						variant={v}
+						selected={selectedSoftware.some(sw => sw.key === v.key)}
+						onClick={() => onSoftwareVariantButtonClicked(v)}/>
+				))}
 			</div>
 		</Modal>
 	);

@@ -69,7 +69,7 @@ export const SettingsModal: FC = () => {
 					<Icon path={mdiCog} className="size-4"/>
 				}/>
 			}>
-			<div className="flex flex-col">
+			<div className="p-3 flex flex-col bg-gray-900">
 				<SettingsSection title="Interface" divider>
 					<Fieldset>
 						<Switch

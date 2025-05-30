@@ -83,7 +83,7 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(({
 									</button>
 								)}
 							</div>
-							<div className="p-3 h-full overflow-y-auto [scrollbar-width:thin]">
+							<div className="h-full bg-gray-950 overflow-y-auto [scrollbar-width:thin]">
 								{children}
 							</div>
 							{footer}

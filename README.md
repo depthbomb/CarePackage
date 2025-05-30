@@ -21,5 +21,6 @@ The latest version of CarePackage can be downloaded from the [releases](https://
 
 ![The main window of CarePackage, showing all available software uncategorized](art/1.png "The main window of CarePackage, showing all available software uncategorized")
 ![The main window of CarePackage, showing various software selected in the Development category](art/2.png "The main window of CarePackage, showing various software selected in the Development category")
-![The download options screen of CarePackage, showing the pre-operation options](art/3.png "The download options screen of CarePackage, showing the pre-operation options")
-![The download queue screen of CarePackage, showing some software downloading while others are waiting in queue](art/4.png "The download queue screen of CarePackage, showing some software downloading while others are waiting in queue")
+![The software variant modal showing variants selected for .NET](art/3.png "The software variant modal showing variants selected for .NET")
+![The download options screen of CarePackage, showing the pre-operation options](art/4.png "The download options screen of CarePackage, showing the pre-operation options")
+![The download queue screen of CarePackage, showing some software downloading while others are waiting in queue](art/5.png "The download queue screen of CarePackage, showing some software downloading while others are waiting in queue")

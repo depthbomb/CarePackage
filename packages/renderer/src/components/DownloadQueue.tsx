@@ -31,7 +31,7 @@ const enum Statuses {
 	Done = 'Done',
 	WaitingForDownloads = 'Waiting for downloads to finish',
 	WaitingToInstall = 'Waiting to install',
-	WaitingForExecutable = 'Waiting for installer to finish'
+	WaitingForExecutable = 'Waiting for setup to finish'
 }
 
 const getStatusIconPath = (status: Statuses) => {

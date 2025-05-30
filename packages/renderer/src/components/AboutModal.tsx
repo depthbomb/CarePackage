@@ -32,7 +32,7 @@ export const AboutModal: FC = () => {
 				<p>CarePackage's intended use case is to be used on a new installation of Windows, but of course you can use it however you'd like!</p>
 				<div className="mt-auto space-x-4 text-center">
 					<Anchor href="https://github.com/depthbomb/CarePackage" target="_blank">GitHub</Anchor>
-					<Anchor href="https://github.com/depthbomb/CarePackage/issues/new/choose" target="_blank">Suggest a program</Anchor>
+					<Anchor href="https://github.com/depthbomb/CarePackage/issues/new?template=program_suggestion.md" target="_blank">Suggest a program</Anchor>
 				</div>
 			</div>
 		</Modal>

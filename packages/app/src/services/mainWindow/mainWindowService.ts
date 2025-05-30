@@ -7,7 +7,7 @@ import { WindowService } from '~/services/window';
 import { inject, injectable } from '@needle-di/core';
 import { SoftwareService } from '~/services/software';
 import { net, Menu, shell, protocol } from 'electron';
-import { PRELOAD_PATH, RESOURCES_PATH, EXTERNAL_HOSTS_WHITELIST } from '~/constants';
+import { PRELOAD_PATH, RESOURCES_PATH, EXTERNAL_HOSTS_WHITELIST, MONOREPO_ROOT_PATH } from '~/constants';
 import type { Maybe } from 'shared';
 import type { BrowserWindow } from 'electron';
 import type { IBootstrappable } from '~/common/IBootstrappable';
@@ -68,14 +68,18 @@ export class MainWindowService implements IBootstrappable {
 		});
 
 		protocol.handle('software-icon', async ({ url }) => {
-			let iconPath = join(RESOURCES_PATH, 'app.asar', 'software-icons', url.replace('software-icon://', ''));
+			if (import.meta.env.DEV) {
+				return net.fetch(`file://${join(MONOREPO_ROOT_PATH, 'static', 'extra', 'software-icons', url.replace('software-icon://', ''))}`);
+			} else {
+				let iconPath = join(RESOURCES_PATH, 'app.asar', 'software-icons', url.replace('software-icon://', ''));
 
-			const exists = await fileExists(iconPath);
-			if (!exists) {
-				iconPath = join(RESOURCES_PATH, 'app.asar', 'software-icons', 'generic.png');
+				const exists = await fileExists(iconPath);
+				if (!exists) {
+					iconPath = join(RESOURCES_PATH, 'app.asar', 'software-icons', 'generic.png');
+				}
+
+				return net.fetch(`file://${iconPath}`);
 			}
-
-			return net.fetch(`file://${iconPath}`);
 		});
 
 		this.mainWindow.on('focus', () => {

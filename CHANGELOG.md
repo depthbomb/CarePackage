@@ -1,3 +1,10 @@
+# 3.4.0
+
+- The download options screen now shows what software is in the queue
+- Software icons are now loaded from the app's resource archive instead of from directly from the file system
+- The main window border now uses your system's accent color
+- Updated the app's icon and start menu assets
+
 # 3.3.0
 
 - Software can now have "variants"

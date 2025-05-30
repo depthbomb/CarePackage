@@ -53,6 +53,8 @@ export class MainWindowService implements IBootstrappable {
 			},
 			onReadyToShow: () => {
 				this.mainWindow!.show();
+				this.mainWindow!.moveTop();
+				this.mainWindow!.focus();
 			},
 		});
 
@@ -80,7 +82,11 @@ export class MainWindowService implements IBootstrappable {
 			return net.fetch(`file://${iconPath}`);
 		});
 
-		this.mainWindow.on('focus',      () => this.mainWindow?.flashFrame(false));
+		this.mainWindow.on('focus', () => {
+			this.mainWindow?.flashFrame(false);
+			this.window.emitMain(IpcChannel.MainWindow_Focused);
+		});
+		this.mainWindow.on('blur',       () => this.window.emitMain(IpcChannel.MainWindow_Blurred));
 		this.mainWindow.on('maximize',   () => this.window.emitMain(IpcChannel.MainWindow_Maximized));
 		this.mainWindow.on('unmaximize', () => this.window.emitMain(IpcChannel.MainWindow_Restored));
 		this.mainWindow.on('restore',    () => this.window.emitMain(IpcChannel.MainWindow_Restored))

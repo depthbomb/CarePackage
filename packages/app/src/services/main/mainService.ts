@@ -1,6 +1,7 @@
 import { IpcChannel } from 'shared';
 import { IpcService } from '~/services/ipc';
 import { app, shell, dialog } from 'electron';
+import { ThemeService } from '~/services/theme';
 import { Aria2Service } from '~/services/aria2';
 import { WindowService } from '~/services/window';
 import { NativeService } from '~/services/native';
@@ -22,6 +23,7 @@ export class MainService {
 		private readonly startup    = inject(StartupService),
 		private readonly ipc        = inject(IpcService),
 		private readonly window     = inject(WindowService),
+		private readonly theme      = inject(ThemeService),
 		private readonly native     = inject(NativeService),
 		private readonly settings   = inject(SettingsService),
 		private readonly firstRun   = inject(FirstRunService),
@@ -41,6 +43,7 @@ export class MainService {
 
 		await Promise.allSettled([
 			this.lifecycle.bootstrap(),
+			this.theme.bootstrap(),
 			this.settings.bootstrap(),
 			this.mainWindow.bootstrap(),
 			this.software.bootstrap(),

@@ -20,6 +20,7 @@ import logo from '~/assets/img/logo.png';
 export const App = () => {
 	const [step, setStep]                               = useState(1);
 	const [loading, setLoading]                         = useState(true);
+	const [windowFocused, setWindowFocused]             = useState(true);
 	const [windowMaximized, setWindowMaximized]         = useState(false);
 	const [isElevated, setIsElevated]                   = useAtom(app.isElevatedAtom);
 	const [isWorking, setIsWorking]                     = useAtom(app.isWorkingAtom);
@@ -33,6 +34,8 @@ export const App = () => {
 	const [cleanupAfterInstall]                         = useAtom(app.cleanupAfterInstallAtom);
 	const [openDownloadDir, setOpenDownloadDir]         = useAtom(app.openDownloadDirAtom);
 	const [postOperationAction]                         = useAtom(app.postOperationActionAtom);
+	const [onFocused]                                   = useIpc(IpcChannel.MainWindow_Focused);
+	const [onBlurred]                                   = useIpc(IpcChannel.MainWindow_Blurred);
 	const [onMaximized]                                 = useIpc(IpcChannel.MainWindow_Maximized);
 	const [onUnmaximized]                               = useIpc(IpcChannel.MainWindow_Restored);
 	const [onOutdated]                                  = useIpc(IpcChannel.Updater_Outdated);
@@ -148,13 +151,15 @@ export const App = () => {
 	}, [loading]);
 
 	useEffect(() => {
+		onFocused(() => setWindowFocused(true));
+		onBlurred(() => setWindowFocused(false));
 		onOutdated(() => setUpdateAvailable(true));
 		onMaximized(() => setWindowMaximized(true));
 		onUnmaximized(() => setWindowMaximized(false));
 	}, []);
 
 	return (
-		<div className={cx('relative w-full h-screen flex flex-col items-stretch', !windowMaximized && 'border border-gray-700')}>
+		<div className={cx('relative w-full h-screen flex flex-col items-stretch border', windowMaximized ? 'transparent' : windowFocused ? 'border-[color:var(--os-accent)]' : 'border-gray-700')}>
 			<Titlebar/>
 			<header className="px-5 h-15 flex items-center shrink-0">
 				<img src={logo} className="mr-2 size-8" width="32" height="32" draggable="false"/>

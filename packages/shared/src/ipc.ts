@@ -4,6 +4,8 @@ export enum IpcChannel {
 	RestartAsElevated = 'restart-as-elevated',
 	OpenExternalUrl   = 'open-external-url',
 	// Main Window channels
+	MainWindow_Focused   = 'main-window:focused',
+	MainWindow_Blurred   = 'main-window:blurred',
 	MainWindow_Minimize  = 'main-window:minimize',
 	MainWindow_Maximize  = 'main-window:maximize',
 	MainWindow_Restore   = 'main-window:restore',

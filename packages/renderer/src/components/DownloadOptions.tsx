@@ -32,7 +32,7 @@ export const DownloadOptions: FC = () => {
 		<div className="h-full space-y-4 grid grid-rows-2 grid-cols-2">
 			<div className="flex flex-col col-span-2 bg-gray-950 rounded-xs border border-gray-700 overflow-y-auto [scrollbar-width:thin]">
 				{selectedSoftware.map(sw => (
-					<div className="p-1.5 space-x-1.5 flex items-center">
+					<div key={sw.key} className="p-1.5 space-x-1.5 flex items-center">
 						<img src={`software-icon://${sw.icon}`} className="size-6"/>
 						<span className="text-sm font-display">{sw.name}</span>
 					</div>

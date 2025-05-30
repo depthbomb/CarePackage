@@ -164,7 +164,7 @@ export const App = () => {
 			<header className="px-5 h-15 flex items-center shrink-0">
 				<img src={logo} className="mr-2 size-8" width="32" height="32" draggable="false"/>
 				<div className="flex items-center">
-					<span className="h-auto text-2xl font-display">CarePackage</span>
+					<span className="h-auto text-2xl font-display font-bold">CarePackage</span>
 					{isElevated && (
 						<div className="ml-2 py-0.5 px-1.5 flex items-center font-mono text-xs uppercase text-yellow-500 bg-yellow-950 border border-yellow-500 rounded-full">
 							<Icon path={mdiSecurity} className="mr-1 size-3"/>

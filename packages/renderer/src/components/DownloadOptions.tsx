@@ -8,6 +8,7 @@ import type { FC, ChangeEvent } from 'react';
 
 export const DownloadOptions: FC = () => {
 	const [helpIndex, setHelpIndex]                     = useState(-1);
+	const [selectedSoftware]                            = useAtom(app.selectedSoftwareAtom);
 	const [skipInstallation, setSkipInstallation]       = useAtom(app.skipInstallationAtom);
 	const [installSilently, setInstallSilently]         = useAtom(app.installSilentlyAtom);
 	const [cleanupAfterInstall, setCleanupAfterInstall] = useAtom(app.cleanupAfterInstallAtom);
@@ -28,8 +29,16 @@ export const DownloadOptions: FC = () => {
 	}, [skipInstallation, installSilently, setSkipInstallation, setInstallSilently, setCleanupAfterInstall]);
 
 	return (
-		<div className="h-full grid grid-cols-2">
-			<div className="space-y-5 h-full flex flex-col">
+		<div className="h-full space-y-4 grid grid-rows-2 grid-cols-2">
+			<div className="flex flex-col col-span-2 bg-gray-950 rounded-xs border border-gray-700 overflow-y-auto [scrollbar-width:thin]">
+				{selectedSoftware.map(sw => (
+					<div className="p-1.5 space-x-1.5 flex items-center">
+						<img src={`software-icon://${sw.icon}`} className="size-6"/>
+						<span className="text-sm font-display">{sw.name}</span>
+					</div>
+				))}
+			</div>
+			<div className="space-y-4 h-full flex flex-col">
 				<Switch
 					label="Skip installation"
 					checked={skipInstallation}

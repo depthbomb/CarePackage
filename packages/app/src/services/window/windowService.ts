@@ -25,7 +25,7 @@ type CreateMainWindowOptions = Omit<CreateWindowOptions, 'name'>;
 
 @injectable()
 export class WindowService {
-	public readonly events = mitt<{ windowCreated: BrowserWindow; }>();
+	public readonly events = mitt<{ windowCreated: BrowserWindow; windowDestroyed: BrowserWindow; }>();
 	public readonly windows: Map<string, BrowserWindow>;
 
 	private readonly mainWindowName = 'main' as const;
@@ -49,13 +49,12 @@ export class WindowService {
 		const { url, browserWindowOptions, onReadyToShow } = options;
 
 		if (this.windows.has(name)) {
-			this.windows.get(name)?.destroy();
-			this.windows.delete(name);
+			this.destroyWindow(name);
 		}
 
 		const window = new BrowserWindow(browserWindowOptions);
 
-		window.once('closed', () => this.windows.delete(name));
+		window.once('closed', () => this.destroyWindow(name));
 
 		if (import.meta.env.DEV) {
 			window.webContents.on('before-input-event', (_, input) => {
@@ -140,5 +139,16 @@ export class WindowService {
 		for (const window of this.windows.values()) {
 			window?.webContents.send(channel, ...args);
 		}
+	}
+
+	private destroyWindow(name: string) {
+			const window = this.windows.get(name);
+			if (!window) {
+				return;
+			}
+
+			this.events.emit('windowDestroyed', window);
+			window.destroy();
+			this.windows.delete(name);
 	}
 }

@@ -326,7 +326,7 @@ export class SoftwareService implements IBootstrappable {
 				const variants   = sw.variants!.length > 0 ? sw.variants!.map(v => v.name).join(', ') : 'None';
 
 				markdown.push(
-					`| ![${sw.name}](${icon} "${sw.name}") | [${sw.name}](${sw.homepage}) | ${isArchive} | ${isUac} | ${categories.length ? categories : 'None'} | ${variants} |`
+					`| <img src="${icon}" title="${sw.name}" alt="${sw.name}" width="32" height="32"> | [${sw.name}](${sw.homepage}) | ${isArchive} | ${isUac} | ${categories.length ? categories : 'None'} | ${variants} |`
 				);
 			}
 

@@ -13,6 +13,11 @@ type CreateWindowOptions = {
 	 */
 	url: string;
 	/**
+	 * An object to serialize and include in the {@link BrowserWindow}'s URL which can be parsed in
+	 * the renderer.
+	 */
+	searchParams?: Record<string, unknown>;
+	/**
 	 * {@link BrowserWindowConstructorOptions}
 	 */
 	browserWindowOptions: BrowserWindowConstructorOptions;
@@ -39,14 +44,20 @@ export class WindowService {
 			throw new Error('Main window has already been created');
 		}
 
-		const { url, browserWindowOptions, onReadyToShow } = options;
-		const mainWindow = this.createWindow(this.mainWindowName, { url, browserWindowOptions, onReadyToShow });
+		const { url, searchParams, browserWindowOptions, onReadyToShow } = options;
+		const mainWindow = this.createWindow(this.mainWindowName, { url, searchParams, browserWindowOptions, onReadyToShow });
 
 		return mainWindow;
 	}
 
 	public createWindow(name: string, options: CreateWindowOptions) {
-		const { url, browserWindowOptions, onReadyToShow } = options;
+		const { url, searchParams, browserWindowOptions, onReadyToShow } = options;
+		const queryParams = new URLSearchParams();
+
+		if (searchParams) {
+			const json = JSON.stringify(searchParams);
+			queryParams.append('config', json);
+		}
 
 		if (this.windows.has(name)) {
 			this.destroyWindow(name);
@@ -66,7 +77,7 @@ export class WindowService {
 
 		this.windows.set(name, window);
 
-		window.loadURL(url).then(onReadyToShow);
+		window.loadURL(`${url}?${queryParams}`).then(onReadyToShow);
 
 		this.events.emit('windowCreated', window);
 
@@ -77,16 +88,12 @@ export class WindowService {
 		return this.windows.get(name);
 	}
 
-	public resolveRendererHTML(indexPath: string) {
+	public resolveRendererPageUrl(indexPath: string) {
 		if (import.meta.env.DEV) {
 			return `http://localhost:${DEV_PORT}/${indexPath}`;
 		}
 
-		return this.getHTMLPath(indexPath);
-	}
-
-	public getHTMLPath(htmlPath: string) {
-		return join(ROOT_PATH, htmlPath);
+		return join(ROOT_PATH, indexPath);
 	}
 
 	public getMainWindow() {

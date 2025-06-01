@@ -6,12 +6,13 @@ import { app } from './atoms/app';
 import { IpcChannel } from 'shared';
 import { useState, useEffect } from 'react';
 import { Button } from './components/Button';
+import { useConfig } from './hooks/useConfig';
 import { Spinner } from './components/Spinner';
 import { Titlebar } from './components/Titlebar';
+import { useAccentColor } from './hooks/useAccentColor';
 import { DownloadQueue } from './components/DownloadQueue';
 import { DownloadOptions } from './components/DownloadOptions';
 import { SoftwareCatalogue } from './components/SoftwareCatalogue';
-import { useAccentColor } from './hooks/useAccentColor';
 import { mdiUpdate, mdiCancel, mdiRefresh, mdiSecurity, mdiArrowLeft, mdiArrowRight, mdiResizeBottomRight } from '@mdi/js';
 
 import logo from '~/assets/img/logo.png';
@@ -40,6 +41,7 @@ export const App = () => {
 	const [onMaximized]                                 = useIpc(IpcChannel.MainWindow_Maximized);
 	const [onUnmaximized]                               = useIpc(IpcChannel.MainWindow_Restored);
 	const [onOutdated]                                  = useIpc(IpcChannel.Updater_Outdated);
+	const getConfigValue                                = useConfig();
 
 	useAccentColor();
 
@@ -145,11 +147,8 @@ export const App = () => {
 
 	useEffect(() => {
 		if (!loading) {
-			const params = new URLSearchParams(window.location.search);
-			if (params.get('software')) {
-				const keys = params.get('software')!.split(',');
-				setSelectedSoftware(softwareDefinitions.filter(s => keys.includes(s.key)));
-			}
+			const software = getConfigValue<string[]>('software')!;
+			setSelectedSoftware(softwareDefinitions.filter(s => software.includes(s.key)));
 		}
 	}, [loading]);
 

@@ -9,7 +9,7 @@ function getForegroundColor(baseColor: string) {
 	return color.luminance() > 0.5 ? '#000' : '#fff';
 }
 
-export function useAccentColor() {
+export const useAccentColor = () => {
 	const prevAccent = useRef<string | null>(null);
 
 	useEffect(() => {

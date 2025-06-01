@@ -33,7 +33,10 @@ export class MainWindowService implements IBootstrappable {
 
 	public async bootstrap() {
 		this.mainWindow = this.window.createMainWindow({
-			url: this.window.resolveRendererHTML(`index.html?software=${this.cli.flags.software}`),
+			url: this.window.resolveRendererPageUrl('index.html'),
+			searchParams: {
+				software: this.cli.flags.software ?? []
+			},
 			browserWindowOptions: {
 				show: false,
 				width: 1000,

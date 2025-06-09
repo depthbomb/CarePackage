@@ -25,12 +25,12 @@
 		"packages/shared"
 	],
 	"devDependencies": {
-		"@types/node": "^22.15.29",
+		"@types/node": "^22.15.30",
 		"cross-env": "^7.0.3",
-		"electron-builder": "26.0.15",
+		"electron-builder": "26.0.16",
 		"node-gyp": "^11.2.0",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.8.3"
 	},
-	"packageManager": "yarn@4.9.1"
+	"packageManager": "yarn@4.9.2"
 }

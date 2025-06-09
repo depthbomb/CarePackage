@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@needle-di/core": "1.0.0",
 		"cockatiel": "^3.2.1",
-		"fast-xml-parser": "5.2.3",
+		"fast-xml-parser": "5.2.5",
 		"mitt": "^3.0.1",
 		"neverthrow": "^8.2.0",
 		"octokit": "^5.0.3",
@@ -28,14 +28,14 @@
 	"devDependencies": {
 		"@swc-node/sourcemap-support": "^0.5.1",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^22.15.29",
+		"@types/node": "^22.15.30",
 		"@types/semver": "^7.7.0",
-		"@typescript-eslint/eslint-plugin": "^8.33.0",
-		"@typescript-eslint/parser": "^8.33.0",
+		"@typescript-eslint/eslint-plugin": "^8.34.0",
+		"@typescript-eslint/parser": "^8.34.0",
 		"cross-env": "^7.0.3",
-		"electron": "36.3.2",
+		"electron": "36.4.0",
 		"eslint": "^9.28.0",
-		"terser": "^5.40.0",
+		"terser": "^5.42.0",
 		"typescript": "^5.8.3",
 		"vite": "^6.3.5"
 	}

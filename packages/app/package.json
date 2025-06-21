@@ -28,14 +28,14 @@
 	"devDependencies": {
 		"@swc-node/sourcemap-support": "^0.5.1",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^22.15.30",
+		"@types/node": "^22.15.32",
 		"@types/semver": "^7.7.0",
-		"@typescript-eslint/eslint-plugin": "^8.34.0",
-		"@typescript-eslint/parser": "^8.34.0",
+		"@typescript-eslint/eslint-plugin": "^8.34.1",
+		"@typescript-eslint/parser": "^8.34.1",
 		"cross-env": "^7.0.3",
-		"electron": "36.4.0",
-		"eslint": "^9.28.0",
-		"terser": "^5.42.0",
+		"electron": "36.5.0",
+		"eslint": "^9.29.0",
+		"terser": "^5.43.0",
 		"typescript": "^5.8.3",
 		"vite": "^6.3.5"
 	}

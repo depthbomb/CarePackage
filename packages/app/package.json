@@ -35,7 +35,7 @@
 		"cross-env": "^7.0.3",
 		"electron": "36.5.0",
 		"eslint": "^9.29.0",
-		"terser": "^5.43.0",
+		"terser": "^5.43.1",
 		"typescript": "^5.8.3",
 		"vite": "^6.3.5"
 	}

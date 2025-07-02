@@ -10,7 +10,7 @@ class EverythingCLI(BaseSoftware):
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
         self.key = 'everything-cli'
-        self.name = 'Everything Command Line Interface'
+        self.name = 'Everything CLI'
         self.download_name = 'ES.x64.zip'
         self.should_cache_url = True
         self.is_archive = True

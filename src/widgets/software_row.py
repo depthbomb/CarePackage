@@ -3,12 +3,11 @@ from src.widgets.badge import Badge
 from src.lib.software import BaseSoftware
 from src.lib.colors import get_accent_color
 from PySide6.QtCore import Qt, Slot, Signal, QObject
+from src.windows.variant_wizard import VariantWizard
 from winrt.windows.ui.viewmanagement import UIColorType
 from PySide6.QtGui import QFont, QPixmap, QDesktopServices
 from src.lib.settings import user_settings, UserSettingsKeys
 from PySide6.QtWidgets import QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox, QGraphicsDropShadowEffect
-
-from windows.variant_picker_window import VariantPickerWindow
 
 SELECTED_STYLESHEET = f'''
     #SoftwareRow {{
@@ -139,17 +138,24 @@ class SoftwareRow(QWidget):
                     self.set_selection(True)
             elif self.has_variants:
                 # Show a special window for selecting variants
-                picker_window = VariantPickerWindow(self.software, self.software.variants, self.selected_variants, self)
-                picker_window.exec()
+                # picker_window = VariantPickerWindow(self.software, self.software.variants, self.selected_variants, self)
+                # picker_window.exec()
+                #
+                # self.selected_variants = picker_window.selected_variants
+                # for variant in self.software.variants:
+                #     self.variant_selection_changed.emit(variant, variant in self.selected_variants)
 
-                self.selected_variants = picker_window.selected_variants
+                wizard = VariantWizard(self.software, self.software.variants, self.selected_variants, self)
+                wizard.exec()
+
+                self.selected_variants = wizard.selected_variants
                 for variant in self.software.variants:
                     self.variant_selection_changed.emit(variant, variant in self.selected_variants)
 
                 self.selected = len(self.selected_variants) > 0
                 self._update_selection_style()
 
-                picker_window.deleteLater()
+                wizard.deleteLater()
             else:
                 self.set_selection(not self.selected)
         elif event.button() == Qt.MouseButton.RightButton:

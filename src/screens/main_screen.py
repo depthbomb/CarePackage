@@ -135,7 +135,7 @@ class MainScreen(QWidget):
         self.category_picker.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         self.category_picker.addItem('All Categories', '')
         for category in SoftwareCategory:
-            self.category_picker.addItem(category.value, category.name)
+            self.category_picker.addItem(category, category.name)
         self.category_picker.currentIndexChanged.connect(self._on_filters_changed)
 
         self.selected_software_count = QLabel()

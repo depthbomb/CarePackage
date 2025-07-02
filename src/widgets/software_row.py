@@ -6,13 +6,13 @@ from PySide6.QtCore import Qt, Slot, Signal, QObject
 from winrt.windows.ui.viewmanagement import UIColorType
 from PySide6.QtGui import QFont, QPixmap, QDesktopServices
 from src.lib.settings import user_settings, UserSettingsKeys
-from PySide6.QtWidgets import QGraphicsDropShadowEffect, QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox
+from PySide6.QtWidgets import QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox, QGraphicsDropShadowEffect
 
 from windows.variant_picker_window import VariantPickerWindow
 
 SELECTED_STYLESHEET = f'''
     #SoftwareRow {{
-        background: {get_accent_color(UIColorType.ACCENT)};
+        background: {get_accent_color(UIColorType.ACCENT_LIGHT3)};
     }}
     
     #SoftwareName {{

@@ -1,6 +1,6 @@
 #define MyAppName "CarePackage"
 #define MyAppDescription "Software Management Tool"
-#define MyAppVersion "4.0.1.0"
+#define MyAppVersion "4.1.1.0"
 #define MyAppPublisher "Caprine Logic"
 #define MyAppExeName "carepackage.exe"
 #define MyAppCopyright "Copyright (C) 2024-2025 Caprine Logic"

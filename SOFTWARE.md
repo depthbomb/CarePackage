@@ -122,7 +122,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, Network Tools | `0` |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ | Development | `0` |
 | ![Google Drive](./resources/images/software/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔️ | Utilities | `0` |
-| ![iCloud for Windows](./resources/images/software/icloud-for-windows.png "iCloud for Windows") | [iCloud for Windows](https://support.apple.com/en-us/103232) | ❌ | ❌ | None | `0` |
+| ![iCloud for Windows](./resources/images/software/icloud.png "iCloud for Windows") | [iCloud for Windows](https://support.apple.com/en-us/103232) | ❌ | ❌ | None | `0` |
 | ![Jackett](./resources/images/software/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | Utilities | `0` |
 | ![MEGAsync](./resources/images/software/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | Utilities | `0` |
 | ![Motrix](./resources/images/software/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | Utilities | `0` |
@@ -198,6 +198,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Streamlabs Desktop](./resources/images/software/streamlabs-desktop.png "Streamlabs Desktop") | [Streamlabs Desktop](https://streamlabs.com/streamlabs-live-streaming-software) | ❌ | ✔️ | None | `0` |
 | ![Streamlink](./resources/images/software/streamlink.png "Streamlink") | [Streamlink](https://streamlink.github.io) | ❌ | ✔️ | None | `0` |
 | ![VLC Media Player](./resources/images/software/vlc-media-player.png "VLC Media Player") | [VLC Media Player](https://videolan.org) | ❌ | ✔️ | Audio & Sounds | `0` |
+| ![yay](./resources/images/software/yay.png "yay") | [yay](https://github.com/depthbomb/yay) | ❌ | ❌ | Utilities | `0` |
 
 ---
 
@@ -358,5 +359,6 @@ This file was generated from `scripts/generate_software_table.py`
 | ![WinRAR](./resources/images/software/winrar.png "WinRAR") | [WinRAR](https://www.win-rar.com) | ❌ | ❌ | File Management | `0` |
 | ![WinSCP](./resources/images/software/winscp.png "WinSCP") | [WinSCP](https://winscp.net) | ❌ | ❌ | Network Tools | `0` |
 | ![Wireshark](./resources/images/software/wireshark.png "Wireshark") | [Wireshark](https://wireshark.org) | ❌ | ✔️ | Network Tools | `0` |
+| ![yay](./resources/images/software/yay.png "yay") | [yay](https://github.com/depthbomb/yay) | ❌ | ❌ | Media | `0` |
 
 ---

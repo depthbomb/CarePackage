@@ -1,7 +1,10 @@
-﻿# 4.0.1
+﻿# 4.1.0
 
 - Fixed a crash that would occur when opening the settings window immediately after a fresh install
 - The dark window titlebar and border will not be used if the system is not using dark mode
+- Adjusted the color of selected software
+- The homepage for software variants can now be accessed from the variant picker window
+- Variants now show if they require administrator privileges or are an archive in the variant picker window
 - Added the following software:
   - _Everything_ (standard, lite, and CLI)
   - _iCloud for Windows_
@@ -12,6 +15,7 @@
   - _TreeSize Free_
   - _VeraCrypt_
   - _WhatsApp_
+  - _yay_
 
 # 4.0.0
 

@@ -22,7 +22,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (4, 0, 0, 0)
+APP_VERSION = (4, 0, 1, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -209,6 +209,7 @@ from src.lib.software.windows_app_sdk import WindowsAppSdk
 from src.lib.software.winrar import Winrar
 from src.lib.software.winscp import WinScp
 from src.lib.software.wireshark import Wireshark
+from src.lib.software.yay import Yay
 from src.lib.software.zoom import Zoom
 from src.lib.software.zulip import Zulip
 
@@ -369,6 +370,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     WinScp,
     WindowsAppSdk,
     Wireshark,
+    Yay,
     Zoom,
     Zulip,
 ])

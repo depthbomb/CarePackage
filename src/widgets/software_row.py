@@ -5,7 +5,7 @@ from src.lib.colors import get_accent_color
 from PySide6.QtCore import Qt, Slot, Signal, QObject
 from src.windows.variant_wizard import VariantWizard
 from winrt.windows.ui.viewmanagement import UIColorType
-from PySide6.QtGui import QFont, QPixmap, QDesktopServices
+from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
 from src.lib.settings import user_settings, UserSettingsKeys
 from PySide6.QtWidgets import QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox, QGraphicsDropShadowEffect
 
@@ -43,7 +43,7 @@ class SoftwareRow(QWidget):
         self.selected = False
 
         self.menu = QMenu(self)
-        self.menu.addAction('Homepage', self._on_homepage_action_clicked)
+        self.menu.addAction(QIcon(':images/open.png'), 'Homepage', self._on_homepage_action_clicked)
 
         self.image_shadow = QGraphicsDropShadowEffect(self)
         self.image_shadow.setOffset(0, 0)

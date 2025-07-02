@@ -2,6 +2,7 @@
 <RCC version="1.0">
 	<qresource>
 		<!-- UI -->
+		<file>images/open.png</file>
 		<file>images/download.png</file>
 		<file>images/download_white.png</file>
 		<file>images/icon.png</file>

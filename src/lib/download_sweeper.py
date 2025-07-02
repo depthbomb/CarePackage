@@ -18,6 +18,8 @@ class DownloadSweeperWorker(QObject):
 
     @Slot()
     def run(self):
+        DOWNLOAD_DIR.mkdir(exist_ok=True)
+
         found_files = 0
 
         extensions = ['.exe', '.msi', '.zip', '.rar', '.7z']

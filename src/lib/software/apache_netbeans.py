@@ -6,19 +6,17 @@ class ApacheNetBeans(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self._gh = GithubReleaseScraper('codelerity', 'netbeans-installers', self)
+        self._gh = GithubReleaseScraper('Friends-of-Apache-NetBeans', 'netbeans-installers', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
         self.key = 'apache-netbeans'
         self.name = 'Apache NetBeans'
         self.category = [SoftwareCategory.Development]
-        self.download_name = 'Apache-NetBeans-bin-windows-x64.exe'
+        self.download_name = 'Apache-NetBeans.exe'
         self.should_cache_url = True
         self.requires_admin = True
         self.icon = 'apache-netbeans.png'
         self.homepage = 'https://netbeans.apache.org'
-
-        self._current_ver = 30
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

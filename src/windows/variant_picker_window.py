@@ -3,6 +3,7 @@ from typing import cast, Optional
 from PySide6.QtGui import QIcon, QPixmap
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import Qt, Slot, QObject
+from src.widgets.simple_link_label import SimpleLinkLabel
 from PySide6.QtWidgets import QLabel, QDialog, QWidget, QCheckBox, QGroupBox, QPushButton, QVBoxLayout, QHBoxLayout, QScrollArea
 
 class VariantPickerWindow(QDialog):
@@ -42,7 +43,29 @@ class VariantPickerWindow(QDialog):
                 self.selected_variants.append(variant)
 
             checkbox_layout.addWidget(variant_icon)
-            checkbox_layout.addWidget(checkbox, 1)
+            checkbox_layout.addWidget(checkbox)
+
+            if variant.requires_admin:
+                admin_badge = QLabel(self)
+                admin_badge.setFixedSize(14, 14)
+                admin_badge.setScaledContents(True)
+                admin_badge.setPixmap(QPixmap(':icons/uac.ico'))
+                admin_badge.setToolTip('This software requires administrator privileges to install.')
+                admin_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
+                checkbox_layout.addWidget(admin_badge)
+            elif variant.is_archive:
+                archive_badge = QLabel(self)
+                archive_badge.setFixedSize(14, 14)
+                archive_badge.setScaledContents(True)
+                archive_badge.setPixmap(QPixmap(':icons/zip.ico'))
+                archive_badge.setToolTip('This software is contained within a compressed archive.')
+                archive_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
+                checkbox_layout.addWidget(archive_badge)
+
+            homepage_link = SimpleLinkLabel('Homepage', variant.homepage, self)
+
+            checkbox_layout.addStretch()
+            checkbox_layout.addWidget(homepage_link)
 
             self.variants_layout.addLayout(checkbox_layout)
 

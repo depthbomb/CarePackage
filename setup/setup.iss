@@ -1,67 +1,80 @@
+#define MyAppName "CarePackage"
+#define MyAppDescription "Software Management Tool"
+#define MyAppVersion "4.0.0.0"
+#define MyAppPublisher "Caprine Logic"
+#define MyAppExeName "carepackage.exe"
+#define MyAppCopyright "Copyright (C) 2024-2025 Caprine Logic"
+
 [Setup]
-AppId={#AppId}
-AppName={#NameLong}
-AppMutex={#AppMutex}
-AppVersion={#Version}
-AppVerName={#NameLong}
-VersionInfoVersion={#Version}
-AppPublisher={#Company}
-AppPublisherURL={#RepoURL}
-AppSupportURL={#RepoURL}
-AppUpdatesURL={#RepoURL}
-DefaultGroupName={#NameLong}
-DefaultDirName={autopf}\{#Company}\{#NameLong}
+AppId={{74749A6F-089B-43D0-A213-C8F4258F8FF6}
+AppName={#MyAppName}
+AppVersion={#MyAppVersion}
+AppVerName={#MyAppName} {#MyAppVersion}
+AppPublisher={#MyAppPublisher}
+AppPublisherURL=https://github.com/depthbomb
+AppSupportURL=https://github.com/depthbomb/CarePackage/issues/new/choose
+AppUpdatesURL=https://github.com/depthbomb/CarePackage/releases
+AppCopyright={#MyAppCopyright}
+VersionInfoVersion={#MyAppVersion}
+DefaultDirName={autopf}\{#MyAppPublisher}\{#MyAppName}
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
-OutputDir=..\build\release
-OutputBaseFilename={#ExeBasename}Setup
-SetupMutex={#AppMutex}setup
-SetupIconFile=..\static\icon.ico
-Compression=lzma/ultra64
-; Compression=none
+AllowNoIcons=yes
+LicenseFile=..\LICENSE
+OutputDir=..\build
+OutputBaseFilename=carepackage_installer
+SetupIconFile=..\resources\icons\icon.ico
+Compression=lzma2/ultra64
 SolidCompression=yes
-ArchitecturesAllowed=x64compatible
-MinVersion=10.0
 WizardStyle=modern
 WizardResizable=no
+WizardImageFile=.\images\Image_*.bmp
+WizardSmallImageFile=.\images\SmallImage_*.bmp
+ArchitecturesAllowed=x64compatible
+UninstallDisplayIcon={app}\carepackage.exe
+UninstallDisplayName={#MyAppName}
+ShowTasksTreeLines=True
+AlwaysShowDirOnReadyPage=True
+VersionInfoCompany={#MyAppPublisher}
+VersionInfoCopyright={#MyAppCopyright}
+VersionInfoProductName={#MyAppName}
+VersionInfoProductVersion={#MyAppVersion}
+VersionInfoProductTextVersion={#MyAppVersion}
+VersionInfoDescription={#MyAppDescription}
+
+[Code]
+function FromUpdate: Boolean;
+begin
+	Result := ExpandConstant('{param:update|no}') = 'yes'
+end;
+
+function FromNormal: Boolean;
+begin
+	Result := FromUpdate = False
+end;
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "..\build\win-unpacked\*"; Excludes: "LICENSE.electron.txt,LICENSES.chromium.html"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\build\main.dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\CHANGELOG.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\resources\carepackage.VisualElementsManifest.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\resources\Square70x70Logo.png"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\resources\Square150x150Logo.png"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{autoprograms}\{#Company}\{#NameLong}"; Filename: "{app}\{#ExeBasename}.exe"; AppUserModelID: "{#AppUserModelId}"; AppUserModelToastActivatorCLSID: "{#AppUserModelToastActivatorClsid}"
-Name: "{autodesktop}\{#NameLong}"; Filename: "{app}\{#ExeBasename}.exe"; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#ExeBasename}.exe"; Description: "{cm:LaunchProgram,{#StringChange(NameLong, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-
-[UninstallRun]
-Filename: "{app}\{#ExeBasename}"; Parameters: "--uninstall"; RunOnceId: "DisableAutoStart"; Flags: runhidden runascurrentuser
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent; Check: FromUpdate
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent unchecked; Check: FromNormal
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{userappdata}\{#Company}\{#NameLong}\*"
-Type: dirifempty; Name: "{userappdata}\{#Company}\{#NameLong}"
-Type: filesandordirs; Name: "{app}\*"
 Type: dirifempty; Name: "{app}"
-
-[Code]
-procedure CurStepChanged(CurStep: TSetupStep);
-var
-  ObsoleteFolder: string;
-begin
-  if CurStep = ssPostInstall then
-  begin
-    ObsoleteFolder := ExpandConstant('{app}\resources\software-icons');
-    if DirExists(ObsoleteFolder) then
-    begin
-      DelTree(ObsoleteFolder, True, True, True);
-    end;
-  end;
-end;

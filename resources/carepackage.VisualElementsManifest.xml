@@ -1,0 +1,10 @@
+<Application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VisualElements
+		DisplayName="CarePackage"
+		Description="Software management tool"
+		BackgroundColor="#f43f5e"
+		ShowNameOnSquare150x150Logo="on"
+		Square150x150Logo="Square150x150Logo.png"
+		Square70x70Logo="SmallTile.png"
+		ForegroundText="light"/>
+</Application>

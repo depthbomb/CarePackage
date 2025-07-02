@@ -1,3 +1,31 @@
+﻿# 4.0.0
+
+This release is not quite a rewrite but rather going back to the pre-3.0.0 version of _CarePackage_ and bringing it up to the standards, in terms of features, of the 3.0.0 version.
+
+This change was made due to various oddities caused by the new backend architecture of 3.0.0 and because there was already a solid foundation in pre-3.0.0. Also, the file size of the application will again be significantly smaller.
+
+The following changes have been ported from 3.0.0:
+- Added UWP visual elements
+- You can now search for software by text
+- Filtering by category is now done via a selection box rather than tabs
+- Added hotkeys:
+  - `CTRL+A` selects all software currently displayed in the catalogue
+  - `CTRL+D` deselects all selected software
+- Extra info about software, such as being able to visit their homepage, can now be accessed by right-clicking them
+- The number of selected software is now displayed
+- Installation options and download queue are now part of the main window
+- Selected software is persisted after restarting the app as administrator
+- Software can now be in multiple categories
+- The categories that each software belongs to are now shown in its row
+
+Additionally, the following changes are brand new:
+- Using the search box now searches in the selected category instead of only among all categories
+- The search box now has a clear button
+
+Known issues:
+- UI icons may be hard to see or the incorrect color depending on the system's accent color
+- The app may rarely crash when opening the settings window
+
 # 3.4.0
 
 - Your system's accent color will now be used for styling various UI elements

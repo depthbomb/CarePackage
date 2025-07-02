@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QWidget
+from winreg import OpenKey, CloseKey, QueryValueEx, ConnectRegistry, HKEY_CURRENT_USER
 from ctypes import c_int, byref, c_bool, windll, HRESULT, wintypes, c_wchar_p, Structure
 
 user32 = windll.user32
@@ -144,9 +145,20 @@ def log_out():
 def lock():
     user32.LockWorkStation()
 
+def is_dark_mode():
+    try:
+        registry = ConnectRegistry(None, HKEY_CURRENT_USER)
+        key = OpenKey(registry, r'Software\Microsoft\Windows\CurrentVersion\Themes\Personalize')
+        value, _ = QueryValueEx(key, 'AppsUseLightTheme')
+        CloseKey(key)
+        return value == 0
+    except:
+        return False
+
 def use_immersive_dark_mode(window: QWidget):
-    hwnd = window.winId()
-    value = c_bool(True)
-    result = DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, byref(value), 4)
-    if result != 0:
-        DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, byref(value), 4)
+    if is_dark_mode():
+        hwnd = window.winId()
+        value = c_bool(True)
+        result = DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, byref(value), 4)
+        if result != 0:
+            DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, byref(value), 4)

@@ -15,10 +15,10 @@ color_ref = GetSysColor(COLOR_WINDOW)
 r, g, b = color_ref & 0xFF, (color_ref >> 8) & 0xFF, (color_ref >> 16) & 0xFF
 
 class MARGINS(Structure):
-    _fields_ = [("cxLeftWidth", c_int),
-                ("cxRightWidth", c_int),
-                ("cyTopHeight", c_int),
-                ("cyBottomHeight", c_int)]
+    _fields_ = [('cxLeftWidth', c_int),
+                ('cxRightWidth', c_int),
+                ('cyTopHeight', c_int),
+                ('cyBottomHeight', c_int)]
 
 DwmExtendFrameIntoClientArea = dwmapi.DwmExtendFrameIntoClientArea
 DwmExtendFrameIntoClientArea.argtypes = [wintypes.HWND, POINTER(MARGINS)]

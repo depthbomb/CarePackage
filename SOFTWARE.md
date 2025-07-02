@@ -13,6 +13,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Equalizer APO](./resources/images/software/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔️ | Utilities | `0` |
 | ![foobar2000](./resources/images/software/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | ❌ | Media | `0` |
 | ![iTunes](./resources/images/software/itunes.png "iTunes") | [iTunes](https://apple.com/itunes) | ❌ | ❌ | Media | `0` |
+| ![mpv](./resources/images/software/mpv.png "mpv") | [mpv](https://mpv.io) | ✔️ | ❌ | Media | `0` |
 | ![Plex](./resources/images/software/plex-desktop.png "Plex") | [Plex](https://plex.tv) | ❌ | ❌ | Media | `3` |
 | ![Spotify](./resources/images/software/spotify.png "Spotify") | [Spotify](https://spotify.com) | ❌ | ❌ | Media | `0` |
 | ![VLC Media Player](./resources/images/software/vlc-media-player.png "VLC Media Player") | [VLC Media Player](https://videolan.org) | ❌ | ✔️ | Media | `0` |
@@ -31,6 +32,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Mozilla Firefox](./resources/images/software/mozilla-firefox.png "Mozilla Firefox") | [Mozilla Firefox](https://mozilla.org/firefox) | ❌ | ❌ | None | `0` |
 | ![Opera](./resources/images/software/opera.png "Opera") | [Opera](https://opera.com) | ❌ | ❌ | None | `0` |
 | ![Opera GX](./resources/images/software/operagx.png "Opera GX") | [Opera GX](https://opera.com/gx) | ❌ | ❌ | None | `0` |
+| ![Tor Browser](./resources/images/software/tor-browser.png "Tor Browser") | [Tor Browser](https://torproject.org) | ❌ | ❌ | Security | `0` |
 | ![Vivaldi](./resources/images/software/vivaldi.png "Vivaldi") | [Vivaldi](https://vivaldi.com) | ❌ | ❌ | None | `0` |
 | ![Waterfox](./resources/images/software/waterfox.png "Waterfox") | [Waterfox](https://waterfox.net) | ❌ | ❌ | None | `0` |
 
@@ -120,6 +122,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | ❌ | Development, Network Tools | `0` |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | ❌ | Development | `0` |
 | ![Google Drive](./resources/images/software/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔️ | Utilities | `0` |
+| ![iCloud for Windows](./resources/images/software/icloud-for-windows.png "iCloud for Windows") | [iCloud for Windows](https://support.apple.com/en-us/103232) | ❌ | ❌ | None | `0` |
 | ![Jackett](./resources/images/software/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | ❌ | Utilities | `0` |
 | ![MEGAsync](./resources/images/software/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | ❌ | Utilities | `0` |
 | ![Motrix](./resources/images/software/motrix.png "Motrix") | [Motrix](https://motrix.app) | ❌ | ❌ | Utilities | `0` |
@@ -128,6 +131,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Rufus](./resources/images/software/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | ✔️ | Utilities | `0` |
 | ![7-Zip](./resources/images/software/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | ❌ | Utilities | `0` |
 | ![TeraCopy](./resources/images/software/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | Utilities | `0` |
+| ![TreeSize Free](./resources/images/software/treesize.png "TreeSize Free") | [TreeSize Free](https://jam-software.com/treesize_free) | ❌ | ❌ | System Management, Utilities | `0` |
 | ![WinDirStat](./resources/images/software/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | System Management, Utilities | `0` |
 | ![WinRAR](./resources/images/software/winrar.png "WinRAR") | [WinRAR](https://www.win-rar.com) | ❌ | ❌ | Utilities | `0` |
 
@@ -186,6 +190,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![HandBrake](./resources/images/software/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔️ | Utilities | `0` |
 | ![iTunes](./resources/images/software/itunes.png "iTunes") | [iTunes](https://apple.com/itunes) | ❌ | ❌ | Audio & Sounds | `0` |
 | ![Lightshot](./resources/images/software/lightshot.png "Lightshot") | [Lightshot](https://app.prntscr.com) | ❌ | ❌ | Utilities | `0` |
+| ![mpv](./resources/images/software/mpv.png "mpv") | [mpv](https://mpv.io) | ✔️ | ❌ | Audio & Sounds | `0` |
 | ![OBS Studio](./resources/images/software/obs-studio.png "OBS Studio") | [OBS Studio](https://obsproject.com) | ❌ | ✔️ | None | `0` |
 | ![Plex](./resources/images/software/plex-desktop.png "Plex") | [Plex](https://plex.tv) | ❌ | ❌ | Audio & Sounds | `3` |
 | ![ShareX](./resources/images/software/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | ❌ | Utilities | `0` |
@@ -227,6 +232,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Corsair iCUE](./resources/images/software/corsair-icue.png "Corsair iCUE") | [Corsair iCUE](https://corsair.com/us/en/s/icue) | ❌ | ✔️ | None | `0` |
 | ![Elgato Stream Deck](./resources/images/software/elgato-stream-deck.png "Elgato Stream Deck") | [Elgato Stream Deck](https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes) | ❌ | ❌ | None | `0` |
 | ![Logitech G HUB](./resources/images/software/logitech-g-hub.png "Logitech G HUB") | [Logitech G HUB](https://www.logitechg.com/en-us/innovation/g-hub.html) | ❌ | ✔️ | None | `0` |
+| ![MSI Afterburner](./resources/images/software/msi-afterburner.png "MSI Afterburner") | [MSI Afterburner](https://msi.com/Landing/afterburner/graphics-cards) | ❌ | ❌ | System Management | `2` |
 | ![NVIDIA App](./resources/images/software/nvidia.png "NVIDIA App") | [NVIDIA App](https://www.nvidia.com/en-us/software/nvidia-app/) | ❌ | ✔️ | None | `0` |
 | ![PlayStation Accessories](./resources/images/software/playstation-accessories.png "PlayStation Accessories") | [PlayStation Accessories](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | ✔️ | Gaming | `0` |
 
@@ -239,6 +245,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Evernote](./resources/images/software/evernote.png "Evernote") | [Evernote](https://evernote.com) | ❌ | ❌ | None | `0` |
 | ![Joplin](./resources/images/software/joplin.png "Joplin") | [Joplin](https://joplinapp.org) | ❌ | ❌ | None | `0` |
 | ![LibreOffice](./resources/images/software/libreoffice.png "LibreOffice") | [LibreOffice](https://libreoffice.org) | ❌ | ❌ | None | `0` |
+| ![Notion](./resources/images/software/notion.png "Notion") | [Notion](https://notion.com/desktop) | ❌ | ❌ | None | `0` |
 | ![Obsidian](./resources/images/software/obsidian.png "Obsidian") | [Obsidian](https://obsidian.md) | ❌ | ❌ | None | `0` |
 | ![Thunderbird](./resources/images/software/thunderbird.png "Thunderbird") | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Social | `0` |
 
@@ -264,6 +271,8 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | ❌ | None | `0` |
 | ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | ❌ | None | `0` |
 | ![Malwarebytes](./resources/images/software/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | ✔️ | None | `0` |
+| ![Tor Browser](./resources/images/software/tor-browser.png "Tor Browser") | [Tor Browser](https://torproject.org) | ❌ | ❌ | Web Browsers | `0` |
+| ![VeraCrypt](./resources/images/software/veracrypt.png "VeraCrypt") | [VeraCrypt](https://veracrypt.io) | ❌ | ❌ | System Management | `0` |
 
 ---
 
@@ -280,6 +289,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Telegram](./resources/images/software/telegram.png "Telegram") | [Telegram](https://telegram.org) | ❌ | ❌ | None | `0` |
 | ![Thunderbird](./resources/images/software/thunderbird.png "Thunderbird") | [Thunderbird](https://thunderbird.net) | ❌ | ❌ | Notes & Productivity | `0` |
 | ![Trillian](./resources/images/software/trillian.png "Trillian") | [Trillian](https://trillian.im) | ❌ | ❌ | None | `0` |
+| ![WhatsApp](./resources/images/software/whatsapp.png "WhatsApp") | [WhatsApp](https://whatsapp.com) | ❌ | ❌ | None | `0` |
 | ![Zoom Workplace](./resources/images/software/zoom.png "Zoom Workplace") | [Zoom Workplace](https://zoom.us) | ❌ | ❌ | None | `0` |
 | ![Zulip](./resources/images/software/zulip.png "Zulip") | [Zulip](https://zulip.com) | ❌ | ❌ | None | `0` |
 
@@ -292,9 +302,12 @@ This file was generated from `scripts/generate_software_table.py`
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | ✔️ | File Management, Utilities | `0` |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | ✔️ | File Management, Utilities | `0` |
 | ![HWMonitor](./resources/images/software/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | ❌ | Utilities | `0` |
+| ![MSI Afterburner](./resources/images/software/msi-afterburner.png "MSI Afterburner") | [MSI Afterburner](https://msi.com/Landing/afterburner/graphics-cards) | ❌ | ❌ | Peripherals | `2` |
 | ![Recuva](./resources/images/software/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | ✔️ | Utilities | `0` |
 | ![Speccy](./resources/images/software/speccy.png "Speccy") | [Speccy](https://www.ccleaner.com/speccy) | ❌ | ✔️ | Utilities | `0` |
 | ![System Informer](./resources/images/software/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | Utilities | `0` |
+| ![TreeSize Free](./resources/images/software/treesize.png "TreeSize Free") | [TreeSize Free](https://jam-software.com/treesize_free) | ❌ | ❌ | File Management, Utilities | `0` |
+| ![VeraCrypt](./resources/images/software/veracrypt.png "VeraCrypt") | [VeraCrypt](https://veracrypt.io) | ❌ | ❌ | Security | `0` |
 | ![WinDirStat](./resources/images/software/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, Utilities | `0` |
 
 ---
@@ -315,6 +328,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![dnSpy (Fork)](./resources/images/software/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔️ | ❌ | Development | `0` |
 | ![Dropbox](./resources/images/software/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | ❌ | File Management | `0` |
 | ![Equalizer APO](./resources/images/software/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | ✔️ | Audio & Sounds | `0` |
+| ![Everything](./resources/images/software/everything.png "Everything") | [Everything](https://voidtools.com) | ❌ | ❌ | None | `3` |
 | ![GlassWire](./resources/images/software/glasswire.png "GlassWire") | [GlassWire](https://glasswire.com) | ❌ | ✔️ | Network Tools | `0` |
 | ![Google Drive](./resources/images/software/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | ✔️ | File Management | `0` |
 | ![HandBrake](./resources/images/software/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | ✔️ | Media | `0` |
@@ -339,6 +353,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![System Informer](./resources/images/software/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | ❌ | System Management | `0` |
 | ![TeamViewer](./resources/images/software/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | ❌ | Social | `0` |
 | ![TeraCopy](./resources/images/software/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | ❌ | File Management | `0` |
+| ![TreeSize Free](./resources/images/software/treesize.png "TreeSize Free") | [TreeSize Free](https://jam-software.com/treesize_free) | ❌ | ❌ | File Management, System Management | `0` |
 | ![WinDirStat](./resources/images/software/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | ❌ | File Management, System Management | `0` |
 | ![WinRAR](./resources/images/software/winrar.png "WinRAR") | [WinRAR](https://www.win-rar.com) | ❌ | ❌ | File Management | `0` |
 | ![WinSCP](./resources/images/software/winscp.png "WinSCP") | [WinSCP](https://winscp.net) | ❌ | ❌ | Network Tools | `0` |

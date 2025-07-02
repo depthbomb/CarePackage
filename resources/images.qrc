@@ -1,6 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
 	<qresource>
+		<!-- UI -->
 		<file>images/download.png</file>
 		<file>images/download_white.png</file>
 		<file>images/icon.png</file>
@@ -51,6 +52,7 @@
 		<file>images/software/epic-games-launcher.png</file>
 		<file>images/software/equalizer-apo.png</file>
 		<file>images/software/evernote.png</file>
+		<file>images/software/everything.png</file>
 		<file>images/software/filezilla.png</file>
 		<file>images/software/flutter.png</file>
 		<file>images/software/foobar2000.png</file>
@@ -70,6 +72,7 @@
 		<file>images/software/heroic-games-launcher.png</file>
 		<file>images/software/hoppscotch.png</file>
 		<file>images/software/hwmonitor.png</file>
+		<file>images/software/icloud.png</file>
 		<file>images/software/inkscape.png</file>
 		<file>images/software/inno-setup.png</file>
 		<file>images/software/insomnia.png</file>
@@ -99,10 +102,13 @@
 		<file>images/software/mingw.png</file>
 		<file>images/software/motrix.png</file>
 		<file>images/software/mozilla-firefox.png</file>
+		<file>images/software/mpv.png</file>
+		<file>images/software/msi-afterburner.png</file>
 		<file>images/software/msvc.png</file>
 		<file>images/software/msys2.png</file>
 		<file>images/software/nodejs.png</file>
 		<file>images/software/notepad-plus-plus.png</file>
+		<file>images/software/notion.png</file>
 		<file>images/software/nsis.png</file>
 		<file>images/software/nvidia.png</file>
 		<file>images/software/obs-studio.png</file>
@@ -152,15 +158,19 @@
 		<file>images/software/telegram.png</file>
 		<file>images/software/teracopy.png</file>
 		<file>images/software/thunderbird.png</file>
+		<file>images/software/tor-browser.png</file>
+		<file>images/software/treesize.png</file>
 		<file>images/software/trillian.png</file>
 		<file>images/software/ubisoft-connect.png</file>
 		<file>images/software/unity-hub.png</file>
+		<file>images/software/veracrypt.png</file>
 		<file>images/software/visual-studio-code.png</file>
 		<file>images/software/visual-studio-community.png</file>
 		<file>images/software/vita3k.png</file>
 		<file>images/software/vivaldi.png</file>
 		<file>images/software/vlc-media-player.png</file>
 		<file>images/software/waterfox.png</file>
+		<file>images/software/whatsapp.png</file>
 		<file>images/software/windirstat.png</file>
 		<file>images/software/winrar.png</file>
 		<file>images/software/winscp.png</file>

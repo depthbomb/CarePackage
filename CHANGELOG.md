@@ -1,4 +1,19 @@
-﻿# 4.0.0
+﻿# 4.0.1
+
+- Fixed a crash that would occur when opening the settings window immediately after a fresh install
+- The dark window titlebar and border will not be used if the system is not using dark mode
+- Added the following software:
+  - _Everything_ (standard, lite, and CLI)
+  - _iCloud for Windows_
+  - _mpv_
+  - _MSI Afterburner_ (final and beta)
+  - _Notion_
+  - _Tor Browser_
+  - _TreeSize Free_
+  - _VeraCrypt_
+  - _WhatsApp_
+
+# 4.0.0
 
 This release is not quite a rewrite but rather going back to the pre-3.0.0 version of _CarePackage_ and bringing it up to the standards, in terms of features, of the 3.0.0 version.
 

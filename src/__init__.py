@@ -33,7 +33,7 @@ APP_NEW_ISSUE_URL = f'https://github.com/{APP_REPO_OWNER}/{APP_REPO_NAME}/issues
 
 #region Strings
 USER_AGENT = f'CarePackage/{APP_VERSION_STRING} (depthbomb/carepackage)'
-BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
 #endregion
 
 #region Paths
@@ -89,6 +89,7 @@ from src.lib.software.elgato_stream_deck import ElgatoStreamDeck
 from src.lib.software.epic_games_launcher import EpicGamesLauncher
 from src.lib.software.equalizer_apo import EqualizerApo
 from src.lib.software.evernote import Evernote
+from src.lib.software.everything import Everything
 from src.lib.software.filezilla import FileZilla
 from src.lib.software.flutter_sdk import FlutterSDK
 from src.lib.software.foobar2000 import Foobar2000
@@ -106,6 +107,7 @@ from src.lib.software.handbrake import HandBrake
 from src.lib.software.heroic_games_launcher import HeroicGamesLauncher
 from src.lib.software.hoppscotch import Hoppscotch
 from src.lib.software.hwmonitor import HWMonitor
+from src.lib.software.icloud_for_windows import ICloudForWindows
 from src.lib.software.inkscape import Inkscape
 from src.lib.software.inno_setup import InnoSetup
 from src.lib.software.insomnia import Insomnia
@@ -134,10 +136,13 @@ from src.lib.software.minecraft import Minecraft
 from src.lib.software.mingw import MinGW
 from src.lib.software.motrix import Motrix
 from src.lib.software.mozilla_firefox import MozillaFirefox
+from src.lib.software.mpv import MPV
+from src.lib.software.msi_afterburner import MSIAfterburner
 from src.lib.software.msvc import Msvc
 from src.lib.software.msys2 import MSYS2
 from src.lib.software.nodejs import NodeJs
 from src.lib.software.notepad_plus_plus import NotepadPlusPlus
+from src.lib.software.notion import Notion
 from src.lib.software.nsis import NSIS
 from src.lib.software.nvidia_app import NvidiaApp
 from src.lib.software.obs_studio import ObsStudio
@@ -185,9 +190,12 @@ from src.lib.software.teamviewer import TeamViewer
 from src.lib.software.telegram_desktop import TelegramDesktop
 from src.lib.software.teracopy import TeraCopy
 from src.lib.software.thunderbird import Thunderbird
+from src.lib.software.tor_browser import TorBrowser
+from src.lib.software.treesize_free import TreeSizeFree
 from src.lib.software.trillian import Trillian
 from src.lib.software.ubisoft_connect import UbisoftConnect
 from src.lib.software.unity_hub import UnityHub
+from src.lib.software.veracrypt import VeraCrypt
 from src.lib.software.visual_studio_code import VisualStudioCode
 from src.lib.software.visual_studio_community import VisualStudioCommunity
 from src.lib.software.vita3k import Vita3k
@@ -195,6 +203,7 @@ from src.lib.software.vivaldi import Vivaldi
 from src.lib.software.vlc_media_player import VlcMediaPlayer
 from src.lib.software.waterfox import Waterfox
 from src.lib.software.webview2_runtime import WebView2Runtime
+from src.lib.software.whatsapp import WhatsApp
 from src.lib.software.windirstat import WinDirStat
 from src.lib.software.windows_app_sdk import WindowsAppSdk
 from src.lib.software.winrar import Winrar
@@ -240,6 +249,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     EpicGamesLauncher,
     EqualizerApo,
     Evernote,
+    Everything,
     FileZilla,
     FlutterSDK,
     Foobar2000,
@@ -257,6 +267,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     HeroicGamesLauncher,
     Hoppscotch,
     HWMonitor,
+    ICloudForWindows,
     Inkscape,
     InnoSetup,
     Insomnia,
@@ -285,10 +296,13 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     MinGW,
     Motrix,
     MozillaFirefox,
+    MPV,
+    MSIAfterburner,
     Msvc,
     MSYS2,
     NodeJs,
     NotepadPlusPlus,
+    Notion,
     NSIS,
     NvidiaApp,
     ObsStudio,
@@ -336,9 +350,12 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     TelegramDesktop,
     TeraCopy,
     Thunderbird,
+    TorBrowser,
+    TreeSizeFree,
     Trillian,
     UbisoftConnect,
     UnityHub,
+    VeraCrypt,
     VisualStudioCode,
     VisualStudioCommunity,
     Vita3k,
@@ -346,6 +363,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     VlcMediaPlayer,
     Waterfox,
     WebView2Runtime,
+    WhatsApp,
     WinDirStat,
     Winrar,
     WinScp,

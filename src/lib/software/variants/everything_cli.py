@@ -13,7 +13,7 @@ class EverythingCLI(BaseSoftware):
         self.name = 'Everything Command Line Interface'
         self.download_name = 'ES.x64.zip'
         self.should_cache_url = True
-        self.is_cli = True
+        self.is_archive = True
         self.icon = 'generic.png'
         self.homepage = 'https://github.com/voidtools/ES'
 

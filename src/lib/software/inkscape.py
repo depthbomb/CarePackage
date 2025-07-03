@@ -12,7 +12,6 @@ class Inkscape(BaseSoftware):
         self.category = [SoftwareCategory.Creative]
         self.download_name = 'inkscape-x64.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'inkscape.png'
         self.homepage = 'https://inkscape.org'
 

@@ -8,7 +8,6 @@ class LogitechGHub(BaseSoftware):
         self.name = 'Logitech G HUB'
         self.category = [SoftwareCategory.Peripheral]
         self.download_name = 'lghub_installer.exe'
-        self.requires_admin = True
         self.icon = 'logitech-g-hub.png'
         self.homepage = 'https://www.logitechg.com/en-us/innovation/g-hub.html'
 

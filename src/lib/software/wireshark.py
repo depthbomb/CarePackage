@@ -13,7 +13,6 @@ class Wireshark(BaseSoftware):
         self.download_name = 'Wireshark-x64.exe'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'wireshark.png'
         self.homepage = 'https://wireshark.org'
 

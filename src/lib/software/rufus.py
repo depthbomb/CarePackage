@@ -15,7 +15,6 @@ class Rufus(BaseSoftware):
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'rufus.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'rufus.png'
         self.homepage = 'https://rufus.ie'
 

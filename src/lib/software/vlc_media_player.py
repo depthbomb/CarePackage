@@ -12,7 +12,6 @@ class VlcMediaPlayer(BaseSoftware):
         self.category = [SoftwareCategory.Audio, SoftwareCategory.Media]
         self.download_name = 'vlc-win64.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'vlc-media-player.png'
         self.homepage = 'https://videolan.org'
 

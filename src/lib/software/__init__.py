@@ -48,7 +48,6 @@ class BaseSoftware(QObject):
         self._download_name = ''
         self._is_archive = False
         self._should_cache_url = False
-        self._requires_admin = False
         self._deprecated = False
         self._alternative = cast(Optional[Type[BaseSoftware]], None)
         self._variants = cast(list[Type['BaseSoftware']], [])
@@ -119,16 +118,6 @@ class BaseSoftware(QObject):
     @abstractmethod
     def should_cache_url(self, should_cache_url: bool):
         self._should_cache_url = should_cache_url
-
-    @property
-    @abstractmethod
-    def requires_admin(self) -> bool:
-        return self._requires_admin
-
-    @requires_admin.setter
-    @abstractmethod
-    def requires_admin(self, requires_admin: bool):
-        self._requires_admin = requires_admin
 
     @property
     @abstractmethod

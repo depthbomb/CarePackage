@@ -8,7 +8,6 @@ class UbisoftConnect(BaseSoftware):
         self.name = 'Ubisoft Connect'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'UbisoftConnectInstaller.exe'
-        self.requires_admin = True
         self.icon = 'ubisoft-connect.png'
         self.homepage = 'https://ubisoft.com/en-us/ubisoft-connect'
 

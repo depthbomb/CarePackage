@@ -43,7 +43,6 @@ class OperationScreen(QWidget):
         self.downloaded_software = cast(list[BaseSoftware], [])
         self.errored_software = cast(list[BaseSoftware], [])
         self.has_archives = len([sw for sw in software if sw.is_archive]) > 0
-        self.has_elevated_installers = len([sw for sw in software if sw.requires_admin]) > 0
 
         self.setLayout(self._create_layout())
 
@@ -89,26 +88,6 @@ class OperationScreen(QWidget):
                 self.postinstall_open_dir_checkbox.setChecked(True)
             elif res == QMessageBox.StandardButton.Cancel:
                 return
-
-        if (self.has_elevated_installers and not is_admin) and not self.skip_installation_checkbox.isChecked():
-            mb = QMessageBox(
-                QMessageBox.Icon.Warning,
-                'Elevated permissions required',
-                'One or more of the selected programs require administrator privileges to install. Would you like to '
-                'restart CarePackage as administrator? If you choose not to, then the folder containing the downloaded '
-                'programs will be opened after the other programs have finished installing.',
-                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No | QMessageBox.StandardButton.Cancel,
-                self
-            )
-            res = mb.exec()
-            if res == QMessageBox.StandardButton.Yes:
-                self.restart_requested.emit(self.software)
-                self.finished.emit(False)
-                return
-            elif res == QMessageBox.StandardButton.Cancel:
-                return
-            else:
-                self.postinstall_open_dir_checkbox.setChecked(True)
 
         self.skip_installation_checkbox.setEnabled(False)
         self.silent_install_checkbox.setEnabled(False)

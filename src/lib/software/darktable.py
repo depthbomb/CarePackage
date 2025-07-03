@@ -14,7 +14,6 @@ class Darktable(BaseSoftware):
         self.category = [SoftwareCategory.Creative, SoftwareCategory.Media]
         self.download_name = 'darktable-win64.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'darktable.png'
         self.homepage = 'https://darktable.org'
 

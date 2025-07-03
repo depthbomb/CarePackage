@@ -8,7 +8,6 @@ class PlayStationAccessories(BaseSoftware):
         self.name = 'PlayStation Accessories'
         self.category = [SoftwareCategory.Gaming, SoftwareCategory.Peripheral]
         self.download_name = 'PlayStationAccessoriesInstaller.exe'
-        self.requires_admin = True
         self.icon = 'playstation-accessories.png'
         self.homepage = 'https://controller.dl.playstation.net/controller/lang/en/2100004.html'
 

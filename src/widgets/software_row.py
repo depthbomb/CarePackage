@@ -5,8 +5,8 @@ from src.lib.colors import get_accent_color
 from PySide6.QtCore import Qt, Slot, Signal, QObject
 from src.windows.variant_wizard import VariantWizard
 from winrt.windows.ui.viewmanagement import UIColorType
-from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
 from src.lib.settings import user_settings, UserSettingsKeys
+from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
 from PySide6.QtWidgets import QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox, QGraphicsDropShadowEffect
 
 SELECTED_STYLESHEET = f'''
@@ -72,15 +72,7 @@ class SoftwareRow(QWidget):
             warning_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
             self.layout.addWidget(warning_badge, alignment=Qt.AlignmentFlag.AlignVCenter)
 
-        if self.software.requires_admin:
-            admin_badge = QLabel(self)
-            admin_badge.setFixedSize(16, 16)
-            admin_badge.setScaledContents(True)
-            admin_badge.setPixmap(QPixmap(':icons/uac.ico'))
-            admin_badge.setToolTip('This software requires administrator privileges to install.')
-            admin_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
-            self.layout.addWidget(admin_badge, alignment=Qt.AlignmentFlag.AlignVCenter)
-        elif self.software.is_archive:
+        if self.software.is_archive:
             archive_badge = QLabel(self)
             archive_badge.setFixedSize(16, 16)
             archive_badge.setScaledContents(True)

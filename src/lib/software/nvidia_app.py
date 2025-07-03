@@ -12,7 +12,6 @@ class NvidiaApp(BaseSoftware):
         self.category = [SoftwareCategory.Peripheral]
         self.download_name = 'NVIDIA_app.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'nvidia.png'
         self.homepage = 'https://www.nvidia.com/en-us/software/nvidia-app/'
 

@@ -8,7 +8,6 @@ class StreamlabsDesktop(BaseSoftware):
         self.name = 'Streamlabs Desktop'
         self.category = [SoftwareCategory.Media]
         self.download_name = 'Streamlabs+Desktop+Setup.exe'
-        self.requires_admin = True
         self.icon = 'streamlabs-desktop.png'
         self.homepage = 'https://streamlabs.com/streamlabs-live-streaming-software'
 

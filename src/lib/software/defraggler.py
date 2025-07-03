@@ -12,7 +12,6 @@ class Defraggler(BaseSoftware):
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'dfsetup.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'defraggler.png'
         self.homepage = 'https://ccleaner.com/defraggler'
 

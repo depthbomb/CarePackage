@@ -170,7 +170,6 @@ class SoftwareProgressRow(QWidget):
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):
         if not self.progress_bar.isVisible() and total_bytes > 0:
-            # self.name.setVisible(False)
             self.progress_bar.setVisible(True)
             self.progress_bar.setMaximum(total_bytes)
 

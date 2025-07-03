@@ -14,7 +14,6 @@ class ApacheNetBeans(BaseSoftware):
         self.category = [SoftwareCategory.Development]
         self.download_name = 'Apache-NetBeans.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'apache-netbeans.png'
         self.homepage = 'https://netbeans.apache.org'
 

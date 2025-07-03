@@ -8,7 +8,6 @@ class RazerCortex(BaseSoftware):
         self.name = 'Razer Cortex'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'RazerCortexInstaller.exe'
-        self.requires_admin = True
         self.icon = 'razer-cortex.png'
         self.homepage = 'https://razer.com/cortex'
 

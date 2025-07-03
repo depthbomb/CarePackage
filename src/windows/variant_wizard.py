@@ -2,9 +2,8 @@ from typing import cast, Optional
 from PySide6.QtGui import QIcon, QPixmap
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import QObject, Qt, Slot
+from src.widgets.simple_link_label import SimpleLinkLabel
 from PySide6.QtWidgets import QCheckBox, QHBoxLayout, QLabel, QWizard, QWizardPage, QVBoxLayout
-
-from widgets.simple_link_label import SimpleLinkLabel
 
 class VariantWizard(QWizard):
     def __init__(self, parent_software: BaseSoftware, variants: list[BaseSoftware], current_selection: list[BaseSoftware], parent: Optional[QObject] = None):
@@ -52,15 +51,7 @@ class VariantWizard(QWizard):
             checkbox_layout.addWidget(variant_icon)
             checkbox_layout.addWidget(checkbox)
 
-            if variant.requires_admin:
-                admin_badge = QLabel()
-                admin_badge.setFixedSize(16, 16)
-                admin_badge.setScaledContents(True)
-                admin_badge.setPixmap(QPixmap(':icons/uac.ico'))
-                admin_badge.setToolTip('This software requires administrator privileges to install.')
-                admin_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
-                checkbox_layout.addWidget(admin_badge)
-            elif variant.is_archive:
+            if variant.is_archive:
                 archive_badge = QLabel()
                 archive_badge.setFixedSize(16, 16)
                 archive_badge.setScaledContents(True)

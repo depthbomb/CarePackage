@@ -8,7 +8,6 @@ class CorsairIcue(BaseSoftware):
         self.name = 'Corsair iCUE'
         self.category = [SoftwareCategory.Peripheral]
         self.download_name = 'Install_iCue.exe'
-        self.requires_admin = True
         self.icon = 'corsair-icue.png'
         self.homepage = 'https://corsair.com/us/en/s/icue'
 

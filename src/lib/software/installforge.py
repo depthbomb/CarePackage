@@ -8,7 +8,6 @@ class InstallForge(BaseSoftware):
         self.name = 'InstallForge'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'IFSetup.exe'
-        self.requires_admin = True
         self.icon = 'installforge.png'
         self.homepage = 'https://installforge.net'
 

@@ -14,7 +14,6 @@ class NotepadPlusPlus(BaseSoftware):
         self.category = [SoftwareCategory.Development]
         self.download_name = 'npp.Installer.x64.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'notepad-plus-plus.png'
         self.homepage = 'https://notepad-plus-plus.org'
 

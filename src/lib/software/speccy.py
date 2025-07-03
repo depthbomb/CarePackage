@@ -12,7 +12,6 @@ class Speccy(BaseSoftware):
         self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'spsetup.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'speccy.png'
         self.homepage = 'https://www.ccleaner.com/speccy'
 

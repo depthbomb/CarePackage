@@ -12,7 +12,6 @@ class NSIS(BaseSoftware):
         self.category = [SoftwareCategory.Development]
         self.download_name = 'nsis-setup.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'nsis.png'
         self.homepage = 'https://nsis.sourceforge.io'
 

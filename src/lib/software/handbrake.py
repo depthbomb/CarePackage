@@ -14,7 +14,6 @@ class HandBrake(BaseSoftware):
         self.category = [SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'HandBrake-x86_64-Win_GUI.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'handbrake.png'
         self.homepage = 'https://handbrake.fr'
 

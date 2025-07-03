@@ -12,7 +12,6 @@ class LibreWolf(BaseSoftware):
         self.category = [SoftwareCategory.Browser]
         self.download_name = 'librewolf-windows-x86_64-setup.exe'
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'librewolf.png'
         self.homepage = 'https://librewolf.net'
 

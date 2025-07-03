@@ -8,7 +8,6 @@ class GoogleDrive(BaseSoftware):
         self.name = 'Google Drive'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'GoogleDriveSetup.exe'
-        self.requires_admin = True
         self.icon = 'google-drive.png'
         self.homepage = 'https://workspace.google.com/products/drive'
 

@@ -13,7 +13,6 @@ class Recuva(BaseSoftware):
         self.download_name = 'rcsetup.exe'
         self.is_archive = False
         self.should_cache_url = True
-        self.requires_admin = True
         self.icon = 'recuva.png'
         self.homepage = 'https://ccleaner.com/recuva'
 

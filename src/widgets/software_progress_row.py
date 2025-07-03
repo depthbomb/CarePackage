@@ -95,6 +95,7 @@ class SoftwareProgressRow(QWidget):
         self.skip_installation = False
         self.install_silently = False
         self.cleanup_postinstall = False
+        self.is_large_file = False
 
         self.current_bytes = 0
         self.last_bytes = 0
@@ -187,6 +188,8 @@ class SoftwareProgressRow(QWidget):
 
     @Slot(QNetworkReply)
     def _on_downloader_finished(self, reply: QNetworkReply):
+        self.is_large_file = self.current_bytes >= 262_144_000
+
         error = reply.error()
         if error == QNetworkReply.NetworkError.NoError:
             self.download_timeout_timer.stop()
@@ -195,7 +198,10 @@ class SoftwareProgressRow(QWidget):
             self.download_file = QFile(DOWNLOAD_DIR / self.software.download_name)
 
             self.progress_bar.setMaximum(0)
-            self.set_status('Writing to disk', True)
+            if self.is_large_file:
+                self.set_status('Writing to disk - Don\'t panic if the app freezes!')
+            else:
+                self.set_status('Writing to disk', True)
 
             self.file_writer_thread = QThread(self)
             self.chunked_writer = self.ChunkedFileWriter(self.download_file, reply, self)

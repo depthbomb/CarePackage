@@ -138,13 +138,6 @@ class SoftwareRow(QWidget):
                     self.set_selection(True)
             elif self.has_variants:
                 # Show a special window for selecting variants
-                # picker_window = VariantPickerWindow(self.software, self.software.variants, self.selected_variants, self)
-                # picker_window.exec()
-                #
-                # self.selected_variants = picker_window.selected_variants
-                # for variant in self.software.variants:
-                #     self.variant_selection_changed.emit(variant, variant in self.selected_variants)
-
                 wizard = VariantWizard(self.software, self.software.variants, self.selected_variants, self)
                 wizard.exec()
 

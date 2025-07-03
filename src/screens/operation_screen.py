@@ -1,4 +1,3 @@
-from ctypes import windll
 from src import DOWNLOAD_DIR
 from collections import deque
 from src.lib.win32 import is_admin
@@ -21,11 +20,10 @@ from PySide6.QtWidgets import (
     QPushButton,
     QHBoxLayout,
     QVBoxLayout,
-    QApplication,
 )
 
 class OperationScreen(QWidget):
-    quit_requested = Signal()
+    restart_requested = Signal(list)
     started = Signal()
     finished = Signal(bool)
     post_op_action_requested = Signal(PostOperationAction)
@@ -34,7 +32,7 @@ class OperationScreen(QWidget):
         super().__init__(parent)
 
         self.canceled = False
-
+        self.software = software
         self.software_rows = cast(Deque[SoftwareProgressRow], deque([], len(software)))
         self.pending_software = cast(Deque[SoftwareProgressRow], deque())
         self.active_downloads = cast(list[SoftwareProgressRow], [])
@@ -104,8 +102,7 @@ class OperationScreen(QWidget):
             )
             res = mb.exec()
             if res == QMessageBox.StandardButton.Yes:
-                windll.shell32.ShellExecuteW(None, 'runas', QApplication.arguments()[0], '', None, 1)
-                self.quit_requested.emit()
+                self.restart_requested.emit(self.software)
                 self.finished.emit(False)
                 return
             elif res == QMessageBox.StandardButton.Cancel:

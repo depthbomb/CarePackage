@@ -15,6 +15,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![iTunes](./resources/images/software/itunes.png "iTunes") | [iTunes](https://apple.com/itunes) | ❌ | Media | `0` |
 | ![mpv](./resources/images/software/mpv.png "mpv") | [mpv](https://mpv.io) | ✔️ | Media | `0` |
 | ![Plex](./resources/images/software/plex-desktop.png "Plex") | [Plex](https://plex.tv) | ❌ | Media | `3` |
+| ![Shotcut](./resources/images/software/shotcut.png "Shotcut") | [Shotcut](https://shotcut.org) | ❌ | Media, Utilities | `0` |
 | ![Spotify](./resources/images/software/spotify.png "Spotify") | [Spotify](https://spotify.com) | ❌ | Media | `0` |
 | ![VLC Media Player](./resources/images/software/vlc-media-player.png "VLC Media Player") | [VLC Media Player](https://videolan.org) | ❌ | Media | `0` |
 
@@ -116,6 +117,7 @@ This file was generated from `scripts/generate_software_table.py`
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
+| ![AB Download Manager](./resources/images/software/abdownloadmanager.png "AB Download Manager") | [AB Download Manager](https://abdownloadmanager.com/) | ❌ | None | `0` |
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | System Management, Utilities | `0` |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | System Management, Utilities | `0` |
 | ![Dropbox](./resources/images/software/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | Utilities | `0` |
@@ -194,6 +196,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![OBS Studio](./resources/images/software/obs-studio.png "OBS Studio") | [OBS Studio](https://obsproject.com) | ❌ | None | `0` |
 | ![Plex](./resources/images/software/plex-desktop.png "Plex") | [Plex](https://plex.tv) | ❌ | Audio & Sounds | `3` |
 | ![ShareX](./resources/images/software/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | Utilities | `0` |
+| ![Shotcut](./resources/images/software/shotcut.png "Shotcut") | [Shotcut](https://shotcut.org) | ❌ | Audio & Sounds, Utilities | `0` |
 | ![Spotify](./resources/images/software/spotify.png "Spotify") | [Spotify](https://spotify.com) | ❌ | Audio & Sounds | `0` |
 | ![Streamlabs Desktop](./resources/images/software/streamlabs-desktop.png "Streamlabs Desktop") | [Streamlabs Desktop](https://streamlabs.com/streamlabs-live-streaming-software) | ❌ | None | `0` |
 | ![Streamlink](./resources/images/software/streamlink.png "Streamlink") | [Streamlink](https://streamlink.github.io) | ❌ | None | `0` |
@@ -350,6 +353,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Rufus](./resources/images/software/rufus.png "Rufus") | [Rufus](https://rufus.ie) | ❌ | File Management | `0` |
 | ![7-Zip](./resources/images/software/7zip.png "7-Zip") | [7-Zip](https://7-zip.org) | ❌ | File Management | `0` |
 | ![ShareX](./resources/images/software/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | Media | `0` |
+| ![Shotcut](./resources/images/software/shotcut.png "Shotcut") | [Shotcut](https://shotcut.org) | ❌ | Audio & Sounds, Media | `0` |
 | ![Speccy](./resources/images/software/speccy.png "Speccy") | [Speccy](https://www.ccleaner.com/speccy) | ❌ | System Management | `0` |
 | ![System Informer](./resources/images/software/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | System Management | `0` |
 | ![TeamViewer](./resources/images/software/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | Social | `0` |

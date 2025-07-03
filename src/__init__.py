@@ -178,6 +178,7 @@ from src.lib.software.rustup import Rustup
 from src.lib.software.sevenzip import SevenZip
 from src.lib.software.shadps4 import ShadPS4
 from src.lib.software.sharex import ShareX
+from src.lib.software.shotcut import Shotcut
 from src.lib.software.signal import Signal
 from src.lib.software.slack import Slack
 from src.lib.software.speccy import Speccy
@@ -340,6 +341,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     SevenZip,
     ShadPS4,
     ShareX,
+    Shotcut,
     Signal,
     Slack,
     Speccy,

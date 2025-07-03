@@ -62,8 +62,6 @@ class TOKEN_PRIVILEGES(Structure):
         ('Privileges', LUID_AND_ATTRIBUTES * 1),
     ]
 
-is_admin = shell32.IsUserAnAdmin() != 0
-
 def enable_shutdown_privilege():
     h_token = wintypes.HANDLE()
     if not windll.advapi32.OpenProcessToken(

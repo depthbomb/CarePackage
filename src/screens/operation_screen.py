@@ -1,6 +1,5 @@
 from src import DOWNLOAD_DIR
 from collections import deque
-from src.lib.win32 import is_admin
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
 from src.lib.colors import get_accent_color

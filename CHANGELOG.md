@@ -2,16 +2,16 @@
 
 - The app now always runs as administrator, getting rid of the warning and requirement to restart the app when trying to install software that requires administrator privileges
 - Added the following software:
-  - AB Download Manager
+  - _AB Download Manager_
 - Improved download URL resolving for the following software:
-  - .NET 8.0 ASP.NET Core Runtime
-  - .NET 8.0 Desktop Runtime
-  - .NET 8.0 Runtime
-  - .NET 8.0 SDK  
-  - .NET 9.0 ASP.NET Core Runtime
-  - .NET 9.0 Desktop Runtime
-  - .NET 9.0 Runtime
-  - .NET 9.0 SDK
+  - _.NET 8.0 ASP.NET Core Runtime_
+  - _.NET 8.0 Desktop Runtime_
+  - _.NET 8.0 Runtime_
+  - _.NET 8.0 SDK_
+  - _.NET 9.0 ASP.NET Core Runtime_
+  - _.NET 9.0 Desktop Runtime_
+  - _.NET 9.0 Runtime_
+  - _.NET 9.0 SDK_
 
 # 4.1.1
 

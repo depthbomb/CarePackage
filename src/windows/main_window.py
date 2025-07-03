@@ -1,8 +1,8 @@
 from src.lib import win32
 from typing import cast, Optional
+from PySide6.QtCore import Slot, QUrl
 from src.lib.software import BaseSoftware
 from src.screens.main_screen import MainScreen
-from PySide6.QtCore import Slot, QUrl, QProcess
 from src.lib.settings import PostOperationAction
 from src.lib.update_checker import UpdateChecker
 from src.windows.about_window import AboutWindow
@@ -12,7 +12,7 @@ from src.windows.settings_window import SettingsWindow
 from src.windows.extended_window import ExtendedWindow
 from src.widgets.draggable_region import DraggableWidget
 from src.screens.operation_screen import OperationScreen
-from PySide6.QtWidgets import QWidget, QHBoxLayout, QApplication, QStackedWidget
+from PySide6.QtWidgets import QWidget, QHBoxLayout, QStackedWidget
 
 class MainWindow(ExtendedWindow):
     def __init__(self):
@@ -75,22 +75,9 @@ class MainWindow(ExtendedWindow):
             self.operation_screen = OperationScreen(software)
             self.operation_screen.started.connect(self._on_operation_started)
             self.operation_screen.post_op_action_requested.connect(self._on_operation_screen_post_op_action_requested)
-            self.operation_screen.restart_requested.connect(self._on_operation_screen_restart_requested)
             self.operation_screen.finished.connect(self._on_operation_finished)
             self.stack.addWidget(self.operation_screen)
             self.stack.setCurrentIndex(1)
-
-    @Slot(list)
-    def _on_operation_screen_restart_requested(self, software: list[BaseSoftware]):
-        # TODO pre-select software from previous session when restarted
-
-        program_path = QApplication.arguments()[0]
-        software_keys = ','.join(sw.key for sw in software)
-        extra_args = f'--software "{software_keys}"'
-        powershell_cmd = f'Start-Process "{program_path}" -ArgumentList \'{extra_args}\' -Verb RunAs'
-        proc = QProcess(self)
-        proc.startDetached("powershell", ["-Command", powershell_cmd])
-        self.close()
 
     @Slot()
     def _on_operation_started(self):

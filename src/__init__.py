@@ -22,7 +22,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (4, 1, 1, 0)
+APP_VERSION = (4, 2, 0, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -53,6 +53,7 @@ USER_SETTINGS_FILE_PATH = DATA_DIR / 'user.settings'
 #endregion
 
 #region Software Definitions
+from src.lib.software.abdownloadmanager import ABDownloadManager
 from src.lib.software.adobe_creative_cloud import AdobeCreativeCloud
 from src.lib.software.aimp import Aimp
 from src.lib.software.apache_netbeans import ApacheNetBeans
@@ -214,6 +215,7 @@ from src.lib.software.zoom import Zoom
 from src.lib.software.zulip import Zulip
 
 ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
+    ABDownloadManager,
     AdobeCreativeCloud,
     Aimp,
     ApacheNetBeans,

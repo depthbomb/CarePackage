@@ -60,6 +60,7 @@
 		<file>images/software/foobar2000.png</file>
 		<file>images/software/generic.png</file>
 		<file>images/software/generic-2.png</file>
+		<file>images/software/generic-3.png</file>
 		<file>images/software/gimp.png</file>
 		<file>images/software/git.png</file>
 		<file>images/software/github.png</file>
@@ -70,6 +71,7 @@
 		<file>images/software/gog-galaxy.png</file>
 		<file>images/software/google-chrome.png</file>
 		<file>images/software/google-drive.png</file>
+		<file>images/software/gpg4win.png</file>
 		<file>images/software/handbrake.png</file>
 		<file>images/software/heroic-games-launcher.png</file>
 		<file>images/software/hoppscotch.png</file>
@@ -124,6 +126,8 @@
 		<file>images/software/parsec.png</file>
 		<file>images/software/pcsx2.png</file>
 		<file>images/software/peazip.png</file>
+		<file>images/software/pgadmin4.png</file>
+		<file>images/software/php.png</file>
 		<file>images/software/playnite.png</file>
 		<file>images/software/playstation-accessories.png</file>
 		<file>images/software/plex-desktop.png</file>
@@ -142,6 +146,7 @@
 		<file>images/software/razer-cortex.png</file>
 		<file>images/software/recuva.png</file>
 		<file>images/software/revolt.png</file>
+		<file>images/software/rockstar-games-launcher.png</file>
 		<file>images/software/rpcs3.png</file>
 		<file>images/software/rufus.png</file>
 		<file>images/software/rust.png</file>

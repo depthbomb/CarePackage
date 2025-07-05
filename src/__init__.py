@@ -22,7 +22,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (4, 2, 0, 0)
+APP_VERSION = (4, 2, 1, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -71,6 +71,7 @@ from src.lib.software.ccleaner import Ccleaner
 from src.lib.software.cemu import Cemu
 from src.lib.software.cheat_engine import CheatEngine
 from src.lib.software.cmake import CMake
+from src.lib.software.composer import Composer
 from src.lib.software.corsair_icue import CorsairIcue
 from src.lib.software.cpuz import CPUZ
 from src.lib.software.darktable import Darktable
@@ -104,6 +105,7 @@ from src.lib.software.gog_galaxy import GogGalaxy
 from src.lib.software.golang import Golang
 from src.lib.software.google_chrome import GoogleChrome
 from src.lib.software.google_drive import GoogleDrive
+from src.lib.software.gpg4win import Gpg4win
 from src.lib.software.handbrake import HandBrake
 from src.lib.software.heroic_games_launcher import HeroicGamesLauncher
 from src.lib.software.hoppscotch import Hoppscotch
@@ -157,6 +159,8 @@ from src.lib.software.paintdotnet import PaintDotNet
 from src.lib.software.parsec import Parsec
 from src.lib.software.pcsx2 import PCSX2
 from src.lib.software.peazip import PeaZip
+from src.lib.software.pgadmin4 import PgAdmin4
+from src.lib.software.php import PHP
 from src.lib.software.playnite import Playnite
 from src.lib.software.playstation_accessories import PlayStationAccessories
 from src.lib.software.plex import Plex
@@ -172,6 +176,7 @@ from src.lib.software.raspberry_pi_imager import RaspberryPiImager
 from src.lib.software.razer_cortex import RazerCortex
 from src.lib.software.recuva import Recuva
 from src.lib.software.revolt import Revolt
+from src.lib.software.rockstar_games_launcher import RockstarGamesLauncher
 from src.lib.software.rpcs3 import RPCS3
 from src.lib.software.rufus import Rufus
 from src.lib.software.rustup import Rustup
@@ -234,6 +239,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Cemu,
     CheatEngine,
     CMake,
+    Composer,
     CorsairIcue,
     CPUZ,
     Darktable,
@@ -267,6 +273,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Golang,
     GoogleChrome,
     GoogleDrive,
+    Gpg4win,
     HandBrake,
     HeroicGamesLauncher,
     Hoppscotch,
@@ -320,6 +327,8 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Parsec,
     PCSX2,
     PeaZip,
+    PgAdmin4,
+    PHP,
     Playnite,
     PlayStationAccessories,
     Plex,
@@ -335,6 +344,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     RazerCortex,
     Recuva,
     Revolt,
+    RockstarGamesLauncher,
     RPCS3,
     Rufus,
     Rustup,

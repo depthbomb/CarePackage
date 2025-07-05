@@ -61,6 +61,7 @@ This file was generated from `scripts/generate_software_table.py`
 | :-: | --- | :-: | :-: | :-: | :-: |
 | ![Apache NetBeans](./resources/images/software/apache-netbeans.png "Apache NetBeans") | [Apache NetBeans](https://netbeans.apache.org) | ❌ | None | `0` |
 | ![CMake](./resources/images/software/cmake.png "CMake") | [CMake](https://cmake.org) | ❌ | None | `0` |
+| ![Composer](./resources/images/software/generic-3.png "Composer") | [Composer](https://getcomposer.org) | ❌ | None | `0` |
 | ![DB Browser for SQLite](./resources/images/software/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | Utilities | `0` |
 | ![dnSpy (Fork)](./resources/images/software/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔️ | Utilities | `0` |
 | ![Docker Desktop](./resources/images/software/docker-desktop.png "Docker Desktop") | [Docker Desktop](https://docker.com/products/docker-desktop) | ❌ | None | `0` |
@@ -84,6 +85,8 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Node.js](./resources/images/software/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | Runtimes | `2` |
 | ![Notepad++](./resources/images/software/notepad-plus-plus.png "Notepad++") | [Notepad++](https://notepad-plus-plus.org) | ❌ | None | `0` |
 | ![NSIS](./resources/images/software/nsis.png "NSIS") | [NSIS](https://nsis.sourceforge.io) | ❌ | None | `0` |
+| ![pgAdmin 4](./resources/images/software/pgadmin4.png "pgAdmin 4") | [pgAdmin 4](https://pgadmin.org) | ❌ | Utilities | `0` |
+| ![PHP](./resources/images/software/php.png "PHP") | [PHP](https://php.net) | ❌ | Runtimes | `2` |
 | ![Postman](./resources/images/software/postman.png "Postman") | [Postman](https://postman.com) | ❌ | Network Tools | `0` |
 | ![PowerShell 7](./resources/images/software/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | Utilities | `0` |
 | ![Python](./resources/images/software/python.png "Python") | [Python](https://python.org) | ❌ | None | `2` |
@@ -173,6 +176,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![PlayStation Accessories](./resources/images/software/playstation-accessories.png "PlayStation Accessories") | [PlayStation Accessories](https://controller.dl.playstation.net/controller/lang/en/2100004.html) | ❌ | Peripherals | `0` |
 | ![PPSSPP](./resources/images/software/ppsspp.png "PPSSPP") | [PPSSPP](https://ppsspp.org) | ❌ | Emulation | `0` |
 | ![Razer Cortex](./resources/images/software/razer-cortex.png "Razer Cortex") | [Razer Cortex](https://razer.com/cortex) | ❌ | None | `0` |
+| ![Rockstar Games Launcher](./resources/images/software/rockstar-games-launcher.png "Rockstar Games Launcher") | [Rockstar Games Launcher](https://socialclub.rockstargames.com/rockstar-games-launcher) | ❌ | None | `0` |
 | ![RPCS3](./resources/images/software/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔️ | Emulation | `0` |
 | ![ShadPS4](./resources/images/software/shadps4.png "ShadPS4") | [ShadPS4](https://shadps4.net) | ✔️ | Emulation | `0` |
 | ![Steam](./resources/images/software/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | None | `0` |
@@ -263,6 +267,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Java SE Development Kit](./resources/images/software/java.png "Java SE Development Kit") | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | Development | `2` |
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | None | `0` |
 | ![Node.js](./resources/images/software/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | Development | `2` |
+| ![PHP](./resources/images/software/php.png "PHP") | [PHP](https://php.net) | ❌ | Development | `2` |
 | ![Microsoft Edge WebView2 Runtime](./resources/images/software/microsoft-edge-webview2-runtime.png "Microsoft Edge WebView2 Runtime") | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | None | `0` |
 | ![Windows App SDK](./resources/images/software/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | Development | `0` |
 
@@ -273,6 +278,7 @@ This file was generated from `scripts/generate_software_table.py`
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: | :-: |
 | ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | None | `0` |
+| ![Gpg4win](./resources/images/software/gpg4win.png "Gpg4win") | [Gpg4win](https://gpg4win.org) | ❌ | None | `0` |
 | ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | None | `0` |
 | ![Malwarebytes](./resources/images/software/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | None | `0` |
 | ![Tor Browser](./resources/images/software/tor-browser.png "Tor Browser") | [Tor Browser](https://torproject.org) | ❌ | Web Browsers | `0` |
@@ -345,6 +351,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![OneDrive](./resources/images/software/onedrive.png "OneDrive") | [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive) | ❌ | None | `0` |
 | ![Oracle VirtualBox](./resources/images/software/oracle-virtualbox.png "Oracle VirtualBox") | [Oracle VirtualBox](https://virtualbox.org) | ❌ | None | `0` |
 | ![PeaZip](./resources/images/software/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | File Management | `0` |
+| ![pgAdmin 4](./resources/images/software/pgadmin4.png "pgAdmin 4") | [pgAdmin 4](https://pgadmin.org) | ❌ | Development | `0` |
 | ![PowerShell 7](./resources/images/software/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | Development | `0` |
 | ![qBittorrent](./resources/images/software/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | File Management, Network Tools | `0` |
 | ![Rainmeter](./resources/images/software/rainmeter.png "Rainmeter") | [Rainmeter](https://rainmeter.net) | ❌ | None | `0` |

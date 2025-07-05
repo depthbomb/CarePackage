@@ -1,4 +1,14 @@
-﻿# 4.2.0
+﻿# 4.2.1
+
+- Updated the "Writing to disk" status message for large file downloads
+- Added the following software:
+  - _Composer_
+  - _Gpg4win_
+  - _pgAdmin 4_
+  - _PHP_
+  - _Rockstar Games Launcher_
+
+# 4.2.0
 
 - The app now always runs as administrator, getting rid of the warning and requirement to restart the app when trying to install software that requires administrator privileges
 - Added the following software:

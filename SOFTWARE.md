@@ -169,6 +169,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Medal](./resources/images/software/medal.png "Medal") | [Medal](https://medal.tv) | ❌ | None | `0` |
 | ![melonDS](./resources/images/software/melonds.png "melonDS") | [melonDS](https://melonds.kuribo64.net) | ✔️ | Emulation | `0` |
 | ![Minecraft](./resources/images/software/minecraft-launcher.png "Minecraft") | [Minecraft](https://minecraft.net) | ❌ | None | `2` |
+| ![Moonlight](./resources/images/software/moonlight.png "Moonlight") | [Moonlight](https://moonlight-stream.org) | ❌ | None | `0` |
 | ![Overwolf](./resources/images/software/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ✔️ | None | `0` |
 | ![Parsec](./resources/images/software/parsec.png "Parsec") | [Parsec](https://parsec.app) | ❌ | None | `0` |
 | ![PCSX2](./resources/images/software/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔️ | Emulation | `0` |
@@ -180,6 +181,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![RPCS3](./resources/images/software/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔️ | Emulation | `0` |
 | ![ShadPS4](./resources/images/software/shadps4.png "ShadPS4") | [ShadPS4](https://shadps4.net) | ✔️ | Emulation | `0` |
 | ![Steam](./resources/images/software/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | None | `0` |
+| ![Sunshine](./resources/images/software/sunshine.png "Sunshine") | [Sunshine](https://app.lizardbyte.dev/Sunshine) | ❌ | None | `0` |
 | ![Ubisoft Connect](./resources/images/software/ubisoft-connect.png "Ubisoft Connect") | [Ubisoft Connect](https://ubisoft.com/en-us/ubisoft-connect) | ❌ | None | `0` |
 | ![Vita3K](./resources/images/software/vita3k.png "Vita3K") | [Vita3K](https://vita3k.org) | ✔️ | Emulation | `0` |
 

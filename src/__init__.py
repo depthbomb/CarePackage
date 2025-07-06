@@ -137,6 +137,7 @@ from src.lib.software.microsoft_powertoys import MicrosoftPowerToys
 from src.lib.software.microsoft_teams import MicrosoftTeams
 from src.lib.software.minecraft import Minecraft
 from src.lib.software.mingw import MinGW
+from src.lib.software.moonlight import Moonlight
 from src.lib.software.motrix import Motrix
 from src.lib.software.mozilla_firefox import MozillaFirefox
 from src.lib.software.mpv import MPV
@@ -192,6 +193,7 @@ from src.lib.software.steam import Steam
 from src.lib.software.streamlabs_desktop import StreamlabsDesktop
 from src.lib.software.streamlink import Streamlink
 from src.lib.software.sublime_text import SublimeText
+from src.lib.software.sunshine import Sunshine
 from src.lib.software.system_informer import SystemInformer
 from src.lib.software.teamviewer import TeamViewer
 from src.lib.software.telegram_desktop import TelegramDesktop
@@ -305,6 +307,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     MicrosoftTeams,
     Minecraft,
     MinGW,
+    Moonlight,
     Motrix,
     MozillaFirefox,
     MPV,
@@ -360,6 +363,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     StreamlabsDesktop,
     Streamlink,
     SublimeText,
+    Sunshine,
     SystemInformer,
     TeamViewer,
     TelegramDesktop,

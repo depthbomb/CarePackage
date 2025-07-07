@@ -1,4 +1,11 @@
-﻿# 4.2.1
+﻿# 4.2.2
+
+- A dialog box is now shown that lets you open CarePackage's latest release page if an update is available on app startup
+- Added the following software:
+  - _Moonlight_
+  - _Sunshine_
+
+# 4.2.1
 
 - Updated the "Writing to disk" status message for large file downloads
 - Added the following software:

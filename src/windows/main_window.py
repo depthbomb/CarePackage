@@ -12,7 +12,7 @@ from src.windows.settings_window import SettingsWindow
 from src.windows.extended_window import ExtendedWindow
 from src.widgets.draggable_region import DraggableWidget
 from src.screens.operation_screen import OperationScreen
-from PySide6.QtWidgets import QWidget, QHBoxLayout, QStackedWidget
+from PySide6.QtWidgets import QMessageBox, QWidget, QHBoxLayout, QStackedWidget
 
 class MainWindow(ExtendedWindow):
     def __init__(self):
@@ -116,6 +116,18 @@ class MainWindow(ExtendedWindow):
 
     @Slot()
     def _on_update_available(self):
+        if self.updater.is_first_check:
+            mb = QMessageBox(
+                QMessageBox.Icon.Information,
+                'Update available',
+                'A new version of CarePackage is available. Would you like to open the download page now?',
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                self
+            )
+            res = mb.exec()
+            if res == QMessageBox.StandardButton.Yes:
+                QDesktopServices.openUrl(QUrl(self.updater.latest_release_url))
+
         self.update_button.setVisible(True)
     #endregion
 

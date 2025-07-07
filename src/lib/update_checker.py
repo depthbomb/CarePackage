@@ -10,6 +10,8 @@ class UpdateChecker(QObject):
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(parent)
 
+        self.is_first_check = True
+
         self.latest_release_url = cast(Optional[QUrl], None)
 
         self.manager = QNetworkAccessManager(self)
@@ -49,6 +51,8 @@ class UpdateChecker(QObject):
             self.latest_release_url = QUrl(str(release['html_url']))
             self.update_available.emit()
             self.update_timer.stop()
+
+        self.is_first_check = False
     #endregion
 
     def start_checking(self):

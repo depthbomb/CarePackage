@@ -1,8 +1,10 @@
+from src.lib import win32
 from enum import auto, Enum
 from typing import Optional
 from functools import cache
 from PySide6.QtGui import QColor
 from winreg import OpenKey, CloseKey, QueryValueEx, HKEY_CURRENT_USER
+
 
 class ThemeUtil:
     class Mode(Enum):
@@ -64,15 +66,4 @@ class ThemeUtil:
     @staticmethod
     @cache
     def is_dark_mode() -> bool:
-        try:
-            key = OpenKey(
-                HKEY_CURRENT_USER,
-                r'Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
-            )
-
-            value, _ = QueryValueEx(key, 'AppsUseLightTheme')
-            CloseKey(key)
-
-            return value == 0
-        except:
-            return False
+        return win32.is_dark_mode()

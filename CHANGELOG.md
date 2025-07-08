@@ -4,6 +4,7 @@
 - Icons will now be black if the accent color is too bright
 - Adjusted the style of category badges
 - Fixed a debug option appearing in the settings window
+- Upgraded to Python 3.13
 
 # 4.2.2
 

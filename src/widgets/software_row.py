@@ -87,7 +87,7 @@ class SoftwareRow(QWidget):
         self.badge_layout = QHBoxLayout(self.badge_widget)
         self.badge_layout.setSpacing(3)
         for category in self.software.category:
-            badge = Badge(category.value, 'tag')
+            badge = Badge(category.value, parent=self.badge_widget)
             self.badge_layout.addWidget(badge)
         self.badge_widget.setLayout(self.badge_layout)
 

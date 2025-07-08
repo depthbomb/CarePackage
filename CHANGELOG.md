@@ -1,4 +1,11 @@
-﻿# 4.2.2
+﻿# 4.2.3
+
+- Adjusted the shades of accent colors in some places
+- Icons will now be black if the accent color is too bright
+- Adjusted the style of category badges
+- Fixed a debug option appearing in the settings window
+
+# 4.2.2
 
 - A dialog box is now shown that lets you open CarePackage's latest release page if an update is available on app startup
 - Added the following software:

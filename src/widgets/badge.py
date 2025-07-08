@@ -5,7 +5,7 @@ from PySide6.QtCore import Qt, QObject
 from PySide6.QtWidgets import QLabel, QWidget, QHBoxLayout
 
 class Badge(QWidget):
-    def __init__(self, text='', icon: Optional[str] = None, parent: Optional[QObject] = None):
+    def __init__(self, text, *, icon: Optional[str] = None, parent: Optional[QObject] = None):
         super().__init__(parent)
 
         self.setObjectName('Badge')
@@ -31,23 +31,25 @@ class Badge(QWidget):
             self.layout.setSpacing(0)
 
         self.label = QLabel(text, self)
+        self.label_font = self.label.font()
+        self.label_font.setBold(True)
+        self.label_font.setPixelSize(10)
+        self.label.setFont(self.label_font)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.label)
 
         self.setMinimumWidth(48)
-        self.setMinimumHeight(28)
+        self.setMinimumHeight(30)
         self.setAttribute(Qt.WidgetAttribute.WA_StyledBackground, True)
         self.setStyleSheet(f'''
             Badge {{
                 padding-left: 8px;
                 padding-right: 8px;
                 background-color: {self.background_color};
-                border-radius: 14px;
+                border-radius: 15px;
             }}
             
             Badge QLabel {{
-                font-size: 10px;
-                font-weight: bold;
                 color: {self.foreground_color};
             }}
         ''')

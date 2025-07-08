@@ -1,5 +1,6 @@
 from typing import Optional
 from PySide6.QtGui import QPixmap
+from src.lib.theme import ThemeUtil
 from PySide6.QtCore import Qt, Signal, QObject
 from PySide6.QtWidgets import QLabel, QGraphicsOpacityEffect
 
@@ -20,7 +21,10 @@ class HeaderButton(QLabel):
         self.opacity_effect.setOpacity(self._initial_opacity)
         self.opacity_effect.setEnabled(True)
 
-        self.pixmap = QPixmap(f':images/{icon}_white.png')
+        if ThemeUtil.should_use_dark_colors():
+            self.pixmap = QPixmap(f':images/{icon}_white.png')
+        else:
+            self.pixmap = QPixmap(f':images/{icon}.png')
         self.scaled_pixmap = self.pixmap.scaled(22, 22, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
 
         self.setGraphicsEffect(self.opacity_effect)

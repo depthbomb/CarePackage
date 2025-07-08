@@ -18,7 +18,10 @@ class Badge(QWidget):
 
         if icon is not None:
             self.layout.setSpacing(4)
-            self.pixmap = QPixmap(f':images/{icon}_white.png')
+            if ThemeUtil.should_use_dark_colors():
+                self.pixmap = QPixmap(f':images/{icon}_white.png')
+            else:
+                self.pixmap = QPixmap(f':images/{icon}.png')
             self.scaled_pixmap = self.pixmap.scaled(14, 14, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
             self.image = QLabel(self)
             self.image.setPixmap(self.scaled_pixmap)

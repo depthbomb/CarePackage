@@ -51,17 +51,22 @@ class ThemeUtil:
 
     @staticmethod
     @cache
-    def get_foreground_color() -> QColor:
+    def should_use_dark_colors() -> bool:
         accent_color = ThemeUtil.get_accent_color()
         if not accent_color:
-            return QColor('black')
+            return True
 
         r = accent_color.red()
         g = accent_color.green()
         b = accent_color.blue()
         brightness = (0.299 * r + 0.587 * g + 0.114 * b)
 
-        return QColor('black') if brightness > 186 else QColor('white')
+        return brightness > 186
+
+    @staticmethod
+    @cache
+    def get_foreground_color() -> QColor:
+        return QColor('black') if ThemeUtil.should_use_dark_colors() else QColor('white')
 
     @staticmethod
     @cache

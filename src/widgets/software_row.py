@@ -1,21 +1,21 @@
 from typing import cast, Optional
+
+from lib.theme import ThemeUtil
 from src.widgets.badge import Badge
 from src.lib.software import BaseSoftware
-from src.lib.colors import get_accent_color
 from PySide6.QtCore import Qt, Slot, Signal, QObject
 from src.windows.variant_wizard import VariantWizard
-from winrt.windows.ui.viewmanagement import UIColorType
 from src.lib.settings import user_settings, UserSettingsKeys
 from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
 from PySide6.QtWidgets import QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox, QGraphicsDropShadowEffect
 
 SELECTED_STYLESHEET = f'''
     #SoftwareRow {{
-        background: {get_accent_color(UIColorType.ACCENT_LIGHT3)};
+        background: {ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Lighter, 175).name()};
     }}
     
     #SoftwareName {{
-        color: {get_accent_color(UIColorType.FOREGROUND)};
+        color: {ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 500).name()};
         font-weight: bold;
     }}
 '''

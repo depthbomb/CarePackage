@@ -1,12 +1,11 @@
 from src import DOWNLOAD_DIR
 from collections import deque
+from src.lib.theme import ThemeUtil
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
-from src.lib.colors import get_accent_color
 from PySide6.QtCore import Qt, Slot, Signal
 from src.lib.settings import PostOperationAction
 from typing import cast, Deque, Optional, Sequence
-from winrt.windows.ui.viewmanagement import UIColorType
 from src.widgets.software_progress_row import SoftwareProgressRow
 from PySide6.QtWidgets import (
     QLabel,
@@ -222,7 +221,7 @@ class OperationScreen(QWidget):
         self.software_progress_container = QScrollArea(self)
         self.software_progress_container.setWidgetResizable(True)
         self.software_progress_container.setStyleSheet(f'''
-            QScrollArea {{ background: #fff; border: 1px solid {get_accent_color(UIColorType.ACCENT)}; }}
+            QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
             QScrollArea > QWidget > QWidget {{ background: transparent; }}
             QScrollArea > QWidget > QScrollBar {{ background: 1; }}
         ''')

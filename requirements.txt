@@ -1,8 +1,4 @@
 packaging==25.*
 pyside6==6.*
 
-winrt-windows.foundation==3.*
-winrt-windows.ui==3.*
-winrt-windows.ui.viewmanagement==3.*
-
 nuitka==2.*

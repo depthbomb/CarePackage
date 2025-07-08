@@ -1,8 +1,7 @@
 from typing import Optional
 from PySide6.QtGui import QPixmap
+from src.lib.theme import ThemeUtil
 from PySide6.QtCore import Qt, QObject
-from lib.colors import get_accent_color
-from winrt.windows.ui.viewmanagement import UIColorType
 from PySide6.QtWidgets import QLabel, QWidget, QHBoxLayout
 
 class Badge(QWidget):
@@ -11,8 +10,8 @@ class Badge(QWidget):
 
         self.setObjectName('Badge')
 
-        self.foreground_color = get_accent_color(UIColorType.FOREGROUND)
-        self.background_color = get_accent_color(UIColorType.ACCENT)
+        self.foreground_color = ThemeUtil.get_foreground_color()
+        self.background_color = ThemeUtil.get_accent_color_name()
 
         self.layout = QHBoxLayout(self)
         self.layout.setAlignment(Qt.AlignmentFlag.AlignCenter)

@@ -1,8 +1,7 @@
 from typing import Optional
+from src.lib.theme import ThemeUtil
 from PySide6.QtWidgets import QLabel
-from src.lib.colors import get_accent_color
 from PySide6.QtCore import Qt, Signal, QObject
-from winrt.windows.ui.viewmanagement import UIColorType
 
 class LinkLabel(QLabel):
     clicked = Signal()
@@ -13,9 +12,9 @@ class LinkLabel(QLabel):
         self._hovered = False
         self._clicked = False
 
-        self._initial_color = get_accent_color(UIColorType.ACCENT_DARK1)
-        self._hovered_color = get_accent_color(UIColorType.ACCENT_DARK2)
-        self._clicked_color = get_accent_color(UIColorType.ACCENT_DARK3)
+        self._initial_color = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 150).name()
+        self._hovered_color = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 200).name()
+        self._clicked_color = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 300).name()
 
         self.setText(text)
         self.setMouseTracking(True)

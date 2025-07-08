@@ -1,11 +1,10 @@
 from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
+from src.lib.theme import ThemeUtil
 from PySide6.QtCore import Qt, Signal, Slot
-from src.lib.colors import get_accent_color
 from src.lib.update_checker import UpdateChecker
 from src.widgets.software_row import SoftwareRow
 from PySide6.QtGui import QShortcut, QKeySequence
-from winrt.windows.ui.viewmanagement import UIColorType
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtWidgets import (
     QLabel,
@@ -125,7 +124,7 @@ class MainScreen(QWidget):
         self.search_input.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         self.search_input.setStyleSheet(f'''
             QLineEdit:focus {{
-                border: 1px solid {get_accent_color(UIColorType.ACCENT)};
+                border: 1px solid {ThemeUtil.get_accent_color_name()};
             }}
         ''')
         self.search_input.textChanged.connect(self._on_filters_changed)
@@ -153,7 +152,7 @@ class MainScreen(QWidget):
         scroll_area = QScrollArea(self)
         scroll_area.setWidgetResizable(True)
         scroll_area.setStyleSheet(f'''
-            QScrollArea {{ background: #fff; border: 1px solid {get_accent_color(UIColorType.ACCENT)}; }}
+            QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
             QScrollArea > QWidget > QWidget {{ background: transparent; }}
             QScrollArea > QWidget > QScrollBar {{ background: 1; }}
         ''')

@@ -1,4 +1,5 @@
 from src.lib import win32
+from src import IS_COMPILED
 from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
 from PySide6.QtCore import Slot, QObject, QThread
@@ -88,7 +89,10 @@ class SettingsWindow(QDialog):
         self.layout.addRow('Download timeout', self._create_download_timeout_row())
         self.layout.addRow('', self._create_badge_visibility_checkbox())
         self.layout.addRow('', self._create_sweeper_button())
-        self.layout.addRow('', self._create_clear_url_cache_button())
+
+        if not IS_COMPILED:
+            self.layout.addRow('', self._create_clear_url_cache_button())
+
         self.layout.addWidget(self._create_footer_row())
 
         return self.layout

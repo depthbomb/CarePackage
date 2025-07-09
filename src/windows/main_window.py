@@ -12,7 +12,7 @@ from src.windows.settings_window import SettingsWindow
 from src.windows.extended_window import ExtendedWindow
 from src.widgets.draggable_region import DraggableWidget
 from src.screens.operation_screen import OperationScreen
-from PySide6.QtWidgets import QMessageBox, QWidget, QHBoxLayout, QStackedWidget
+from PySide6.QtWidgets import QWidget, QMessageBox, QHBoxLayout, QStackedWidget
 
 class MainWindow(ExtendedWindow):
     def __init__(self):

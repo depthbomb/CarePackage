@@ -1,7 +1,7 @@
 from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
 from src.lib.theme import ThemeUtil
-from PySide6.QtCore import Qt, Signal, Slot
+from PySide6.QtCore import Qt, Slot, Signal
 from src.lib.update_checker import UpdateChecker
 from src.widgets.software_row import SoftwareRow
 from PySide6.QtGui import QShortcut, QKeySequence

@@ -1,15 +1,15 @@
 from src.lib import win32
 from typing import Optional
 from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import Slot, QTimer, QObject
-from PySide6.QtWidgets import QMessageBox, QPushButton
 
 class DisclaimerWindow(QMessageBox):
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(parent)
 
         self.choice_timer = QTimer(self)
-        self.choice_timer.setInterval(5_000)
+        self.choice_timer.setInterval(4_250)
         self.choice_timer.setSingleShot(True)
         self.choice_timer.timeout.connect(self._on_choice_timer_timeout)
         self.choice_timer.start()
@@ -21,31 +21,23 @@ class DisclaimerWindow(QMessageBox):
                      'or associated with the software it manages. All trademarks and software names are the property of'
                      ' their respective owners.')
 
-        self.accept_button = QPushButton('&Accept', self)
-        self.accept_button.setEnabled(False)
-        self.accept_button.clicked.connect(self.accept)
+        self.setStandardButtons(self.StandardButton.Yes | self.StandardButton.No)
+        self.setButtonText(self.StandardButton.Yes, '&Accept')
+        self.setButtonText(self.StandardButton.No, '&Decline')
 
-        self.decline_button = QPushButton('&Decline', self)
-        self.decline_button.setEnabled(False)
-        self.decline_button.clicked.connect(self.reject)
-
-        self.addButton(self.accept_button, QMessageBox.ButtonRole.AcceptRole)
-        self.addButton(self.decline_button, QMessageBox.ButtonRole.RejectRole)
+        self.button(self.StandardButton.Yes).setEnabled(False)
+        self.button(self.StandardButton.No).setEnabled(False)
 
     #region Overrides
     def showEvent(self, event):
         win32.use_immersive_dark_mode(self)
         super().showEvent(event)
-
-    def closeEvent(self, event):
-        self.reject()
-        event.accept()
     #endregion
 
     #region Slots
     @Slot()
     def _on_choice_timer_timeout(self):
+        self.button(self.StandardButton.Yes).setEnabled(True)
+        self.button(self.StandardButton.No).setEnabled(True)
         self.choice_timer.deleteLater()
-        self.accept_button.setEnabled(True)
-        self.decline_button.setEnabled(True)
     #endregion

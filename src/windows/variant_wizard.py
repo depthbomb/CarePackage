@@ -3,7 +3,7 @@ from PySide6.QtGui import QIcon, QPixmap
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import QObject, Qt, Slot
 from src.widgets.simple_link_label import SimpleLinkLabel
-from PySide6.QtWidgets import QCheckBox, QHBoxLayout, QLabel, QWizard, QWizardPage, QVBoxLayout
+from PySide6.QtWidgets import QLabel, QWizard, QCheckBox, QWizardPage, QVBoxLayout, QHBoxLayout
 
 class VariantWizard(QWizard):
     def __init__(self, parent_software: BaseSoftware, variants: list[BaseSoftware], current_selection: list[BaseSoftware], parent: Optional[QObject] = None):
@@ -16,6 +16,7 @@ class VariantWizard(QWizard):
 
         self.setWindowIcon(QIcon(':icons/icon.ico'))
         self.setWindowTitle(f'Select one or more variants/versions for {self.parent_software.name}')
+        self.setButtonLayout([QWizard.WizardButton.Stretch, QWizard.WizardButton.FinishButton])
         self.addPage(self._create_page())
 
     #region UI Setup

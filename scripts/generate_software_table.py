@@ -13,7 +13,7 @@ markdown += '\n\n---'
 for category in SoftwareCategory:
     markdown += f'\n\n## {category}'
     markdown += '\n\n|  | Name | Is Archive? | Additional Categories | # of Variants/Versions |'
-    markdown += '\n| :-: | --- | :-: | :-: | :-: | :-: |'
+    markdown += '\n| :-: | --- | :-: | :-: | :-: |'
     category_software = [sw for sw in SOFTWARE_CATALOGUE if category in sw.category]
     for software in category_software:
         icon_path = f'./resources/images/software/{software.icon}'

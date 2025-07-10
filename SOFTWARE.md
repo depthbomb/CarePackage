@@ -7,7 +7,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Audio & Sounds
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![AIMP](./resources/images/software/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | Media | `0` |
 | ![Audacity](./resources/images/software/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | Media | `0` |
 | ![Equalizer APO](./resources/images/software/equalizer-apo.png "Equalizer APO") | [Equalizer APO](https://sourceforge.net/projects/equalizerapo) | ❌ | Utilities | `0` |
@@ -24,7 +24,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Web Browsers
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Arc](./resources/images/software/arc.png "Arc") | [Arc](https://arc.net) | ❌ | None | `0` |
 | ![Brave](./resources/images/software/brave-browser.png "Brave") | [Brave](https://brave.net) | ❌ | None | `0` |
 | ![Google Chrome](./resources/images/software/google-chrome.png "Google Chrome") | [Google Chrome](https://google.com/chrome) | ❌ | None | `0` |
@@ -42,7 +42,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Creative
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Adobe Creative Cloud](./resources/images/software/adobe-creative-cloud.png "Adobe Creative Cloud") | [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) | ❌ | None | `0` |
 | ![Blender](./resources/images/software/blender.png "Blender") | [Blender](https://blender.org) | ❌ | 3D Modelling | `0` |
 | ![darktable](./resources/images/software/darktable.png "darktable") | [darktable](https://darktable.org) | ❌ | Media | `0` |
@@ -58,7 +58,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Development
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Apache NetBeans](./resources/images/software/apache-netbeans.png "Apache NetBeans") | [Apache NetBeans](https://netbeans.apache.org) | ❌ | None | `0` |
 | ![CMake](./resources/images/software/cmake.png "CMake") | [CMake](https://cmake.org) | ❌ | None | `0` |
 | ![Composer](./resources/images/software/generic-3.png "Composer") | [Composer](https://getcomposer.org) | ❌ | None | `0` |
@@ -102,7 +102,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Emulation
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Azahar](./resources/images/software/azahar.png "Azahar") | [Azahar](https://azahar-emu.org) | ❌ | Gaming | `0` |
 | ![Cemu](./resources/images/software/cemu.png "Cemu") | [Cemu](https://cemu.info) | ✔️ | Gaming | `0` |
 | ![Dolphin Emulator](./resources/images/software/dolphin-emu.png "Dolphin Emulator") | [Dolphin Emulator](https://dolphin-emu.org) | ✔️ | Gaming | `0` |
@@ -119,7 +119,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## File Management
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![AB Download Manager](./resources/images/software/abdownloadmanager.png "AB Download Manager") | [AB Download Manager](https://abdownloadmanager.com/) | ❌ | None | `0` |
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | System Management, Utilities | `0` |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | System Management, Utilities | `0` |
@@ -145,7 +145,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Video Game Development
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Godot](./resources/images/software/godot.png "Godot") | [Godot](https://godotengine.org) | ❌ | Creative | `2` |
 | ![Unity Hub](./resources/images/software/unity-hub.png "Unity Hub") | [Unity Hub](https://unity.com) | ❌ | Creative | `0` |
 
@@ -154,7 +154,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Gaming
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Azahar](./resources/images/software/azahar.png "Azahar") | [Azahar](https://azahar-emu.org) | ❌ | Emulation | `0` |
 | ![Battle.net](./resources/images/software/battlenet.png "Battle.net") | [Battle.net](https://battle.net) | ❌ | None | `0` |
 | ![Cemu](./resources/images/software/cemu.png "Cemu") | [Cemu](https://cemu.info) | ✔️ | Emulation | `0` |
@@ -190,7 +190,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Media
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![AIMP](./resources/images/software/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | Audio & Sounds | `0` |
 | ![Audacity](./resources/images/software/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | Audio & Sounds | `0` |
 | ![calibre](./resources/images/software/calibre.png "calibre") | [calibre](https://calibre-ebook.com) | ❌ | None | `0` |
@@ -215,7 +215,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## 3D Modelling
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Blender](./resources/images/software/blender.png "Blender") | [Blender](https://blender.org) | ❌ | Creative | `0` |
 
 ---
@@ -223,7 +223,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Network Tools
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | Development, File Management | `0` |
 | ![GlassWire](./resources/images/software/glasswire.png "GlassWire") | [GlassWire](https://glasswire.com) | ❌ | Utilities | `0` |
 | ![Hoppscotch](./resources/images/software/hoppscotch.png "Hoppscotch") | [Hoppscotch](https://hoppscotch.io) | ❌ | Development | `0` |
@@ -239,7 +239,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Peripherals
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Corsair iCUE](./resources/images/software/corsair-icue.png "Corsair iCUE") | [Corsair iCUE](https://corsair.com/us/en/s/icue) | ❌ | None | `0` |
 | ![Elgato Stream Deck](./resources/images/software/elgato-stream-deck.png "Elgato Stream Deck") | [Elgato Stream Deck](https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes) | ❌ | None | `0` |
 | ![Logitech G HUB](./resources/images/software/logitech-g-hub.png "Logitech G HUB") | [Logitech G HUB](https://www.logitechg.com/en-us/innovation/g-hub.html) | ❌ | None | `0` |
@@ -252,7 +252,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Notes & Productivity
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Evernote](./resources/images/software/evernote.png "Evernote") | [Evernote](https://evernote.com) | ❌ | None | `0` |
 | ![Joplin](./resources/images/software/joplin.png "Joplin") | [Joplin](https://joplinapp.org) | ❌ | None | `0` |
 | ![LibreOffice](./resources/images/software/libreoffice.png "LibreOffice") | [LibreOffice](https://libreoffice.org) | ❌ | None | `0` |
@@ -265,7 +265,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Runtimes
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![.NET](./resources/images/software/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | Development | `8` |
 | ![Java SE Development Kit](./resources/images/software/java.png "Java SE Development Kit") | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | Development | `2` |
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | None | `0` |
@@ -279,7 +279,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Security
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | None | `0` |
 | ![Gpg4win](./resources/images/software/gpg4win.png "Gpg4win") | [Gpg4win](https://gpg4win.org) | ❌ | None | `0` |
 | ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | None | `0` |
@@ -293,7 +293,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Social
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![Discord](./resources/images/software/discord.png "Discord") | [Discord](https://discord.com) | ❌ | None | `3` |
 | ![Microsoft Teams](./resources/images/software/microsoft-teams.png "Microsoft Teams") | [Microsoft Teams](https://microsoft.com/en-us/microsoft-teams) | ❌ | None | `0` |
 | ![Revolt](./resources/images/software/revolt.png "Revolt") | [Revolt](https://revolt.chat) | ❌ | None | `0` |
@@ -312,7 +312,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## System Management
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | File Management, Utilities | `0` |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | File Management, Utilities | `0` |
 | ![HWMonitor](./resources/images/software/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | Utilities | `0` |
@@ -329,7 +329,7 @@ This file was generated from `scripts/generate_software_table.py`
 ## Utilities
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
-| :-: | --- | :-: | :-: | :-: | :-: |
+| :-: | --- | :-: | :-: | :-: |
 | ![AutoHotkey](./resources/images/software/autohotkey.png "AutoHotkey") | [AutoHotkey](https://autohotkey.com) | ❌ | None | `0` |
 | ![balenaEtcher](./resources/images/software/balenaetcher.png "balenaEtcher") | [balenaEtcher](https://etcher.io) | ❌ | None | `0` |
 | ![Caesium Image Compressor](./resources/images/software/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | None | `0` |

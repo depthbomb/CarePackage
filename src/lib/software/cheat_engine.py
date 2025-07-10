@@ -1,5 +1,5 @@
 from re import compile
-from PySide6.QtCore import QUrl, Slot
+from PySide6.QtCore import Slot
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
@@ -14,8 +14,6 @@ class CheatEngine(BaseSoftware):
         self.should_cache_url = True
         self.icon = 'cheat-engine.png'
         self.homepage = 'https://cheatengine.org'
-
-        self._download_page = QUrl('https://www.blender.org/download/')
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

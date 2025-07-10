@@ -1,4 +1,15 @@
-﻿# 4.2.3
+﻿# 4.3.0
+
+- Added an option to change the application's theme
+- Due to an overhaul of the underlying settings system, your configuration has been reset
+  - The settings file is now written in a binary format
+  - The app's data directory is now located at `%APPDATA%\Caprine Logic\carepackage` instead of `%LOCALAPPDATA%\Caprine Logic\carepackage`
+- Added the following software:
+  - _calibre_
+  - _Mullvad VPN_
+  - _SumatraPDF_
+
+# 4.2.3
 
 - Adjusted the shades of accent colors in some places
 - Icons will now be black if the accent color is too bright

@@ -28,6 +28,7 @@
 		<file>images/software/blender.png</file>
 		<file>images/software/brave-browser.png</file>
 		<file>images/software/caesium-image-compressor.png</file>
+		<file>images/software/calibre.png</file>
 		<file>images/software/ccleaner.png</file>
 		<file>images/software/cemu.png</file>
 		<file>images/software/cheat-engine.png</file>
@@ -109,6 +110,7 @@
 		<file>images/software/msi-afterburner.png</file>
 		<file>images/software/msvc.png</file>
 		<file>images/software/msys2.png</file>
+		<file>images/software/mullvad-vpn.png</file>
 		<file>images/software/nodejs.png</file>
 		<file>images/software/notepad-plus-plus.png</file>
 		<file>images/software/notion.png</file>
@@ -160,6 +162,7 @@
 		<file>images/software/streamlabs-desktop.png</file>
 		<file>images/software/streamlink.png</file>
 		<file>images/software/sublime-text.png</file>
+		<file>images/software/sumatrapdf.png</file>
 		<file>images/software/sunshine.png</file>
 		<file>images/software/system-informer.png</file>
 		<file>images/software/teamviewer.png</file>

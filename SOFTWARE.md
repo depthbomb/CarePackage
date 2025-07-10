@@ -193,6 +193,7 @@ This file was generated from `scripts/generate_software_table.py`
 | :-: | --- | :-: | :-: | :-: | :-: |
 | ![AIMP](./resources/images/software/aimp.png "AIMP") | [AIMP](https://aimp.ru) | ❌ | Audio & Sounds | `0` |
 | ![Audacity](./resources/images/software/audacity.png "Audacity") | [Audacity](https://audacityteam.org) | ❌ | Audio & Sounds | `0` |
+| ![calibre](./resources/images/software/calibre.png "calibre") | [calibre](https://calibre-ebook.com) | ❌ | None | `0` |
 | ![darktable](./resources/images/software/darktable.png "darktable") | [darktable](https://darktable.org) | ❌ | Creative | `0` |
 | ![foobar2000](./resources/images/software/foobar2000.png "foobar2000") | [foobar2000](https://foobar2000.org) | ❌ | Audio & Sounds | `0` |
 | ![HandBrake](./resources/images/software/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | Utilities | `0` |
@@ -283,6 +284,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Gpg4win](./resources/images/software/gpg4win.png "Gpg4win") | [Gpg4win](https://gpg4win.org) | ❌ | None | `0` |
 | ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | None | `0` |
 | ![Malwarebytes](./resources/images/software/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | None | `0` |
+| ![Mullvad VPN](./resources/images/software/mullvad-vpn.png "Mullvad VPN") | [Mullvad VPN](https://mullvad.net) | ❌ | None | `0` |
 | ![Tor Browser](./resources/images/software/tor-browser.png "Tor Browser") | [Tor Browser](https://torproject.org) | ❌ | Web Browsers | `0` |
 | ![VeraCrypt](./resources/images/software/veracrypt.png "VeraCrypt") | [VeraCrypt](https://veracrypt.io) | ❌ | System Management | `0` |
 
@@ -364,6 +366,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![ShareX](./resources/images/software/sharex.png "ShareX") | [ShareX](https://getsharex.com) | ❌ | Media | `0` |
 | ![Shotcut](./resources/images/software/shotcut.png "Shotcut") | [Shotcut](https://shotcut.org) | ❌ | Audio & Sounds, Media | `0` |
 | ![Speccy](./resources/images/software/speccy.png "Speccy") | [Speccy](https://www.ccleaner.com/speccy) | ❌ | System Management | `0` |
+| ![Sumatra PDF](./resources/images/software/sumatrapdf.png "Sumatra PDF") | [Sumatra PDF](https://www.sumatrapdfreader.org) | ❌ | None | `0` |
 | ![System Informer](./resources/images/software/system-informer.png "System Informer") | [System Informer](https://systeminformer.sourceforge.io) | ❌ | System Management | `0` |
 | ![TeamViewer](./resources/images/software/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | Social | `0` |
 | ![TeraCopy](./resources/images/software/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | File Management | `0` |

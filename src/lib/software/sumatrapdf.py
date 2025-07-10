@@ -3,17 +3,17 @@ from PySide6.QtCore import Slot
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
-class Blender(BaseSoftware):
+class SumatraPDF(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'blender'
-        self.name = 'Blender'
-        self.category = [SoftwareCategory.Creative, SoftwareCategory.Modelling]
-        self.download_name = 'blender-windows-x64.msi'
+        self.key = 'sumatra-pdf'
+        self.name = 'Sumatra PDF'
+        self.category = [SoftwareCategory.Utility]
+        self.download_name = 'SumatraPDF-64-install.exe'
         self.should_cache_url = True
-        self.icon = 'blender.png'
-        self.homepage = 'https://blender.org'
+        self.icon = 'sumatrapdf.png'
+        self.homepage = 'https://www.sumatrapdfreader.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
@@ -25,12 +25,12 @@ class Blender(BaseSoftware):
 
         html = reply.readAll().data().decode()
 
-        pattern = compile(r'https://www\.blender\.org/download/release/(Blender\d+\.\d+/blender-\d\.\d+.\d+-windows-x64\.msi)')
+        pattern = compile(r'/dl/rel/\d+\.\d+\.\d+/SumatraPDF-\d+\.\d+\.\d+-64-install\.exe')
         match = pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
         else:
-            self.url_resolved.emit(f'https://mirrors.iu13.net/blender/release/{match.group(1)}')
+            self.url_resolved.emit(f'https://www.sumatrapdfreader.org{match.group(0)}')
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://www.blender.org/download/'))
+        self.manager.get(QNetworkRequest('https://www.sumatrapdfreader.org/download-free-pdf-viewer'))

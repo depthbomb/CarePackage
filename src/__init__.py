@@ -22,7 +22,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (4, 2, 3, 0)
+APP_VERSION = (4, 3, 0, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -66,6 +66,7 @@ from src.lib.software.bitwarden import Bitwarden
 from src.lib.software.blender import Blender
 from src.lib.software.brave import Brave
 from src.lib.software.caesium_image_compressor import CaesiumImageCompressor
+from src.lib.software.calibre import Calibre
 from src.lib.software.ccleaner import Ccleaner
 from src.lib.software.cemu import Cemu
 from src.lib.software.cheat_engine import CheatEngine
@@ -143,6 +144,7 @@ from src.lib.software.mpv import MPV
 from src.lib.software.msi_afterburner import MSIAfterburner
 from src.lib.software.msvc import Msvc
 from src.lib.software.msys2 import MSYS2
+from src.lib.software.mullvad_vpn import MullvadVPN
 from src.lib.software.nodejs import NodeJs
 from src.lib.software.notepad_plus_plus import NotepadPlusPlus
 from src.lib.software.notion import Notion
@@ -192,6 +194,7 @@ from src.lib.software.steam import Steam
 from src.lib.software.streamlabs_desktop import StreamlabsDesktop
 from src.lib.software.streamlink import Streamlink
 from src.lib.software.sublime_text import SublimeText
+from src.lib.software.sumatrapdf import SumatraPDF
 from src.lib.software.sunshine import Sunshine
 from src.lib.software.system_informer import SystemInformer
 from src.lib.software.teamviewer import TeamViewer
@@ -236,6 +239,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Blender,
     Brave,
     CaesiumImageCompressor,
+    Calibre,
     Ccleaner,
     Cemu,
     CheatEngine,
@@ -313,6 +317,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     MSIAfterburner,
     Msvc,
     MSYS2,
+    MullvadVPN,
     NodeJs,
     NotepadPlusPlus,
     Notion,
@@ -362,6 +367,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     StreamlabsDesktop,
     Streamlink,
     SublimeText,
+    SumatraPDF,
     Sunshine,
     SystemInformer,
     TeamViewer,

@@ -1,11 +1,12 @@
 from functools import cache
 from typing import cast, Optional
+from src.enums import SettingsKeys
 from src.lib.theme import ThemeUtil
 from src.widgets.badge import Badge
+from src.lib.settings import Settings
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import Qt, Slot, Signal, QObject
 from src.windows.variant_wizard import VariantWizard
-from src.lib.settings import user_settings, UserSettingsKeys
 from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
 from PySide6.QtWidgets import (
     QMenu,
@@ -93,6 +94,8 @@ class SoftwareRow(QWidget):
         self.setCursor(Qt.CursorShape.PointingHandCursor)
         self.setMouseTracking(True)
 
+        Settings().saved.connect(self._on_settings_saved)
+
     #region Overrides
     def enterEvent(self, event):
         self.hovered = True
@@ -142,6 +145,10 @@ class SoftwareRow(QWidget):
     @Slot()
     def _on_homepage_action_clicked(self):
         QDesktopServices.openUrl(self.software.homepage)
+
+    @Slot()
+    def _on_settings_saved(self):
+        self.badge_widget.setVisible(Settings().get(SettingsKeys.ShowCategoryBadges, True, bool))
     #endregion
 
     def set_selection(self, selected: bool):
@@ -159,12 +166,8 @@ class SoftwareRow(QWidget):
     def set_badge_visibility(self, visible: bool):
         self.badge_widget.setVisible(visible)
 
-    def update_badge_visibility(self):
-        visible = user_settings.value(UserSettingsKeys.ShowCategoryBadges, True, bool)
-        self.badge_widget.setVisible(visible)
-
     def _update_selection_style(self):
-        badge_visible = user_settings.value(UserSettingsKeys.ShowCategoryBadges, True, bool)
+        badge_visible = Settings().get(SettingsKeys.ShowCategoryBadges, True, bool)
         if self.selected:
             self.setStyleSheet(self._selected_stylesheet)
 

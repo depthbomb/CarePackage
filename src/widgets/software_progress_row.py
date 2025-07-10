@@ -1,11 +1,12 @@
 from enum import auto, Enum
 from typing import cast, Optional
 from PySide6.QtGui import QPixmap
+from src.lib.settings import Settings
 from src.widgets.spinner import Spinner
 from src.lib.software import BaseSoftware
 from src import DOWNLOAD_DIR, BROWSER_USER_AGENT
 from src.widgets.loading_label import LoadingLabel
-from src.lib.settings import user_settings, DownloadTimeout, UserSettingsKeys
+from src.enums import SettingsKeys, DownloadTimeout
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
 from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy, QHBoxLayout, QProgressBar
 from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QThread, QProcess, QIODevice
@@ -113,7 +114,7 @@ class SoftwareProgressRow(QWidget):
         self.download_reply = cast(Optional[QNetworkReply], None)
         self.download_timeout_timer = QTimer(self)
         self.download_timeout_timer.setSingleShot(True)
-        self.download_timeout_timer.setInterval(user_settings.value(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
+        self.download_timeout_timer.setInterval(Settings().get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
         self.download_timeout_timer.timeout.connect(self._on_downloader_timeout_timer_timeout)
         self.download_speed_timer = QTimer(self)
         self.download_speed_timer.setInterval(1_000)

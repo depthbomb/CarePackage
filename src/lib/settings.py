@@ -1,40 +1,57 @@
-from PySide6.QtCore import QSettings
-from enum import auto, IntEnum, StrEnum
-from src import APP_SETTINGS_FILE_PATH, USER_SETTINGS_FILE_PATH
+from enum import Enum
+from pickle import dumps, loads
+from src import SETTINGS_FILE_PATH
+from PySide6.QtCore import Signal, QObject
+from typing import Any, cast, Self, Type, TypeVar, Optional
 
-class DownloadTimeout(IntEnum):
-    ThreeMinutes = 1_000 * 60 * 3
-    FiveMinutes = 1_000 * 60 * 5
-    TenMinutes = 1_000 * 60 * 10
-    ThirtyMinutes = 1_000 * 60 * 30
+_T = TypeVar('_T')
 
-class AppStyle(StrEnum):
-    Fusion = 'Fusion'
-    Windows = 'Windows'
-    WindowsVista = 'WindowsVista'
+class Settings(QObject):
+    saved = Signal()
 
-class AppTheme(IntEnum):
-    Light = auto()
-    Dark = auto()
-    Auto = auto()
+    _initialized = False
+    _instance = cast(Optional[Self], None)
+    _settings = {}
 
-class PostOperationAction(IntEnum):
-    DoNothing = auto()
-    CloseApp = auto()
-    LogOut = auto()
-    Lock = auto()
-    Restart = auto()
-    ShutDown = auto()
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
 
-app_settings = QSettings(str(APP_SETTINGS_FILE_PATH), QSettings.Format.IniFormat)
-user_settings = QSettings(str(USER_SETTINGS_FILE_PATH), QSettings.Format.IniFormat)
+        return cls._instance
 
-class AppSettingsKeys(StrEnum):
-    SeenDisclaimer = 'app/seen_disclaimer'
+    def __init__(self):
+        if self._initialized:
+            return
 
-class UserSettingsKeys(StrEnum):
-    DownloadTimeout = 'user/download_timeout'
-    DownloadDir = 'user/download_dir'
-    ShowCategoryBadges = 'user/show_category_badges'
-    Style = 'user/style'
-    Theme = 'user/theme'
+        super().__init__()
+
+        self._initialized = True
+
+    def load(self):
+        if not SETTINGS_FILE_PATH.exists():
+            SETTINGS_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            SETTINGS_FILE_PATH.touch()
+        else:
+            with open(SETTINGS_FILE_PATH, 'rb') as f:
+                self._settings = loads(f.read())
+
+    def get(self, key: str, default: _T = None, type_: Type[_T] = None) -> _T:
+        value = self._settings.get(key, default)
+        if type_ is not None and value is not None:
+            try:
+                return type_(value)
+            except (TypeError, ValueError):
+                return default
+
+        return value
+
+    def set(self, key: str, value: Any):
+        if isinstance(key, Enum):
+            key = key.value
+
+        self._settings[key] = value
+
+    def save(self):
+        with open(SETTINGS_FILE_PATH, 'wb') as f:
+            f.write(dumps(self._settings))
+            self.saved.emit()

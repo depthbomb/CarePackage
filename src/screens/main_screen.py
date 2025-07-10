@@ -218,7 +218,3 @@ class MainScreen(QWidget):
         for widget in [w for w in self.software_widgets if not w.has_variants]:
             if not widget.selected and widget.isVisible():
                 widget.set_selection(True)
-
-    def update_badge_visibility(self):
-        for widget in self.software_widgets:
-            widget.update_badge_visibility()

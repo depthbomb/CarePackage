@@ -1,10 +1,10 @@
 from src import DOWNLOAD_DIR
 from collections import deque
 from src.lib.theme import ThemeUtil
+from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtCore import Qt, Slot, Signal
-from src.lib.settings import PostOperationAction
 from typing import cast, Deque, Optional, Sequence
 from src.widgets.software_progress_row import SoftwareProgressRow
 from PySide6.QtWidgets import (

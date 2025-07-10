@@ -2,9 +2,10 @@ from src.lib import win32
 from src import IS_COMPILED
 from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
+from src.lib.settings import Settings
 from PySide6.QtCore import Slot, QObject, QThread
 from src.lib.download_sweeper import DownloadSweeperWorker
-from src.lib.settings import AppStyle, AppTheme, user_settings, DownloadTimeout, UserSettingsKeys
+from src.enums import AppStyle, AppTheme, SettingsKeys, DownloadTimeout
 from PySide6.QtWidgets import (
     QLabel,
     QWidget,
@@ -33,17 +34,19 @@ class SettingsWindow(QDialog):
         self.adjustSize()
         self.setFixedSize(self.size())
 
+        settings = Settings()
+
         self.download_timeout_combobox.setCurrentIndex(
-            self.download_timeout_combobox.findData(int(user_settings.value(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes)))
+            self.download_timeout_combobox.findData(settings.get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes, int))
         )
         self.style_combobox.setCurrentIndex(
-            self.style_combobox.findData(user_settings.value(UserSettingsKeys.Style, AppStyle.WindowsVista))
+            self.style_combobox.findData(settings.get(SettingsKeys.Style, AppStyle.WindowsVista))
         )
         self.theme_combobox.setCurrentIndex(
-            self.theme_combobox.findData(user_settings.value(UserSettingsKeys.Theme, AppTheme.Light))
+            self.theme_combobox.findData(settings.get(SettingsKeys.Theme, AppTheme.Light))
         )
         self.badge_visibility_checkbox.setChecked(
-            user_settings.value(UserSettingsKeys.ShowCategoryBadges, True, bool)
+            settings.get(SettingsKeys.ShowCategoryBadges, True, bool)
         )
 
         self._start_sweeper(DownloadSweeperWorker.Mode.Scan)
@@ -104,10 +107,12 @@ class SettingsWindow(QDialog):
 
     @Slot()
     def _on_save_button_clicked(self):
-        user_settings.setValue(UserSettingsKeys.DownloadTimeout, self.download_timeout_combobox.currentData())
-        user_settings.setValue(UserSettingsKeys.Style, self.style_combobox.currentData())
-        user_settings.setValue(UserSettingsKeys.Theme, self.theme_combobox.currentData())
-        user_settings.setValue(UserSettingsKeys.ShowCategoryBadges, self.badge_visibility_checkbox.isChecked())
+        settings = Settings()
+        settings.set(SettingsKeys.DownloadTimeout, self.download_timeout_combobox.currentData())
+        settings.set(SettingsKeys.Style, self.style_combobox.currentData())
+        settings.set(SettingsKeys.Theme, self.theme_combobox.currentData())
+        settings.set(SettingsKeys.ShowCategoryBadges, self.badge_visibility_checkbox.isChecked())
+        settings.save()
         self.accept()
     #endregion
 

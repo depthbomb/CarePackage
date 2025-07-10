@@ -1,9 +1,9 @@
 from src.lib import win32
 from typing import cast, Optional
 from PySide6.QtCore import Slot, QUrl
+from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from src.screens.main_screen import MainScreen
-from src.lib.settings import PostOperationAction
 from src.lib.update_checker import UpdateChecker
 from src.windows.about_window import AboutWindow
 from src.widgets.header_button import HeaderButton
@@ -67,7 +67,6 @@ class MainWindow(ExtendedWindow):
     def _on_settings_button_clicked(self):
         settings_window = SettingsWindow(self)
         settings_window.exec()
-        self.main_screen.update_badge_visibility()
 
     @Slot(list)
     def _on_software_selected(self, software: list[BaseSoftware]):

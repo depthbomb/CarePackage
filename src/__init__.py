@@ -46,10 +46,9 @@ else:
     # project root directory.
     BINARY_DIR = BINARY_PATH
 DOWNLOAD_DIR = Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.TempLocation)) / '.carepackage'
-APPDATA_DIR = Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppLocalDataLocation))
+APPDATA_DIR = Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation))
 DATA_DIR = APPDATA_DIR / APP_ORG / APP_NAME
-APP_SETTINGS_FILE_PATH = DATA_DIR / 'app.settings'
-USER_SETTINGS_FILE_PATH = DATA_DIR / 'user.settings'
+SETTINGS_FILE_PATH = DATA_DIR / 'client_prefs.bin'
 #endregion
 
 #region Software Definitions

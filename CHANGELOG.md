@@ -1,6 +1,8 @@
 ﻿# 4.3.0
 
 - Added an option to change the application's theme
+- Fixed the extended titlebar button icons not using the correct theme based on the system's accent color
+- Fixed badge text not using the correct foreground color based on the system's accent color
 - Due to an overhaul of the underlying settings system, your configuration has been reset
   - The settings file is now written in a binary format
   - The app's data directory is now located at `%APPDATA%\Caprine Logic\carepackage` instead of `%LOCALAPPDATA%\Caprine Logic\carepackage`
@@ -8,6 +10,10 @@
   - _calibre_
   - _Mullvad VPN_
   - _SumatraPDF_
+- Fixed download URL resolving for the following software:
+  - _PHP (Thread Safe)_
+- Known issues:
+  - Download URL resolving for _FileZilla_ may fail
 
 # 4.2.3
 

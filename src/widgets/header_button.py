@@ -21,10 +21,10 @@ class HeaderButton(QLabel):
         self.opacity_effect.setOpacity(self._initial_opacity)
         self.opacity_effect.setEnabled(True)
 
-        if ThemeUtil.should_use_dark_colors():
-            self.pixmap = QPixmap(f':images/{icon}_white.png')
-        else:
+        if ThemeUtil.should_use_dark_text():
             self.pixmap = QPixmap(f':images/{icon}.png')
+        else:
+            self.pixmap = QPixmap(f':images/{icon}_white.png')
         self.scaled_pixmap = self.pixmap.scaled(22, 22, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
 
         self.setGraphicsEffect(self.opacity_effect)

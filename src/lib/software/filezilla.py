@@ -23,9 +23,9 @@ class FileZilla(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        download_url_pattern = compile(r'https://dl\d+\.cdn\.filezilla-project\.org/client/FileZilla_\d+\.\d+\.\d+_win64-setup\.exe\?h=[a-zA-Z0-9-_]{22,}&x=\d{10,}')
+        pattern = compile(r'https://dl\d+\.cdn\.filezilla-project\.org/client/FileZilla_\d+\.\d+\.\d+_win64-setup\.exe\?h=[a-zA-Z0-9-_]{22,}&x=\d{10,}')
         html = reply.readAll().data().decode()
-        match = download_url_pattern.search(html)
+        match = pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
         else:

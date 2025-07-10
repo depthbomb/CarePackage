@@ -20,7 +20,6 @@ class NodeJsLts(BaseSoftware):
         reply.deleteLater()
         error = reply.error()
         if error != QNetworkReply.NetworkError.NoError:
-            print(error)
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 

@@ -28,7 +28,7 @@ def main(args) -> int:
         user_theme = settings.get(SettingsKeys.Theme, AppTheme.Light, AppTheme)
         if user_theme == AppTheme.Dark:
             app.styleHints().setColorScheme(Qt.ColorScheme.Dark)
-        else:
+        elif user_theme == AppTheme.Light:
             app.styleHints().setColorScheme(Qt.ColorScheme.Light)
 
     app.setStyle(user_style)

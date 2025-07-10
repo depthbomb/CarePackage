@@ -1,33 +1,22 @@
+from functools import cache
 from typing import cast, Optional
-
-from lib.theme import ThemeUtil
+from src.lib.theme import ThemeUtil
 from src.widgets.badge import Badge
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import Qt, Slot, Signal, QObject
 from src.windows.variant_wizard import VariantWizard
 from src.lib.settings import user_settings, UserSettingsKeys
 from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
-from PySide6.QtWidgets import QMenu, QLabel, QWidget, QHBoxLayout, QSizePolicy, QMessageBox, QGraphicsDropShadowEffect
-
-SELECTED_STYLESHEET = f'''
-    #SoftwareRow {{
-        background: {ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Lighter, 175).name()};
-    }}
-    
-    #SoftwareName {{
-        color: {ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 500).name()};
-        font-weight: bold;
-    }}
-'''
-HOVERED_STYLESHEET = f'''
-    #SoftwareRow {{
-        background-color: #f0f0f0;
-    }}
-    
-    #SoftwareName {{
-        color: #000;
-    }}
-'''
+from PySide6.QtWidgets import (
+    QMenu,
+    QLabel,
+    QWidget,
+    QHBoxLayout,
+    QSizePolicy,
+    QMessageBox,
+    QApplication,
+    QGraphicsDropShadowEffect
+)
 
 class SoftwareRow(QWidget):
     selection_changed = Signal(BaseSoftware, bool)
@@ -35,6 +24,8 @@ class SoftwareRow(QWidget):
 
     def __init__(self, software: BaseSoftware, parent: Optional[QObject] = None):
         super().__init__(parent)
+
+        self._generate_stylesheets()
 
         self.software = software
         self.has_variants = self.software.has_variants
@@ -175,15 +166,54 @@ class SoftwareRow(QWidget):
     def _update_selection_style(self):
         badge_visible = user_settings.value(UserSettingsKeys.ShowCategoryBadges, True, bool)
         if self.selected:
-            self.setStyleSheet(SELECTED_STYLESHEET)
+            self.setStyleSheet(self._selected_stylesheet)
 
             if badge_visible:
                 self.badge_widget.setVisible(False)
         else:
             if self.hovered:
-                self.setStyleSheet(HOVERED_STYLESHEET)
+                self.setStyleSheet(self._hovered_stylesheet)
             else:
                 self.setStyleSheet('')
 
             if badge_visible:
                 self.badge_widget.setVisible(True)
+
+    @cache
+    def _generate_stylesheets(self):
+        style_name = QApplication.style().name()
+        is_fusion_or_windows = style_name in ('fusion', 'windows')
+        is_dark = ThemeUtil.is_dark_palette()
+
+        selected_bg_shade = 150 if is_fusion_or_windows else 175
+        self._selected_stylesheet = f'''
+            #SoftwareRow {{
+                background: {ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Lighter, selected_bg_shade).name()};
+            }}
+            
+            #SoftwareName {{
+                color: {ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 500).name()};
+                font-weight: bold;
+            }}
+        '''
+
+        if is_fusion_or_windows:
+            if is_dark:
+                hovered_bg = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 250).name()
+                text_color = '#fff'
+            else:
+                hovered_bg = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Lighter, 150).name()
+                text_color = '#000'
+        else:
+            hovered_bg = self.palette().color(self.backgroundRole()).name()
+            text_color = '#000'
+
+        self._hovered_stylesheet = f'''
+            #SoftwareRow {{
+                background-color: {hovered_bg};
+            }}
+            
+            #SoftwareName {{
+                color: {text_color};
+            }}
+        '''

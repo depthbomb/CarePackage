@@ -4,8 +4,9 @@ from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
 from PySide6.QtCore import Slot, QObject, QThread
 from src.lib.download_sweeper import DownloadSweeperWorker
-from src.lib.settings import user_settings, DownloadTimeout, UserSettingsKeys
+from src.lib.settings import AppStyle, AppTheme, user_settings, DownloadTimeout, UserSettingsKeys
 from PySide6.QtWidgets import (
+    QLabel,
     QWidget,
     QDialog,
     QComboBox,
@@ -20,6 +21,9 @@ class SettingsWindow(QDialog):
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(parent)
 
+        # Track "initialization" so the warning label isn't shown until after fields are populated
+        self._initialized = False
+
         self.thread = cast(Optional[QThread], None)
         self.worker = cast(Optional[DownloadSweeperWorker], None)
 
@@ -32,11 +36,19 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.setCurrentIndex(
             self.download_timeout_combobox.findData(int(user_settings.value(UserSettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes)))
         )
+        self.style_combobox.setCurrentIndex(
+            self.style_combobox.findData(user_settings.value(UserSettingsKeys.Style, AppStyle.WindowsVista))
+        )
+        self.theme_combobox.setCurrentIndex(
+            self.theme_combobox.findData(user_settings.value(UserSettingsKeys.Theme, AppTheme.Light))
+        )
         self.badge_visibility_checkbox.setChecked(
             user_settings.value(UserSettingsKeys.ShowCategoryBadges, True, bool)
         )
 
         self._start_sweeper(DownloadSweeperWorker.Mode.Scan)
+
+        self._initialized = True
 
     #region Overrides
     def showEvent(self, event):
@@ -49,6 +61,20 @@ class SettingsWindow(QDialog):
     def _on_sweeper_finished_scanning(self, found_files: int):
         if found_files > 0:
             self.sweeper_button.setEnabled(True)
+
+    @Slot(int)
+    def _on_style_or_theme_combobox_changed(self):
+        if self._initialized:
+            self.restart_warning_label.setVisible(True)
+
+    @Slot(int)
+    def _on_style_combobox_changed(self, index: int):
+        data = self.style_combobox.itemData(index)
+        if data != AppStyle.WindowsVista:
+            self.theme_combobox.setEnabled(True)
+        else:
+            self.theme_combobox.setCurrentIndex(self.theme_combobox.findData(AppTheme.Light))
+            self.theme_combobox.setEnabled(False)
 
     @Slot()
     def _on_sweeper_button_clicked(self):
@@ -79,6 +105,8 @@ class SettingsWindow(QDialog):
     @Slot()
     def _on_save_button_clicked(self):
         user_settings.setValue(UserSettingsKeys.DownloadTimeout, self.download_timeout_combobox.currentData())
+        user_settings.setValue(UserSettingsKeys.Style, self.style_combobox.currentData())
+        user_settings.setValue(UserSettingsKeys.Theme, self.theme_combobox.currentData())
         user_settings.setValue(UserSettingsKeys.ShowCategoryBadges, self.badge_visibility_checkbox.isChecked())
         self.accept()
     #endregion
@@ -87,13 +115,15 @@ class SettingsWindow(QDialog):
     def _create_layout(self):
         self.layout = QFormLayout(self)
         self.layout.addRow('Download timeout', self._create_download_timeout_row())
+        self.layout.addRow('App Style', self._create_style_row())
+        self.layout.addRow('App Theme', self._create_theme_row())
         self.layout.addRow('', self._create_badge_visibility_checkbox())
         self.layout.addRow('', self._create_sweeper_button())
 
         if not IS_COMPILED:
             self.layout.addRow('', self._create_clear_url_cache_button())
 
-        self.layout.addWidget(self._create_footer_row())
+        self.layout.addRow(self._create_footer_row())
 
         return self.layout
 
@@ -105,6 +135,26 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.addItem('30 minutes', DownloadTimeout.ThirtyMinutes.value)
 
         return self.download_timeout_combobox
+
+    def _create_style_row(self):
+        self.style_combobox = QComboBox(self)
+        self.style_combobox.addItem('Native (default)', AppStyle.WindowsVista)
+        self.style_combobox.addItem('Fusion', AppStyle.Fusion)
+        self.style_combobox.addItem('Windows (old)', AppStyle.Windows)
+        self.style_combobox.currentIndexChanged.connect(self._on_style_or_theme_combobox_changed)
+        self.style_combobox.currentIndexChanged.connect(self._on_style_combobox_changed)
+
+        return self.style_combobox
+
+    def _create_theme_row(self):
+        self.theme_combobox = QComboBox(self)
+        self.theme_combobox.setEnabled(False)
+        self.theme_combobox.addItem('Light (default)', AppTheme.Light)
+        self.theme_combobox.addItem('Dark', AppTheme.Dark)
+        self.theme_combobox.addItem('System', AppTheme.Auto)
+        self.theme_combobox.currentIndexChanged.connect(self._on_style_or_theme_combobox_changed)
+
+        return self.theme_combobox
 
     def _create_badge_visibility_checkbox(self):
         self.badge_visibility_checkbox = QCheckBox('Show category badges', self)
@@ -134,9 +184,14 @@ class SettingsWindow(QDialog):
         layout = QHBoxLayout(widget)
         layout.setContentsMargins(0, 0, 0, 0)
 
+        self.restart_warning_label = QLabel('Restart required to apply theme changes')
+        self.restart_warning_label.setVisible(False)
+        self.restart_warning_label.setStyleSheet('color: orangered;')
+
         self.save_button = QPushButton('&Save', self)
         self.save_button.clicked.connect(self._on_save_button_clicked)
 
+        layout.addWidget(self.restart_warning_label)
         layout.addStretch()
         layout.addWidget(self.save_button)
 

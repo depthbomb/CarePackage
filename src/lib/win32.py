@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget, QApplication
 from winreg import OpenKey, CloseKey, QueryValueEx, ConnectRegistry, HKEY_CURRENT_USER
 from ctypes import c_int, byref, c_bool, windll, HRESULT, wintypes, c_wchar_p, Structure
 
@@ -154,7 +154,7 @@ def is_dark_mode():
         return False
 
 def use_immersive_dark_mode(window: QWidget):
-    if is_dark_mode():
+    if is_dark_mode() and QApplication.style().name() != 'Fusion':
         hwnd = window.winId()
         value = c_bool(True)
         result = DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, byref(value), 4)

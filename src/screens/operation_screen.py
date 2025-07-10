@@ -220,11 +220,18 @@ class OperationScreen(QWidget):
     def _create_software_progress_display(self):
         self.software_progress_container = QScrollArea(self)
         self.software_progress_container.setWidgetResizable(True)
-        self.software_progress_container.setStyleSheet(f'''
-            QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
-            QScrollArea > QWidget > QWidget {{ background: transparent; }}
-            QScrollArea > QWidget > QScrollBar {{ background: 1; }}
-        ''')
+        if self.style().name() == 'fusion' or self.style().name() == 'windows':
+            self.software_progress_container.setStyleSheet(f'''
+                QScrollArea {{ background: {self.palette().color(self.backgroundRole()).lighter(150).name()}; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
+                QScrollArea > QWidget > QWidget {{ background: transparent; }}
+                QScrollArea > QWidget > QScrollBar {{ background: 1; }}
+            ''')
+        else:
+            self.software_progress_container.setStyleSheet(f'''
+                QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
+                QScrollArea > QWidget > QWidget {{ background: transparent; }}
+                QScrollArea > QWidget > QScrollBar {{ background: 1; }}
+            ''')
 
         self.software_progress_widget = QWidget(self)
 

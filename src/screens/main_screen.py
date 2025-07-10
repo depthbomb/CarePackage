@@ -122,11 +122,12 @@ class MainScreen(QWidget):
         self.search_input.setPlaceholderText('Search software')
         self.search_input.setClearButtonEnabled(True)
         self.search_input.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        self.search_input.setStyleSheet(f'''
-            QLineEdit:focus {{
-                border: 1px solid {ThemeUtil.get_accent_color_name()};
-            }}
-        ''')
+        if self.style().name() != 'fusion':
+            self.search_input.setStyleSheet(f'''
+                QLineEdit:focus {{
+                    border: 1px solid {ThemeUtil.get_accent_color_name()};
+                }}
+            ''')
         self.search_input.textChanged.connect(self._on_filters_changed)
 
         self.category_picker = QComboBox()
@@ -151,11 +152,18 @@ class MainScreen(QWidget):
     def _create_software_catalogue(self):
         scroll_area = QScrollArea(self)
         scroll_area.setWidgetResizable(True)
-        scroll_area.setStyleSheet(f'''
-            QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
-            QScrollArea > QWidget > QWidget {{ background: transparent; }}
-            QScrollArea > QWidget > QScrollBar {{ background: 1; }}
-        ''')
+        if self.style().name() == 'fusion' or self.style().name() == 'windows':
+            scroll_area.setStyleSheet(f'''
+                QScrollArea {{ background: {self.palette().color(self.backgroundRole()).lighter(150).name()}; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
+                QScrollArea > QWidget > QWidget {{ background: transparent; }}
+                QScrollArea > QWidget > QScrollBar {{ background: 1; }}
+            ''')
+        else:
+            scroll_area.setStyleSheet(f'''
+                QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
+                QScrollArea > QWidget > QWidget {{ background: transparent; }}
+                QScrollArea > QWidget > QScrollBar {{ background: 1; }}
+            ''')
 
         catalogue_widget = QWidget(self)
         catalogue_layout = QVBoxLayout(catalogue_widget)

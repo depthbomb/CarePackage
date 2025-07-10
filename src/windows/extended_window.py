@@ -1,18 +1,10 @@
 from src.lib import win32
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor, QPainter
+from PySide6.QtGui import QPainter
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QMainWindow
 from ctypes import c_int, byref, WinDLL, wintypes, HRESULT, POINTER, Structure
 
 dwmapi = WinDLL('dwmapi')
-user32 = WinDLL('user32')
-
-COLOR_WINDOW = 15
-GetSysColor = user32.GetSysColor
-GetSysColor.argtypes = [c_int]
-GetSysColor.restype = c_int
-color_ref = GetSysColor(COLOR_WINDOW)
-r, g, b = color_ref & 0xFF, (color_ref >> 8) & 0xFF, (color_ref >> 16) & 0xFF
 
 class MARGINS(Structure):
     _fields_ = [('cxLeftWidth', c_int),
@@ -28,8 +20,10 @@ class ExtendedWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.extended_height = 48
+
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
-        self.bg = QColor(r, g, b)
+        self.bg = self.palette().color(self.backgroundRole())
 
         self._container = QWidget()
         self._layout = QVBoxLayout(self._container)
@@ -37,7 +31,7 @@ class ExtendedWindow(QMainWindow):
         self._layout.setSpacing(0)
 
         self._top_widget = QWidget()
-        self._top_widget.setFixedHeight(48)
+        self._top_widget.setFixedHeight(self.extended_height)
 
         self._central_placeholder = QWidget()
 
@@ -65,7 +59,7 @@ class ExtendedWindow(QMainWindow):
 
     def extend_frame(self):
         hwnd = self.winId()
-        margins = MARGINS(0, 0, 48, 0)
+        margins = MARGINS(0, 0, self.extended_height, 0)
         DwmExtendFrameIntoClientArea(hwnd, byref(margins))
 
     def set_extended_widget(self, widget: QWidget):
@@ -75,7 +69,7 @@ class ExtendedWindow(QMainWindow):
             self._top_widget = widget
 
     def paintEvent(self, event):
-        painter = QPainter(self)
-        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
-        painter.fillRect(self.rect().adjusted(0, 48, 0, 0), self.bg)
-        painter.end()
+            painter = QPainter(self)
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+            painter.fillRect(self.rect().adjusted(0, self.extended_height, 0, 0), self.bg)
+            painter.end()

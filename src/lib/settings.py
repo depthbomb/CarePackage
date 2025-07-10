@@ -8,6 +8,16 @@ class DownloadTimeout(IntEnum):
     TenMinutes = 1_000 * 60 * 10
     ThirtyMinutes = 1_000 * 60 * 30
 
+class AppStyle(StrEnum):
+    Fusion = 'Fusion'
+    Windows = 'Windows'
+    WindowsVista = 'WindowsVista'
+
+class AppTheme(IntEnum):
+    Light = auto()
+    Dark = auto()
+    Auto = auto()
+
 class PostOperationAction(IntEnum):
     DoNothing = auto()
     CloseApp = auto()
@@ -26,3 +36,5 @@ class UserSettingsKeys(StrEnum):
     DownloadTimeout = 'user/download_timeout'
     DownloadDir = 'user/download_dir'
     ShowCategoryBadges = 'user/show_category_badges'
+    Style = 'user/style'
+    Theme = 'user/theme'

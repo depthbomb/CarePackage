@@ -133,8 +133,6 @@ class MainWindow(ExtendedWindow):
 
     #region UI Setup
     def _create_header(self):
-        widget = QWidget()
-        widget.setFixedHeight(48)
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0 ,0)
         layout.setSpacing(0)
@@ -143,6 +141,8 @@ class MainWindow(ExtendedWindow):
         layout.addWidget(self.about_button, alignment=Qt.AlignmentFlag.AlignVCenter)
         layout.addWidget(self.settings_button, alignment=Qt.AlignmentFlag.AlignVCenter)
 
+        widget = QWidget(self)
+        widget.setFixedHeight(self.extended_height)
         widget.setLayout(layout)
 
         return widget

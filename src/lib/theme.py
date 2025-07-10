@@ -2,9 +2,10 @@ from src.lib import win32
 from enum import auto, Enum
 from typing import Optional
 from functools import cache
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor
+from PySide6.QtWidgets import QApplication
 from winreg import OpenKey, CloseKey, QueryValueEx, HKEY_CURRENT_USER
-
 
 class ThemeUtil:
     class Mode(Enum):
@@ -72,3 +73,8 @@ class ThemeUtil:
     @cache
     def is_dark_mode() -> bool:
         return win32.is_dark_mode()
+
+    @staticmethod
+    @cache
+    def is_dark_palette() -> bool:
+        return QApplication.styleHints().colorScheme() == Qt.ColorScheme.Dark

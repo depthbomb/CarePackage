@@ -18,7 +18,6 @@ class PHPTS(BaseSoftware):
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
         reply.deleteLater()
-        print(reply.readAll().data().decode())
         error = reply.error()
         if error != QNetworkReply.NetworkError.NoError:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)

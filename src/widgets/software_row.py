@@ -200,16 +200,8 @@ class SoftwareRow(QWidget):
             }}
         '''
 
-        if is_fusion_or_windows:
-            if is_dark:
-                hovered_bg = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Darker, 250).name()
-                text_color = '#fff'
-            else:
-                hovered_bg = ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Lighter, 150).name()
-                text_color = '#000'
-        else:
-            hovered_bg = self.palette().color(self.backgroundRole()).name()
-            text_color = '#000'
+        hovered_bg = self.palette().color(self.backgroundRole()).name()
+        text_color = '#fff' if is_fusion_or_windows and is_dark else '#000'
 
         self._hovered_stylesheet = f'''
             #SoftwareRow {{

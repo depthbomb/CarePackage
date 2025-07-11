@@ -1,12 +1,11 @@
-from PySide6.QtWidgets import QWidget, QApplication
 from winreg import OpenKey, CloseKey, QueryValueEx, ConnectRegistry, HKEY_CURRENT_USER
-from ctypes import c_int, byref, c_bool, windll, HRESULT, wintypes, c_wchar_p, Structure
+from ctypes import c_int, byref, c_bool, WinDLL, HRESULT, wintypes, c_wchar_p, Structure
 
-user32 = windll.user32
-advapi32 = windll.advapi32
-dwmapi = windll.dwmapi
-shell32 = windll.shell32
-kernel32 = windll.kernel32
+user32 = WinDLL('user32')
+advapi32 = WinDLL('advapi32')
+dwmapi = WinDLL('dwmapi')
+shell32 = WinDLL('shell32')
+kernel32 = WinDLL('kernel32')
 
 TOKEN_ADJUST_PRIVILEGES = 0x0020
 TOKEN_QUERY = 0x0008
@@ -24,9 +23,7 @@ DWM_BB_TRANSITIONONMAXIMIZED = 0x00000004
 DWMWA_USE_IMMERSIVE_DARK_MODE = 20
 DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19
 
-DwmSetWindowAttribute = dwmapi.DwmSetWindowAttribute
-DwmSetWindowAttribute.argtypes = [wintypes.HWND, wintypes.DWORD, wintypes.LPCVOID, wintypes.DWORD]
-DwmSetWindowAttribute.restype = HRESULT
+SW_SHOWNORMAL = 1
 
 class MARGINS(Structure):
     _fields_ = [
@@ -64,8 +61,8 @@ class TOKEN_PRIVILEGES(Structure):
 
 def enable_shutdown_privilege():
     h_token = wintypes.HANDLE()
-    if not windll.advapi32.OpenProcessToken(
-        windll.kernel32.GetCurrentProcess(),
+    if not advapi32.OpenProcessToken(
+        kernel32.GetCurrentProcess(),
         TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY,
         byref(h_token)
     ):
@@ -74,7 +71,7 @@ def enable_shutdown_privilege():
     try:
         tkp = TOKEN_PRIVILEGES()
 
-        if not windll.advapi32.LookupPrivilegeValueW(
+        if not advapi32.LookupPrivilegeValueW(
             None,
             'SeShutdownPrivilege',
             byref(tkp.Privileges[0].Luid)
@@ -84,7 +81,7 @@ def enable_shutdown_privilege():
         tkp.PrivilegeCount = 1
         tkp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED
 
-        result = windll.advapi32.AdjustTokenPrivileges(
+        result = advapi32.AdjustTokenPrivileges(
             h_token,
             False,
             byref(tkp),
@@ -93,12 +90,12 @@ def enable_shutdown_privilege():
             None
         )
 
-        last_error = windll.kernel32.GetLastError()
+        last_error = kernel32.GetLastError()
         return bool(result) and last_error == ERROR_SUCCESS
     finally:
         kernel32.CloseHandle(h_token)
 
-def schedule_shutdown(delay_seconds, message='', reboot=False, force=False):
+def schedule_shutdown(delay_seconds, message='', *, reboot=False, force=False):
     if not enable_shutdown_privilege():
         raise RuntimeError('Failed to enable shutdown privilege')
 
@@ -110,7 +107,7 @@ def schedule_shutdown(delay_seconds, message='', reboot=False, force=False):
               SHTDN_REASON_MINOR_INSTALLATION |
               SHTDN_REASON_FLAG_PLANNED)
 
-    result = windll.advapi32.InitiateSystemShutdownExW(
+    result = advapi32.InitiateSystemShutdownExW(
         None,                    # lpMachineName (local machine)
         message_ptr,             # lpMessage
         delay_seconds,           # dwTimeout
@@ -153,10 +150,36 @@ def is_dark_mode():
     except:
         return False
 
-def use_immersive_dark_mode(window: QWidget):
-    if is_dark_mode() and QApplication.style().name() != 'Fusion':
-        hwnd = window.winId()
-        value = c_bool(True)
-        result = DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, byref(value), 4)
-        if result != 0:
-            DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, byref(value), 4)
+dwmapi.DwmSetWindowAttribute.argtypes = [wintypes.HWND, wintypes.DWORD, wintypes.LPCVOID, wintypes.DWORD]
+dwmapi.DwmSetWindowAttribute.restype = HRESULT
+def use_immersive_dark_mode(hwnd: int):
+    value = c_bool(True)
+    result = dwmapi.DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, byref(value), 4)
+    if result != 0:
+        dwmapi.DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, byref(value), 4)
+
+user32.FindWindowA.argtypes = [wintypes.LPCSTR, wintypes.LPCSTR]
+user32.FindWindowA.restype = wintypes.HWND
+def find_window(class_name: str = None, window_name: str = None):
+    window_name_bytes = window_name.encode('ascii') if window_name else None
+
+    class_name_bytes = class_name.encode('ascii') if class_name else None
+    hwnd = user32.FindWindowA(class_name_bytes, window_name_bytes)
+
+    if hwnd == 0:
+        error = kernel32.GetLastError()
+        raise RuntimeError(f'FindWindowA failed with error: {error}')
+
+    return hwnd
+
+user32.ShowWindow.argtypes = [wintypes.HWND, wintypes.INT]
+user32.ShowWindow.restype = wintypes.BOOL
+def show_window(hwnd: int, n_cmd_show: int):
+    result = user32.ShowWindow(hwnd, n_cmd_show)
+    return bool(result)
+
+user32.SetForegroundWindow.argtypes = [wintypes.HWND]
+user32.SetForegroundWindow.restype = wintypes.BOOL
+def set_foreground_window(hwnd: int):
+    result = user32.SetForegroundWindow(hwnd)
+    return bool(result)

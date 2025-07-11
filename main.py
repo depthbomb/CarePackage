@@ -1,17 +1,25 @@
+from src.lib import win32
 from sys import argv, exit
-from PySide6.QtCore import Qt
 from src.lib.settings import Settings
+from PySide6.QtCore import Qt, QSharedMemory
 from src.windows.main_window import MainWindow
-from src import APP_ORG, APP_NAME, APP_VERSION_STRING
 from src.enums import AppStyle, AppTheme, SettingsKeys
 from PySide6.QtWidgets import QMessageBox, QApplication
 from src.windows.disclaimer_window import DisclaimerWindow
+from src import APP_ORG, APP_NAME, APP_DISPLAY_NAME, APP_VERSION_STRING
 
 def main(args) -> int:
     app = QApplication(args)
     app.setApplicationName(APP_NAME)
     app.setApplicationVersion(APP_VERSION_STRING)
     app.setOrganizationName(APP_ORG)
+
+    shared_mem = QSharedMemory('carepackage.mutex')
+    if not shared_mem.create(1):
+        hwnd = win32.find_window(None, APP_DISPLAY_NAME)
+        win32.show_window(hwnd, win32.SW_SHOWNORMAL)
+        win32.set_foreground_window(hwnd)
+        return 0
 
     settings = Settings()
     settings.load()
@@ -36,7 +44,10 @@ def main(args) -> int:
     w = MainWindow()
     w.show()
 
-    return app.exec()
+    retval = app.exec()
+    shared_mem.detach()
+
+    return retval
 
 if __name__ == '__main__':
     exit(main(argv))

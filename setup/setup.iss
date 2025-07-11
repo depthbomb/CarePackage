@@ -61,7 +61,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "..\build\main.dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "..\build\src.dist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "..\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\CHANGELOG.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\resources\carepackage.VisualElementsManifest.xml"; DestDir: "{app}"; Flags: ignoreversion

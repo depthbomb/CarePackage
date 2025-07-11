@@ -3,8 +3,10 @@ from enum import auto, Enum
 from typing import Optional
 from functools import cache
 from PySide6.QtCore import Qt
+from src.enums import AppStyle
 from PySide6.QtGui import QColor
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QWidget
+from src.lib.win32 import is_dark_mode, use_immersive_dark_mode
 from winreg import OpenKey, CloseKey, QueryValueEx, HKEY_CURRENT_USER
 
 class ThemeUtil:
@@ -78,3 +80,8 @@ class ThemeUtil:
     @cache
     def is_dark_palette() -> bool:
         return QApplication.styleHints().colorScheme() == Qt.ColorScheme.Dark
+
+    @staticmethod
+    def use_immersive_dark_mode(widget: QWidget):
+        if is_dark_mode() and QApplication.style().name() != AppStyle.Fusion:
+            use_immersive_dark_mode(widget.winId())

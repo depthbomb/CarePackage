@@ -1,4 +1,5 @@
 from src.lib import win32
+from src import APP_DISPLAY_NAME
 from typing import cast, Optional
 from PySide6.QtCore import Slot, QUrl
 from src.enums import PostOperationAction
@@ -41,7 +42,7 @@ class MainWindow(ExtendedWindow):
         self.set_extended_widget(self._create_header())
         self.setCentralWidget(self.stack)
         self.setWindowIcon(QIcon(':icons/icon.ico'))
-        self.setWindowTitle('CarePackage')
+        self.setWindowTitle(APP_DISPLAY_NAME)
         self.setMinimumSize(1000, 550)
 
     #region Overrides

@@ -1,4 +1,12 @@
-﻿# 4.3.0
+﻿# 4.3.1
+
+- Only one instance of _CarePackage_ can be running at once, subsequent instances will close and the original instance will be focused
+- Adjusted the style of software rows when using various app style and theme combinations
+- Fixed the "System" app theme defaulting to the light theme
+- The software variant wizard window will now use the dark titlebar color if the system is using dark mode
+- Adjusted the style of the software variant window
+
+# 4.3.0
 
 - Added an option to change the application's theme
 - Fixed the extended titlebar button icons not using the correct theme based on the system's accent color

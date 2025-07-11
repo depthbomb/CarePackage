@@ -1,7 +1,7 @@
-from src.lib import win32
 from src import IS_COMPILED
 from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
+from src.lib.theme import ThemeUtil
 from src.lib.settings import Settings
 from PySide6.QtCore import Slot, QObject, QThread
 from src.lib.download_sweeper import DownloadSweeperWorker
@@ -55,7 +55,7 @@ class SettingsWindow(QDialog):
 
     #region Overrides
     def showEvent(self, event):
-        win32.use_immersive_dark_mode(self)
+        ThemeUtil.use_immersive_dark_mode(self)
         super().showEvent(event)
     #endregion
 

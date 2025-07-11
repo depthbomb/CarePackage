@@ -1,4 +1,5 @@
 from typing import cast, Optional
+from src.lib.theme import ThemeUtil
 from PySide6.QtGui import QIcon, QPixmap
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import QObject, Qt, Slot
@@ -16,8 +17,26 @@ class VariantWizard(QWizard):
 
         self.setWindowIcon(QIcon(':icons/icon.ico'))
         self.setWindowTitle(f'Select one or more variants/versions for {self.parent_software.name}')
+        self.setWizardStyle(QWizard.WizardStyle.ModernStyle)
         self.setButtonLayout([QWizard.WizardButton.Stretch, QWizard.WizardButton.FinishButton])
         self.addPage(self._create_page())
+
+    #region Overrides
+    def showEvent(self, event):
+        ThemeUtil.use_immersive_dark_mode(self)
+        super().showEvent(event)
+    #endregion
+
+    #region Slots
+    @Slot(bool)
+    def _on_checkbox_state_changed(self, state: Qt.CheckState):
+        cb = cast(QCheckBox, self.sender())
+        variant = cast(BaseSoftware, cb.property('software'))
+        if state == Qt.CheckState.Checked and variant not in self.selected_variants:
+            self.selected_variants.append(variant)
+        elif state == Qt.CheckState.Unchecked and variant in self.selected_variants:
+            self.selected_variants.remove(variant)
+    #endregion
 
     #region UI Setup
     def _create_page(self):
@@ -72,12 +91,3 @@ class VariantWizard(QWizard):
 
         return self.page
     #endregion
-
-    @Slot(bool)
-    def _on_checkbox_state_changed(self, state: Qt.CheckState):
-        cb = cast(QCheckBox, self.sender())
-        variant = cast(BaseSoftware, cb.property('software'))
-        if state == Qt.CheckState.Checked and variant not in self.selected_variants:
-            self.selected_variants.append(variant)
-        elif state == Qt.CheckState.Unchecked and variant in self.selected_variants:
-            self.selected_variants.remove(variant)

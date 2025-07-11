@@ -1,6 +1,6 @@
-from src.lib import win32
 from typing import Optional
 from PySide6.QtGui import QIcon
+from src.lib.theme import ThemeUtil
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import Slot, QTimer, QObject
 
@@ -30,7 +30,7 @@ class DisclaimerWindow(QMessageBox):
 
     #region Overrides
     def showEvent(self, event):
-        win32.use_immersive_dark_mode(self)
+        ThemeUtil.use_immersive_dark_mode(self)
         super().showEvent(event)
     #endregion
 

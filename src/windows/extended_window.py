@@ -1,6 +1,6 @@
-from src.lib import win32
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPainter
+from src.lib.theme import ThemeUtil
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QMainWindow
 from ctypes import c_int, byref, WinDLL, wintypes, HRESULT, POINTER, Structure
 
@@ -43,7 +43,7 @@ class ExtendedWindow(QMainWindow):
     #region Overrides
     def showEvent(self, event):
         self.extend_frame()
-        win32.use_immersive_dark_mode(self)
+        ThemeUtil.use_immersive_dark_mode(self)
         super().showEvent(event)
 
     def setCentralWidget(self, widget: QWidget):

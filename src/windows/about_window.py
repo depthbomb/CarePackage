@@ -1,5 +1,5 @@
-from src.lib import win32
 from typing import Optional
+from src.lib.theme import ThemeUtil
 from PySide6.QtCore import Qt, QObject
 from PySide6.QtGui import QFont, QPixmap
 from src.widgets.simple_link_label import SimpleLinkLabel
@@ -37,5 +37,5 @@ class AboutWindow(QDialog):
         self.setFixedSize(256, 256)
 
     def showEvent(self, event):
-        win32.use_immersive_dark_mode(self)
+        ThemeUtil.use_immersive_dark_mode(self)
         super().showEvent(event)

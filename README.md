@@ -17,6 +17,8 @@ What CarePackage **DOESN'T DO**
 
 The latest version of CarePackage can be downloaded from the [releases](https://github.com/depthbomb/CarePackage/releases/latest).
 
+**NEW:** CarePackage can also be installed via [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/): `winget install carepackage`
+
 ### Screenshots
 
 ![The main window of CarePackage, showing all available software uncategorized](art/1.png "The main window of CarePackage, showing all available software uncategorized")

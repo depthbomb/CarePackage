@@ -1,4 +1,8 @@
-﻿# 4.3.1
+﻿# 4.3.2 [UNRELEASED]
+
+- Fixed a potential crash when running the application for the very first time
+
+# 4.3.1
 
 - Only one instance of _CarePackage_ can be running at once, subsequent instances will close and the original instance will be focused
 - Adjusted the style of software rows when using various app style and theme combinations

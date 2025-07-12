@@ -30,9 +30,10 @@ class Settings(QObject):
     def load(self):
         if not SETTINGS_FILE_PATH.exists():
             SETTINGS_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
-            SETTINGS_FILE_PATH.touch()
+            self._settings = {}
+            self.save()
         else:
-            with open(SETTINGS_FILE_PATH, 'rb') as f:
+            with SETTINGS_FILE_PATH.open('rb') as f:
                 self._settings = loads(f.read())
 
     def get(self, key: str, default: _T = None, type_: Type[_T] = None) -> _T:
@@ -52,6 +53,6 @@ class Settings(QObject):
         self._settings[key] = value
 
     def save(self):
-        with open(SETTINGS_FILE_PATH, 'wb') as f:
+        with SETTINGS_FILE_PATH.open('wb') as f:
             f.write(dumps(self._settings))
             self.saved.emit()

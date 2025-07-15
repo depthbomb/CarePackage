@@ -60,10 +60,13 @@ class SettingsWindow(QDialog):
     #endregion
 
     #region Slots
-    @Slot(int)
-    def _on_sweeper_finished_scanning(self, found_files: int):
+    @Slot(int, int)
+    def _on_sweeper_finished_scanning(self, found_files: int, total_size: int):
         if found_files > 0:
             self.sweeper_button.setEnabled(True)
+            self.sweeper_button.setText(f'Clean up {self._pluralize('file', found_files)} ({self._bytes_to_human_readable(total_size)})')
+        else:
+            self.sweeper_button.setText('No files to clean up')
 
     @Slot(int)
     def _on_style_or_theme_combobox_changed(self):
@@ -83,6 +86,7 @@ class SettingsWindow(QDialog):
     def _on_sweeper_button_clicked(self):
         self.save_button.setEnabled(False)
         self.sweeper_button.setEnabled(False)
+        self.sweeper_button.setText('Cleaning up files...')
 
         self._start_sweeper(DownloadSweeperWorker.Mode.CleanUp)
 
@@ -94,13 +98,15 @@ class SettingsWindow(QDialog):
 
         self.clear_cache_button.setEnabled(True)
 
-    @Slot(int)
-    def _on_sweeper_finished_sweeping(self, found_files: int):
+    @Slot(int, int)
+    def _on_sweeper_finished_sweeping(self, found_files: int, total_size: int):
         if found_files > 0:
+            self.sweeper_button.setText('No files to clean up')
+
             mb = QMessageBox(self)
             mb.setWindowTitle('Cleanup Complete')
             mb.setIcon(QMessageBox.Icon.Information)
-            mb.setText(f'Cleaned up {found_files} file(s)!')
+            mb.setText(f'Cleaned up {self._pluralize('file', found_files)} totalling {self._bytes_to_human_readable(total_size)}!')
             mb.exec()
 
         self.save_button.setEnabled(True)
@@ -172,7 +178,7 @@ class SettingsWindow(QDialog):
         return self.show_software_count_checkbox
 
     def _create_sweeper_button(self):
-        self.sweeper_button = QPushButton('Clean up downloads', self)
+        self.sweeper_button = QPushButton('Scanning...', self)
         self.sweeper_button.setEnabled(False)
         self.sweeper_button.clicked.connect(self._on_sweeper_button_clicked)
 
@@ -223,3 +229,27 @@ class SettingsWindow(QDialog):
         self.thread.finished.connect(self.thread.deleteLater)
 
         self.thread.start()
+
+    def _bytes_to_human_readable(self, bytes_: int):
+        units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB']
+        size = float(bytes_)
+        for unit in units:
+            if size < 1024:
+                return f'{size:.2f}{unit}'
+
+            size /= 1024
+
+        return f'{size:.2f}ZB'
+
+    def _pluralize(self, word: str, num: int):
+        if num == 1:
+            return f'{num} {word}'
+        else:
+            if word.endswith('y') and word[-2] not in 'aeiou':
+                plural = word[:-1] + 'ies'
+            elif word.endswith(('s', 'sh', 'ch', 'x', 'z')):
+                plural = word + 'es'
+            else:
+                plural = word + 's'
+
+            return f'{num} {plural}'

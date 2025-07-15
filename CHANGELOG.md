@@ -1,6 +1,9 @@
-﻿# 4.3.2 [UNRELEASED]
+﻿# 4.3.2
 
 - Fixed a potential crash when running the application for the very first time
+- The total size of downloaded files is displayed before and after sweeping
+- Fixed download URL resolving for _OBS Studio_
+- Added software: _WeMod_
 
 # 4.3.1
 

@@ -10,7 +10,7 @@ class ObsStudio(BaseSoftware):
         self.key = 'obs-studio'
         self.name = 'OBS Studio'
         self.category = [SoftwareCategory.Media]
-        self.download_name = 'OBS-Studio-Windows-Installer.exe'
+        self.download_name = 'OBS-Studio-Windows-x64-Installer.exe'
         self.should_cache_url = True
         self.icon = 'obs-studio.png'
         self.homepage = 'https://obsproject.com'
@@ -23,7 +23,7 @@ class ObsStudio(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        download_url_pattern = compile(r'https://cdn-fastly\.obsproject\.com/downloads/OBS-Studio-\d+.\d+.\d+-Windows-Installer\.exe')
+        download_url_pattern = compile(r'https://cdn-fastly\.obsproject\.com/downloads/OBS-Studio-\d+.\d+.\d+-Windows-x64-Installer\.exe')
         html = reply.readAll().data().decode()
         match = download_url_pattern.search(html)
         if not match:

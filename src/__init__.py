@@ -214,6 +214,7 @@ from src.lib.software.vivaldi import Vivaldi
 from src.lib.software.vlc_media_player import VlcMediaPlayer
 from src.lib.software.waterfox import Waterfox
 from src.lib.software.webview2_runtime import WebView2Runtime
+from src.lib.software.wemod import WeMod
 from src.lib.software.whatsapp import WhatsApp
 from src.lib.software.windirstat import WinDirStat
 from src.lib.software.windows_app_sdk import WindowsAppSdk
@@ -387,6 +388,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     VlcMediaPlayer,
     Waterfox,
     WebView2Runtime,
+    WeMod,
     WhatsApp,
     WinDirStat,
     Winrar,

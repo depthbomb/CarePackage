@@ -184,6 +184,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Sunshine](./resources/images/software/sunshine.png "Sunshine") | [Sunshine](https://app.lizardbyte.dev/Sunshine) | ❌ | None | `0` |
 | ![Ubisoft Connect](./resources/images/software/ubisoft-connect.png "Ubisoft Connect") | [Ubisoft Connect](https://ubisoft.com/en-us/ubisoft-connect) | ❌ | None | `0` |
 | ![Vita3K](./resources/images/software/vita3k.png "Vita3K") | [Vita3K](https://vita3k.org) | ✔️ | Emulation | `0` |
+| ![WeMod](./resources/images/software/wemod.png "WeMod") | [WeMod](https://wemod.com) | ❌ | Utilities | `0` |
 
 ---
 
@@ -371,6 +372,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![TeamViewer](./resources/images/software/teamviewer.png "TeamViewer") | [TeamViewer](https://teamviewer.com) | ❌ | Social | `0` |
 | ![TeraCopy](./resources/images/software/teracopy.png "TeraCopy") | [TeraCopy](https://codesector.com/teracopy) | ❌ | File Management | `0` |
 | ![TreeSize Free](./resources/images/software/treesize.png "TreeSize Free") | [TreeSize Free](https://jam-software.com/treesize_free) | ❌ | File Management, System Management | `0` |
+| ![WeMod](./resources/images/software/wemod.png "WeMod") | [WeMod](https://wemod.com) | ❌ | Gaming | `0` |
 | ![WinDirStat](./resources/images/software/windirstat.png "WinDirStat") | [WinDirStat](https://windirstat.net) | ❌ | File Management, System Management | `0` |
 | ![WinRAR](./resources/images/software/winrar.png "WinRAR") | [WinRAR](https://www.win-rar.com) | ❌ | File Management | `0` |
 | ![WinSCP](./resources/images/software/winscp.png "WinSCP") | [WinSCP](https://winscp.net) | ❌ | Network Tools | `0` |

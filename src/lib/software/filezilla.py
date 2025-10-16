@@ -1,6 +1,7 @@
 from re import compile
 from PySide6.QtCore import Slot
 from src import BROWSER_USER_AGENT
+from src.lib.software.winscp import WinScp
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
@@ -14,6 +15,8 @@ class FileZilla(BaseSoftware):
         self.download_name = 'FileZilla_win64-setup.exe'
         self.icon = 'filezilla.png'
         self.homepage = 'https://filezilla-project.org'
+        self.is_deprecated = True
+        self.alternative = WinScp()
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

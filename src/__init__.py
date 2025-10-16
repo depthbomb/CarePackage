@@ -22,7 +22,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (4, 3, 2, 0)
+APP_VERSION = (4, 3, 3, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -70,6 +70,7 @@ from src.lib.software.calibre import Calibre
 from src.lib.software.ccleaner import Ccleaner
 from src.lib.software.cemu import Cemu
 from src.lib.software.cheat_engine import CheatEngine
+from src.lib.software.clink import Clink
 from src.lib.software.cmake import CMake
 from src.lib.software.composer import Composer
 from src.lib.software.corsair_icue import CorsairIcue
@@ -244,6 +245,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Ccleaner,
     Cemu,
     CheatEngine,
+    Clink,
     CMake,
     Composer,
     CorsairIcue,

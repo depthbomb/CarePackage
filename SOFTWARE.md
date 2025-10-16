@@ -336,6 +336,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Caesium Image Compressor](./resources/images/software/caesium-image-compressor.png "Caesium Image Compressor") | [Caesium Image Compressor](https://saerasoft.com/caesium) | ❌ | None | `0` |
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | File Management, System Management | `0` |
 | ![Cheat Engine](./resources/images/software/cheat-engine.png "Cheat Engine") | [Cheat Engine](https://cheatengine.org) | ❌ | Gaming | `0` |
+| ![Clink](./resources/images/software/clink.png "Clink") | [Clink](https://chrisant996.github.io/clink) | ❌ | None | `0` |
 | ![CPU-Z (Classic)](./resources/images/software/cpuz.png "CPU-Z (Classic)") | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | None | `0` |
 | ![DB Browser for SQLite](./resources/images/software/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | Development | `0` |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | File Management, System Management | `0` |

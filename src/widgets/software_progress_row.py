@@ -170,9 +170,13 @@ class SoftwareProgressRow(QWidget):
 
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):
-        if not self.progress_bar.isVisible() and total_bytes > 0:
+        if not self.progress_bar.isVisible():
             self.progress_bar.setVisible(True)
-            self.progress_bar.setMaximum(total_bytes)
+
+            if total_bytes > 0:
+                self.progress_bar.setMaximum(total_bytes)
+            else:
+                self.progress_bar.setMaximum(0)
 
         if total_bytes > 0:
             self.progress_bar.setValue(current_bytes)
@@ -196,6 +200,7 @@ class SoftwareProgressRow(QWidget):
             self.download_file = QFile(DOWNLOAD_DIR / self.software.download_name)
 
             self.progress_bar.setMaximum(0)
+
             if self.current_bytes >= 262_144_000:
                 self.set_status('Writing to disk - Don\'t panic if the app freezes!')
             else:

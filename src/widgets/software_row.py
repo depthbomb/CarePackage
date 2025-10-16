@@ -177,7 +177,7 @@ class SoftwareRow(QWidget):
             if self.hovered:
                 self.setStyleSheet(self._hovered_stylesheet)
             else:
-                self.setStyleSheet('')
+                self.setStyleSheet(self._default_stylesheet)
 
             if badge_visible:
                 self.badge_widget.setVisible(True)
@@ -211,4 +211,10 @@ class SoftwareRow(QWidget):
             #SoftwareName {{
                 color: {text_color};
             }}
+        '''
+
+        self._default_stylesheet = '''
+            #SoftwareRow {
+                background-color: transparent;
+            }
         '''

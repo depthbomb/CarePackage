@@ -1,4 +1,11 @@
-﻿# 4.3.2
+﻿# 4.3.3
+
+- Added software: _Clink_
+- Fixed download URL resolving for _LibreOffice_
+- Deprecated _FileZilla_ in favor of _WinSCP_
+- The progress bar is now shown in an indeterminate state for downloads that have an unknown size
+
+# 4.3.2
 
 - Fixed a potential crash when running the application for the very first time
 - The total size of downloaded files is displayed before and after sweeping

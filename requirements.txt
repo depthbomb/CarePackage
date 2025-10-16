@@ -1,4 +1,4 @@
 packaging==25.0
-pyside6==6.9.1
+pyside6==6.10.0
 
-nuitka==2.7.12
+nuitka==2.8.1

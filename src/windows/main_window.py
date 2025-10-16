@@ -95,7 +95,7 @@ class MainWindow(ExtendedWindow):
             case PostOperationAction.Lock:
                 win32.lock()
             case PostOperationAction.Restart:
-                win32.schedule_shutdown(60, 'CarePackage has scheduled a system restart.', True)
+                win32.schedule_shutdown(60, 'CarePackage has scheduled a system restart.', reboot=True)
             case PostOperationAction.ShutDown:
                 win32.schedule_shutdown(30, 'CarePackage has scheduled a system shutdown.')
 

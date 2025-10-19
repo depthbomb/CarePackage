@@ -22,7 +22,7 @@ APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
-APP_VERSION = (4, 3, 3, 0)
+APP_VERSION = (4, 3, 4, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -200,6 +200,7 @@ from src.lib.software.sunshine import Sunshine
 from src.lib.software.system_informer import SystemInformer
 from src.lib.software.teamviewer import TeamViewer
 from src.lib.software.telegram_desktop import TelegramDesktop
+from src.lib.software.temurin import TemurinJDK
 from src.lib.software.teracopy import TeraCopy
 from src.lib.software.thunderbird import Thunderbird
 from src.lib.software.tor_browser import TorBrowser
@@ -375,6 +376,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     SystemInformer,
     TeamViewer,
     TelegramDesktop,
+    TemurinJDK,
     TeraCopy,
     Thunderbird,
     TorBrowser,

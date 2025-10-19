@@ -1,4 +1,13 @@
-﻿# 4.3.3
+﻿# 4.3.4
+
+- Added software _Temurin JDK_ with the following variants:
+  - _JDK 8 - LTS_
+  - _JDK 11 - LTS_
+  - _JDK 17 - LTS_
+  - _JDK 21 - LTS_
+  - _JDK 25 - LTS_
+
+# 4.3.3
 
 - Added software: _Clink_
 - Fixed download URL resolving for _LibreOffice_

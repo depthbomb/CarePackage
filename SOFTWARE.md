@@ -272,6 +272,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | None | `0` |
 | ![Node.js](./resources/images/software/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | Development | `2` |
 | ![PHP](./resources/images/software/php.png "PHP") | [PHP](https://php.net) | ❌ | Development | `2` |
+| ![Temurin](./resources/images/software/temurin.png "Temurin") | [Temurin](https://adoptium.net) | ❌ | None | `5` |
 | ![Microsoft Edge WebView2 Runtime](./resources/images/software/microsoft-edge-webview2-runtime.png "Microsoft Edge WebView2 Runtime") | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | None | `0` |
 | ![Windows App SDK](./resources/images/software/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | Development | `0` |
 

@@ -2,7 +2,18 @@ from typing import cast
 from pathlib import Path
 from datetime import datetime
 from invoke import task, Context
-from src import APP_ORG, APP_NAME, APP_CLSID, APP_REPO_URL, APP_DESCRIPTION, APP_RELEASES_URL, APP_DISPLAY_NAME, APP_NEW_ISSUE_URL, APP_USER_MODEL_ID, APP_VERSION_STRING
+from src import (
+    APP_ORG,
+    APP_NAME,
+    APP_CLSID,
+    APP_REPO_URL,
+    APP_DESCRIPTION,
+    APP_RELEASES_URL,
+    APP_DISPLAY_NAME,
+    APP_NEW_ISSUE_URL,
+    APP_USER_MODEL_ID,
+    APP_VERSION_STRING
+)
 
 @task
 def generate_qrc_resources(c: Context):

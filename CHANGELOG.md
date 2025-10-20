@@ -1,4 +1,12 @@
-﻿# 4.3.4
+﻿# 4.3.5
+
+- Added the following software:
+  - Snes9x
+  - mGBA
+- Added _Temurin JDK_ to the _Development_ category
+- Adjusted the layout of the operation screen
+
+# 4.3.4
 
 - Added software _Temurin JDK_ with the following variants:
   - _JDK 8 - LTS_

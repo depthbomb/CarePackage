@@ -45,7 +45,7 @@ class OperationScreen(QWidget):
         self.setLayout(self._create_layout())
 
         for sw in software:
-            software_row = SoftwareProgressRow(sw, self)
+            software_row = SoftwareProgressRow(sw)
             software_row.finished.connect(self._on_software_row_finished)
             software_row.installation_requested.connect(self._on_installation_requested)
 
@@ -169,34 +169,41 @@ class OperationScreen(QWidget):
 
     #region UI Setup
     def _create_layout(self):
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(self._create_software_progress_display())
-        self.layout.addWidget(self._create_controls())
-        self.layout.addWidget(self._create_buttons())
+        # Main horizontal layout
+        self.main_layout = QHBoxLayout()
 
-        return self.layout
+        # Left side: vertical layout for progress display and buttons
+        left_layout = QVBoxLayout()
+        left_layout.addWidget(self._create_software_progress_display())
+        left_layout.addWidget(self._create_buttons())
+
+        # Add left layout and controls to the main layout
+        self.main_layout.addLayout(left_layout, stretch=1)
+        self.main_layout.addWidget(self._create_controls())
+
+        return self.main_layout
 
     def _create_controls(self):
-        self.controls_widget = QWidget(self)
+        self.controls_widget = QWidget()
         self.controls_layout = QVBoxLayout(self.controls_widget)
-        self.controls_layout.setContentsMargins(0, 6, 0, 6)
+        # self.controls_layout.setContentsMargins(0, 6, 0, 6)
 
-        self.skip_installation_checkbox = QCheckBox('Skip installation (download only)', self)
+        self.skip_installation_checkbox = QCheckBox('Skip installation (download only)')
         self.skip_installation_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)
 
-        self.silent_install_checkbox = QCheckBox('Try to install silently', self)
+        self.silent_install_checkbox = QCheckBox('Try to install silently')
         self.silent_install_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)
 
-        self.postinstall_cleanup_checkbox = QCheckBox('Delete executables after installation', self)
+        self.postinstall_cleanup_checkbox = QCheckBox('Delete executables after installation')
         self.postinstall_cleanup_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)
 
-        self.postinstall_open_dir_checkbox = QCheckBox('Show downloaded files when finished', self)
+        self.postinstall_open_dir_checkbox = QCheckBox('Show downloaded files when finished')
         self.postinstall_open_dir_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)
 
         self.post_op_row = QHBoxLayout()
-        self.post_op_label = QLabel('When done:', self)
+        self.post_op_label = QLabel('When done:')
         self.post_op_label.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
-        self.post_op_combobox = QComboBox(self)
+        self.post_op_combobox = QComboBox()
         self.post_op_combobox.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
         self.post_op_combobox.addItem('Do nothing', PostOperationAction.DoNothing)
         self.post_op_combobox.addItem('Quit', PostOperationAction.CloseApp)
@@ -214,11 +221,12 @@ class OperationScreen(QWidget):
         self.controls_layout.addWidget(self.postinstall_cleanup_checkbox)
         self.controls_layout.addWidget(self.postinstall_open_dir_checkbox)
         self.controls_layout.addLayout(self.post_op_row)
+        self.controls_layout.addStretch()
 
         return self.controls_widget
 
     def _create_software_progress_display(self):
-        self.software_progress_container = QScrollArea(self)
+        self.software_progress_container = QScrollArea()
         self.software_progress_container.setWidgetResizable(True)
         if self.style().name() == 'fusion' or self.style().name() == 'windows':
             self.software_progress_container.setStyleSheet(f'''
@@ -233,7 +241,7 @@ class OperationScreen(QWidget):
                 QScrollArea > QWidget > QScrollBar {{ background: 1; }}
             ''')
 
-        self.software_progress_widget = QWidget(self)
+        self.software_progress_widget = QWidget()
 
         self.software_progress_layout = QVBoxLayout(self.software_progress_widget)
         self.software_progress_layout.setSpacing(0)
@@ -246,15 +254,15 @@ class OperationScreen(QWidget):
         return self.software_progress_container
 
     def _create_buttons(self):
-        self.buttons_widget = QWidget(self)
+        self.buttons_widget = QWidget()
         self.buttons_layout = QHBoxLayout(self.buttons_widget)
         self.buttons_layout.setContentsMargins(0, 0, 0, 0)
 
-        self.start_button = QPushButton('&Start', self)
+        self.start_button = QPushButton('&Start')
         self.start_button.setFixedHeight(32)
         self.start_button.clicked.connect(self._on_start_button_clicked)
 
-        self.cancel_button = QPushButton('&Cancel', self)
+        self.cancel_button = QPushButton('&Cancel')
         self.cancel_button.setFixedHeight(32)
         self.cancel_button.clicked.connect(self._on_cancel_button_clicked)
 

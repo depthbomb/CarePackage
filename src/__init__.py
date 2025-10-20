@@ -45,8 +45,8 @@ if IS_COMPILED:
     BINARY_DIR = BINARY_PATH.parent.absolute()
 else:
     BINARY_PATH = Path(__file__).parent.parent.absolute()
-    # When running directly through Python, there is no 'binary' that the application runs from, so just use the
-    # project root directory.
+    # When running directly through Python there is no 'binary' that the application runs from so just use the project
+    # root directory.
     BINARY_DIR = BINARY_PATH
 DOWNLOAD_DIR = Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.TempLocation)) / '.carepackage'
 APPDATA_DIR = Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation))

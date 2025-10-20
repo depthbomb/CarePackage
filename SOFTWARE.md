@@ -108,10 +108,12 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Dolphin Emulator](./resources/images/software/dolphin-emu.png "Dolphin Emulator") | [Dolphin Emulator](https://dolphin-emu.org) | ✔️ | Gaming | `0` |
 | ![DuckStation](./resources/images/software/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ✔️ | Gaming | `0` |
 | ![melonDS](./resources/images/software/melonds.png "melonDS") | [melonDS](https://melonds.kuribo64.net) | ✔️ | Gaming | `0` |
+| ![mGBA](./resources/images/software/mgba.png "mGBA") | [mGBA](https://mgba.io) | ❌ | Gaming | `0` |
 | ![PCSX2](./resources/images/software/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔️ | Gaming | `0` |
 | ![PPSSPP](./resources/images/software/ppsspp.png "PPSSPP") | [PPSSPP](https://ppsspp.org) | ❌ | Gaming | `0` |
 | ![RPCS3](./resources/images/software/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔️ | Gaming | `0` |
 | ![ShadPS4](./resources/images/software/shadps4.png "ShadPS4") | [ShadPS4](https://shadps4.net) | ✔️ | Gaming | `0` |
+| ![Snes9X](./resources/images/software/snes9x.png "Snes9X") | [Snes9X](https://snes9x.com) | ✔️ | Gaming | `0` |
 | ![Vita3K](./resources/images/software/vita3k.png "Vita3K") | [Vita3K](https://vita3k.org) | ✔️ | Gaming | `0` |
 
 ---
@@ -168,6 +170,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![itch](./resources/images/software/itch.png "itch") | [itch](https://itch.io/app) | ❌ | None | `0` |
 | ![Medal](./resources/images/software/medal.png "Medal") | [Medal](https://medal.tv) | ❌ | None | `0` |
 | ![melonDS](./resources/images/software/melonds.png "melonDS") | [melonDS](https://melonds.kuribo64.net) | ✔️ | Emulation | `0` |
+| ![mGBA](./resources/images/software/mgba.png "mGBA") | [mGBA](https://mgba.io) | ❌ | Emulation | `0` |
 | ![Minecraft](./resources/images/software/minecraft-launcher.png "Minecraft") | [Minecraft](https://minecraft.net) | ❌ | None | `2` |
 | ![Moonlight](./resources/images/software/moonlight.png "Moonlight") | [Moonlight](https://moonlight-stream.org) | ❌ | None | `0` |
 | ![Overwolf](./resources/images/software/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ✔️ | None | `0` |
@@ -180,6 +183,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Rockstar Games Launcher](./resources/images/software/rockstar-games-launcher.png "Rockstar Games Launcher") | [Rockstar Games Launcher](https://socialclub.rockstargames.com/rockstar-games-launcher) | ❌ | None | `0` |
 | ![RPCS3](./resources/images/software/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔️ | Emulation | `0` |
 | ![ShadPS4](./resources/images/software/shadps4.png "ShadPS4") | [ShadPS4](https://shadps4.net) | ✔️ | Emulation | `0` |
+| ![Snes9X](./resources/images/software/snes9x.png "Snes9X") | [Snes9X](https://snes9x.com) | ✔️ | Emulation | `0` |
 | ![Steam](./resources/images/software/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | None | `0` |
 | ![Sunshine](./resources/images/software/sunshine.png "Sunshine") | [Sunshine](https://app.lizardbyte.dev/Sunshine) | ❌ | None | `0` |
 | ![Ubisoft Connect](./resources/images/software/ubisoft-connect.png "Ubisoft Connect") | [Ubisoft Connect](https://ubisoft.com/en-us/ubisoft-connect) | ❌ | None | `0` |
@@ -272,7 +276,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | None | `0` |
 | ![Node.js](./resources/images/software/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | Development | `2` |
 | ![PHP](./resources/images/software/php.png "PHP") | [PHP](https://php.net) | ❌ | Development | `2` |
-| ![Temurin](./resources/images/software/temurin.png "Temurin") | [Temurin](https://adoptium.net) | ❌ | None | `5` |
+| ![Temurin JDK](./resources/images/software/temurin.png "Temurin JDK") | [Temurin JDK](https://adoptium.net) | ❌ | None | `5` |
 | ![Microsoft Edge WebView2 Runtime](./resources/images/software/microsoft-edge-webview2-runtime.png "Microsoft Edge WebView2 Runtime") | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | None | `0` |
 | ![Windows App SDK](./resources/images/software/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | Development | `0` |
 

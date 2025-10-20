@@ -2,3 +2,4 @@ packaging==25.0
 pyside6==6.10.0
 
 nuitka==2.8.3
+invoke==2.2.1

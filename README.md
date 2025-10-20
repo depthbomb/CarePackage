@@ -26,3 +26,9 @@ The latest version of CarePackage can be downloaded from the [releases](https://
 ![The software variant modal showing variants selected for .NET](art/3.png "The software variant modal showing variants selected for .NET")
 ![The download options screen of CarePackage, showing the pre-operation options](art/4.png "The download options screen of CarePackage, showing the pre-operation options")
 ![The download queue screen of CarePackage, showing one software downloading while others are waiting in queue](art/5.png "The download queue screen of CarePackage, showing some software downloading while others are waiting in queue")
+
+### Development
+
+- Create a venv and run `pip install -r requirements.txt`
+- `invoke build` can be used to compile the application and `invoke deploy` will compile the application as well as create its installer
+- Use `invoke generate-software-table` to generate SOFTWARE.md, this should be done after adding, removing, and/or modifying software definitions

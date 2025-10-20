@@ -1,3 +1,4 @@
+from typing import cast
 from pathlib import Path
 from datetime import datetime
 from invoke import task, Context
@@ -71,6 +72,53 @@ def create_setup(c: Context):
     ])
     c.run(cmd)
 
-@task(pre=[build], post=[create_setup])
+@task
+def remove_unused_files(c: Context):
+    build_dir = Path('.') / 'build' / 'src.dist'
+
+    deletable_files = [
+        # <root>
+        build_dir / '_decimal.pyd',
+        build_dir / '_hashlib.pyd',
+        build_dir / '_socket.pyd',
+        build_dir / '_wmi.pyd',
+        build_dir / 'libcrypto-3.dll',
+        build_dir / 'msvcp140.dll',
+        build_dir / 'qt6pdf.dll',
+        build_dir / 'qt6svg.dll',
+        build_dir / 'select.pyd',
+        build_dir / 'unicodedata.pyd',
+        # <root>/shiboken6
+        build_dir / 'shiboken6' / 'msvcp140_1.dll',
+        build_dir / 'shiboken6' / 'msvcp140_2.dll',
+        build_dir / 'shiboken6' / 'msvcp140_codecvt_ids.dll',
+        # <root>/PySide6/qt-plugins/iconengines
+        build_dir / 'PySide6' / 'qt-plugins' / 'iconengines' / 'qsvgicon.dll',
+        # <root>/PySide6/qt-plugins/imageformats
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qgif.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qicns.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qjpeg.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qpdf.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qsvg.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qtga.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qtiff.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qwbmp.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'imageformats' / 'qwebp.dll',
+        # <root>/PySide6/qt-plugins/platforms
+        build_dir / 'PySide6' / 'qt-plugins' / 'platforms' / 'qdirect2d.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'platforms' / 'qminimal.dll',
+        build_dir / 'PySide6' / 'qt-plugins' / 'platforms' / 'qoffscreen.dll',
+    ]
+    deletable_dirs = [
+        build_dir / 'PySide6' / 'qt-plugins' / 'iconengines'
+    ]
+
+    for file in cast(list[Path], [*deletable_files, *deletable_dirs]):
+        if file.is_file():
+            file.unlink(missing_ok=True)
+        elif file.is_dir():
+            file.rmdir()
+
+@task(pre=[build], post=[remove_unused_files, create_setup])
 def deploy(c: Context):
     pass

@@ -1,22 +1,15 @@
-#define MyAppName "CarePackage"
-#define MyAppDescription "Software Management Tool"
-#define MyAppVersion "4.3.4.0"
-#define MyAppPublisher "Caprine Logic"
-#define MyAppExeName "carepackage.exe"
-#define MyAppCopyright "Copyright (C) 2024-2025 Caprine Logic"
-
 [Setup]
 AppId={{74749A6F-089B-43D0-A213-C8F4258F8FF6}
-AppName={#MyAppName}
-AppVersion={#MyAppVersion}
-AppVerName={#MyAppName} {#MyAppVersion}
-AppPublisher={#MyAppPublisher}
+AppName={#NameLong}
+AppVersion={#Version}
+AppVerName={#NameLong} {#Version}
+AppPublisher={#Company}
 AppPublisherURL=https://github.com/depthbomb
 AppSupportURL=https://github.com/depthbomb/CarePackage/issues/new/choose
 AppUpdatesURL=https://github.com/depthbomb/CarePackage/releases
-AppCopyright={#MyAppCopyright}
-VersionInfoVersion={#MyAppVersion}
-DefaultDirName={autopf}\{#MyAppPublisher}\{#MyAppName}
+AppCopyright={#Copyright}
+VersionInfoVersion={#Version}
+DefaultDirName={autopf}\{#Company}\{#NameLong}
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
@@ -27,21 +20,21 @@ OutputBaseFilename=carepackage_installer
 SetupIconFile=..\resources\icons\icon.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
+ArchitecturesAllowed=x64compatible
+MinVersion=10.0
 WizardStyle=modern
 WizardResizable=no
+ShowTasksTreeLines=yes
 WizardImageFile=.\images\Image_*.bmp
 WizardSmallImageFile=.\images\SmallImage_*.bmp
-ArchitecturesAllowed=x64compatible
-UninstallDisplayIcon={app}\carepackage.exe
-UninstallDisplayName={#MyAppName}
-ShowTasksTreeLines=True
-AlwaysShowDirOnReadyPage=True
-VersionInfoCompany={#MyAppPublisher}
-VersionInfoCopyright={#MyAppCopyright}
-VersionInfoProductName={#MyAppName}
-VersionInfoProductVersion={#MyAppVersion}
-VersionInfoProductTextVersion={#MyAppVersion}
-VersionInfoDescription={#MyAppDescription}
+UninstallDisplayIcon={app}\{#ExeName}
+UninstallDisplayName={#NameLong} - {#Description}
+VersionInfoCompany={#Company}
+VersionInfoCopyright={#Copyright}
+VersionInfoProductName={#NameLong}
+VersionInfoProductVersion={#Version}
+VersionInfoProductTextVersion={#Version}
+VersionInfoDescription={#Description}
 
 [Code]
 function FromUpdate: Boolean;
@@ -69,12 +62,12 @@ Source: "..\resources\Square70x70Logo.png"; DestDir: "{app}"; Flags: ignoreversi
 Source: "..\resources\Square150x150Logo.png"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{autoprograms}\{#Company}\{#NameLong}"; Filename: "{app}\{#ExeName}"; AppUserModelID: "{#AppUserModelId}"; AppUserModelToastActivatorCLSID: "{#AppUserModelToastActivatorClsid}"
+Name: "{autodesktop}\{#NameLong}"; Filename: "{app}\{#ExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall shellexec skipifsilent; Check: FromUpdate
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall shellexec skipifsilent unchecked; Check: FromNormal
+Filename: "{app}\{#ExeName}"; Description: "{cm:LaunchProgram,{#StringChange(NameLong, '&', '&&')}}"; Flags: nowait postinstall shellexec skipifsilent; Check: FromUpdate
+Filename: "{app}\{#ExeName}"; Description: "{cm:LaunchProgram,{#StringChange(NameLong, '&', '&&')}}"; Flags: nowait postinstall shellexec skipifsilent unchecked; Check: FromNormal
 
 [UninstallDelete]
 Type: dirifempty; Name: "{app}"

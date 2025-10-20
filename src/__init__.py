@@ -20,8 +20,10 @@ else:
 #region Application Info
 APP_NAME = 'carepackage'
 APP_DISPLAY_NAME = 'CarePackage'
+APP_DESCRIPTION = 'Software Management Tool'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
+APP_CLSID = 'C3B0021E-33B6-4ECC-97D2-E6A3CAF6A11B'
 APP_VERSION = (4, 3, 4, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'

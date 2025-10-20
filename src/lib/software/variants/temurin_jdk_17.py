@@ -12,7 +12,6 @@ class TemurinJDK17(BaseSoftware):
         self.key = 'temurin-jdk-17'
         self.name = 'Temurin JDK 17 - LTS'
         self.download_name = 'OpenJDK17U-jdk_x64_windows_hotspot.msi'
-        self.is_archive = False
         self.should_cache_url = True
         self.icon = 'temurin.png'
         self.homepage = 'https://adoptium.net'

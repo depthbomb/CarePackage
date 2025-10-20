@@ -12,7 +12,6 @@ class TemurinJDK21(BaseSoftware):
         self.key = 'temurin-jdk-21'
         self.name = 'Temurin JDK 21 - LTS'
         self.download_name = 'OpenJDK21U-jdk_x64_windows_hotspot.msi'
-        self.is_archive = False
         self.should_cache_url = True
         self.icon = 'temurin.png'
         self.homepage = 'https://adoptium.net'

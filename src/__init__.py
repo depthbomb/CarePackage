@@ -133,6 +133,7 @@ from src.lib.software.malwarebytes import Malwarebytes
 from src.lib.software.medal import Medal
 from src.lib.software.megasync import Megasync
 from src.lib.software.melonds import MelonDs
+from src.lib.software.mgba import MGBA
 from src.lib.software.microsoft_edge import MicrosoftEdge
 from src.lib.software.microsoft_powertoys import MicrosoftPowerToys
 from src.lib.software.microsoft_teams import MicrosoftTeams
@@ -189,6 +190,7 @@ from src.lib.software.sharex import ShareX
 from src.lib.software.shotcut import Shotcut
 from src.lib.software.signal import Signal
 from src.lib.software.slack import Slack
+from src.lib.software.snes9x import Snes9X
 from src.lib.software.speccy import Speccy
 from src.lib.software.spotify import Spotify
 from src.lib.software.steam import Steam
@@ -309,6 +311,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Medal,
     Megasync,
     MelonDs,
+    MGBA,
     MicrosoftEdge,
     MicrosoftPowerToys,
     MicrosoftTeams,
@@ -365,6 +368,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     Shotcut,
     Signal,
     Slack,
+    Snes9X,
     Speccy,
     Spotify,
     Steam,

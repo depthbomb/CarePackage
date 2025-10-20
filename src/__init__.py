@@ -24,18 +24,19 @@ APP_DESCRIPTION = 'Software Management Tool'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
 APP_CLSID = 'C3B0021E-33B6-4ECC-97D2-E6A3CAF6A11B'
-APP_VERSION = (4, 3, 4, 0)
+APP_VERSION = (4, 3, 5, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
 APP_REPO_URL = f'https://github.com/{APP_REPO_OWNER}/{APP_REPO_NAME}'
+APP_RELEASES_URL = f'https://github.com/{APP_REPO_OWNER}/{APP_REPO_NAME}/releases'
 APP_LATEST_RELEASE_URL = f'https://github.com/{APP_REPO_OWNER}/{APP_REPO_NAME}/releases/latest'
 APP_NEW_ISSUE_URL = f'https://github.com/{APP_REPO_OWNER}/{APP_REPO_NAME}/issues/new/choose'
 #endregion
 
 #region Strings
-USER_AGENT = f'CarePackage/{APP_VERSION_STRING} (depthbomb/carepackage)'
-BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+USER_AGENT = f'{APP_DISPLAY_NAME}/{APP_VERSION_STRING} ({APP_REPO_OWNER}/{APP_REPO_NAME})'
+BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
 #endregion
 
 #region Paths

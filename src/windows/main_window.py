@@ -19,7 +19,7 @@ class MainWindow(ExtendedWindow):
     def __init__(self):
         super().__init__()
 
-        self.updater = UpdateChecker(self)
+        self.updater = UpdateChecker()
         self.updater.update_available.connect(self._on_update_available)
         self.updater.start_checking()
 
@@ -36,7 +36,7 @@ class MainWindow(ExtendedWindow):
         self.main_screen.software_selected.connect(self._on_software_selected)
         self.operation_screen = cast(Optional[OperationScreen], None)
 
-        self.stack = QStackedWidget(self)
+        self.stack = QStackedWidget()
         self.stack.addWidget(self.main_screen)
 
         self.set_extended_widget(self._create_header())
@@ -141,7 +141,7 @@ class MainWindow(ExtendedWindow):
         layout.addWidget(self.about_button, alignment=Qt.AlignmentFlag.AlignVCenter)
         layout.addWidget(self.settings_button, alignment=Qt.AlignmentFlag.AlignVCenter)
 
-        widget = QWidget(self)
+        widget = QWidget()
         widget.setFixedHeight(self.extended_height)
         widget.setLayout(layout)
 

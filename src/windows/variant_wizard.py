@@ -40,9 +40,8 @@ class VariantWizard(QWizard):
 
     #region UI Setup
     def _create_page(self):
-        self.page = QWizardPage(self)
-
-        self.layout = QVBoxLayout(self)
+        self.page = QWizardPage()
+        self.layout = QVBoxLayout()
         self.layout.addWidget(QLabel(
                 f'<i>{self.parent_software.name}</i> has multiple variants or versions available.<br>Please select the '
                 f'ones you would like to download.'

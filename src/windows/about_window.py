@@ -10,18 +10,18 @@ class AboutWindow(QDialog):
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(parent)
 
-        self.layout = QVBoxLayout(self)
+        self.layout = QVBoxLayout()
         self.layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.logo = QLabel(self)
+        self.logo = QLabel()
         self.logo.setFixedSize(72, 72)
         self.logo.setScaledContents(True)
         self.logo.setPixmap(QPixmap(':images/icon.png'))
 
-        self.title_label = QLabel(APP_DISPLAY_NAME, self)
+        self.title_label = QLabel(APP_DISPLAY_NAME)
         self.title_label.setFont(QFont(self.title_label.font().family(), 16, QFont.Weight.DemiBold))
 
-        self.version_label = QLabel(APP_VERSION_STRING, self)
+        self.version_label = QLabel(APP_VERSION_STRING)
 
         self.repo_link = SimpleLinkLabel('GitHub', APP_REPO_URL)
         self.new_issue_link = SimpleLinkLabel('Report an issue/suggest software', APP_NEW_ISSUE_URL)

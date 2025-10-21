@@ -169,15 +169,12 @@ class OperationScreen(QWidget):
 
     #region UI Setup
     def _create_layout(self):
-        # Main horizontal layout
         self.main_layout = QHBoxLayout()
 
-        # Left side: vertical layout for progress display and buttons
         left_layout = QVBoxLayout()
         left_layout.addWidget(self._create_software_progress_display())
         left_layout.addWidget(self._create_buttons())
 
-        # Add left layout and controls to the main layout
         self.main_layout.addLayout(left_layout, stretch=1)
         self.main_layout.addWidget(self._create_controls())
 
@@ -186,7 +183,6 @@ class OperationScreen(QWidget):
     def _create_controls(self):
         self.controls_widget = QWidget()
         self.controls_layout = QVBoxLayout(self.controls_widget)
-        # self.controls_layout.setContentsMargins(0, 6, 0, 6)
 
         self.skip_installation_checkbox = QCheckBox('Skip installation (download only)')
         self.skip_installation_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)

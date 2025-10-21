@@ -124,7 +124,7 @@ class SettingsWindow(QDialog):
 
     #region UI Setup
     def _create_layout(self):
-        self.layout = QFormLayout(self)
+        self.layout = QFormLayout()
         self.layout.addRow('Download timeout', self._create_download_timeout_row())
         self.layout.addRow('App Style', self._create_style_row())
         self.layout.addRow('App Theme', self._create_theme_row())
@@ -148,7 +148,7 @@ class SettingsWindow(QDialog):
         return self.download_timeout_combobox
 
     def _create_style_row(self):
-        self.style_combobox = QComboBox(self)
+        self.style_combobox = QComboBox()
         self.style_combobox.addItem('Native (default)', AppStyle.WindowsVista)
         self.style_combobox.addItem('Fusion', AppStyle.Fusion)
         self.style_combobox.addItem('Windows (old)', AppStyle.Windows)
@@ -158,7 +158,7 @@ class SettingsWindow(QDialog):
         return self.style_combobox
 
     def _create_theme_row(self):
-        self.theme_combobox = QComboBox(self)
+        self.theme_combobox = QComboBox()
         self.theme_combobox.setEnabled(False)
         self.theme_combobox.addItem('Light (default)', AppTheme.Light)
         self.theme_combobox.addItem('Dark', AppTheme.Dark)
@@ -178,7 +178,7 @@ class SettingsWindow(QDialog):
         return self.show_software_count_checkbox
 
     def _create_sweeper_button(self):
-        self.sweeper_button = QPushButton('Scanning...', self)
+        self.sweeper_button = QPushButton('Scanning...')
         self.sweeper_button.setEnabled(False)
         self.sweeper_button.clicked.connect(self._on_sweeper_button_clicked)
 
@@ -191,7 +191,7 @@ class SettingsWindow(QDialog):
         return self.clear_cache_button
 
     def _create_footer_row(self):
-        widget = QWidget(self)
+        widget = QWidget()
         layout = QHBoxLayout(widget)
         layout.setContentsMargins(0, 0, 0, 0)
 
@@ -199,7 +199,7 @@ class SettingsWindow(QDialog):
         self.restart_warning_label.setVisible(False)
         self.restart_warning_label.setStyleSheet('color: orangered;')
 
-        self.save_button = QPushButton('&Save', self)
+        self.save_button = QPushButton('&Save')
         self.save_button.clicked.connect(self._on_save_button_clicked)
 
         layout.addWidget(self.restart_warning_label)

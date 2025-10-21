@@ -6,7 +6,7 @@ from src.windows.main_window import MainWindow
 from src.enums import AppStyle, AppTheme, SettingsKeys
 from PySide6.QtWidgets import QMessageBox, QApplication
 from src.windows.disclaimer_window import DisclaimerWindow
-from src import APP_ORG, APP_NAME, APP_DISPLAY_NAME, APP_VERSION_STRING
+from src import APP_ORG, APP_NAME, APP_DISPLAY_NAME, APP_USER_MODEL_ID, APP_VERSION_STRING
 
 def main(args) -> int:
     app = QApplication(args)
@@ -14,7 +14,7 @@ def main(args) -> int:
     app.setApplicationVersion(APP_VERSION_STRING)
     app.setOrganizationName(APP_ORG)
 
-    shared_mem = QSharedMemory('carepackage.mutex')
+    shared_mem = QSharedMemory(APP_USER_MODEL_ID)
     if not shared_mem.create(1):
         hwnd = win32.find_window(None, APP_DISPLAY_NAME)
         win32.show_window(hwnd, win32.SW_SHOWNORMAL)

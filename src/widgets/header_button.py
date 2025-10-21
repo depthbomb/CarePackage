@@ -17,7 +17,7 @@ class HeaderButton(QLabel):
         self._hovered_opacity = 1
         self._disabled_opacity = 0.50
 
-        self.opacity_effect = QGraphicsOpacityEffect(self)
+        self.opacity_effect = QGraphicsOpacityEffect()
         self.opacity_effect.setOpacity(self._initial_opacity)
         self.opacity_effect.setEnabled(True)
 

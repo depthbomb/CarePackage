@@ -150,7 +150,7 @@ class MainScreen(QWidget):
         return header_widget
 
     def _create_software_catalogue(self):
-        scroll_area = QScrollArea(self)
+        scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
         if self.style().name() == 'fusion' or self.style().name() == 'windows':
             scroll_area.setStyleSheet(f'''
@@ -165,7 +165,7 @@ class MainScreen(QWidget):
                 QScrollArea > QWidget > QScrollBar {{ background: 1; }}
             ''')
 
-        catalogue_widget = QWidget(self)
+        catalogue_widget = QWidget()
         catalogue_layout = QVBoxLayout(catalogue_widget)
         catalogue_layout.setSpacing(0)
         catalogue_layout.setContentsMargins(0, 0, 0, 0)
@@ -186,7 +186,7 @@ class MainScreen(QWidget):
         return scroll_area
 
     def _create_footer(self):
-        widget = QWidget(self)
+        widget = QWidget()
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
 

@@ -31,5 +31,5 @@ The latest version of CarePackage can be downloaded from the [releases](https://
 
 - Create a venv and run `pip install -r requirements.txt`
 - `invoke build` can be used to compile the application and `invoke deploy` will compile the application as well as create its installer
-- The compile process leaves various files that aren't needed, so to get rid of these start `carepackage.exe` and then run `invoke remove-unused-files` while the app is running
+- Use `invoke remove-unused-files` to get rid of unnecessary files after compiling
 - Use `invoke generate-software-table` to generate SOFTWARE.md, this should be done after adding, removing, and/or modifying software definitions

@@ -13,7 +13,7 @@ class TemurinJDK(BaseSoftware):
 
         self.key = 'temurin-jdk'
         self.name = 'Temurin JDK'
-        self.category = [SoftwareCategory.Runtime]
+        self.category = [SoftwareCategory.Development, SoftwareCategory.Runtime]
         self.variants = [TemurinJDK8(), TemurinJDK11(), TemurinJDK17(), TemurinJDK21(), TemurinJDK25()]
         self.icon = 'temurin.png'
         self.homepage = 'https://adoptium.net'

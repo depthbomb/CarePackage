@@ -24,7 +24,7 @@ APP_DESCRIPTION = 'Software Management Tool'
 APP_ORG = 'Caprine Logic'
 APP_USER_MODEL_ID = u'CaprineLogic.CarePackage'
 APP_CLSID = 'C3B0021E-33B6-4ECC-97D2-E6A3CAF6A11B'
-APP_VERSION = (4, 3, 5, 0)
+APP_VERSION = (4, 3, 6, 0)
 APP_VERSION_STRING = '.'.join(str(v) for v in APP_VERSION)
 APP_REPO_OWNER = 'depthbomb'
 APP_REPO_NAME = 'CarePackage'
@@ -96,7 +96,6 @@ from src.lib.software.epic_games_launcher import EpicGamesLauncher
 from src.lib.software.equalizer_apo import EqualizerApo
 from src.lib.software.evernote import Evernote
 from src.lib.software.everything import Everything
-from src.lib.software.filezilla import FileZilla
 from src.lib.software.flutter_sdk import FlutterSDK
 from src.lib.software.foobar2000 import Foobar2000
 from src.lib.software.gimp import Gimp
@@ -175,6 +174,7 @@ from src.lib.software.postman import Postman
 from src.lib.software.powershell_core import PowerShellCore
 from src.lib.software.ppsspp import Ppsspp
 from src.lib.software.putty import Putty
+from src.lib.software.pymanager import PyManager
 from src.lib.software.python import Python
 from src.lib.software.qbittorrent import QBitTorrent
 from src.lib.software.qt_oss import QtOss
@@ -274,7 +274,6 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     EqualizerApo,
     Evernote,
     Everything,
-    FileZilla,
     FlutterSDK,
     Foobar2000,
     Gimp,
@@ -353,6 +352,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     PowerShellCore,
     Ppsspp,
     Putty,
+    PyManager,
     Python,
     QBitTorrent,
     QtOss,

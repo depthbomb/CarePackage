@@ -1,9 +1,16 @@
-﻿# 4.3.5
+﻿# 4.3.6
+
+- Removed _FileZilla_
+- _Python 3.13.x_ now correctly downloads version 3.13.x
+- Added _Python 3.14.x_
+- Added _Python Install Manager_
+- Added _Temurin JDK_ to the _Development_ category
+
+# 4.3.5
 
 - Added the following software:
   - Snes9x
   - mGBA
-- Added _Temurin JDK_ to the _Development_ category
 - Adjusted the layout of the operation screen
 
 # 4.3.4

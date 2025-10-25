@@ -22,7 +22,8 @@ class Python313(BaseSoftware):
             return
 
         releases = QJsonDocument.fromJson(reply.readAll()).toVariant()
-        candidates = [release for release in releases if release.get('is_latest') and release.get('version') == 3]
+        candidates = [release for release in releases if release.get('version') == 3 and '3.13.' in release.get('name')]
+        candidates.reverse()
         if len(candidates) == 0:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return

@@ -1,6 +1,6 @@
 # All Software
 
-This file was generated from `scripts/generate_software_table.py`
+This file was generated from `tasks.py`
 
 ---
 
@@ -67,7 +67,6 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Docker Desktop](./resources/images/software/docker-desktop.png "Docker Desktop") | [Docker Desktop](https://docker.com/products/docker-desktop) | ❌ | None | `0` |
 | ![.NET](./resources/images/software/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | Runtimes | `8` |
 | ![Eclipse IDE](./resources/images/software/eclipse-ide.png "Eclipse IDE") | [Eclipse IDE](https://eclipseide.org) | ❌ | None | `0` |
-| ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | File Management, Network Tools | `0` |
 | ![Flutter SDK](./resources/images/software/flutter.png "Flutter SDK") | [Flutter SDK](https://docs.flutter.dev) | ✔️ | None | `0` |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | File Management | `0` |
 | ![GitHub CLI](./resources/images/software/github.png "GitHub CLI") | [GitHub CLI](https://cli.github.com) | ❌ | None | `0` |
@@ -89,10 +88,12 @@ This file was generated from `scripts/generate_software_table.py`
 | ![PHP](./resources/images/software/php.png "PHP") | [PHP](https://php.net) | ❌ | Runtimes | `2` |
 | ![Postman](./resources/images/software/postman.png "Postman") | [Postman](https://postman.com) | ❌ | Network Tools | `0` |
 | ![PowerShell 7](./resources/images/software/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | Utilities | `0` |
-| ![Python](./resources/images/software/python.png "Python") | [Python](https://python.org) | ❌ | None | `2` |
+| ![Python Install Manager](./resources/images/software/pymanager.png "Python Install Manager") | [Python Install Manager](https://docs.python.org/3/using/windows.html) | ❌ | Runtimes, Utilities | `0` |
+| ![Python](./resources/images/software/python.png "Python") | [Python](https://python.org) | ❌ | None | `3` |
 | ![Qt](./resources/images/software/qt.png "Qt") | [Qt](https://qt.io/download-open-source) | ❌ | None | `0` |
 | ![Rustup](./resources/images/software/rust.png "Rustup") | [Rustup](https://www.rust-lang.org/learn/get-started) | ❌ | None | `0` |
 | ![Sublime Text](./resources/images/software/sublime-text.png "Sublime Text") | [Sublime Text](https://sublimetext.com) | ❌ | None | `0` |
+| ![Temurin JDK](./resources/images/software/temurin.png "Temurin JDK") | [Temurin JDK](https://adoptium.net) | ❌ | Runtimes | `5` |
 | ![Visual Studio Code](./resources/images/software/visual-studio-code.png "Visual Studio Code") | [Visual Studio Code](https://code.visualstudio.com) | ❌ | None | `0` |
 | ![Visual Studio 2022 Community](./resources/images/software/visual-studio-community.png "Visual Studio 2022 Community") | [Visual Studio 2022 Community](https://visualstudio.microsoft.com) | ❌ | None | `0` |
 | ![Windows App SDK](./resources/images/software/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | Runtimes | `0` |
@@ -126,7 +127,6 @@ This file was generated from `scripts/generate_software_table.py`
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | System Management, Utilities | `0` |
 | ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | System Management, Utilities | `0` |
 | ![Dropbox](./resources/images/software/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | Utilities | `0` |
-| ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | Development, Network Tools | `0` |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | Development | `0` |
 | ![Google Drive](./resources/images/software/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | Utilities | `0` |
 | ![iCloud for Windows](./resources/images/software/icloud.png "iCloud for Windows") | [iCloud for Windows](https://support.apple.com/en-us/103232) | ❌ | None | `0` |
@@ -229,7 +229,6 @@ This file was generated from `scripts/generate_software_table.py`
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: |
-| ![FileZilla](./resources/images/software/filezilla.png "FileZilla") | [FileZilla](https://filezilla-project.org) | ❌ | Development, File Management | `0` |
 | ![GlassWire](./resources/images/software/glasswire.png "GlassWire") | [GlassWire](https://glasswire.com) | ❌ | Utilities | `0` |
 | ![Hoppscotch](./resources/images/software/hoppscotch.png "Hoppscotch") | [Hoppscotch](https://hoppscotch.io) | ❌ | Development | `0` |
 | ![Insomnia](./resources/images/software/insomnia.png "Insomnia") | [Insomnia](https://insomnia.rest) | ❌ | Development | `0` |
@@ -276,7 +275,8 @@ This file was generated from `scripts/generate_software_table.py`
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | None | `0` |
 | ![Node.js](./resources/images/software/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | Development | `2` |
 | ![PHP](./resources/images/software/php.png "PHP") | [PHP](https://php.net) | ❌ | Development | `2` |
-| ![Temurin JDK](./resources/images/software/temurin.png "Temurin JDK") | [Temurin JDK](https://adoptium.net) | ❌ | None | `5` |
+| ![Python Install Manager](./resources/images/software/pymanager.png "Python Install Manager") | [Python Install Manager](https://docs.python.org/3/using/windows.html) | ❌ | Development, Utilities | `0` |
+| ![Temurin JDK](./resources/images/software/temurin.png "Temurin JDK") | [Temurin JDK](https://adoptium.net) | ❌ | Development | `5` |
 | ![Microsoft Edge WebView2 Runtime](./resources/images/software/microsoft-edge-webview2-runtime.png "Microsoft Edge WebView2 Runtime") | [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2) | ❌ | None | `0` |
 | ![Windows App SDK](./resources/images/software/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | Development | `0` |
 
@@ -364,6 +364,7 @@ This file was generated from `scripts/generate_software_table.py`
 | ![PeaZip](./resources/images/software/peazip.png "PeaZip") | [PeaZip](https://peazip.github.io) | ❌ | File Management | `0` |
 | ![pgAdmin 4](./resources/images/software/pgadmin4.png "pgAdmin 4") | [pgAdmin 4](https://pgadmin.org) | ❌ | Development | `0` |
 | ![PowerShell 7](./resources/images/software/powershell-core.png "PowerShell 7") | [PowerShell 7](https://github.com/PowerShell/PowerShell) | ❌ | Development | `0` |
+| ![Python Install Manager](./resources/images/software/pymanager.png "Python Install Manager") | [Python Install Manager](https://docs.python.org/3/using/windows.html) | ❌ | Development, Runtimes | `0` |
 | ![qBittorrent](./resources/images/software/qbittorrent.png "qBittorrent") | [qBittorrent](https://qbittorrent.org) | ❌ | File Management, Network Tools | `0` |
 | ![Rainmeter](./resources/images/software/rainmeter.png "Rainmeter") | [Rainmeter](https://rainmeter.net) | ❌ | None | `0` |
 | ![Raspberry Pi Imager](./resources/images/software/raspberry-pi-imager.png "Raspberry Pi Imager") | [Raspberry Pi Imager](https://raspberrypi.com/software) | ❌ | None | `0` |

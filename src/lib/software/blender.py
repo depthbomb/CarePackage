@@ -12,6 +12,7 @@ class Blender(BaseSoftware):
         self.category = [SoftwareCategory.Creative, SoftwareCategory.Modelling]
         self.download_name = 'blender-windows-x64.msi'
         self.should_cache_url = True
+        self.is_unreliable = True
         self.icon = 'blender.png'
         self.homepage = 'https://blender.org'
 

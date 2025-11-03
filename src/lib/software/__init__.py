@@ -49,6 +49,7 @@ class BaseSoftware(QObject):
         self._is_archive = False
         self._should_cache_url = False
         self._deprecated = False
+        self._unreliable = False
         self._alternative = cast(Optional[Type[BaseSoftware]], None)
         self._variants = cast(list[Type['BaseSoftware']], [])
         self._icon = 'generic.png'
@@ -128,6 +129,16 @@ class BaseSoftware(QObject):
     @abstractmethod
     def is_deprecated(self, is_deprecated: bool):
         self._deprecated = is_deprecated
+
+    @property
+    @abstractmethod
+    def is_unreliable(self) -> bool:
+        return self._unreliable
+
+    @is_unreliable.setter
+    @abstractmethod
+    def is_unreliable(self, is_unreliable: bool):
+        self._unreliable = is_unreliable
 
     @property
     @abstractmethod

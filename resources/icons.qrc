@@ -1,6 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
 	<qresource>
+		<file>icons/error.ico</file>
 		<file>icons/icon.ico</file>
 		<file>icons/warning.ico</file>
 		<file>icons/zip.ico</file>

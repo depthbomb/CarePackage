@@ -73,6 +73,15 @@ class SoftwareRow(QWidget):
             archive_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
             self.layout.addWidget(archive_badge, alignment=Qt.AlignmentFlag.AlignVCenter)
 
+        if self.software.is_unreliable:
+            error_badge = QLabel(self)
+            error_badge.setFixedSize(16, 16)
+            error_badge.setScaledContents(True)
+            error_badge.setPixmap(QPixmap(':icons/error.ico'))
+            error_badge.setToolTip('The software can\'t always be downloaded reliably. Downloads may fail.')
+            error_badge.setCursor(Qt.CursorShape.WhatsThisCursor)
+            self.layout.addWidget(error_badge, alignment=Qt.AlignmentFlag.AlignVCenter)
+
         self.layout.addStretch()
 
         self.badge_widget = QWidget(self)

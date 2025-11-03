@@ -1,4 +1,8 @@
-﻿# 4.3.6
+﻿# 4.3.7
+
+- Marked _Blender_ as unreliable due to them adding Cloudflare to the download page
+
+# 4.3.6
 
 - Removed _FileZilla_
 - _Python 3.13.x_ now correctly downloads version 3.13.x

@@ -6,7 +6,8 @@ from PySide6.QtWidgets import QLabel
 from PySide6.QtGui import QFontDatabase
 from PySide6.QtCore import Qt, QTimer, QObject
 
-BOOT_FONT_PATH = r'C:\Windows\Boot\Fonts_EX\segoe_slboot_EX.ttf'
+BOOT_FONT_EX_PATH = r'C:\Windows\Boot\Fonts_EX\segoe_slboot_EX.ttf'
+BOOT_FONT_PATH = r'C:\Windows\Boot\Fonts\segoe_slboot.ttf'
 
 class Spinner(QLabel):
     class SpinnerStyle(Enum):
@@ -28,10 +29,10 @@ class Spinner(QLabel):
         self._timer.setInterval(18)
         self._timer.timeout.connect(self._update_spinner_characters)
 
-        if not Path(BOOT_FONT_PATH).exists():
-            raise Exception('Could not load system boot font')
-
-        QFontDatabase.addApplicationFont(BOOT_FONT_PATH)
+        if Path(BOOT_FONT_EX_PATH).exists():
+            QFontDatabase.addApplicationFont(BOOT_FONT_EX_PATH)
+        elif Path(BOOT_FONT_PATH).exists():
+            QFontDatabase.addApplicationFont(BOOT_FONT_PATH)
 
         self.setFont('Segoe Boot Semilight')
         self.setAlignment(Qt.AlignmentFlag.AlignCenter)

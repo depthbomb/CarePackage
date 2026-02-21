@@ -13,7 +13,7 @@ class Waterfox(BaseSoftware):
         self.download_name = 'Waterfox Setup.exe'
         self.should_cache_url = True
         self.icon = 'waterfox.png'
-        self.homepage = 'https://waterfox.net'
+        self.homepage = 'https://waterfox.com'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
@@ -23,7 +23,7 @@ class Waterfox(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        download_url_pattern = compile(r'https://cdn\d+\.waterfox\.net/waterfox/releases/\d+\.\d+\.\d+/WINNT_x86_64/Waterfox%20Setup%20.*\.exe')
+        download_url_pattern = compile(r'https://cdn\.waterfox\.com/waterfox/releases/\d+\.\d+\.\d+/WINNT_x86_64/Waterfox%20Setup%20\d+\.\d+\.\d+\.exe')
         html = reply.readAll().data().decode()
         match = download_url_pattern.search(html)
         if not match:
@@ -32,4 +32,4 @@ class Waterfox(BaseSoftware):
             self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://www.waterfox.net/download/'))
+        self.manager.get(QNetworkRequest('https://www.waterfox.com/download/'))

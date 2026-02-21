@@ -1,5 +1,4 @@
 from re import compile
-from src import USER_AGENT
 from PySide6.QtCore import Slot
 from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
@@ -23,16 +22,13 @@ class PHPNTS(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        pattern = compile(r'\"PHP (\d\.\d+\.\d+)\",')
-        text = reply.readAll().data().decode()
-        match = pattern.search(text)
+        html = reply.readAll().data().decode()
+        pattern = compile(r'https://downloads\.php\.net/~windows/releases/archives/php-\d+\.\d+\.\d+-nts-Win32-vs17-x64\.zip')
+        match = pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
         else:
-            version = match.group(1)
-            self.url_resolved.emit(f'https://windows.php.net/downloads/releases/php-{version}-nts-Win32-vs17-x64.zip')
+            self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        req = QNetworkRequest('https://api.github.com/repos/php/php-src/releases/latest')
-        req.setRawHeader(b'user-agent', USER_AGENT.encode())
-        self.manager.get(req)
+        self.manager.get(QNetworkRequest('https://www.php.net/downloads.php?usage=web&os=windows&osvariant=windows-downloads'))

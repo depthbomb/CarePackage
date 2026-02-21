@@ -60,7 +60,6 @@ from src.lib.software.abdownloadmanager import ABDownloadManager
 from src.lib.software.adobe_creative_cloud import AdobeCreativeCloud
 from src.lib.software.aimp import Aimp
 from src.lib.software.apache_netbeans import ApacheNetBeans
-from src.lib.software.arc import Arc
 from src.lib.software.audacity import Audacity
 from src.lib.software.autohotkey import AutoHotkey
 from src.lib.software.azahar import Azahar
@@ -238,7 +237,6 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     AdobeCreativeCloud,
     Aimp,
     ApacheNetBeans,
-    Arc,
     Audacity,
     AutoHotkey,
     Azahar,

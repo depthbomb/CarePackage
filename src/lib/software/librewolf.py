@@ -23,13 +23,13 @@ class LibreWolf(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        download_url_pattern = compile(r'"(https://gitlab.com/api/v4/projects/\d{8}/packages/generic/librewolf/.*/librewolf-.*-windows-x86_64-setup\.exe)"')
+        download_url_pattern = compile(r'https://codeberg\.org/api/packages/librewolf/generic/librewolf/\d{3,}\.\d+\.\d+(?:-\d+)?/librewolf-\d{3,}\.\d+\.\d+(?:-\d+)?-windows-x86_64-setup\.exe')
         html = reply.readAll().data().decode()
         match = download_url_pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
         else:
-            self.url_resolved.emit(match.group(1))
+            self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
         self.manager.get(QNetworkRequest('https://librewolf.net/installation/windows/'))

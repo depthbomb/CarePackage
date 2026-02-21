@@ -6,6 +6,7 @@
 - Renamed _shadPS4_ to _shadPS4 Launcher_
 - Unmarked _Blender_ as unreliable
 - Marked _InkScape_ as unreliable
+- Added _.NET 10_ variants
 - Fixed download URL resolving for the following software:
   - _Cheat Engine_ (thanks for making the download URL suspicious by giving the exe a random name each request)
   - _LibreWolf_

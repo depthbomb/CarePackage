@@ -1,12 +1,16 @@
 from src.lib.software import BaseSoftware, SoftwareCategory
 from src.lib.software.variants.dotnet_8_sdk import DotNet8Sdk
 from src.lib.software.variants.dotnet_9_sdk import DotNet9Sdk
+from src.lib.software.variants.dotnet_10_sdk import DotNet10Sdk
 from src.lib.software.variants.dotnet_8_runtime import DotNet8Runtime
 from src.lib.software.variants.dotnet_9_runtime import DotNet9Runtime
+from src.lib.software.variants.dotnet_10_runtime import DotNet10Runtime
 from src.lib.software.variants.dotnet_8_desktop_runtime import DotNet8DesktopRuntime
 from src.lib.software.variants.dotnet_9_desktop_runtime import DotNet9DesktopRuntime
+from src.lib.software.variants.dotnet_10_desktop_runtime import DotNet10DesktopRuntime
 from src.lib.software.variants.dotnet_8_aspnetcore_runtime import DotNet8AspNetCoreRuntime
 from src.lib.software.variants.dotnet_9_aspnetcore_runtime import DotNet9AspNetCoreRuntime
+from src.lib.software.variants.dotnet_10_aspnetcore_runtime import DotNet10AspNetCoreRuntime
 
 class DotNet(BaseSoftware):
     def __init__(self):
@@ -24,6 +28,10 @@ class DotNet(BaseSoftware):
             DotNet9DesktopRuntime(),
             DotNet9Runtime(),
             DotNet9Sdk(),
+            DotNet10AspNetCoreRuntime(),
+            DotNet10DesktopRuntime(),
+            DotNet10Runtime(),
+            DotNet10Sdk(),
         ]
         self.icon = 'dotnet.png'
         self.homepage = 'https://dot.net'

@@ -23,7 +23,7 @@ class OracleVirtualBox(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        download_url_pattern = compile(r'https://download\.virtualbox\.org/virtualbox/\d+\.\d+\.\d+/VirtualBox-\d+\.\d+\.\d+-\d{6,}-Win\.exe')
+        download_url_pattern = compile(r'https://download\.virtualbox\.org/virtualbox/\d+\.\d+\.\d+/VirtualBox-\d+\.\d+\.\d+\w?-\d{6,}-Win\.exe')
         html = reply.readAll().data().decode()
         match = download_url_pattern.search(html)
         if not match:

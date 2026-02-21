@@ -1,5 +1,6 @@
 from re import compile
 from PySide6.QtCore import Slot
+from packaging.version import Version
 from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
@@ -17,19 +18,21 @@ class PgAdmin4(BaseSoftware):
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
         reply.deleteLater()
-        error = reply.error()
-        if error != QNetworkReply.NetworkError.NoError:
+
+        if reply.error() != QNetworkReply.NetworkError.NoError:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        pattern = compile(r'<a href="/download/">(\d+\.\d+)</a>')
         html = reply.readAll().data().decode()
-        match = pattern.search(html)
-        if not match:
+        pattern = compile(r'href="v(\d+(?:\.\d+)*)/index\.html"')
+        versions = pattern.findall(html)
+        if not versions:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
-        else:
-            version = match.group(1)
-            self.url_resolved.emit(f'https://pgadmin-archive.postgresql.org/pgadmin4/v{version}/windows/pgadmin4-{version}-x64.exe')
+            return
+
+        version = str(max(Version(v) for v in versions))
+
+        self.url_resolved.emit(f'https://pgadmin-archive.postgresql.org/pgadmin4/v{version}/windows/pgadmin4-{version}-x64.exe')
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://www.pgadmin.org/'))
+        self.manager.get(QNetworkRequest('https://pgadmin-archive.postgresql.org/pgadmin4/index.html'))

@@ -1,5 +1,5 @@
-packaging==25.0
-pyside6==6.10.0
+packaging==26.0
+pyside6==6.10.2
 
-nuitka==2.8.6
+nuitka==4.0.1
 invoke==2.2.1

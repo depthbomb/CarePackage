@@ -29,7 +29,7 @@ def build(c: Context):
         '--enable-plugin=pyside6 --enable-plugin=upx',
         '--onefile-no-compression',
         '--windows-uac-admin --windows-icon-from-ico=resources/icons/icon.ico --windows-console-mode=attach',
-        f'--company-name="{APP_ORG}" --product-name="{APP_DISPLAY_NAME}" --product-version={APP_VERSION_STRING} --file-description="{APP_DESCRIPTION}" --copyright="Copyright (c) 2024-2025 {APP_ORG}"',
+        f'--company-name="{APP_ORG}" --product-name="{APP_DISPLAY_NAME}" --product-version={APP_VERSION_STRING} --file-description="{APP_DESCRIPTION}" --copyright="Copyright (c) 2024-2026 {APP_ORG}"',
     ])
     c.run(cmd)
 

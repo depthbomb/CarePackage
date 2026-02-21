@@ -2,29 +2,25 @@ from typing import cast
 from pathlib import Path
 from datetime import datetime
 from invoke import task, Context
-from src import (
-    APP_ORG,
-    APP_NAME,
-    APP_CLSID,
-    APP_REPO_URL,
-    APP_DESCRIPTION,
-    APP_RELEASES_URL,
-    APP_DISPLAY_NAME,
-    APP_NEW_ISSUE_URL,
-    APP_USER_MODEL_ID,
-    APP_VERSION_STRING
-)
 
 @task
 def generate_qrc_resources(c: Context):
     output_path = Path('.') / 'src' / 'rc'
     output_path.mkdir(parents=True, exist_ok=True)
 
-    c.run(f'pyside6-rcc resources/images.qrc -o {output_path / 'images.py'}')
-    c.run(f'pyside6-rcc resources/icons.qrc -o {output_path / 'icons.py'}')
+    resources_path = Path('.') / 'resources'
+    for file in resources_path.glob('*.qrc'):
+        c.run(f'pyside6-rcc {file} -o {output_path / f'{file.stem}.py'}')
 
 @task(pre=[generate_qrc_resources])
 def build(c: Context):
+    from src import (
+        APP_ORG,
+        APP_NAME,
+        APP_DESCRIPTION,
+        APP_DISPLAY_NAME,
+        APP_VERSION_STRING
+    )
     cmd = ' '.join([
         'nuitka',
         'src',
@@ -66,6 +62,18 @@ def generate_software_table(c: Context):
 
 @task
 def create_setup(c: Context):
+    from src import (
+        APP_ORG,
+        APP_NAME,
+        APP_CLSID,
+        APP_REPO_URL,
+        APP_DESCRIPTION,
+        APP_RELEASES_URL,
+        APP_DISPLAY_NAME,
+        APP_NEW_ISSUE_URL,
+        APP_USER_MODEL_ID,
+        APP_VERSION_STRING
+    )
     definitions = {
         'NameLong': APP_DISPLAY_NAME,
         'Version': APP_VERSION_STRING,

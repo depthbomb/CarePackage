@@ -1,3 +1,4 @@
+import src.rc.fonts  # noqa
 import src.rc.icons  # noqa
 import src.rc.images  # noqa
 from pathlib import Path

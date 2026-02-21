@@ -32,4 +32,4 @@ class Thunderbird(BaseSoftware):
             self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        self.manager.get(QNetworkRequest('https://thunderbird.net'))
+        self.manager.get(QNetworkRequest('https://www.thunderbird.net/en-US/download/'))

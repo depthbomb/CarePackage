@@ -64,7 +64,7 @@ This file was generated from `tasks.py`
 | ![DB Browser for SQLite](./resources/images/software/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | Utilities | `0` |
 | ![dnSpy (Fork)](./resources/images/software/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔️ | Utilities | `0` |
 | ![Docker Desktop](./resources/images/software/docker-desktop.png "Docker Desktop") | [Docker Desktop](https://docker.com/products/docker-desktop) | ❌ | None | `0` |
-| ![.NET](./resources/images/software/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | Runtimes | `8` |
+| ![.NET](./resources/images/software/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | Runtimes | `12` |
 | ![Eclipse IDE](./resources/images/software/eclipse-ide.png "Eclipse IDE") | [Eclipse IDE](https://eclipseide.org) | ❌ | None | `0` |
 | ![Flutter SDK](./resources/images/software/flutter.png "Flutter SDK") | [Flutter SDK](https://docs.flutter.dev) | ✔️ | None | `0` |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | File Management | `0` |
@@ -269,7 +269,7 @@ This file was generated from `tasks.py`
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: |
-| ![.NET](./resources/images/software/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | Development | `8` |
+| ![.NET](./resources/images/software/dotnet.png ".NET") | [.NET](https://dot.net) | ❌ | Development | `12` |
 | ![Java SE Development Kit](./resources/images/software/java.png "Java SE Development Kit") | [Java SE Development Kit](https://oracle.com/java/technologies/downloads) | ❌ | Development | `2` |
 | ![Microsoft Visual C++ 2015-2022 Redistributable](./resources/images/software/msvc.png "Microsoft Visual C++ 2015-2022 Redistributable") | [Microsoft Visual C++ 2015-2022 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) | ❌ | None | `0` |
 | ![Node.js](./resources/images/software/nodejs.png "Node.js") | [Node.js](https://nodejs.org) | ❌ | Development | `2` |

@@ -1,6 +1,6 @@
-from src import DOWNLOAD_DIR
 from collections import deque
 from src.lib.theme import ThemeUtil
+from src import IS_COMPILED, DOWNLOAD_DIR
 from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
@@ -29,6 +29,7 @@ class OperationScreen(QWidget):
     def __init__(self, software: Sequence[BaseSoftware], parent: Optional[QWidget] = None):
         super().__init__(parent)
 
+        self.probing = False
         self.canceled = False
         self.software = software
         self.software_rows = cast(Deque[SoftwareProgressRow], deque([], len(software)))
@@ -97,6 +98,8 @@ class OperationScreen(QWidget):
         for row in self.pending_software:
             row.set_status('Pending', True)
 
+        self.probing = False
+
         self.started.emit()
 
         self._start_next_downloads()
@@ -112,6 +115,24 @@ class OperationScreen(QWidget):
             self.finished.emit(True)
         else:
             self.finished.emit(False)
+
+    @Slot()
+    def _on_probe_button_clicked(self):
+        self.skip_installation_checkbox.setEnabled(False)
+        self.silent_install_checkbox.setEnabled(False)
+        self.postinstall_cleanup_checkbox.setEnabled(False)
+        self.postinstall_open_dir_checkbox.setEnabled(False)
+        self.start_button.setEnabled(False)
+
+        self.pending_software = self.software_rows.copy()
+        for row in self.pending_software:
+            row.set_status('Pending', True)
+
+        self.probing = True
+
+        self.started.emit()
+
+        self._start_next_downloads()
 
     @Slot()
     def _on_installation_requested(self):
@@ -136,7 +157,9 @@ class OperationScreen(QWidget):
     @Slot(SoftwareProgressRow.OperationError)
     def _on_software_row_finished(self, error: SoftwareProgressRow.OperationError):
         software_row = cast(SoftwareProgressRow, self.sender())
-        if error != SoftwareProgressRow.OperationError.NoError:
+        if error == SoftwareProgressRow.OperationError.Canceled:
+            pass
+        elif error != SoftwareProgressRow.OperationError.NoError:
             self.errored_software.append(software_row.software)
         else:
             self.downloaded_software.append(software_row.software)
@@ -159,6 +182,7 @@ class OperationScreen(QWidget):
                 mb.setDetailedText('\n'.join([sw.name for sw in self.errored_software]))
                 mb.exec()
             else:
+                self.probing = False
                 self.post_op_action_requested.emit(self.post_op_combobox.currentData())
                 self.finished.emit(True)
         else:
@@ -262,8 +286,14 @@ class OperationScreen(QWidget):
         self.cancel_button.setFixedHeight(32)
         self.cancel_button.clicked.connect(self._on_cancel_button_clicked)
 
+        self.probe_button = QPushButton('Probe (debug)')
+        self.probe_button.setFixedHeight(32)
+        self.probe_button.clicked.connect(self._on_probe_button_clicked)
+
         self.buttons_layout.addWidget(self.start_button)
         self.buttons_layout.addWidget(self.cancel_button)
+        if not IS_COMPILED:
+            self.buttons_layout.addWidget(self.probe_button)
         self.buttons_layout.addStretch()
         self.buttons_widget.setLayout(self.buttons_layout)
 
@@ -277,6 +307,7 @@ class OperationScreen(QWidget):
                 self.skip_installation_checkbox.isChecked(),
                 self.silent_install_checkbox.isChecked(),
                 self.postinstall_cleanup_checkbox.isChecked(),
+                self.probing,
             )
         except IndexError:
             pass

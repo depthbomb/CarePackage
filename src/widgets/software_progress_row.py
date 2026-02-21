@@ -93,6 +93,7 @@ class SoftwareProgressRow(QWidget):
     def __init__(self, software: BaseSoftware, parent: Optional[QObject] = None):
         super().__init__(parent)
 
+        self.probing = False
         self.skip_installation = False
         self.install_silently = False
         self.cleanup_postinstall = False
@@ -196,6 +197,11 @@ class SoftwareProgressRow(QWidget):
         if error == QNetworkReply.NetworkError.NoError:
             self.download_timeout_timer.stop()
             self.download_speed_timer.stop()
+
+            if self.probing:
+                self.set_status('<b style="color:green;">OK</b>')
+                self.finished.emit(self.OperationError.NoError)
+                return
 
             self.download_file = QFile(DOWNLOAD_DIR / self.software.download_name)
 
@@ -313,7 +319,8 @@ class SoftwareProgressRow(QWidget):
         else:
             self.status.stop_animation()
 
-    def start_download(self, skip_installation: bool, install_silently: bool, cleanup_postinstall: bool):
+    def start_download(self, skip_installation: bool, install_silently: bool, cleanup_postinstall: bool, probe: bool = False):
+        self.probing = probe
         self.skip_installation = skip_installation
         self.install_silently = install_silently
         self.cleanup_postinstall = cleanup_postinstall
@@ -371,8 +378,11 @@ class SoftwareProgressRow(QWidget):
         req = QNetworkRequest(url)
         req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
 
-        self.download_reply = self.downloader.get(req)
-        self.download_reply.downloadProgress.connect(self._on_downloader_download_progress)
+        if self.probing:
+            self.download_reply = self.downloader.head(req)
+        else:
+            self.download_reply = self.downloader.get(req)
+            self.download_reply.downloadProgress.connect(self._on_downloader_download_progress)
 
         self.download_timeout_timer.start()
         self.download_speed_timer.start()

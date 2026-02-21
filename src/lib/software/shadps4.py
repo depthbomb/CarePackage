@@ -1,16 +1,14 @@
+from re import compile
 from PySide6.QtCore import Slot
 from src.lib.software import BaseSoftware, SoftwareCategory
-from src.lib.github_release_scraper import GithubReleaseScraper
+from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class ShadPS4(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self._gh = GithubReleaseScraper('shadps4-emu', 'shadPS4', self)
-        self._gh.releases_scraped.connect(self._on_releases_scraped)
-
         self.key = 'shadps4'
-        self.name = 'ShadPS4'
+        self.name = 'shadPS4 Launcher'
         self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'shadps4-win64-qt.zip'
         self.is_archive = True
@@ -18,13 +16,22 @@ class ShadPS4(BaseSoftware):
         self.icon = 'shadps4.png'
         self.homepage = 'https://shadps4.net'
 
-    @Slot(list)
-    def _on_releases_scraped(self, releases: list[str]):
-        asset = next((release for release in releases if 'shadps4-win64-qt' in release), None)
-        if asset:
-            self.url_resolved.emit(asset)
+    @Slot(QNetworkReply)
+    def on_manager_finished(self, reply: QNetworkReply):
+        reply.deleteLater()
+        error = reply.error()
+        if error != QNetworkReply.NetworkError.NoError:
+            self.url_resolve_error.emit(self.ResolveError.URLResolveError)
+            return
+
+        json = reply.readAll().data().decode()
+
+        pattern = compile(r'https://github\.com/shadps4-emu/shadps4-qtlauncher/releases/download/shadPS4QtLauncher-\d+-\d+-\d+-[a-f0-9]{40}/shadPS4QtLauncher-win64-qt-\d+-\d+-\d+-[a-f0-9]{7}\.zip')
+        match = pattern.search(json)
+        if not match:
+            self.url_resolve_error.emit(self.ResolveError.URLResolveError)
         else:
-            self.url_resolve_error.emit(self.ResolveError.GitHubAssetNotFoundError)
+            self.url_resolved.emit(match.group(0))
 
     def resolve_download_url(self):
-        self._gh.get_repo_releases()
+        self.manager.get(QNetworkRequest('https://api.github.com/repos/shadps4-emu/shadps4-qtlauncher/releases'))

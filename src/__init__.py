@@ -37,7 +37,7 @@ APP_NEW_ISSUE_URL = f'https://github.com/{APP_REPO_OWNER}/{APP_REPO_NAME}/issues
 
 #region Strings
 USER_AGENT = f'{APP_DISPLAY_NAME}/{APP_VERSION_STRING} ({APP_REPO_OWNER}/{APP_REPO_NAME})'
-BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
+BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36'
 #endregion
 
 #region Paths

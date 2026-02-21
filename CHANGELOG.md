@@ -1,4 +1,26 @@
-﻿# 4.3.7
+﻿# 4.3.8
+
+- Replaced _KeePass_ with _KeePassXC_
+- Replaced _Visual Studio 2022 Community_ with _Visual Studio 2026 Community_
+- Removed _Arc_
+- Renamed _shadPS4_ to _shadPS4 Launcher_
+- Unmarked _Blender_ as unreliable
+- Marked _InkScape_ as unreliable
+- Fixed download URL resolving for the following software:
+  - _Cheat Engine_ (thanks for making the download URL suspicious by giving the exe a random name each request)
+  - _LibreWolf_
+  - _mpv_
+  - _Oracle VirtualBox_
+  - _Overwolf_
+  - _pgAdmin 4_
+  - _PHP_ variants
+  - _RPCS3_
+  - _shadPS4_
+  - _Thunderbird_
+  - _Waterfox_
+  - _Windows App SDK_
+
+# 4.3.7
 
 - Marked _Blender_ as unreliable due to them adding Cloudflare to the download page
 

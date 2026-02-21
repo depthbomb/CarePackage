@@ -124,7 +124,7 @@ from src.lib.software.jackett import Jackett
 from src.lib.software.java_sdk import JavaSEDevelopmentKit
 from src.lib.software.jetbrains_toolbox import JetBrainsToolbox
 from src.lib.software.joplin import Joplin
-from src.lib.software.keepass import KeePass
+from src.lib.software.keepassxc import KeePassXC
 from src.lib.software.krita import Krita
 from src.lib.software.lazarus import Lazarus
 from src.lib.software.libreoffice import LibreOffice
@@ -301,7 +301,7 @@ ALL_SOFTWARE = cast(list[Type[BaseSoftware]], [
     JavaSEDevelopmentKit,
     JetBrainsToolbox,
     Joplin,
-    KeePass,
+    KeePassXC,
     Krita,
     Lazarus,
     LibreOffice,

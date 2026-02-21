@@ -25,7 +25,7 @@ class CheatEngine(BaseSoftware):
 
         html = reply.readAll().data().decode()
 
-        pattern = compile(r'https://\w{13,}\.cloudfront\.net/installer/\d+/\d+')
+        pattern = compile(r'https://\w{13}\.cloudfront\.net/\w{7}/\w{4}\.exe')
         match = pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)

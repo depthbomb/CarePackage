@@ -24,7 +24,7 @@ class WindowsAppSdk(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        pattern = compile(r'https://aka.ms/windowsappsdk/\d+.\d+/latest/windowsappruntimeinstall-x64.exe')
+        pattern = compile(r'https://aka\.ms/windowsappsdk/\d+\.\d+/\d+\.\d+\.\d+/windowsappruntimeinstall-x64.exe')
         html = reply.readAll().data().decode()
         match = pattern.search(html)
         if not match:

@@ -25,7 +25,6 @@ This file was generated from `tasks.py`
 
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: |
-| ![Arc](./resources/images/software/arc.png "Arc") | [Arc](https://arc.net) | ❌ | None | `0` |
 | ![Brave](./resources/images/software/brave-browser.png "Brave") | [Brave](https://brave.net) | ❌ | None | `0` |
 | ![Google Chrome](./resources/images/software/google-chrome.png "Google Chrome") | [Google Chrome](https://google.com/chrome) | ❌ | None | `0` |
 | ![LibreWolf](./resources/images/software/librewolf.png "LibreWolf") | [LibreWolf](https://librewolf.net) | ❌ | None | `0` |
@@ -35,7 +34,7 @@ This file was generated from `tasks.py`
 | ![Opera GX](./resources/images/software/operagx.png "Opera GX") | [Opera GX](https://opera.com/gx) | ❌ | None | `0` |
 | ![Tor Browser](./resources/images/software/tor-browser.png "Tor Browser") | [Tor Browser](https://torproject.org) | ❌ | Security | `0` |
 | ![Vivaldi](./resources/images/software/vivaldi.png "Vivaldi") | [Vivaldi](https://vivaldi.com) | ❌ | None | `0` |
-| ![Waterfox](./resources/images/software/waterfox.png "Waterfox") | [Waterfox](https://waterfox.net) | ❌ | None | `0` |
+| ![Waterfox](./resources/images/software/waterfox.png "Waterfox") | [Waterfox](https://waterfox.com) | ❌ | None | `0` |
 
 ---
 
@@ -95,7 +94,7 @@ This file was generated from `tasks.py`
 | ![Sublime Text](./resources/images/software/sublime-text.png "Sublime Text") | [Sublime Text](https://sublimetext.com) | ❌ | None | `0` |
 | ![Temurin JDK](./resources/images/software/temurin.png "Temurin JDK") | [Temurin JDK](https://adoptium.net) | ❌ | Runtimes | `5` |
 | ![Visual Studio Code](./resources/images/software/visual-studio-code.png "Visual Studio Code") | [Visual Studio Code](https://code.visualstudio.com) | ❌ | None | `0` |
-| ![Visual Studio 2022 Community](./resources/images/software/visual-studio-community.png "Visual Studio 2022 Community") | [Visual Studio 2022 Community](https://visualstudio.microsoft.com) | ❌ | None | `0` |
+| ![Visual Studio 2026 Community](./resources/images/software/visual-studio-community.png "Visual Studio 2026 Community") | [Visual Studio 2026 Community](https://visualstudio.microsoft.com) | ❌ | None | `0` |
 | ![Windows App SDK](./resources/images/software/generic.png "Windows App SDK") | [Windows App SDK](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk) | ❌ | Runtimes | `0` |
 
 ---
@@ -113,7 +112,7 @@ This file was generated from `tasks.py`
 | ![PCSX2](./resources/images/software/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔️ | Gaming | `0` |
 | ![PPSSPP](./resources/images/software/ppsspp.png "PPSSPP") | [PPSSPP](https://ppsspp.org) | ❌ | Gaming | `0` |
 | ![RPCS3](./resources/images/software/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔️ | Gaming | `0` |
-| ![ShadPS4](./resources/images/software/shadps4.png "ShadPS4") | [ShadPS4](https://shadps4.net) | ✔️ | Gaming | `0` |
+| ![shadPS4 Launcher](./resources/images/software/shadps4.png "shadPS4 Launcher") | [shadPS4 Launcher](https://shadps4.net) | ✔️ | Gaming | `0` |
 | ![Snes9X](./resources/images/software/snes9x.png "Snes9X") | [Snes9X](https://snes9x.com) | ✔️ | Gaming | `0` |
 | ![Vita3K](./resources/images/software/vita3k.png "Vita3K") | [Vita3K](https://vita3k.org) | ✔️ | Gaming | `0` |
 
@@ -173,7 +172,7 @@ This file was generated from `tasks.py`
 | ![mGBA](./resources/images/software/mgba.png "mGBA") | [mGBA](https://mgba.io) | ❌ | Emulation | `0` |
 | ![Minecraft](./resources/images/software/minecraft-launcher.png "Minecraft") | [Minecraft](https://minecraft.net) | ❌ | None | `2` |
 | ![Moonlight](./resources/images/software/moonlight.png "Moonlight") | [Moonlight](https://moonlight-stream.org) | ❌ | None | `0` |
-| ![Overwolf](./resources/images/software/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ✔️ | None | `0` |
+| ![Overwolf](./resources/images/software/overwolf.png "Overwolf") | [Overwolf](https://overwolf.com) | ❌ | None | `0` |
 | ![Parsec](./resources/images/software/parsec.png "Parsec") | [Parsec](https://parsec.app) | ❌ | None | `0` |
 | ![PCSX2](./resources/images/software/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔️ | Emulation | `0` |
 | ![Playnite](./resources/images/software/playnite.png "Playnite") | [Playnite](https://playnite.link) | ❌ | None | `0` |
@@ -182,7 +181,7 @@ This file was generated from `tasks.py`
 | ![Razer Cortex](./resources/images/software/razer-cortex.png "Razer Cortex") | [Razer Cortex](https://razer.com/cortex) | ❌ | None | `0` |
 | ![Rockstar Games Launcher](./resources/images/software/rockstar-games-launcher.png "Rockstar Games Launcher") | [Rockstar Games Launcher](https://socialclub.rockstargames.com/rockstar-games-launcher) | ❌ | None | `0` |
 | ![RPCS3](./resources/images/software/rpcs3.png "RPCS3") | [RPCS3](https://rpcs3.net) | ✔️ | Emulation | `0` |
-| ![ShadPS4](./resources/images/software/shadps4.png "ShadPS4") | [ShadPS4](https://shadps4.net) | ✔️ | Emulation | `0` |
+| ![shadPS4 Launcher](./resources/images/software/shadps4.png "shadPS4 Launcher") | [shadPS4 Launcher](https://shadps4.net) | ✔️ | Emulation | `0` |
 | ![Snes9X](./resources/images/software/snes9x.png "Snes9X") | [Snes9X](https://snes9x.com) | ✔️ | Emulation | `0` |
 | ![Steam](./resources/images/software/steam.png "Steam") | [Steam](https://store.steampowered.com) | ❌ | None | `0` |
 | ![Sunshine](./resources/images/software/sunshine.png "Sunshine") | [Sunshine](https://app.lizardbyte.dev/Sunshine) | ❌ | None | `0` |
@@ -288,7 +287,7 @@ This file was generated from `tasks.py`
 | :-: | --- | :-: | :-: | :-: |
 | ![Bitwarden](./resources/images/software/bitwarden.png "Bitwarden") | [Bitwarden](https://bitwarden.com) | ❌ | None | `0` |
 | ![Gpg4win](./resources/images/software/gpg4win.png "Gpg4win") | [Gpg4win](https://gpg4win.org) | ❌ | None | `0` |
-| ![KeePass](./resources/images/software/keepass.png "KeePass") | [KeePass](https://keepass.info) | ❌ | None | `0` |
+| ![KeePassXC](./resources/images/software/keepassxc.png "KeePassXC") | [KeePassXC](https://keepassxc.org) | ❌ | Utilities | `0` |
 | ![Malwarebytes](./resources/images/software/malwarebytes.png "Malwarebytes") | [Malwarebytes](https://malwarebytes.com) | ❌ | None | `0` |
 | ![Mullvad VPN](./resources/images/software/mullvad-vpn.png "Mullvad VPN") | [Mullvad VPN](https://mullvad.net) | ❌ | None | `0` |
 | ![Tor Browser](./resources/images/software/tor-browser.png "Tor Browser") | [Tor Browser](https://torproject.org) | ❌ | Web Browsers | `0` |
@@ -355,6 +354,7 @@ This file was generated from `tasks.py`
 | ![HandBrake](./resources/images/software/handbrake.png "HandBrake") | [HandBrake](https://handbrake.fr) | ❌ | Media | `0` |
 | ![HWMonitor](./resources/images/software/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | System Management | `0` |
 | ![Jackett](./resources/images/software/jackett.png "Jackett") | [Jackett](https://github.com/Jackett/Jackett) | ❌ | File Management | `0` |
+| ![KeePassXC](./resources/images/software/keepassxc.png "KeePassXC") | [KeePassXC](https://keepassxc.org) | ❌ | Security | `0` |
 | ![Lightshot](./resources/images/software/lightshot.png "Lightshot") | [Lightshot](https://app.prntscr.com) | ❌ | Media | `0` |
 | ![MEGAsync](./resources/images/software/megasync.png "MEGAsync") | [MEGAsync](https://mega.io/desktop) | ❌ | File Management | `0` |
 | ![Microsoft PowerToys (Preview)](./resources/images/software/powertoys.png "Microsoft PowerToys (Preview)") | [Microsoft PowerToys (Preview)](https://learn.microsoft.com/en-us/windows/powertoys) | ❌ | None | `0` |

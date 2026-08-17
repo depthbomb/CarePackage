@@ -1,4 +1,39 @@
-﻿# 4.3.8
+﻿# 5.0.0
+
+- Significantly reduced startup time and memory usage by lazily loading software definitions, sharing network managers, and virtualizing the software catalogue:
+  - Catalogue import decreased from ~259 ms and ~6.5 MiB to ~63 ms and ~3.6 MiB
+  - _MainScreen_ dependency imports decreased from ~60 ms and ~3.5 MiB to ~59 ms and ~3.2 MiB
+  - _MainScreen_ construction decreased from ~433 ms and ~27.1 MiB to ~34 ms and ~2.4 MiB
+  - Combined, these stages decreased from ~752 ms and ~37.1 MiB to ~155 ms and ~9.2 MiB
+- Greatly improved downloads to prevent GUI freezes when writing files
+- Added an option for concurrent downloads
+  - When set to >1, all software will be downloaded before the installation step starts
+- Download timeouts are now based on inactivity instead of total transfer time
+- Installation failures are now detected and reported correctly
+- The default _Windows_ theme setting now uses a Windows 11 theme if running on Windows 11
+- Fixed progress bars still displaying when a download fails or times out
+- Fixed download URL resolving for the following software:
+  - _DuckStation_
+  - _CPU-Z (Classic)_
+  - _Display Driver Uninstaller_
+  - _Lazarus_
+  - _LibreOffice_
+  - _LibreWolf_
+  - _ShareX_
+  - _Snes9X_
+  - _System Informer_
+  - _Unity Hub_
+  - _VeraCrypt_
+- All _.NET_-related software now resolves URLs instantly
+- Marked the following software as unreliable:
+  - _Cheat Engine_
+  - _Dolphin Emulator_
+  - _MinGW_
+  - _NSIS_
+  - _qBittorrent_
+- Removed _Defraggler_ as the official download is no longer available
+
+# 4.3.8
 
 - Replaced _KeePass_ with _KeePassXC_
 - Replaced _Visual Studio 2022 Community_ with _Visual Studio 2026 Community_

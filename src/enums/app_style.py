@@ -4,3 +4,4 @@ class AppStyle(StrEnum):
     Fusion = 'Fusion'
     Windows = 'Windows'
     WindowsVista = 'WindowsVista'
+    Windows11 = 'Windows11'

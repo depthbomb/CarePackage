@@ -1,22 +1,22 @@
-from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
 from src.lib.theme import ThemeUtil
+from src.lib.settings import Settings
 from PySide6.QtCore import Qt, Slot, Signal
 from src.lib.software import SoftwareCategory
 from src.lib.software_spec import SoftwareSpec
-from src.lib.update_checker import UpdateChecker
-from src.widgets.software_row import SoftwareRow
-from PySide6.QtGui import QShortcut, QKeySequence
+from PySide6.QtGui import QKeySequence, QShortcut
+from src.windows.variant_wizard import VariantWizard
+from src.widgets.software_catalogue_view import SoftwareCatalogueFilterModel, SoftwareCatalogueModel, SoftwareCatalogueView
 from PySide6.QtWidgets import (
     QLabel,
     QWidget,
     QComboBox,
     QLineEdit,
+    QMessageBox,
     QPushButton,
-    QScrollArea,
     QSizePolicy,
-    QVBoxLayout,
     QHBoxLayout,
+    QVBoxLayout,
 )
 
 class MainScreen(QWidget):
@@ -26,10 +26,7 @@ class MainScreen(QWidget):
         super().__init__()
 
         self.has_selection = False
-
-        self.update_checker = cast(Optional[UpdateChecker], None)
-        self.selected_software = cast(list[SoftwareSpec], [])
-        self.software_widgets = cast(list[SoftwareRow], [])
+        self.selected_software: list[SoftwareSpec] = []
 
         self.main_layout = QVBoxLayout()
         self.main_layout.setSpacing(8)
@@ -37,81 +34,73 @@ class MainScreen(QWidget):
         self.main_layout.addWidget(self._create_software_catalogue())
         self.main_layout.addWidget(self._create_footer())
 
-        #region Shortcuts
         self.select_all_shortcut = QShortcut(QKeySequence('Ctrl+A'), self)
         self.deselect_shortcut = QShortcut(QKeySequence('Ctrl+D'), self)
-
-        self.select_all_shortcut.activated.connect(self._on_select_all_shortcut_activated)
-        self.deselect_shortcut.activated.connect(self._on_deselect_shortcut_activated)
-        #endregion
+        self.select_all_shortcut.activated.connect(self._select_all)
+        self.deselect_shortcut.activated.connect(self.clear_selection)
 
         self.setLayout(self.main_layout)
 
-    #region Overrides
     def mousePressEvent(self, event):
         focused_widget = self.focusWidget()
         if isinstance(focused_widget, QLineEdit):
             focused_widget.clearFocus()
         super().mousePressEvent(event)
-    #endregion
 
-    #region Slots
-    @Slot(object, bool)
-    def _on_software_row_selection_changed(self, software: SoftwareSpec, selected: bool):
-        if selected:
-            if software not in self.selected_software:
-                self.selected_software.append(software)
+    @Slot(object)
+    def _on_software_activated(self, software: SoftwareSpec):
+        selected = software in self.selected_software or any(
+            variant in self.selected_software for variant in software.variants
+        )
+
+        if software.is_deprecated and not selected:
+            message = 'This software has been deprecated and is no longer recommended.'
+            if software.alternative_name:
+                message += f' It is recommended that you download {software.alternative_name} instead.'
+            message += '\nWould you like to keep this software selected?'
+
+            result = QMessageBox.question(
+                self,
+                'Deprecated software',
+                message,
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            )
+            if result != QMessageBox.StandardButton.Yes:
+                return
+
+        if software.has_variants:
+            current_variants = [variant for variant in software.variants if variant in self.selected_software]
+            wizard = VariantWizard(software, software.variants, current_variants, self)
+            wizard.exec()
+
+            self.selected_software = [
+                selected_software
+                for selected_software in self.selected_software
+                if selected_software not in software.variants
+            ]
+            self.selected_software.extend(wizard.selected_variants)
+            wizard.deleteLater()
+        elif selected:
+            self.selected_software.remove(software)
         else:
-            if software in self.selected_software:
-                self.selected_software.remove(software)
+            self.selected_software.append(software)
 
-        self.has_selection = len(self.selected_software) > 0
-        self.start_button.setEnabled(self.has_selection)
-        self.reset_button.setEnabled(self.has_selection)
-        self.selected_software_count.setVisible(self.has_selection)
-        self.selected_software_count.setText(f'{len(self.selected_software)} software selected')
+        self._refresh_selection()
 
     @Slot()
     def _on_start_button_clicked(self):
-        if len(self.selected_software) == 0:
+        if not self.selected_software:
             return
 
-        self.software_selected.emit(
-                [spec.get_instance() for spec in self.selected_software if not spec.has_variants]
-        )
-
-    @Slot()
-    def _on_reset_button_clicked(self):
-        self.clear_selection()
-
-    @Slot()
-    def _on_select_all_shortcut_activated(self):
-        self._select_all()
-
-    @Slot()
-    def _on_deselect_shortcut_activated(self):
-        self.clear_selection()
+        self.software_selected.emit([software.get_instance() for software in self.selected_software])
 
     @Slot()
     def _on_filters_changed(self):
-        selected_category = self.category_picker.currentData()
-        search_text = self.search_input.text().strip().lower()
+        self.catalogue_filter.set_filters(
+            self.category_picker.currentData(),
+            self.search_input.text(),
+        )
 
-        for row in self.software_widgets:
-            software = row.software
-            matches_category = (
-                not selected_category or
-                selected_category in [c.name for c in software.category]
-            )
-            matches_search = search_text in software.name.lower()
-
-            if matches_category and matches_search:
-                row.show()
-            else:
-                row.hide()
-    #endregion
-
-    #region UI Setup
     def _create_header_controls(self):
         header_widget = QWidget()
         header_layout = QHBoxLayout()
@@ -147,44 +136,33 @@ class MainScreen(QWidget):
         header_layout.addStretch()
         header_layout.addWidget(self.selected_software_count)
         header_widget.setLayout(header_layout)
-
         return header_widget
 
     def _create_software_catalogue(self):
-        scroll_area = QScrollArea()
-        scroll_area.setWidgetResizable(True)
-        if self.style().name() == 'fusion' or self.style().name() == 'windows':
-            scroll_area.setStyleSheet(f'''
-                QScrollArea {{ background: {self.palette().color(self.backgroundRole()).lighter(150).name()}; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
-                QScrollArea > QWidget > QWidget {{ background: transparent; }}
-                QScrollArea > QWidget > QScrollBar {{ background: 1; }}
-            ''')
-        else:
-            scroll_area.setStyleSheet(f'''
-                QScrollArea {{ background: #fff; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
-                QScrollArea > QWidget > QWidget {{ background: transparent; }}
-                QScrollArea > QWidget > QScrollBar {{ background: 1; }}
-            ''')
+        self.catalogue_model = SoftwareCatalogueModel(SOFTWARE_CATALOGUE, self)
+        self.catalogue_filter = SoftwareCatalogueFilterModel(self)
+        self.catalogue_filter.setSourceModel(self.catalogue_model)
 
-        catalogue_widget = QWidget()
-        catalogue_layout = QVBoxLayout(catalogue_widget)
-        catalogue_layout.setSpacing(0)
-        catalogue_layout.setContentsMargins(0, 0, 0, 0)
-        catalogue_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
-        catalogue_widget.setLayout(catalogue_layout)
+        self.catalogue_view = SoftwareCatalogueView()
+        self.catalogue_view.setModel(self.catalogue_filter)
+        self.catalogue_view.software_activated.connect(self._on_software_activated)
 
-        for software in SOFTWARE_CATALOGUE:
-            row = SoftwareRow(software, scroll_area)
-            row.selection_changed.connect(self._on_software_row_selection_changed)
-            row.variant_selection_changed.connect(self._on_software_row_selection_changed)
+        background = (
+            self.palette().color(self.backgroundRole()).lighter(150).name()
+            if self.style().name() in ('fusion', 'windows')
+            else '#fff'
+        )
+        self.catalogue_view.setStyleSheet(f'''
+            QListView {{
+                background: {background};
+                border: 1px solid {ThemeUtil.get_accent_color_name()};
+                outline: 0;
+            }}
+            QListView > QScrollBar {{ background: 1; }}
+        ''')
 
-            catalogue_layout.addWidget(row)
-
-            self.software_widgets.append(row)
-
-        scroll_area.setWidget(catalogue_widget)
-
-        return scroll_area
+        Settings().saved.connect(self.catalogue_view.refresh_badges)
+        return self.catalogue_view
 
     def _create_footer(self):
         widget = QWidget()
@@ -199,23 +177,37 @@ class MainScreen(QWidget):
         self.reset_button = QPushButton('&Reset')
         self.reset_button.setFixedHeight(32)
         self.reset_button.setEnabled(False)
-        self.reset_button.clicked.connect(self._on_reset_button_clicked)
+        self.reset_button.clicked.connect(self.clear_selection)
 
         layout.addWidget(self.start_button)
         layout.addWidget(self.reset_button)
-
         layout.addStretch()
-
         widget.setLayout(layout)
-
         return widget
-    #endregion
 
     def clear_selection(self):
-        for widget in [w for w in self.software_widgets if w.selected is True]:
-            widget.set_selection(False)
+        if not self.selected_software:
+            return
+        self.selected_software.clear()
+        self._refresh_selection()
 
     def _select_all(self):
-        for widget in [w for w in self.software_widgets if not w.has_variants]:
-            if not widget.selected and widget.isVisible():
-                widget.set_selection(True)
+        for software in self.catalogue_filter.visible_software():
+            if not software.has_variants and software not in self.selected_software:
+                self.selected_software.append(software)
+        self._refresh_selection()
+
+    def _refresh_selection(self):
+        selected = set(self.selected_software)
+        selected_rows = {
+            software
+            for software in SOFTWARE_CATALOGUE
+            if software in selected or any(variant in selected for variant in software.variants)
+        }
+        self.catalogue_model.set_selected(selected_rows)
+
+        self.has_selection = bool(self.selected_software)
+        self.start_button.setEnabled(self.has_selection)
+        self.reset_button.setEnabled(self.has_selection)
+        self.selected_software_count.setVisible(self.has_selection)
+        self.selected_software_count.setText(f'{len(self.selected_software)} software selected')

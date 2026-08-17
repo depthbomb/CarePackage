@@ -11,6 +11,7 @@ class Winrar(BaseSoftware):
         self.name = 'WinRAR'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'WinRAR.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'winrar.png'
         self.homepage = 'https://www.win-rar.com'

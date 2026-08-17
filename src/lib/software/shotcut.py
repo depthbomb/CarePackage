@@ -13,6 +13,7 @@ class Shotcut(BaseSoftware):
         self.name = 'Shotcut'
         self.category = [SoftwareCategory.Audio, SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'shotcut-win64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'shotcut.png'
         self.homepage = 'https://shotcut.org'

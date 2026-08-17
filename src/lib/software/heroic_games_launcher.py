@@ -13,6 +13,7 @@ class HeroicGamesLauncher(BaseSoftware):
         self.name = 'Heroic Games Launcher'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'Heroic-Setup-x64.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'heroic-games-launcher.png'
         self.homepage = 'https://heroicgameslauncher.com'

@@ -12,6 +12,7 @@ class PgAdmin4(BaseSoftware):
         self.name = 'pgAdmin 4'
         self.category = [SoftwareCategory.Development, SoftwareCategory.Utility]
         self.download_name = 'pgadmin4-x64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'pgadmin4.png'
         self.homepage = 'https://pgadmin.org'
 

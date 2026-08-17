@@ -11,6 +11,7 @@ class CPUZ(BaseSoftware):
         self.name = 'CPU-Z (Classic)'
         self.category = [SoftwareCategory.Utility]
         self.download_name = 'cpu-z.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'cpuz.png'
         self.homepage = 'https://cpuid.com/softwares/cpu-z.html'

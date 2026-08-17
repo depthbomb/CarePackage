@@ -1,7 +1,241 @@
+import ast
 from typing import cast
 from pathlib import Path
+from hashlib import sha256
 from datetime import datetime
 from invoke import task, Context
+from tempfile import NamedTemporaryFile
+
+_INSTALLER_SUFFIXES = {'.exe', '.msi'}
+_INSTALLER_PROFILES = {
+    'Inno Setup': {
+        'signatures': (b'inno setup setup data', b'inno setup'),
+        'args': ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-'],
+    },
+    'NSIS': {
+        'signatures': (
+            b'nullsoft.nsis.exehead',
+            b'nullsoft install system',
+            b'nullsoftinst',
+        ),
+        'args': ['/S'],
+    },
+    'Squirrel.Windows': {
+        'signatures': (
+            b'squirrel.windows',
+            b'squirrelsetup.log',
+            'squirrel.windows'.encode('utf-16le'),
+            'squirrelsetup.log'.encode('utf-16le'),
+        ),
+        'args': ['--silent'],
+    },
+    'WiX Burn': {
+        'signatures': (b'wixbundleproperties', b'wixstdba'),
+        'args': ['/quiet', '/norestart'],
+    },
+    'InstallShield': {
+        'signatures': (b'installshield',),
+        'args': ['/s'],
+    },
+}
+
+def _installer_files(path: Path) -> list[Path]:
+    if path.is_file():
+        return [path]
+    if path.is_dir():
+        return sorted(
+            file for file in path.iterdir()
+            if file.is_file() and file.suffix.lower() in _INSTALLER_SUFFIXES
+        )
+    raise FileNotFoundError(f'Installer path does not exist: {path}')
+
+
+def _inspect_installer(path: Path) -> tuple[str, list[str], str, str]:
+    digest = sha256()
+    signatures = {
+        signature: engine
+        for engine, profile in _INSTALLER_PROFILES.items()
+        for signature in profile['signatures']
+    }
+    max_signature_length = max(map(len, signatures))
+    detected_engines = set()
+    tail = b''
+
+    with path.open('rb') as installer:
+        while chunk := installer.read(1024 * 1024):
+            digest.update(chunk)
+            searchable = (tail + chunk).lower()
+            detected_engines.update(
+                engine for signature, engine in signatures.items()
+                if signature in searchable
+            )
+            tail = searchable[-(max_signature_length - 1):]
+
+    if path.suffix.lower() == '.msi':
+        return 'Windows Installer (MSI)', ['/qn', '/norestart'], 'high', digest.hexdigest()
+
+    if len(detected_engines) == 1:
+        engine = detected_engines.pop()
+        profile = _INSTALLER_PROFILES[engine]
+        confidence = 'low' if engine == 'InstallShield' else 'medium'
+        return engine, cast(list[str], profile['args']), confidence, digest.hexdigest()
+
+    if len(detected_engines) > 1:
+        engines = ', '.join(sorted(detected_engines))
+        return f'Ambiguous ({engines})', [], 'low', digest.hexdigest()
+
+    return 'Unknown/custom executable', [], 'none', digest.hexdigest()
+
+
+def _assignment_to_self(statement: ast.stmt, attribute: str) -> bool:
+    return (
+        isinstance(statement, ast.Assign) and
+        any(
+            isinstance(target, ast.Attribute) and
+            isinstance(target.value, ast.Name) and
+            target.value.id == 'self' and
+            target.attr == attribute
+            for target in statement.targets
+        )
+    )
+
+
+def _definition_index() -> dict[str, list[tuple[Path, ast.Assign, ast.Assign | None]]]:
+    definitions = {}
+    software_dir = Path('src/lib/software')
+    for path in software_dir.rglob('*.py'):
+        source = path.read_bytes().decode('utf-8-sig')
+        tree = ast.parse(source, filename=str(path))
+        for class_node in (node for node in tree.body if isinstance(node, ast.ClassDef)):
+            for init_node in (
+                node for node in class_node.body
+                if isinstance(node, ast.FunctionDef) and node.name == '__init__'
+            ):
+                assignments = [node for node in ast.walk(init_node) if isinstance(node, ast.Assign)]
+                download_assignment = next(
+                    (node for node in assignments if _assignment_to_self(node, 'download_name')),
+                    None
+                )
+                if download_assignment is None:
+                    continue
+                try:
+                    assigned_name = ast.literal_eval(download_assignment.value)
+                except (TypeError, ValueError):
+                    continue
+                if not isinstance(assigned_name, str):
+                    continue
+                silent_assignment = next(
+                    (node for node in assignments if _assignment_to_self(node, 'silent_install_args')),
+                    None
+                )
+                definitions.setdefault(assigned_name.casefold(), []).append(
+                    (path, download_assignment, silent_assignment)
+                )
+    return definitions
+
+
+def _assignment_value(assignment: ast.Assign | None):
+    if assignment is None:
+        return None
+    try:
+        return ast.literal_eval(assignment.value)
+    except (TypeError, ValueError):
+        return '<dynamic expression>'
+
+
+def _write_silent_install_args(
+    path: Path,
+    download_assignment: ast.Assign,
+    silent_assignment: ast.Assign | None,
+    args: list[str]
+):
+    raw_source = path.read_bytes()
+    has_bom = raw_source.startswith(b'\xef\xbb\xbf')
+    source = raw_source.decode('utf-8-sig')
+    newline = '\r\n' if '\r\n' in source else '\n'
+    lines = source.splitlines(keepends=True)
+    assignment = silent_assignment or download_assignment
+    assignment_line = lines[assignment.lineno - 1]
+    indentation = assignment_line[:len(assignment_line) - len(assignment_line.lstrip())]
+    replacement = f'{indentation}self.silent_install_args = {args!r}{newline}'
+
+    if silent_assignment is None:
+        lines.insert(download_assignment.end_lineno, replacement)
+    else:
+        lines[silent_assignment.lineno - 1:silent_assignment.end_lineno] = [replacement]
+
+    encoded_source = ''.join(lines).encode('utf-8')
+    if has_bom:
+        encoded_source = b'\xef\xbb\xbf' + encoded_source
+
+    temporary_path = None
+    try:
+        with NamedTemporaryFile(dir=path.parent, prefix=f'.{path.name}.', suffix='.tmp', delete=False) as temporary:
+            temporary.write(encoded_source)
+            temporary_path = Path(temporary.name)
+        temporary_path.replace(path)
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
+
+
+@task(
+    positional=['installer'],
+    help={
+        'installer': 'An installer file or a directory containing .exe and .msi installers.',
+        'apply': 'Write safe suggestions to matching software definitions.',
+        'force': 'Replace conflicting existing arguments; only effective with --apply.',
+    }
+)
+def detect_silent_install_args(c: Context, installer: str, apply: bool = False, force: bool = False):
+    del c
+    installer_path = Path(installer).expanduser().resolve()
+    files = _installer_files(installer_path)
+    if not files:
+        print(f'No .exe or .msi installers found in {installer_path}')
+        return
+
+    definitions = _definition_index()
+    for index, file in enumerate(files):
+        engine, args, confidence, digest = _inspect_installer(file)
+        if index:
+            print()
+        print(file)
+        print(f'  SHA-256:   {digest}')
+        print(f'  Engine:    {engine}')
+        print(f'  Confidence: {confidence}')
+        if file.suffix.lower() == '.msi':
+            print('  Suggested: handled automatically by CarePackage via msiexec.exe /qn /norestart')
+        elif args:
+            print(f'  Suggested: silent_install_args = {args!r}')
+        else:
+            print('  Suggested: none; consult the vendor or an exact-hash package manifest')
+
+        if file.suffix.lower() != '.msi' and args and confidence in {'medium', 'high'}:
+            matches = definitions.get(file.name.casefold(), [])
+            if len(matches) == 0:
+                print('  Definition: no exact download_name match')
+            elif len(matches) > 1:
+                matched_paths = ', '.join(str(match[0]) for match in matches)
+                print(f'  Definition: ambiguous matches ({matched_paths}); skipped')
+            else:
+                path, download_assignment, silent_assignment = matches[0]
+                current_args = _assignment_value(silent_assignment)
+                print(f'  Definition: {path}')
+                if current_args == args:
+                    print('  Definition update: unchanged')
+                elif silent_assignment is not None and not force:
+                    print(f'  Definition update: conflict ({current_args!r}); use --apply --force to replace')
+                elif apply:
+                    _write_silent_install_args(path, download_assignment, silent_assignment, args)
+                    action = 'updated' if silent_assignment is not None else 'added'
+                    print(f'  Definition update: {action}')
+                else:
+                    action = 'replace existing value' if silent_assignment is not None else 'add assignment'
+                    print(f'  Definition update: would {action}; use --apply to write')
+        elif apply and file.suffix.lower() != '.msi':
+            print('  Definition update: skipped because the suggestion is not safe to apply')
+        print('  Warning:   review and test this result in a disposable Windows environment')
 
 @task
 def generate_qrc_resources(c: Context):

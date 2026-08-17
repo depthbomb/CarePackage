@@ -8,6 +8,7 @@ class TelegramDesktop(BaseSoftware):
         self.name = 'Telegram'
         self.category = [SoftwareCategory.Social]
         self.download_name = 'tsetup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'telegram.png'
         self.homepage = 'https://telegram.org'
 

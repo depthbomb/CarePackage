@@ -11,6 +11,7 @@ class Gimp(BaseSoftware):
         self.name = 'GIMP'
         self.category = [SoftwareCategory.Creative]
         self.download_name = 'GimpSetup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'gimp.png'
         self.homepage = 'https://gimp.org'

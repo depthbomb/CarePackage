@@ -13,6 +13,7 @@ class GitForWindows(BaseSoftware):
         self.name = 'Git for Windows'
         self.category = [SoftwareCategory.Development, SoftwareCategory.FileManagement]
         self.download_name = 'Git-64-bit.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'git.png'
         self.homepage = 'https://git-scm.com'

@@ -13,6 +13,7 @@ class Revolt(BaseSoftware):
         self.name = 'Revolt'
         self.category = [SoftwareCategory.Social]
         self.download_name = 'Revolt-Setup.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'revolt.png'
         self.homepage = 'https://revolt.chat'

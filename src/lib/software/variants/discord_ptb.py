@@ -7,6 +7,7 @@ class DiscordPtb(BaseSoftware):
         self.key = 'discord-ptb'
         self.name = 'Discord PTB'
         self.download_name = 'DiscordPTBSetup.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'discord.png'
         self.homepage = 'https://ptb.discord.com'
 

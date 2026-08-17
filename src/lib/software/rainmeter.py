@@ -13,6 +13,7 @@ class Rainmeter(BaseSoftware):
         self.name = 'Rainmeter'
         self.category = [SoftwareCategory.Utility]
         self.download_name = 'Rainmeter.exe'
+        self.silent_install_args = ['/S']
         self.is_archive = False
         self.should_cache_url = True
         self.icon = 'rainmeter.png'

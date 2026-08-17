@@ -13,6 +13,7 @@ class Clink(BaseSoftware):
         self.name = 'Clink'
         self.category = [SoftwareCategory.Utility]
         self.download_name = 'clink_setup.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'clink.png'
         self.homepage = 'https://chrisant996.github.io/clink'

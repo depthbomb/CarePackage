@@ -13,6 +13,7 @@ class ApacheNetBeans(BaseSoftware):
         self.name = 'Apache NetBeans'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'Apache-NetBeans.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'apache-netbeans.png'
         self.homepage = 'https://netbeans.apache.org'

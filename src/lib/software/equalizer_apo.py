@@ -10,6 +10,7 @@ class EqualizerApo(BaseSoftware):
         self.name = 'Equalizer APO'
         self.category = [SoftwareCategory.Audio, SoftwareCategory.Utility]
         self.download_name = 'EqualizerAPO-x64.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'equalizer-apo.png'
         self.homepage = 'https://sourceforge.net/projects/equalizerapo'
 

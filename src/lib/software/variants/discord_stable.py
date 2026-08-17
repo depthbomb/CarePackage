@@ -7,6 +7,7 @@ class DiscordStable(BaseSoftware):
         self.key = 'discord-stable'
         self.name = 'Discord Stable'
         self.download_name = 'DiscordSetup.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'discord.png'
         self.homepage = 'https://discord.com'
 

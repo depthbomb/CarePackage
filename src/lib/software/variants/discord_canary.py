@@ -7,6 +7,7 @@ class DiscordCanary(BaseSoftware):
         self.key = 'discord-canary'
         self.name = 'Discord Canary'
         self.download_name = 'DiscordCanarySetup.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'discord-canary.png'
         self.homepage = 'https://canary.discord.com'
 

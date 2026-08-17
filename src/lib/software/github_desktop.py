@@ -8,6 +8,7 @@ class GitHubDesktop(BaseSoftware):
         self.name = 'GitHub Desktop'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'GitHubDesktopSetup-x64.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'github-desktop.png'
         self.homepage = 'https://desktop.github.com'
 

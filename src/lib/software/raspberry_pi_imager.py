@@ -8,6 +8,7 @@ class RaspberryPiImager(BaseSoftware):
         self.name = 'Raspberry Pi Imager'
         self.category = [SoftwareCategory.Utility]
         self.download_name = 'imager_latest.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'raspberry-pi-imager.png'
         self.homepage = 'https://raspberrypi.com/software'
 

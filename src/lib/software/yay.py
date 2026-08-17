@@ -13,6 +13,7 @@ class Yay(BaseSoftware):
         self.name = 'yay'
         self.category = [SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'yay-setup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'yay.png'
         self.homepage = 'https://github.com/depthbomb/yay'

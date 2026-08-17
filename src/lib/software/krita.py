@@ -11,6 +11,7 @@ class Krita(BaseSoftware):
         self.name = 'Krita'
         self.category = [SoftwareCategory.Creative]
         self.download_name = 'krita-x64-setup.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'krita.png'
         self.homepage = 'https://krita.org'

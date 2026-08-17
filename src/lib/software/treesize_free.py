@@ -8,6 +8,7 @@ class TreeSizeFree(BaseSoftware):
         self.name = 'TreeSize Free'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'TreeSizeFreeSetup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'treesize.png'
         self.homepage = 'https://jam-software.com/treesize_free'
 

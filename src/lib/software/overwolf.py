@@ -8,6 +8,7 @@ class Overwolf(BaseSoftware):
         self.name = 'Overwolf'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'OverwolfInstaller.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'overwolf.png'
         self.homepage = 'https://overwolf.com'
 

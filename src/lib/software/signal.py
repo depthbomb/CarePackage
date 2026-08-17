@@ -11,6 +11,7 @@ class Signal(BaseSoftware):
         self.name = 'Signal'
         self.category = [SoftwareCategory.Social]
         self.download_name = 'signal-desktop-win.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'signal.png'
         self.homepage = 'https://signal.org'

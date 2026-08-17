@@ -13,6 +13,7 @@ class Azahar(BaseSoftware):
         self.name = 'Azahar'
         self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'azahar-windows-msvc-installer.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'azahar.png'
         self.homepage = 'https://azahar-emu.org'

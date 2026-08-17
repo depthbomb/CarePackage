@@ -11,6 +11,7 @@ class Foobar2000(BaseSoftware):
         self.name = 'foobar2000'
         self.category = [SoftwareCategory.Audio, SoftwareCategory.Media]
         self.download_name = 'foobar2000-x64.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'foobar2000.png'
         self.homepage = 'https://foobar2000.org'

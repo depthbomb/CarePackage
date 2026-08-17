@@ -8,6 +8,7 @@ class Evernote(BaseSoftware):
         self.name = 'Evernote'
         self.category = [SoftwareCategory.Productivity]
         self.download_name = 'Evernote-latest.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'evernote.png'
         self.homepage = 'https://evernote.com'
 

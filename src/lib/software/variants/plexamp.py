@@ -10,6 +10,7 @@ class Plexamp(BaseSoftware):
         self.key = 'plexamp'
         self.name = 'Plexamp'
         self.download_name = 'Plexamp Setup.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'plexamp.png'
         self.homepage = 'https://plex.tv'

@@ -13,6 +13,7 @@ class Sunshine(BaseSoftware):
         self.name = 'Sunshine'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'sunshine-windows-installer.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'sunshine.png'
         self.homepage = 'https://app.lizardbyte.dev/Sunshine'

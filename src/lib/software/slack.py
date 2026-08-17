@@ -8,6 +8,7 @@ class Slack(BaseSoftware):
         self.name = 'Slack'
         self.category = [SoftwareCategory.Social]
         self.download_name = 'SlackSetup.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'slack.png'
         self.homepage = 'https://slack.com'
 

@@ -13,6 +13,7 @@ class Obsidian(BaseSoftware):
         self.name = 'Obsidian'
         self.category = [SoftwareCategory.Productivity]
         self.download_name = 'Obsidian.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'obsidian.png'
         self.homepage = 'https://obsidian.md'

@@ -8,6 +8,7 @@ class Insomnia(BaseSoftware):
         self.name = 'Insomnia'
         self.category = [SoftwareCategory.Development, SoftwareCategory.Network]
         self.download_name = 'Insomnia.Core.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'insomnia.png'
         self.homepage = 'https://insomnia.rest'
 

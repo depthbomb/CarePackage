@@ -11,6 +11,7 @@ class Recuva(BaseSoftware):
         self.name = 'Recuva'
         self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'rcsetup.exe'
+        self.silent_install_args = ['/S']
         self.is_archive = False
         self.should_cache_url = True
         self.icon = 'recuva.png'

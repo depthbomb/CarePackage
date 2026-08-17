@@ -13,6 +13,7 @@ class MGBA(BaseSoftware):
         self.name = 'mGBA'
         self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'mGBA-win64-installer.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'mgba.png'
         self.homepage = 'https://mgba.io'

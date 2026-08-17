@@ -8,6 +8,7 @@ class VisualStudioCode(BaseSoftware):
         self.name = 'Visual Studio Code'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'VSCodeUserSetup-x64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'visual-studio-code.png'
         self.homepage = 'https://code.visualstudio.com'
 

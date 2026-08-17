@@ -11,6 +11,7 @@ class WinScp(BaseSoftware):
         self.name = 'WinSCP'
         self.category = [SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'WinSCP-Setup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'winscp.png'
         self.homepage = 'https://winscp.net'
 

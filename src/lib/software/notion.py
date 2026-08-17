@@ -8,6 +8,7 @@ class Notion(BaseSoftware):
         self.name = 'Notion'
         self.category = [SoftwareCategory.Productivity]
         self.download_name = 'Notion Setup.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'notion.png'
         self.homepage = 'https://notion.com/desktop'
 

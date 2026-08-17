@@ -10,6 +10,7 @@ class EverythingLite(BaseSoftware):
         self.key = 'everything-lite'
         self.name = 'Everything Lite'
         self.download_name = 'Everything-x64-Lite-Setup.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'everything.png'
         self.homepage = 'https://voidtools.com'

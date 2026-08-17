@@ -8,6 +8,7 @@ class GlassWire(BaseSoftware):
         self.name = 'GlassWire'
         self.category = [SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'GlassWireSetup.exe'
+        self.silent_install_args = ['/S']
         self.is_archive = False
         self.icon = 'glasswire.png'
         self.homepage = 'https://glasswire.com'

@@ -8,6 +8,7 @@ class Megasync(BaseSoftware):
         self.name = 'MEGAsync'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'MEGAsyncSetup64.exe'
+        self.silent_install_args = ['/S']
         self.is_archive = False
         self.icon = 'megasync.png'
         self.homepage = 'https://mega.io/desktop'

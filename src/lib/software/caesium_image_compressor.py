@@ -13,6 +13,7 @@ class CaesiumImageCompressor(BaseSoftware):
         self.name = 'Caesium Image Compressor'
         self.category = [SoftwareCategory.Utility]
         self.download_name = 'caesium-image-compressor-win-setup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'caesium-image-compressor.png'
         self.homepage = 'https://saerasoft.com/caesium'

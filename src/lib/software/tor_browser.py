@@ -11,6 +11,7 @@ class TorBrowser(BaseSoftware):
         self.name = 'Tor Browser'
         self.category = [SoftwareCategory.Browser, SoftwareCategory.Security]
         self.download_name = 'tor-browser-windows-x86_64-portable.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'tor-browser.png'
         self.homepage = 'https://torproject.org'

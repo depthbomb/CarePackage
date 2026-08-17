@@ -11,6 +11,7 @@ class Ppsspp(BaseSoftware):
         self.name = 'PPSSPP'
         self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'PPSSPPSetup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.is_archive = False
         self.should_cache_url = True
         self.icon = 'ppsspp.png'

@@ -8,6 +8,7 @@ class Postman(BaseSoftware):
         self.name = 'Postman'
         self.category = [SoftwareCategory.Development, SoftwareCategory.Network]
         self.download_name = 'Postman-win64-Setup.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'postman.png'
         self.homepage = 'https://postman.com'
 

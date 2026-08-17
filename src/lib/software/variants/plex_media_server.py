@@ -10,6 +10,7 @@ class PlexMediaServer(BaseSoftware):
         self.key = 'plex-media-server'
         self.name = 'Plex Media Server'
         self.download_name = 'PlexMediaServer-x86_64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'plex-media-server.png'
         self.homepage = 'https://plex.tv'

@@ -13,6 +13,7 @@ class BalenaEtcher(BaseSoftware):
         self.name = 'balenaEtcher'
         self.category = [SoftwareCategory.Utility]
         self.download_name = 'balenaEtcher.Setup.exe'
+        self.silent_install_args = ['--silent']
         self.should_cache_url = True
         self.icon = 'balenaetcher.png'
         self.homepage = 'https://etcher.io'

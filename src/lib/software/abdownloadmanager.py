@@ -13,6 +13,7 @@ class ABDownloadManager(BaseSoftware):
         self.name = 'AB Download Manager'
         self.category = [SoftwareCategory.FileManagement]
         self.download_name = 'ABDownloadManager_windows_x64.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'abdownloadmanager.png'
         self.homepage = 'https://abdownloadmanager.com/'

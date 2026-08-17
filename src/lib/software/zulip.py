@@ -8,6 +8,7 @@ class Zulip(BaseSoftware):
         self.name = 'Zulip'
         self.category = [SoftwareCategory.Social]
         self.download_name = 'Zulip-Web-Setup.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'zulip.png'
         self.homepage = 'https://zulip.com'
 

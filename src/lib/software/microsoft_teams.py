@@ -8,6 +8,7 @@ class MicrosoftTeams(BaseSoftware):
         self.name = 'Microsoft Teams'
         self.category = [SoftwareCategory.Social]
         self.download_name = 'MSTeamsSetup.exe'
+        self.silent_install_args = ['--silent']
         self.icon = 'microsoft-teams.png'
         self.homepage = 'https://microsoft.com/en-us/microsoft-teams'
 

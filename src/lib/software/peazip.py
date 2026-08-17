@@ -13,6 +13,7 @@ class PeaZip(BaseSoftware):
         self.name = 'PeaZip'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'peazip.WIN64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.is_archive = False
         self.should_cache_url = True
         self.icon = 'peazip.png'

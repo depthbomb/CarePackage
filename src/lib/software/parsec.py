@@ -8,6 +8,7 @@ class Parsec(BaseSoftware):
         self.name = 'Parsec'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'parsec-windows.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'parsec.png'
         self.homepage = 'https://parsec.app'
 

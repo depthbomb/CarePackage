@@ -11,6 +11,7 @@ class HWMonitor(BaseSoftware):
         self.name = 'HWMonitor'
         self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'hwmonitor.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'hwmonitor.png'
         self.homepage = 'https://cpuid.com/softwares/hwmonitor.html'

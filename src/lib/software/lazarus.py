@@ -11,6 +11,7 @@ class Lazarus(BaseSoftware):
         self.name = 'Lazarus'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'lazarus-fpc-win64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'lazarus.png'
         self.homepage = 'https://lazarus-ide.org'

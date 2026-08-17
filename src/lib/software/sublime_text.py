@@ -11,6 +11,7 @@ class SublimeText(BaseSoftware):
         self.name = 'Sublime Text'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'sublime_text_build_x64_setup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'sublime-text.png'
         self.homepage = 'https://sublimetext.com'

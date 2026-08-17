@@ -11,6 +11,7 @@ class Gpg4win(BaseSoftware):
         self.name = 'Gpg4win'
         self.category = [SoftwareCategory.Security]
         self.download_name = 'gpg4win.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'gpg4win.png'
         self.homepage = 'https://gpg4win.org'

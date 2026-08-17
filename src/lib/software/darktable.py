@@ -13,6 +13,7 @@ class Darktable(BaseSoftware):
         self.name = 'darktable'
         self.category = [SoftwareCategory.Creative, SoftwareCategory.Media]
         self.download_name = 'darktable-win64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'darktable.png'
         self.homepage = 'https://darktable.org'

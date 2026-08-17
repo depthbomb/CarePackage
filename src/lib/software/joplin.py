@@ -11,6 +11,7 @@ class Joplin(BaseSoftware):
         self.name = 'Joplin'
         self.category = [SoftwareCategory.Productivity]
         self.download_name = 'Joplin-Setup.exe'
+        self.silent_install_args = ['/S']
         self.is_archive = False
         self.should_cache_url = True
         self.icon = 'joplin.png'

@@ -11,6 +11,7 @@ class Wireshark(BaseSoftware):
         self.name = 'Wireshark'
         self.category = [SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'Wireshark-x64.exe'
+        self.silent_install_args = ['/S']
         self.is_archive = False
         self.should_cache_url = True
         self.icon = 'wireshark.png'

@@ -8,6 +8,7 @@ class Bitwarden(BaseSoftware):
         self.name = 'Bitwarden'
         self.category = [SoftwareCategory.Security]
         self.download_name = 'Bitwarden-Installer.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'bitwarden.png'
         self.homepage = 'https://bitwarden.com'
 

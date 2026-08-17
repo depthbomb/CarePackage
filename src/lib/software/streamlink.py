@@ -14,6 +14,7 @@ class Streamlink(BaseSoftware):
         self.name = 'Streamlink'
         self.category = [SoftwareCategory.Media]
         self.download_name = 'streamlink-x86_64.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'streamlink.png'
         self.homepage = 'https://streamlink.github.io'

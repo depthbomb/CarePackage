@@ -11,6 +11,7 @@ class ObsStudio(BaseSoftware):
         self.name = 'OBS Studio'
         self.category = [SoftwareCategory.Media]
         self.download_name = 'OBS-Studio-Windows-x64-Installer.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'obs-studio.png'
         self.homepage = 'https://obsproject.com'

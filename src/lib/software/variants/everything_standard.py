@@ -10,6 +10,7 @@ class EverythingStandard(BaseSoftware):
         self.key = 'everything-standard'
         self.name = 'Everything'
         self.download_name = 'Everything-x64-Setup.exe'
+        self.silent_install_args = ['/S']
         self.should_cache_url = True
         self.icon = 'everything.png'
         self.homepage = 'https://voidtools.com'

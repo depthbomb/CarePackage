@@ -13,6 +13,7 @@ class ShareX(BaseSoftware):
         self.name = 'ShareX'
         self.category = [SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'ShareX-setup-x64.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
         self.icon = 'sharex.png'
         self.homepage = 'https://getsharex.com'

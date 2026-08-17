@@ -8,6 +8,7 @@ class UnityHub(BaseSoftware):
         self.name = 'Unity Hub'
         self.category = [SoftwareCategory.Creative, SoftwareCategory.GameDevelopment]
         self.download_name = 'UnityHubSetup-x64.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'unity-hub.png'
         self.homepage = 'https://unity.com'
 

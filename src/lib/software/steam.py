@@ -8,6 +8,7 @@ class Steam(BaseSoftware):
         self.name = 'Steam'
         self.category = [SoftwareCategory.Gaming]
         self.download_name = 'SteamSetup.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'steam.png'
         self.homepage = 'https://store.steampowered.com'
 

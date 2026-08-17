@@ -8,6 +8,7 @@ class Composer(BaseSoftware):
         self.name = 'Composer'
         self.category = [SoftwareCategory.Development]
         self.download_name = 'Composer-Setup.exe'
+        self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.icon = 'generic-3.png'
         self.homepage = 'https://getcomposer.org'
 

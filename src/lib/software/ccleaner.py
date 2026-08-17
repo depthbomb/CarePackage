@@ -8,6 +8,7 @@ class Ccleaner(BaseSoftware):
         self.name = 'CCleaner'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'ccsetup.exe'
+        self.silent_install_args = ['/S']
         self.icon = 'ccleaner.png'
         self.homepage = 'https://ccleaner.com'
 

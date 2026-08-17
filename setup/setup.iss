@@ -23,7 +23,6 @@ SolidCompression=yes
 ArchitecturesAllowed=x64compatible
 MinVersion=10.0
 WizardStyle=modern
-WizardResizable=no
 ShowTasksTreeLines=yes
 WizardImageFile=.\images\Image_*.bmp
 WizardSmallImageFile=.\images\SmallImage_*.bmp

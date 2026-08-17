@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Audacity(BaseSoftware):
@@ -9,14 +9,9 @@ class Audacity(BaseSoftware):
         self._gh = GithubReleaseScraper('audacity', 'audacity', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'audacity'
-        self.name = 'Audacity'
-        self.category = [SoftwareCategory.Audio, SoftwareCategory.Media]
         self.download_name = 'audacity-win-64bit.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'audacity.png'
-        self.homepage = 'https://audacityteam.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

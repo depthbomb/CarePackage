@@ -7,13 +7,9 @@ class PlexDesktop(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'plex-desktop'
-        self.name = 'Plex Desktop'
         self.download_name = 'Plex-x86_64.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'plex-desktop.png'
-        self.homepage = 'https://plex.tv'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

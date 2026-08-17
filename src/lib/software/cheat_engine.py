@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class CheatEngine(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'cheat-engine'
-        self.name = 'Cheat Engine'
-        self.category = [SoftwareCategory.Gaming, SoftwareCategory.Utility]
         self.download_name = 'CheatEngine.exe'
         self.should_cache_url = True
-        self.is_unreliable = True
-        self.icon = 'cheat-engine.png'
-        self.homepage = 'https://cheatengine.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

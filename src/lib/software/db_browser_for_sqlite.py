@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class DBBrowserForSQLite(BaseSoftware):
@@ -9,13 +9,8 @@ class DBBrowserForSQLite(BaseSoftware):
         self._gh = GithubReleaseScraper('sqlitebrowser', 'sqlitebrowser', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'db-browser-for-sqlite'
-        self.name = 'DB Browser for SQLite'
-        self.category = [SoftwareCategory.Development, SoftwareCategory.Utility]
         self.download_name = 'DB.Browser.for.SQLite-win64.msi'
         self.should_cache_url = True
-        self.icon = 'db-browser-for-sqlite.png'
-        self.homepage = 'https://sqlitebrowser.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

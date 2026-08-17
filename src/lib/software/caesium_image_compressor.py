@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class CaesiumImageCompressor(BaseSoftware):
@@ -9,14 +9,9 @@ class CaesiumImageCompressor(BaseSoftware):
         self._gh = GithubReleaseScraper('Lymphatus', 'caesium-image-compressor', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'caesium-image-compressor'
-        self.name = 'Caesium Image Compressor'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'caesium-image-compressor-win-setup.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'caesium-image-compressor.png'
-        self.homepage = 'https://saerasoft.com/caesium'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class AutoHotkey(BaseSoftware):
@@ -9,13 +9,8 @@ class AutoHotkey(BaseSoftware):
         self._gh = GithubReleaseScraper('AutoHotkey', 'AutoHotkey', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'autohotkey'
-        self.name = 'AutoHotkey'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'AutoHotkey_setup.exe'
         self.should_cache_url = True
-        self.icon = 'autohotkey.png'
-        self.homepage = 'https://autohotkey.com'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

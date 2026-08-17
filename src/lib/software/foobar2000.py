@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Foobar2000(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'foobar2000'
-        self.name = 'foobar2000'
-        self.category = [SoftwareCategory.Audio, SoftwareCategory.Media]
         self.download_name = 'foobar2000-x64.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'foobar2000.png'
-        self.homepage = 'https://foobar2000.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

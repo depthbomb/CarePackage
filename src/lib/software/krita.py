@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Krita(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'krita'
-        self.name = 'Krita'
-        self.category = [SoftwareCategory.Creative]
         self.download_name = 'krita-x64-setup.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'krita.png'
-        self.homepage = 'https://krita.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

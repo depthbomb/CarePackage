@@ -9,12 +9,8 @@ class TemurinJDK11(BaseSoftware):
         self._gh = GithubReleaseScraper('adoptium', 'temurin11-binaries', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'temurin-jdk-11'
-        self.name = 'Temurin JDK 11 - LTS'
         self.download_name = 'OpenJDK11U-jdk_x64_windows_hotspot.msi'
         self.should_cache_url = True
-        self.icon = 'temurin.png'
-        self.homepage = 'https://adoptium.net'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

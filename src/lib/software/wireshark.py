@@ -1,21 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Wireshark(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'wireshark'
-        self.name = 'Wireshark'
-        self.category = [SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'Wireshark-x64.exe'
         self.silent_install_args = ['/S']
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'wireshark.png'
-        self.homepage = 'https://wireshark.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

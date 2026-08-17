@@ -1,18 +1,7 @@
-from src.lib.software.variants.python_312 import Python312
-from src.lib.software.variants.python_313 import Python313
-from src.lib.software.variants.python_314 import Python314
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 
 class Python(BaseSoftware):
-    def __init__(self):
-        super().__init__()
 
-        self.key = 'python'
-        self.name = 'Python'
-        self.category = [SoftwareCategory.Development]
-        self.variants = [Python312(), Python313(), Python314()]
-        self.icon = 'python.png'
-        self.homepage = 'https://python.org'
 
     def resolve_download_url(self):
         pass

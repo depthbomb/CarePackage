@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import QUrl, Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Speccy(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'speccy'
-        self.name = 'Speccy'
-        self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'spsetup.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'speccy.png'
-        self.homepage = 'https://www.ccleaner.com/speccy'
 
         self._download_page = QUrl('https://www.ccleaner.com/speccy/download/standard')
 

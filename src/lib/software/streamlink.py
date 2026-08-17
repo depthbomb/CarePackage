@@ -1,6 +1,6 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Streamlink(BaseSoftware):
@@ -10,14 +10,9 @@ class Streamlink(BaseSoftware):
         self._gh = GithubReleaseScraper('streamlink', 'windows-builds', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'streamlink'
-        self.name = 'Streamlink'
-        self.category = [SoftwareCategory.Media]
         self.download_name = 'streamlink-x86_64.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'streamlink.png'
-        self.homepage = 'https://streamlink.github.io'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

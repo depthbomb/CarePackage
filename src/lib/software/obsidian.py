@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Obsidian(BaseSoftware):
@@ -9,14 +9,9 @@ class Obsidian(BaseSoftware):
         self._gh = GithubReleaseScraper('obsidianmd', 'obsidian-releases', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'obsidian'
-        self.name = 'Obsidian'
-        self.category = [SoftwareCategory.Productivity]
         self.download_name = 'Obsidian.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'obsidian.png'
-        self.homepage = 'https://obsidian.md'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

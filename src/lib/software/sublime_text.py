@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class SublimeText(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'sublime-text'
-        self.name = 'Sublime Text'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'sublime_text_build_x64_setup.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'sublime-text.png'
-        self.homepage = 'https://sublimetext.com'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

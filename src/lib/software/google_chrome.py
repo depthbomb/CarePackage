@@ -1,20 +1,15 @@
 from re import compile
 from uuid import uuid4
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class GoogleChrome(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'google-chrome'
-        self.name = 'Google Chrome'
-        self.category = [SoftwareCategory.Browser]
         self.download_name = 'ChromeSetup.exe'
         self.should_cache_url = True
-        self.icon = 'google-chrome.png'
-        self.homepage = 'https://google.com/chrome'
 
         self._initial_url = QUrl('https://www.google.com/chrome/static/js/installer.min.js')
 

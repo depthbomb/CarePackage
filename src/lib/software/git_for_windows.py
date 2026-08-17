@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class GitForWindows(BaseSoftware):
@@ -9,14 +9,9 @@ class GitForWindows(BaseSoftware):
         self._gh = GithubReleaseScraper('git-for-windows', 'git', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'git-for-windows'
-        self.name = 'Git for Windows'
-        self.category = [SoftwareCategory.Development, SoftwareCategory.FileManagement]
         self.download_name = 'Git-64-bit.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'git.png'
-        self.homepage = 'https://git-scm.com'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

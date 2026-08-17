@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class MinGW(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'mingw'
-        self.name = 'MinGW'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'mingw-get-setup.exe'
         self.should_cache_url = True
-        self.is_unreliable = True
-        self.icon = 'mingw.png'
-        self.homepage = 'https://sourceforge.net/projects/mingw'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

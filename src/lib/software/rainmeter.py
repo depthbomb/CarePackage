@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Rainmeter(BaseSoftware):
@@ -9,15 +9,9 @@ class Rainmeter(BaseSoftware):
         self._gh = GithubReleaseScraper('rainmeter', 'rainmeter', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'rainmeter'
-        self.name = 'Rainmeter'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'Rainmeter.exe'
         self.silent_install_args = ['/S']
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'rainmeter.png'
-        self.homepage = 'https://rainmeter.net'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

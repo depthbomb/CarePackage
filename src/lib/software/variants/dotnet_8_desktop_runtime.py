@@ -7,11 +7,7 @@ class DotNet8DesktopRuntime(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'dotnet-8-desktop-runtime'
-        self.name = '.NET 8.0 Desktop Runtime'
         self.download_name = 'windowsdesktop-runtime-8.0-win-x64.exe'
-        self.icon = 'dotnet.png'
-        self.homepage = 'https://dot.net'
 
         self.direct_download_pattern = compile(
             r'https://builds\.dotnet\.microsoft\.com/dotnet/WindowsDesktop/\d+\.\d+\.\d+/windowsdesktop-runtime-\d+\.\d+\.\d+-win-x64\.exe'

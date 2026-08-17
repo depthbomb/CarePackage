@@ -4,12 +4,7 @@ class MSIAfterburnerBeta(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'msi-afterburner-beta'
-        self.name = 'MSI Afterburner Beta'
         self.download_name = 'MSIAfterburnerInstallerBeta.zip'
-        self.is_archive = True
-        self.icon = 'msi-afterburner.png'
-        self.homepage = 'https://www.msi.com/Landing/afterburner/graphics-cards'
 
         self._initial_request = True
 

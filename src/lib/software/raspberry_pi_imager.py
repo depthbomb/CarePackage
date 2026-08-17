@@ -1,16 +1,11 @@
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 
 class RaspberryPiImager(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'raspberry-pi-imager'
-        self.name = 'Raspberry Pi Imager'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'imager_latest.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
-        self.icon = 'raspberry-pi-imager.png'
-        self.homepage = 'https://raspberrypi.com/software'
 
     def resolve_download_url(self):
         self.url_resolved.emit('https://downloads.raspberrypi.org/imager/imager_latest.exe')

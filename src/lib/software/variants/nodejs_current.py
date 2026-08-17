@@ -8,12 +8,8 @@ class NodeJsCurrent(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'nodejs-current'
-        self.name = 'Node.js'
         self.download_name = 'node-x64.msi'
         self.should_cache_url = True
-        self.icon = 'nodejs.png'
-        self.homepage = 'https://nodejs.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

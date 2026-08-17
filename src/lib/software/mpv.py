@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class MPV(BaseSoftware):
@@ -9,13 +9,7 @@ class MPV(BaseSoftware):
         self._gh = GithubReleaseScraper('mpv-player', 'mpv', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'mpv'
-        self.name = 'mpv'
-        self.category = [SoftwareCategory.Audio, SoftwareCategory.Media]
         self.download_name = 'mpv-x86_64-pc-windows-msvc.zip'
-        self.is_archive = True
-        self.icon = 'mpv.png'
-        self.homepage = 'https://mpv.io'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

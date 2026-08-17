@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class CPUZ(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'cpuz'
-        self.name = 'CPU-Z (Classic)'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'cpu-z.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'cpuz.png'
-        self.homepage = 'https://cpuid.com/softwares/cpu-z.html'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

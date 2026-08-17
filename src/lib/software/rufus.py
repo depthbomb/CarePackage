@@ -1,6 +1,6 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Rufus(BaseSoftware):
@@ -10,13 +10,8 @@ class Rufus(BaseSoftware):
         self._gh = GithubReleaseScraper('pbatard', 'rufus', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'rufus'
-        self.name = 'Rufus'
-        self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'rufus.exe'
         self.should_cache_url = True
-        self.icon = 'rufus.png'
-        self.homepage = 'https://rufus.ie'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

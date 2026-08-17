@@ -6,12 +6,8 @@ class Python314(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'python-314'
-        self.name = 'Python 3.14.x'
         self.download_name = 'python3.14.x-amd64.exe'
         self.should_cache_url = True
-        self.icon = 'python.png'
-        self.homepage = 'https://python.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

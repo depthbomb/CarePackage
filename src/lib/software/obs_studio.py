@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class ObsStudio(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'obs-studio'
-        self.name = 'OBS Studio'
-        self.category = [SoftwareCategory.Media]
         self.download_name = 'OBS-Studio-Windows-x64-Installer.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'obs-studio.png'
-        self.homepage = 'https://obsproject.com'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

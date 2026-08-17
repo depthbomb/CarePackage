@@ -7,11 +7,7 @@ class DotNet9AspNetCoreRuntime(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'dotnet-9-aspnet-core-runtime'
-        self.name = '.NET 9.0 ASP.NET Core Runtime'
         self.download_name = 'aspnetcore-runtime-9.0-win-x64.exe'
-        self.icon = 'dotnet.png'
-        self.homepage = 'https://dot.net'
 
         self.direct_download_pattern = compile(
             r'https://builds\.dotnet\.microsoft\.com/dotnet/aspnetcore/Runtime/\d+\.\d+\.\d+/aspnetcore-runtime-\d+\.\d+\.\d+-win-x64\.exe'

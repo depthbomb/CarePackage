@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class EclipseIDE(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'eclipse-ide'
-        self.name = 'Eclipse IDE'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'eclipse-inst-jre-win64.exe'
         self.should_cache_url = True
-        self.icon = 'eclipse-ide.png'
-        self.homepage = 'https://eclipseide.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

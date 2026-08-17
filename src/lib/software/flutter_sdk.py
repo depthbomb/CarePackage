@@ -1,20 +1,14 @@
 from typing import cast
 from PySide6.QtCore import QJsonDocument, Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class FlutterSDK(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'flutter-windows-sdk'
-        self.name = 'Flutter SDK'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'flutter_windows_stable.zip'
-        self.is_archive = True
         self.should_cache_url = True
-        self.icon = 'flutter.png'
-        self.homepage = 'https://docs.flutter.dev'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

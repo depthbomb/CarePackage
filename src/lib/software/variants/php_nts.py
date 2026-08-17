@@ -7,12 +7,7 @@ class PHPNTS(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'php-nts'
-        self.name = 'PHP (Non Thread Safe)'
         self.download_name = 'php-nts-Win32-vs17-x64.zip'
-        self.icon = 'php.png'
-        self.is_archive = True
-        self.homepage = 'https://php.net'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

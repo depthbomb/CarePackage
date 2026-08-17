@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class VlcMediaPlayer(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'vlc-media-player'
-        self.name = 'VLC Media Player'
-        self.category = [SoftwareCategory.Audio, SoftwareCategory.Media]
         self.download_name = 'vlc-win64.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'vlc-media-player.png'
-        self.homepage = 'https://videolan.org'
 
         self._initial_url = QUrl('https://www.videolan.org/')
 

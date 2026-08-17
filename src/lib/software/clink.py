@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Clink(BaseSoftware):
@@ -9,14 +9,9 @@ class Clink(BaseSoftware):
         self._gh = GithubReleaseScraper('chrisant996', 'clink', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'clink'
-        self.name = 'Clink'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'clink_setup.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'clink.png'
-        self.homepage = 'https://chrisant996.github.io/clink'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

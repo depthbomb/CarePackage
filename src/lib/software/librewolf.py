@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class LibreWolf(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'librewolf'
-        self.name = 'LibreWolf'
-        self.category = [SoftwareCategory.Browser]
         self.download_name = 'librewolf-windows-x86_64-setup.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'librewolf.png'
-        self.homepage = 'https://librewolf.net'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class HandBrake(BaseSoftware):
@@ -9,14 +9,9 @@ class HandBrake(BaseSoftware):
         self._gh = GithubReleaseScraper('HandBrake', 'HandBrake', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'handbrake'
-        self.name = 'HandBrake'
-        self.category = [SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'HandBrake-x86_64-Win_GUI.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'handbrake.png'
-        self.homepage = 'https://handbrake.fr'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class HWMonitor(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'hwmonitor'
-        self.name = 'HWMonitor'
-        self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'hwmonitor.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'hwmonitor.png'
-        self.homepage = 'https://cpuid.com/softwares/hwmonitor.html'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Putty(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'putty'
-        self.name = 'PuTTY'
-        self.category = [SoftwareCategory.Network]
         self.download_name = 'putty-64bit-installer.msi'
         self.should_cache_url = True
-        self.icon = 'putty.png'
-        self.homepage = 'https://putty.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

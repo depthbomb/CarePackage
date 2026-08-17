@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Moonlight(BaseSoftware):
@@ -9,13 +9,8 @@ class Moonlight(BaseSoftware):
         self._gh = GithubReleaseScraper('moonlight-stream', 'moonlight-qt', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'moonlight'
-        self.name = 'Moonlight'
-        self.category = [SoftwareCategory.Gaming]
         self.download_name = 'MoonlightSetup.exe'
         self.should_cache_url = True
-        self.icon = 'moonlight.png'
-        self.homepage = 'https://moonlight-stream.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

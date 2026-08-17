@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class NSIS(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'nsis'
-        self.name = 'NSIS'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'nsis-setup.exe'
         self.should_cache_url = True
-        self.is_unreliable = True
-        self.icon = 'nsis.png'
-        self.homepage = 'https://nsis.sourceforge.io'
 
         self._major_version = 3  # Update this if version 4 is ever a thing
         self._initial_url = QUrl('https://nsis.sourceforge.io/Download')

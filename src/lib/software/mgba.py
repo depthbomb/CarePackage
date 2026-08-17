@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class MGBA(BaseSoftware):
@@ -9,14 +9,9 @@ class MGBA(BaseSoftware):
         self._gh = GithubReleaseScraper('mgba-emu', 'mgba', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'mgba'
-        self.name = 'mGBA'
-        self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'mGBA-win64-installer.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'mgba.png'
-        self.homepage = 'https://mgba.io'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

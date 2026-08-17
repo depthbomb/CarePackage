@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class HeroicGamesLauncher(BaseSoftware):
@@ -9,14 +9,9 @@ class HeroicGamesLauncher(BaseSoftware):
         self._gh = GithubReleaseScraper('Heroic-Games-Launcher', 'HeroicGamesLauncher', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'heroic-games-launcher'
-        self.name = 'Heroic Games Launcher'
-        self.category = [SoftwareCategory.Gaming]
         self.download_name = 'Heroic-Setup-x64.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'heroic-games-launcher.png'
-        self.homepage = 'https://heroicgameslauncher.com'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

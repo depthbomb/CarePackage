@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
 from packaging.version import Version
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class PgAdmin4(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'pgadmin4'
-        self.name = 'pgAdmin 4'
-        self.category = [SoftwareCategory.Development, SoftwareCategory.Utility]
         self.download_name = 'pgadmin4-x64.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
-        self.icon = 'pgadmin4.png'
-        self.homepage = 'https://pgadmin.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

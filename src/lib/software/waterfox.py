@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Waterfox(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'waterfox'
-        self.name = 'Waterfox'
-        self.category = [SoftwareCategory.Browser]
         self.download_name = 'Waterfox Setup.exe'
         self.should_cache_url = True
-        self.icon = 'waterfox.png'
-        self.homepage = 'https://waterfox.com'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

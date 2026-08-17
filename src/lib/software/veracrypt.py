@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class VeraCrypt(BaseSoftware):
@@ -9,13 +9,8 @@ class VeraCrypt(BaseSoftware):
         self._gh = GithubReleaseScraper('veracrypt', 'VeraCrypt', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'veracrypt'
-        self.name = 'VeraCrypt'
-        self.category = [SoftwareCategory.Security, SoftwareCategory.SystemManagement]
         self.download_name = 'VeraCrypt.Setup.exe'
         self.should_cache_url = True
-        self.icon = 'veracrypt.png'
-        self.homepage = 'https://veracrypt.io'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

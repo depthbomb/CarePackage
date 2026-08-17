@@ -8,12 +8,8 @@ class NodeJsLts(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'nodejs-lts'
-        self.name = 'Node.js (LTS)'
         self.download_name = 'node-lts-x64.msi'
         self.should_cache_url = True
-        self.icon = 'nodejs.png'
-        self.homepage = 'https://nodejs.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

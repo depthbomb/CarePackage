@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class ABDownloadManager(BaseSoftware):
@@ -9,14 +9,9 @@ class ABDownloadManager(BaseSoftware):
         self._gh = GithubReleaseScraper('amir1376', 'ab-download-manager', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'abdownloadmanager'
-        self.name = 'AB Download Manager'
-        self.category = [SoftwareCategory.FileManagement]
         self.download_name = 'ABDownloadManager_windows_x64.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'abdownloadmanager.png'
-        self.homepage = 'https://abdownloadmanager.com/'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

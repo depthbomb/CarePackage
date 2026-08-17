@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class ApacheNetBeans(BaseSoftware):
@@ -9,14 +9,9 @@ class ApacheNetBeans(BaseSoftware):
         self._gh = GithubReleaseScraper('Friends-of-Apache-NetBeans', 'netbeans-installers', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'apache-netbeans'
-        self.name = 'Apache NetBeans'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'Apache-NetBeans.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'apache-netbeans.png'
-        self.homepage = 'https://netbeans.apache.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

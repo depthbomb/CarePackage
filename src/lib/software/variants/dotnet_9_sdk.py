@@ -7,11 +7,7 @@ class DotNet9Sdk(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'dotnet-9-sdk'
-        self.name = '.NET 9.0 SDK'
         self.download_name = 'dotnet-sdk-9.0-win-x64.exe'
-        self.icon = 'dotnet.png'
-        self.homepage = 'https://dot.net'
 
         self.direct_download_pattern = compile(
             r'https://builds\.dotnet\.microsoft\.com/dotnet/Sdk/\d+\.\d+\.\d+/dotnet-sdk-\d+\.\d+\.\d+-win-x64\.exe'

@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Trillian(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'trillian'
-        self.name = 'Trillian'
-        self.category = [SoftwareCategory.Social]
         self.download_name = 'trillian.exe'
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'trillian.png'
-        self.homepage = 'https://trillian.im'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

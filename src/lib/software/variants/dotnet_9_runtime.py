@@ -7,11 +7,7 @@ class DotNet9Runtime(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'dotnet-9-runtime'
-        self.name = '.NET 9.0 Runtime'
         self.download_name = 'dotnet-runtime-9.0-win-x64.exe'
-        self.icon = 'dotnet.png'
-        self.homepage = 'https://dot.net'
 
         self.direct_download_pattern = compile(
             r'https://builds\.dotnet\.microsoft\.com/dotnet/Runtime/\d+\.\d+\.\d+/dotnet-runtime-\d+\.\d+\.\d+-win-x64\.exe'

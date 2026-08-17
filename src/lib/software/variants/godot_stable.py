@@ -9,13 +9,8 @@ class GodotStable(BaseSoftware):
         self._gh = GithubReleaseScraper('godotengine', 'godot', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'godot-stable'
-        self.name = 'Godot'
         self.download_name = 'Godot-stable_win64.exe.zip'
-        self.is_archive = True
         self.should_cache_url = True
-        self.icon = 'godot.png'
-        self.homepage = 'https://godotengine.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

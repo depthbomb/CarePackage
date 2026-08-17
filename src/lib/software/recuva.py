@@ -1,21 +1,15 @@
 from re import compile
 from PySide6.QtCore import QUrl, Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Recuva(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'recuva'
-        self.name = 'Recuva'
-        self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'rcsetup.exe'
         self.silent_install_args = ['/S']
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'recuva.png'
-        self.homepage = 'https://ccleaner.com/recuva'
 
         self._download_page = QUrl('https://www.ccleaner.com/recuva/download/standard')
 

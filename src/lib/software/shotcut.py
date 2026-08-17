@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Shotcut(BaseSoftware):
@@ -9,14 +9,9 @@ class Shotcut(BaseSoftware):
         self._gh = GithubReleaseScraper('mltframework', 'shotcut', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'shotcut'
-        self.name = 'Shotcut'
-        self.category = [SoftwareCategory.Audio, SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'shotcut-win64.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'shotcut.png'
-        self.homepage = 'https://shotcut.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

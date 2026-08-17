@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Lazarus(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'lazarus'
-        self.name = 'Lazarus'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'lazarus-fpc-win64.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'lazarus.png'
-        self.homepage = 'https://lazarus-ide.org'
 
         self._initial_url = QUrl('https://download.lazarus-ide.org/Lazarus%20Windows%2064%20bits/')
 

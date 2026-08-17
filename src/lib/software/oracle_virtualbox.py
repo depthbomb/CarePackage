@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class OracleVirtualBox(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'oracle-virtualbox'
-        self.name = 'Oracle VirtualBox'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'VirtualBox-Win.exe'
         self.should_cache_url = True
-        self.icon = 'oracle-virtualbox.png'
-        self.homepage = 'https://virtualbox.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

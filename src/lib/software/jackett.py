@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Jackett(BaseSoftware):
@@ -9,15 +9,9 @@ class Jackett(BaseSoftware):
         self._gh = GithubReleaseScraper('Jackett', 'Jackett', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'jackett'
-        self.name = 'Jackett'
-        self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'Jackett.Installer.Windows.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'jackett.png'
-        self.homepage = 'https://github.com/Jackett/Jackett'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

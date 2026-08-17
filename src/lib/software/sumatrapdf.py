@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class SumatraPDF(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'sumatra-pdf'
-        self.name = 'Sumatra PDF'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'SumatraPDF-64-install.exe'
         self.should_cache_url = True
-        self.icon = 'sumatrapdf.png'
-        self.homepage = 'https://www.sumatrapdfreader.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

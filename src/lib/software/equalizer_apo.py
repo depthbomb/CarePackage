@@ -1,18 +1,13 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class EqualizerApo(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'equalizer-apo'
-        self.name = 'Equalizer APO'
-        self.category = [SoftwareCategory.Audio, SoftwareCategory.Utility]
         self.download_name = 'EqualizerAPO-x64.exe'
         self.silent_install_args = ['/S']
-        self.icon = 'equalizer-apo.png'
-        self.homepage = 'https://sourceforge.net/projects/equalizerapo'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

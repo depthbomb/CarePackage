@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Winrar(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'winrar'
-        self.name = 'WinRAR'
-        self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = 'WinRAR.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'winrar.png'
-        self.homepage = 'https://www.win-rar.com'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

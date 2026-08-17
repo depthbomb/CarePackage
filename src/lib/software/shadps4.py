@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class ShadPS4(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'shadps4'
-        self.name = 'shadPS4 Launcher'
-        self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'shadps4-win64-qt.zip'
-        self.is_archive = True
         self.should_cache_url = True
-        self.icon = 'shadps4.png'
-        self.homepage = 'https://shadps4.net'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

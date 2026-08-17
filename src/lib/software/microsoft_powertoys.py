@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class MicrosoftPowerToys(BaseSoftware):
@@ -9,13 +9,8 @@ class MicrosoftPowerToys(BaseSoftware):
         self._gh = GithubReleaseScraper('microsoft', 'PowerToys', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'microsoft-powertoys'
-        self.name = 'Microsoft PowerToys (Preview)'
-        self.category = [SoftwareCategory.Utility]
         self.download_name = 'PowerToysUserSetup-x64.exe'
         self.should_cache_url = True
-        self.icon = 'powertoys.png'
-        self.homepage = 'https://learn.microsoft.com/en-us/windows/powertoys'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

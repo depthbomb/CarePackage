@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Cemu(BaseSoftware):
@@ -9,14 +9,8 @@ class Cemu(BaseSoftware):
         self._gh = GithubReleaseScraper('cemu-project', 'Cemu', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'cemu'
-        self.name = 'Cemu'
-        self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'cemu-windows-x64.zip'
-        self.is_archive = True
         self.should_cache_url = True
-        self.icon = 'cemu.png'
-        self.homepage = 'https://cemu.info'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

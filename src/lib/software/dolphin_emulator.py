@@ -1,21 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class DolphinEmulator(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'dolphin-emulator'
-        self.name = 'Dolphin Emulator'
-        self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'DolphinEmu.7z'
-        self.is_archive = True
-        self.is_unreliable = True
         self.should_cache_url = True
-        self.icon = 'dolphin-emu.png'
-        self.homepage = 'https://dolphin-emu.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Sunshine(BaseSoftware):
@@ -9,14 +9,9 @@ class Sunshine(BaseSoftware):
         self._gh = GithubReleaseScraper('LizardByte', 'Sunshine', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'sunshine'
-        self.name = 'Sunshine'
-        self.category = [SoftwareCategory.Gaming]
         self.download_name = 'sunshine-windows-installer.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'sunshine.png'
-        self.homepage = 'https://app.lizardbyte.dev/Sunshine'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class SystemInformer(BaseSoftware):
@@ -9,13 +9,8 @@ class SystemInformer(BaseSoftware):
         self._gh = GithubReleaseScraper('winsiderss', 'systeminformer', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'system-informer'
-        self.name = 'System Informer'
-        self.category = [SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'systeminformer-release-setup.exe'
         self.should_cache_url = True
-        self.icon = 'system-informer.png'
-        self.homepage = 'https://systeminformer.com'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

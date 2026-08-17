@@ -1,6 +1,6 @@
 from json import dumps
 from re import compile, RegexFlag
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 from PySide6.QtCore import Slot, QUrl, QByteArray, QJsonDocument
 
@@ -8,13 +8,7 @@ class QBitTorrent(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'qbittorrent'
-        self.name = 'qBittorrent'
-        self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'qbittorrent_x64_setup.exe'
-        self.is_unreliable = True
-        self.icon = 'qbittorrent.png'
-        self.homepage = 'https://qbittorrent.org'
 
         self._initial_url = QUrl('https://www.fosshub.com/qBittorrent.html')
 

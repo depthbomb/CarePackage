@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Inkscape(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'inkscape'
-        self.name = 'Inkscape'
-        self.category = [SoftwareCategory.Creative]
         self.download_name = 'inkscape-x64.exe'
         self.should_cache_url = True
-        self.is_unreliable = True
-        self.icon = 'inkscape.png'
-        self.homepage = 'https://inkscape.org'
 
         self._first_request = True
         self._initial_url = QUrl('https://inkscape.org/release/')

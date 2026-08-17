@@ -1,6 +1,6 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class WinDirStat(BaseSoftware):
@@ -10,13 +10,8 @@ class WinDirStat(BaseSoftware):
         self._gh = GithubReleaseScraper('windirstat', 'windirstat', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'windirstat'
-        self.name = 'WinDirStat'
-        self.category = [SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility]
         self.download_name = 'WinDirStat-x64.msi'
         self.should_cache_url = True
-        self.icon = 'windirstat.png'
-        self.homepage = 'https://windirstat.net'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

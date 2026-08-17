@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Gimp(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'gimp'
-        self.name = 'GIMP'
-        self.category = [SoftwareCategory.Creative]
         self.download_name = 'GimpSetup.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'gimp.png'
-        self.homepage = 'https://gimp.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

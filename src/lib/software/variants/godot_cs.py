@@ -9,13 +9,8 @@ class GodotCS(BaseSoftware):
         self._gh = GithubReleaseScraper('godotengine', 'godot', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'godot-cs'
-        self.name = 'Godot (C# Support)'
         self.download_name = 'Godot-stable_mono_win64.zip'
-        self.is_archive = True
         self.should_cache_url = True
-        self.icon = 'godot.png'
-        self.homepage = 'https://godotengine.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

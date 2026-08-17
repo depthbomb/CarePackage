@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class ShareX(BaseSoftware):
@@ -9,14 +9,9 @@ class ShareX(BaseSoftware):
         self._gh = GithubReleaseScraper('ShareX', 'ShareX', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'sharex'
-        self.name = 'ShareX'
-        self.category = [SoftwareCategory.Media, SoftwareCategory.Utility]
         self.download_name = 'ShareX-setup-x64.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'sharex.png'
-        self.homepage = 'https://getsharex.com'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

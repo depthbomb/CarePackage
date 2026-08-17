@@ -37,6 +37,14 @@ class SoftwareSpec:
             raise TypeError(f'{self.module}.{self.class_name} is not a BaseSoftware subclass')
 
         instance = cast(BaseSoftware, software_type())
+        instance.key = self.key
+        instance.name = self.name
+        instance.category = list(self.category)
+        instance.icon = self.icon
+        instance.homepage = self.homepage
+        instance.is_archive = self.is_archive
+        instance.is_deprecated = self.is_deprecated
+        instance.is_unreliable = self.is_unreliable
         _software_instances[identity] = instance
         return instance
 

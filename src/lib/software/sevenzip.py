@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class SevenZip(BaseSoftware):
@@ -9,13 +9,8 @@ class SevenZip(BaseSoftware):
         self._gh = GithubReleaseScraper('ip7z', '7zip', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'seven-zip'
-        self.name = '7-Zip'
-        self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Utility]
         self.download_name = '7zSetup.msi'
         self.should_cache_url = True
-        self.icon = '7zip.png'
-        self.homepage = 'https://7-zip.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

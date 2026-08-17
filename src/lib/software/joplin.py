@@ -1,21 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Joplin(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'joplin'
-        self.name = 'Joplin'
-        self.category = [SoftwareCategory.Productivity]
         self.download_name = 'Joplin-Setup.exe'
         self.silent_install_args = ['/S']
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'joplin.png'
-        self.homepage = 'https://joplinapp.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

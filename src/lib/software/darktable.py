@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Darktable(BaseSoftware):
@@ -9,14 +9,9 @@ class Darktable(BaseSoftware):
         self._gh = GithubReleaseScraper('darktable-org', 'darktable', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'darktable'
-        self.name = 'darktable'
-        self.category = [SoftwareCategory.Creative, SoftwareCategory.Media]
         self.download_name = 'darktable-win64.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
         self.should_cache_url = True
-        self.icon = 'darktable.png'
-        self.homepage = 'https://darktable.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

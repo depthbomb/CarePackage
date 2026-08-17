@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class ElgatoStreamDeck(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'elgato-stream-deck'
-        self.name = 'Elgato Stream Deck'
-        self.category = [SoftwareCategory.Peripheral]
         self.download_name = 'Stream_Deck.msi'
         self.should_cache_url = True
-        self.icon = 'elgato-stream-deck.png'
-        self.homepage = 'https://help.elgato.com/hc/en-us/sections/5162671529357-Elgato-Stream-Deck-Software-Release-Notes'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

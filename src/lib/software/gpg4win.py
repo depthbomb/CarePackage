@@ -1,20 +1,15 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Gpg4win(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'gpg4win'
-        self.name = 'Gpg4win'
-        self.category = [SoftwareCategory.Security]
         self.download_name = 'gpg4win.exe'
         self.silent_install_args = ['/S']
         self.should_cache_url = True
-        self.icon = 'gpg4win.png'
-        self.homepage = 'https://gpg4win.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

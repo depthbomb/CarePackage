@@ -9,13 +9,8 @@ class EverythingCLI(BaseSoftware):
         self._gh = GithubReleaseScraper('voidtools', 'ES', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'everything-cli'
-        self.name = 'Everything CLI'
         self.download_name = 'ES.x64.zip'
         self.should_cache_url = True
-        self.is_archive = True
-        self.icon = 'generic.png'
-        self.homepage = 'https://github.com/voidtools/ES'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

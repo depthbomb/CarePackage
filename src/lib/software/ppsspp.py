@@ -1,21 +1,15 @@
 from re import compile
 from PySide6.QtCore import QUrl, Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Ppsspp(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'ppsspp'
-        self.name = 'PPSSPP'
-        self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
         self.download_name = 'PPSSPPSetup.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'ppsspp.png'
-        self.homepage = 'https://ppsspp.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

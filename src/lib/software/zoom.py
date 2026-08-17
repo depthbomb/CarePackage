@@ -1,19 +1,13 @@
 from PySide6.QtCore import QJsonDocument, Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Zoom(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'zoom'
-        self.name = 'Zoom Workplace'
-        self.category = [SoftwareCategory.Social]
         self.download_name = 'ZoomInstallerFull.exe'
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'zoom.png'
-        self.homepage = 'https://zoom.us'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

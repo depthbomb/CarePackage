@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class MSYS2(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'msys2'
-        self.name = 'MSYS2'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'msys2-x84_64.exe'
         self.should_cache_url = True
-        self.icon = 'msys2.png'
-        self.homepage = 'https://msys2.org'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

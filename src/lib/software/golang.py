@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class Golang(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'go'
-        self.name = 'Go'
-        self.category = [SoftwareCategory.Development]
         self.download_name = 'go.windows-amd64.msi'
         self.should_cache_url = True
-        self.icon = 'go.png'
-        self.homepage = 'https://go.dev'
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):

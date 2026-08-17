@@ -4,12 +4,8 @@ class Python312(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'python-312'
-        self.name = 'Python 3.12.x'
         self.download_name = 'python3.12.x-amd64.exe'
         self.should_cache_url = True
-        self.icon = 'python.png'
-        self.homepage = 'https://python.org'
 
         # Releases after 3.12.10 are source code only
         self._version = '3.12.10'

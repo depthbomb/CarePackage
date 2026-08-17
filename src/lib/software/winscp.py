@@ -1,19 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class WinScp(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'winscp'
-        self.name = 'WinSCP'
-        self.category = [SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'WinSCP-Setup.exe'
         self.silent_install_args = ['/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-']
-        self.icon = 'winscp.png'
-        self.homepage = 'https://winscp.net'
 
         self._initial_url = QUrl('https://winscp.net/eng/download.php')
 

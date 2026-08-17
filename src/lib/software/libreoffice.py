@@ -1,20 +1,14 @@
 from re import compile
 from PySide6.QtCore import Slot, QUrl
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class LibreOffice(BaseSoftware):
     def __init__(self):
         super().__init__()
 
-        self.key = 'libreoffice'
-        self.name = 'LibreOffice'
-        self.category = [SoftwareCategory.Productivity]
         self.download_name = 'LibreOffice_Win_x86-64.msi'
-        self.is_archive = False
         self.should_cache_url = True
-        self.icon = 'libreoffice.png'
-        self.homepage = 'https://libreoffice.org'
 
         self._initial_url = QUrl('https://www.libreoffice.org/download/')
 

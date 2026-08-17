@@ -1,5 +1,5 @@
 from PySide6.QtCore import Slot
-from src.lib.software import BaseSoftware, SoftwareCategory
+from src.lib.software import BaseSoftware
 from src.lib.github_release_scraper import GithubReleaseScraper
 
 class Hoppscotch(BaseSoftware):
@@ -9,13 +9,8 @@ class Hoppscotch(BaseSoftware):
         self._gh = GithubReleaseScraper('hoppscotch', 'releases', self)
         self._gh.releases_scraped.connect(self._on_releases_scraped)
 
-        self.key = 'hoppscotch-desktop'
-        self.name = 'Hoppscotch'
-        self.category = [SoftwareCategory.Development, SoftwareCategory.Network]
         self.download_name = 'Hoppscotch_win_x64.msi'
         self.should_cache_url = True
-        self.icon = 'hoppscotch.png'
-        self.homepage = 'https://hoppscotch.io'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):

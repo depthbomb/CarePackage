@@ -12,15 +12,14 @@ class DuckStation(BaseSoftware):
         self.key = 'duckstation'
         self.name = 'DuckStation'
         self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
-        self.download_name = 'darktable-win64.exe'
-        self.is_archive = True
+        self.download_name = 'duckstation-windows-x64-installer.exe'
         self.should_cache_url = True
         self.icon = 'duckstation.png'
         self.homepage = 'https://duckstation.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):
-        asset = next((release for release in releases if release.endswith('duckstation-windows-x64-release.zip')), None)
+        asset = next((release for release in releases if 'duckstation-windows-x64-installer.exe' in release), None)
         if asset:
             self.url_resolved.emit(asset)
         else:

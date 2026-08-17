@@ -1,4 +1,5 @@
 from src.lib import win32
+from src import IS_WINDOWS11
 from enum import auto, Enum
 from typing import Optional
 from functools import cache
@@ -82,6 +83,14 @@ class ThemeUtil:
         return QApplication.styleHints().colorScheme() == Qt.ColorScheme.Dark
 
     @staticmethod
+    def style_supports_dark_mode() -> bool:
+        style_name = QApplication.style().name().lower()
+        return style_name in (AppStyle.Fusion.lower(), AppStyle.Windows.lower()) or (
+            IS_WINDOWS11 and style_name == AppStyle.Windows11.lower()
+        )
+
+    @staticmethod
     def use_immersive_dark_mode(widget: QWidget):
-        if is_dark_mode() and QApplication.style().name() != AppStyle.Fusion:
+        dark_mode = ThemeUtil.is_dark_palette() if IS_WINDOWS11 else is_dark_mode()
+        if dark_mode and QApplication.style().name().lower() != AppStyle.Fusion.lower():
             use_immersive_dark_mode(widget.winId())

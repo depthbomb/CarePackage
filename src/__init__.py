@@ -2,6 +2,7 @@ import src.rc.fonts  # noqa
 import src.rc.icons  # noqa
 import src.rc.images  # noqa
 from pathlib import Path
+from platform import system, version
 from PySide6.QtCore import QStandardPaths
 from src.software_catalogue import SOFTWARE_CATALOGUE
 
@@ -15,6 +16,9 @@ if IS_COMPILED:
 else:
     IS_STANDALONE = False
     IS_ONEFILE = False
+
+IS_WINDOWS11 = system() == 'Windows' and int(version().split('.')[-1]) >= 22_000
+
 #endregion
 
 #region Application Info

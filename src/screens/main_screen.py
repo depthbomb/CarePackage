@@ -112,12 +112,6 @@ class MainScreen(QWidget):
         self.search_input.setPlaceholderText('Search software')
         self.search_input.setClearButtonEnabled(True)
         self.search_input.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        if self.style().name() != 'fusion':
-            self.search_input.setStyleSheet(f'''
-                QLineEdit:focus {{
-                    border: 1px solid {ThemeUtil.get_accent_color_name()};
-                }}
-            ''')
         self.search_input.textChanged.connect(self._on_filters_changed)
 
         self.category_picker = QComboBox()
@@ -149,7 +143,7 @@ class MainScreen(QWidget):
 
         background = (
             self.palette().color(self.backgroundRole()).lighter(150).name()
-            if self.style().name() in ('fusion', 'windows')
+            if ThemeUtil.style_supports_dark_mode()
             else '#fff'
         )
         self.catalogue_view.setStyleSheet(f'''

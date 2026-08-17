@@ -6,7 +6,25 @@ from src.windows.main_window import MainWindow
 from src.enums import AppStyle, AppTheme, SettingsKeys
 from PySide6.QtWidgets import QMessageBox, QApplication
 from src.windows.disclaimer_window import DisclaimerWindow
-from src import APP_ORG, APP_NAME, APP_DISPLAY_NAME, APP_USER_MODEL_ID, APP_VERSION_STRING
+from src import APP_ORG, APP_NAME, APP_DISPLAY_NAME, APP_USER_MODEL_ID, APP_VERSION_STRING, IS_WINDOWS11
+
+def _apply_appearance(app: QApplication, settings: Settings):
+    native_style = AppStyle.Windows11 if IS_WINDOWS11 else AppStyle.WindowsVista
+    user_style = settings.get(SettingsKeys.Style, native_style, AppStyle)
+
+    # WindowsVista was the persisted value for the native style before Windows 11 support was added. Treat it as the
+    # current native style on Windows 11.
+    if IS_WINDOWS11 and user_style == AppStyle.WindowsVista:
+        user_style = AppStyle.Windows11
+
+    if user_style != AppStyle.WindowsVista:
+        user_theme = settings.get(SettingsKeys.Theme, AppTheme.Light, AppTheme)
+        if user_theme == AppTheme.Dark:
+            app.styleHints().setColorScheme(Qt.ColorScheme.Dark)
+        elif user_theme == AppTheme.Light:
+            app.styleHints().setColorScheme(Qt.ColorScheme.Light)
+
+    app.setStyle(user_style)
 
 def main(args) -> int:
     app = QApplication(args)
@@ -24,22 +42,14 @@ def main(args) -> int:
     settings = Settings()
     settings.load()
 
+    _apply_appearance(app, settings)
+
     if not settings.get(SettingsKeys.SeenDisclaimer, False, bool):
         if DisclaimerWindow().exec() != QMessageBox.StandardButton.Yes:
             return 0
         else:
             settings.set(SettingsKeys.SeenDisclaimer, True)
             settings.save()
-
-    user_style = settings.get(SettingsKeys.Style, AppStyle.WindowsVista, AppStyle)
-    if user_style != AppStyle.WindowsVista:
-        user_theme = settings.get(SettingsKeys.Theme, AppTheme.Light, AppTheme)
-        if user_theme == AppTheme.Dark:
-            app.styleHints().setColorScheme(Qt.ColorScheme.Dark)
-        elif user_theme == AppTheme.Light:
-            app.styleHints().setColorScheme(Qt.ColorScheme.Light)
-
-    app.setStyle(user_style)
 
     w = MainWindow()
     w.show()

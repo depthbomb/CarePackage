@@ -279,7 +279,7 @@ class OperationScreen(QWidget):
     def _create_software_progress_display(self):
         self.software_progress_container = QScrollArea()
         self.software_progress_container.setWidgetResizable(True)
-        if self.style().name() == 'fusion' or self.style().name() == 'windows':
+        if ThemeUtil.style_supports_dark_mode():
             self.software_progress_container.setStyleSheet(f'''
                 QScrollArea {{ background: {self.palette().color(self.backgroundRole()).lighter(150).name()}; border: 1px solid {ThemeUtil.get_accent_color_name()}; }}
                 QScrollArea > QWidget > QWidget {{ background: transparent; }}

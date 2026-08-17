@@ -129,7 +129,7 @@ class SoftwareCatalogueDelegate(QStyledItemDelegate):
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         if selected:
-            shade = 150 if QApplication.style().name() in ('fusion', 'windows') else 175
+            shade = 150 if ThemeUtil.style_supports_dark_mode() else 175
             painter.fillRect(rect, ThemeUtil.get_accent_color_shade(ThemeUtil.Mode.Lighter, shade))
         elif self._is_hovered(index):
             painter.fillRect(rect, QApplication.palette().window())

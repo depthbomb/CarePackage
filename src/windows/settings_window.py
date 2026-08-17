@@ -1,7 +1,7 @@
-from src import IS_COMPILED
 from typing import cast, Optional
 from src.lib.theme import ThemeUtil
 from src.lib.settings import Settings
+from src import IS_COMPILED, IS_WINDOWS11
 from PySide6.QtCore import Slot, QObject, QThread
 from src.lib.download_sweeper import DownloadSweeperWorker
 from src.lib.software_spec import clear_instantiated_url_cache
@@ -39,12 +39,15 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.setCurrentIndex(
             self.download_timeout_combobox.findData(settings.get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes, int))
         )
-        self.style_combobox.setCurrentIndex(
-            self.style_combobox.findData(settings.get(SettingsKeys.Style, AppStyle.WindowsVista))
-        )
+        native_style = AppStyle.Windows11 if IS_WINDOWS11 else AppStyle.WindowsVista
+        saved_style = settings.get(SettingsKeys.Style, native_style, AppStyle)
+        if IS_WINDOWS11 and saved_style == AppStyle.WindowsVista:
+            saved_style = AppStyle.Windows11
+        self.style_combobox.setCurrentIndex(self.style_combobox.findData(saved_style))
         self.theme_combobox.setCurrentIndex(
             self.theme_combobox.findData(settings.get(SettingsKeys.Theme, AppTheme.Light))
         )
+        self._update_theme_combobox_enabled_state()
         self.badge_visibility_checkbox.setChecked(
             settings.get(SettingsKeys.ShowCategoryBadges, True, bool)
         )
@@ -75,12 +78,13 @@ class SettingsWindow(QDialog):
 
     @Slot(int)
     def _on_style_combobox_changed(self, index: int):
-        data = self.style_combobox.itemData(index)
-        if data != AppStyle.WindowsVista:
-            self.theme_combobox.setEnabled(True)
-        else:
+        self._update_theme_combobox_enabled_state()
+
+    def _update_theme_combobox_enabled_state(self):
+        supports_themes = self.style_combobox.currentData() != AppStyle.WindowsVista
+        self.theme_combobox.setEnabled(supports_themes)
+        if not supports_themes:
             self.theme_combobox.setCurrentIndex(self.theme_combobox.findData(AppTheme.Light))
-            self.theme_combobox.setEnabled(False)
 
     @Slot()
     def _on_sweeper_button_clicked(self):
@@ -147,7 +151,8 @@ class SettingsWindow(QDialog):
 
     def _create_style_row(self):
         self.style_combobox = QComboBox()
-        self.style_combobox.addItem('Native (default)', AppStyle.WindowsVista)
+        native_style = AppStyle.Windows11 if IS_WINDOWS11 else AppStyle.WindowsVista
+        self.style_combobox.addItem('Native (default)', native_style)
         self.style_combobox.addItem('Fusion', AppStyle.Fusion)
         self.style_combobox.addItem('Windows (old)', AppStyle.Windows)
         self.style_combobox.currentIndexChanged.connect(self._on_style_or_theme_combobox_changed)
@@ -157,7 +162,7 @@ class SettingsWindow(QDialog):
 
     def _create_theme_row(self):
         self.theme_combobox = QComboBox()
-        self.theme_combobox.setEnabled(False)
+        self.theme_combobox.setEnabled(IS_WINDOWS11)
         self.theme_combobox.addItem('Light (default)', AppTheme.Light)
         self.theme_combobox.addItem('Dark', AppTheme.Dark)
         self.theme_combobox.addItem('System', AppTheme.Auto)

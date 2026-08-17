@@ -106,7 +106,7 @@ This file was generated from `tasks.py`
 | ![Azahar](./resources/images/software/azahar.png "Azahar") | [Azahar](https://azahar-emu.org) | ❌ | Gaming | `0` |
 | ![Cemu](./resources/images/software/cemu.png "Cemu") | [Cemu](https://cemu.info) | ✔️ | Gaming | `0` |
 | ![Dolphin Emulator](./resources/images/software/dolphin-emu.png "Dolphin Emulator") | [Dolphin Emulator](https://dolphin-emu.org) | ✔️ | Gaming | `0` |
-| ![DuckStation](./resources/images/software/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ✔️ | Gaming | `0` |
+| ![DuckStation](./resources/images/software/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ❌ | Gaming | `0` |
 | ![melonDS](./resources/images/software/melonds.png "melonDS") | [melonDS](https://melonds.kuribo64.net) | ✔️ | Gaming | `0` |
 | ![mGBA](./resources/images/software/mgba.png "mGBA") | [mGBA](https://mgba.io) | ❌ | Gaming | `0` |
 | ![PCSX2](./resources/images/software/pcsx2.png "PCSX2") | [PCSX2](https://pcsx2.net) | ✔️ | Gaming | `0` |
@@ -124,7 +124,6 @@ This file was generated from `tasks.py`
 | :-: | --- | :-: | :-: | :-: |
 | ![AB Download Manager](./resources/images/software/abdownloadmanager.png "AB Download Manager") | [AB Download Manager](https://abdownloadmanager.com/) | ❌ | None | `0` |
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | System Management, Utilities | `0` |
-| ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | System Management, Utilities | `0` |
 | ![Dropbox](./resources/images/software/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | Utilities | `0` |
 | ![Git for Windows](./resources/images/software/git.png "Git for Windows") | [Git for Windows](https://git-scm.com) | ❌ | Development | `0` |
 | ![Google Drive](./resources/images/software/google-drive.png "Google Drive") | [Google Drive](https://workspace.google.com/products/drive) | ❌ | Utilities | `0` |
@@ -161,7 +160,7 @@ This file was generated from `tasks.py`
 | ![Cemu](./resources/images/software/cemu.png "Cemu") | [Cemu](https://cemu.info) | ✔️ | Emulation | `0` |
 | ![Cheat Engine](./resources/images/software/cheat-engine.png "Cheat Engine") | [Cheat Engine](https://cheatengine.org) | ❌ | Utilities | `0` |
 | ![Dolphin Emulator](./resources/images/software/dolphin-emu.png "Dolphin Emulator") | [Dolphin Emulator](https://dolphin-emu.org) | ✔️ | Emulation | `0` |
-| ![DuckStation](./resources/images/software/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ✔️ | Emulation | `0` |
+| ![DuckStation](./resources/images/software/duckstation.png "DuckStation") | [DuckStation](https://duckstation.org) | ❌ | Emulation | `0` |
 | ![EA App](./resources/images/software/ea-app.png "EA App") | [EA App](https://ea.com/ea-app) | ❌ | None | `0` |
 | ![Epic Games Launcher](./resources/images/software/epic-games-launcher.png "Epic Games Launcher") | [Epic Games Launcher](https://store.epicgames.com) | ❌ | None | `0` |
 | ![GOG Galaxy](./resources/images/software/gog-galaxy.png "GOG Galaxy") | [GOG Galaxy](https://gog.com/galaxy) | ❌ | None | `0` |
@@ -319,7 +318,6 @@ This file was generated from `tasks.py`
 |  | Name | Is Archive? | Additional Categories | # of Variants/Versions |
 | :-: | --- | :-: | :-: | :-: |
 | ![CCleaner](./resources/images/software/ccleaner.png "CCleaner") | [CCleaner](https://ccleaner.com) | ❌ | File Management, Utilities | `0` |
-| ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | File Management, Utilities | `0` |
 | ![HWMonitor](./resources/images/software/hwmonitor.png "HWMonitor") | [HWMonitor](https://cpuid.com/softwares/hwmonitor.html) | ❌ | Utilities | `0` |
 | ![MSI Afterburner](./resources/images/software/msi-afterburner.png "MSI Afterburner") | [MSI Afterburner](https://msi.com/Landing/afterburner/graphics-cards) | ❌ | Peripherals | `2` |
 | ![Recuva](./resources/images/software/recuva.png "Recuva") | [Recuva](https://ccleaner.com/recuva) | ❌ | Utilities | `0` |
@@ -343,7 +341,6 @@ This file was generated from `tasks.py`
 | ![Clink](./resources/images/software/clink.png "Clink") | [Clink](https://chrisant996.github.io/clink) | ❌ | None | `0` |
 | ![CPU-Z (Classic)](./resources/images/software/cpuz.png "CPU-Z (Classic)") | [CPU-Z (Classic)](https://cpuid.com/softwares/cpu-z.html) | ❌ | None | `0` |
 | ![DB Browser for SQLite](./resources/images/software/db-browser-for-sqlite.png "DB Browser for SQLite") | [DB Browser for SQLite](https://sqlitebrowser.org) | ❌ | Development | `0` |
-| ![Defraggler](./resources/images/software/defraggler.png "Defraggler") | [Defraggler](https://ccleaner.com/defraggler) | ❌ | File Management, System Management | `0` |
 | ![Display Driver Uninstaller](./resources/images/software/ddu.png "Display Driver Uninstaller") | [Display Driver Uninstaller](https://guru3d.com/download/display-driver-uninstaller-download) | ✔️ | None | `0` |
 | ![dnSpy (Fork)](./resources/images/software/dnspy.png "dnSpy (Fork)") | [dnSpy (Fork)](https://github.com/dnSpyEx/dnSpy) | ✔️ | Development | `0` |
 | ![Dropbox](./resources/images/software/dropbox.png "Dropbox") | [Dropbox](https://dropbox.com) | ❌ | File Management | `0` |

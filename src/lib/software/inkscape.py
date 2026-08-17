@@ -10,7 +10,7 @@ class Inkscape(BaseSoftware):
         self.key = 'inkscape'
         self.name = 'Inkscape'
         self.category = [SoftwareCategory.Creative]
-        self.download_name = 'inkscape-x64.msi'
+        self.download_name = 'inkscape-x64.exe'
         self.should_cache_url = True
         self.is_unreliable = True
         self.icon = 'inkscape.png'
@@ -30,10 +30,10 @@ class Inkscape(BaseSoftware):
         if self._first_request:
             self._first_request = False
             url = reply.url().toString()
-            url += 'windows/64-bit/msi/dl'
+            url += 'windows/64-bit/exe/dl'
             self.manager.get(QNetworkRequest(url))
         else:
-            download_url_pattern = compile(r'"(/gallery/item/\d{5,}/inkscape-\d\.\d\.\d\.msi)"')
+            download_url_pattern = compile(r'"(/gallery/item/\d{5,}/inkscape-.*-x64\.signed\.exe)"')
             html = reply.readAll().data().decode()
             match = download_url_pattern.search(html)
             if not match:

@@ -1,4 +1,8 @@
-﻿# 5.0.0
+﻿# 5.0.1
+
+- Added silent install support for all _.NET_ software
+
+# 5.0.0
 
 - Significantly reduced startup time and memory usage by lazily loading software definitions, sharing network managers, and virtualizing the software catalogue:
   - Catalogue import decreased from ~259 ms and ~6.5 MiB to ~63 ms and ~3.6 MiB

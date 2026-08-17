@@ -5,6 +5,7 @@ class DotNet10Sdk(BaseSoftware):
         super().__init__()
 
         self.download_name = 'dotnet-sdk-10.0-win-x64.exe'
+        self.silent_install_args = ['/install', '/quiet', '/norestart']
 
     def resolve_download_url(self):
         self.url_resolved.emit('https://aka.ms/dotnet/10.0/dotnet-sdk-win-x64.exe')

@@ -12,6 +12,7 @@ class QBitTorrent(BaseSoftware):
         self.name = 'qBittorrent'
         self.category = [SoftwareCategory.FileManagement, SoftwareCategory.Network, SoftwareCategory.Utility]
         self.download_name = 'qbittorrent_x64_setup.exe'
+        self.is_unreliable = True
         self.icon = 'qbittorrent.png'
         self.homepage = 'https://qbittorrent.org'
 

@@ -1,6 +1,8 @@
 ﻿# 5.0.1
 
 - Added silent install support for all _.NET_ software
+- Adjusted status icons
+- Tooltips when hovering over software rows will now only display if there is extra info to show (such as whether it is a compressed archive, unreliable, etc.)
 
 # 5.0.0
 

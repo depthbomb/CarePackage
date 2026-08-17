@@ -220,15 +220,6 @@ SOFTWARE_CATALOGUE: tuple[SoftwareSpec, ...] = (
         homepage='https://sqlitebrowser.org',
     ),
     SoftwareSpec(
-        module='src.lib.software.defraggler',
-        class_name='Defraggler',
-        key='defraggler',
-        name='Defraggler',
-        category=(SoftwareCategory.FileManagement, SoftwareCategory.SystemManagement, SoftwareCategory.Utility),
-        icon='defraggler.png',
-        homepage='https://ccleaner.com/defraggler',
-    ),
-    SoftwareSpec(
         module='src.lib.software.discord',
         class_name='Discord',
         key='discord',

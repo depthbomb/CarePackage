@@ -2,12 +2,13 @@ from typing import cast, Optional
 from src.lib.theme import ThemeUtil
 from src.lib.settings import Settings
 from src import IS_COMPILED, IS_WINDOWS11
-from PySide6.QtCore import Slot, QObject, QThread
+from PySide6.QtCore import Qt, Slot, QObject, QThread
 from src.lib.download_sweeper import DownloadSweeperWorker
 from src.lib.software_spec import clear_instantiated_url_cache
 from src.enums import AppStyle, AppTheme, SettingsKeys, DownloadTimeout
 from PySide6.QtWidgets import (
     QLabel,
+    QSlider,
     QWidget,
     QDialog,
     QComboBox,
@@ -38,6 +39,9 @@ class SettingsWindow(QDialog):
 
         self.download_timeout_combobox.setCurrentIndex(
             self.download_timeout_combobox.findData(settings.get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes, int))
+        )
+        self.concurrent_downloads_slider.setValue(
+            max(1, min(8, settings.get(SettingsKeys.ConcurrentDownloads, 1, int)))
         )
         native_style = AppStyle.Windows11 if IS_WINDOWS11 else AppStyle.WindowsVista
         saved_style = settings.get(SettingsKeys.Style, native_style, AppStyle)
@@ -117,6 +121,7 @@ class SettingsWindow(QDialog):
     def _on_save_button_clicked(self):
         settings = Settings()
         settings.set(SettingsKeys.DownloadTimeout, self.download_timeout_combobox.currentData())
+        settings.set(SettingsKeys.ConcurrentDownloads, self.concurrent_downloads_slider.value())
         settings.set(SettingsKeys.Style, self.style_combobox.currentData())
         settings.set(SettingsKeys.Theme, self.theme_combobox.currentData())
         settings.set(SettingsKeys.ShowCategoryBadges, self.badge_visibility_checkbox.isChecked())
@@ -128,6 +133,7 @@ class SettingsWindow(QDialog):
     def _create_layout(self):
         self.layout = QFormLayout()
         self.layout.addRow('Download inactivity timeout', self._create_download_timeout_row())
+        self.layout.addRow('Concurrent downloads', self._create_concurrent_downloads_row())
         self.layout.addRow('App Style', self._create_style_row())
         self.layout.addRow('App Theme', self._create_theme_row())
         self.layout.addRow('', self._create_badge_visibility_checkbox())
@@ -151,6 +157,31 @@ class SettingsWindow(QDialog):
         self.download_timeout_combobox.addItem('30 minutes', DownloadTimeout.ThirtyMinutes.value)
 
         return self.download_timeout_combobox
+
+    def _create_concurrent_downloads_row(self):
+        widget = QWidget(self)
+        layout = QHBoxLayout(widget)
+        layout.setContentsMargins(0, 0, 0, 0)
+
+        self.concurrent_downloads_slider = QSlider(Qt.Orientation.Horizontal, widget)
+        self.concurrent_downloads_slider.setRange(1, 8)
+        self.concurrent_downloads_slider.setSingleStep(1)
+        self.concurrent_downloads_slider.setPageStep(1)
+        self.concurrent_downloads_slider.setTickInterval(1)
+        self.concurrent_downloads_slider.setTickPosition(QSlider.TickPosition.TicksBelow)
+        self.concurrent_downloads_slider.setToolTip(
+            'With multiple downloads, installation begins after every download has finished.'
+        )
+
+        self.concurrent_downloads_value_label = QLabel('1', widget)
+        self.concurrent_downloads_value_label.setMinimumWidth(12)
+        self.concurrent_downloads_slider.valueChanged.connect(
+            lambda value: self.concurrent_downloads_value_label.setText(str(value))
+        )
+
+        layout.addWidget(self.concurrent_downloads_slider, stretch=1)
+        layout.addWidget(self.concurrent_downloads_value_label)
+        return widget
 
     def _create_style_row(self):
         self.style_combobox = QComboBox()

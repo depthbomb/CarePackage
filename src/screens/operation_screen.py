@@ -1,11 +1,12 @@
 from collections import deque
 from src.lib.theme import ThemeUtil
+from src.lib.settings import Settings
 from src import IS_COMPILED, DOWNLOAD_DIR
-from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtCore import Qt, QUrl, Slot, Signal
 from typing import cast, Deque, Optional, Sequence
+from src.enums import SettingsKeys, PostOperationAction
 from src.widgets.software_progress_row import SoftwareProgressRow
 from PySide6.QtWidgets import (
     QLabel,
@@ -21,8 +22,6 @@ from PySide6.QtWidgets import (
 )
 
 class OperationScreen(QWidget):
-    MAX_CONCURRENT_DOWNLOADS = 1
-
     restart_requested = Signal(list)
     started = Signal()
     finished = Signal(bool)
@@ -32,6 +31,7 @@ class OperationScreen(QWidget):
         super().__init__(parent)
 
         self.probing = False
+        self.max_concurrent_downloads = 1
         self.canceled = False
         self.operation_complete = False
         self.finished_emitted = False
@@ -42,6 +42,7 @@ class OperationScreen(QWidget):
 
         self.pending_installations = cast(Deque[SoftwareProgressRow], deque())
         self.active_installation = cast(Optional[SoftwareProgressRow], None)
+        self.installation_order = cast(dict[SoftwareProgressRow, int], {})
 
         self.downloaded_software = cast(list[BaseSoftware], [])
         self.errored_software = cast(list[BaseSoftware], [])
@@ -49,12 +50,13 @@ class OperationScreen(QWidget):
 
         self.setLayout(self._create_layout())
 
-        for sw in software:
+        for index, sw in enumerate(software):
             software_row = SoftwareProgressRow(sw)
             software_row.finished.connect(self._on_software_row_finished)
             software_row.installation_requested.connect(self._on_installation_requested)
 
             self.software_rows.append(software_row)
+            self.installation_order[software_row] = index
             self.software_progress_layout.addWidget(software_row)
 
     #region Slots
@@ -103,10 +105,11 @@ class OperationScreen(QWidget):
             row.set_status('Pending', True)
 
         self.probing = False
+        self._load_concurrent_download_limit()
 
         self.started.emit()
 
-        self._start_next_downloads()
+        self._advance_operation()
 
     @Slot()
     def _on_cancel_button_clicked(self):
@@ -125,14 +128,20 @@ class OperationScreen(QWidget):
 
         for software_row in self.software_rows:
             software_row.set_status('<b style="color:orange;">Canceled</b>')
+        for software_row in self.pending_installations:
+            software_row.set_status('<b style="color:orange;">Canceled</b>')
         self.software_rows.clear()
         self.pending_software.clear()
         self.pending_installations.clear()
 
-        for software_row in self.active_downloads.copy():
+        rows_to_cancel = self.active_downloads.copy()
+        if self.active_installation is not None and self.active_installation not in rows_to_cancel:
+            rows_to_cancel.append(self.active_installation)
+
+        for software_row in rows_to_cancel:
             software_row.cancel()
 
-        if len(self.active_downloads) == 0:
+        if len(self.active_downloads) == 0 and self.active_installation is None:
             self._finish_operation(False)
 
     @Slot()
@@ -148,26 +157,42 @@ class OperationScreen(QWidget):
             row.set_status('Pending', True)
 
         self.probing = True
+        self._load_concurrent_download_limit()
 
         self.started.emit()
 
-        self._start_next_downloads()
+        self._advance_operation()
 
     @Slot()
     def _on_installation_requested(self):
         software_row = cast(SoftwareProgressRow, self.sender())
+
+        if self.canceled:
+            software_row.finished.emit(SoftwareProgressRow.OperationError.Canceled)
+            return
 
         if self.skip_installation_checkbox.isChecked() or software_row.software.is_archive or not software_row.download_file or not software_row.download_file.exists():
             software_row.finished.emit(SoftwareProgressRow.OperationError.NoError)
             return
 
         self.pending_installations.append(software_row)
-        self._start_next_installation()
+        if self.max_concurrent_downloads > 1:
+            self._remove_active_download(software_row)
+            self._advance_operation()
+        else:
+            self._start_next_installation()
 
     def _start_next_installation(self):
+        if self.canceled:
+            return
+
         if self.active_installation is None and len(self.pending_installations) > 0:
             try:
-                software_row = self.pending_installations.popleft()
+                software_row = min(
+                    self.pending_installations,
+                    key=lambda row: self.installation_order[row],
+                )
+                self.pending_installations.remove(software_row)
                 self.active_installation = software_row
                 software_row.start_installation()
             except IndexError:
@@ -176,8 +201,7 @@ class OperationScreen(QWidget):
     @Slot(SoftwareProgressRow.OperationError)
     def _on_software_row_finished(self, error: SoftwareProgressRow.OperationError):
         software_row = cast(SoftwareProgressRow, self.sender())
-        if software_row in self.active_downloads:
-            self.active_downloads.remove(software_row)
+        self._remove_active_download(software_row)
 
         installation_finished = False
         if self.active_installation is software_row:
@@ -186,7 +210,7 @@ class OperationScreen(QWidget):
 
         if self.canceled:
             software_row.deleteLater()
-            if len(self.active_downloads) == 0:
+            if len(self.active_downloads) == 0 and self.active_installation is None:
                 self._finish_operation(False)
             return
 
@@ -197,7 +221,23 @@ class OperationScreen(QWidget):
                 self.downloaded_software.append(software_row.software)
             software_row.deleteLater()
 
-        if len(self.software_rows) == 0 and len(self.active_downloads) == 0:
+        if installation_finished:
+            self._start_next_installation()
+
+        self._advance_operation()
+
+    def _advance_operation(self):
+        self._start_next_downloads()
+
+        downloads_complete = len(self.software_rows) == 0 and len(self.active_downloads) == 0
+        if downloads_complete:
+            self._start_next_installation()
+
+        if (
+            downloads_complete and
+            len(self.pending_installations) == 0 and
+            self.active_installation is None
+        ):
             self.operation_complete = True
             self.cancel_button.setText('&Finish')
 
@@ -220,11 +260,6 @@ class OperationScreen(QWidget):
                 if not was_probing:
                     self.post_op_action_requested.emit(self.post_op_combobox.currentData())
                 self._finish_operation(True)
-        else:
-            self._start_next_downloads()
-
-        if installation_finished:
-            self._start_next_installation()
     #endregion
 
     #region UI Setup
@@ -343,7 +378,7 @@ class OperationScreen(QWidget):
         if self.canceled:
             return
 
-        while len(self.active_downloads) < self.MAX_CONCURRENT_DOWNLOADS:
+        while len(self.active_downloads) < self.max_concurrent_downloads:
             try:
                 software_row = self.software_rows.popleft()
             except IndexError:
@@ -356,6 +391,14 @@ class OperationScreen(QWidget):
                 self.postinstall_cleanup_checkbox.isChecked(),
                 self.probing,
             )
+
+    def _load_concurrent_download_limit(self):
+        configured_limit = Settings().get(SettingsKeys.ConcurrentDownloads, 1, int)
+        self.max_concurrent_downloads = max(1, min(8, configured_limit))
+
+    def _remove_active_download(self, software_row: SoftwareProgressRow):
+        if software_row in self.active_downloads:
+            self.active_downloads.remove(software_row)
 
     def _finish_operation(self, success: bool):
         if self.finished_emitted:

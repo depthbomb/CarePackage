@@ -21,6 +21,8 @@ from PySide6.QtWidgets import (
 )
 
 class OperationScreen(QWidget):
+    MAX_CONCURRENT_DOWNLOADS = 1
+
     restart_requested = Signal(list)
     started = Signal()
     finished = Signal(bool)
@@ -108,6 +110,9 @@ class OperationScreen(QWidget):
 
     @Slot()
     def _on_cancel_button_clicked(self):
+        self.cancel_operation()
+
+    def cancel_operation(self):
         if self.finished_emitted:
             return
 
@@ -174,8 +179,10 @@ class OperationScreen(QWidget):
         if software_row in self.active_downloads:
             self.active_downloads.remove(software_row)
 
+        installation_finished = False
         if self.active_installation is software_row:
             self.active_installation = None
+            installation_finished = True
 
         if self.canceled:
             software_row.deleteLater()
@@ -190,7 +197,7 @@ class OperationScreen(QWidget):
                 self.downloaded_software.append(software_row.software)
             software_row.deleteLater()
 
-        if len(self.software_rows) == 0:
+        if len(self.software_rows) == 0 and len(self.active_downloads) == 0:
             self.operation_complete = True
             self.cancel_button.setText('&Finish')
 
@@ -216,7 +223,8 @@ class OperationScreen(QWidget):
         else:
             self._start_next_downloads()
 
-        self.active_installation = None
+        if installation_finished:
+            self._start_next_installation()
     #endregion
 
     #region UI Setup
@@ -335,8 +343,12 @@ class OperationScreen(QWidget):
         if self.canceled:
             return
 
-        try:
-            software_row = self.software_rows.popleft()
+        while len(self.active_downloads) < self.MAX_CONCURRENT_DOWNLOADS:
+            try:
+                software_row = self.software_rows.popleft()
+            except IndexError:
+                break
+
             self.active_downloads.append(software_row)
             software_row.start_download(
                 self.skip_installation_checkbox.isChecked(),
@@ -344,8 +356,6 @@ class OperationScreen(QWidget):
                 self.postinstall_cleanup_checkbox.isChecked(),
                 self.probing,
             )
-        except IndexError:
-            pass
 
     def _finish_operation(self, success: bool):
         if self.finished_emitted:

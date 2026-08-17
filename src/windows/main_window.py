@@ -1,14 +1,14 @@
 from src.lib import win32
 from src import APP_DISPLAY_NAME
 from typing import cast, Optional
-from PySide6.QtCore import Slot, QUrl
+from PySide6.QtCore import Slot, QTimer, QUrl
 from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from src.screens.main_screen import MainScreen
 from src.lib.update_checker import UpdateChecker
 from src.windows.about_window import AboutWindow
 from src.widgets.header_button import HeaderButton
-from PySide6.QtGui import Qt, QIcon, QDesktopServices
+from PySide6.QtGui import Qt, QIcon, QCloseEvent, QDesktopServices
 from src.windows.settings_window import SettingsWindow
 from src.windows.extended_window import ExtendedWindow
 from src.widgets.draggable_region import DraggableWidget
@@ -35,6 +35,7 @@ class MainWindow(ExtendedWindow):
         self.main_screen = MainScreen()
         self.main_screen.software_selected.connect(self._on_software_selected)
         self.operation_screen = cast(Optional[OperationScreen], None)
+        self.close_when_operation_finishes = False
 
         self.stack = QStackedWidget()
         self.stack.addWidget(self.main_screen)
@@ -52,6 +53,19 @@ class MainWindow(ExtendedWindow):
             return res
 
         return super().nativeEvent(eventType, message)
+
+    def closeEvent(self, event: QCloseEvent):
+        if (
+            self.operation_screen is not None and
+            not self.operation_screen.operation_complete and
+            not self.operation_screen.finished_emitted
+        ):
+            self.close_when_operation_finishes = True
+            self.operation_screen.cancel_operation()
+            event.ignore()
+            return
+
+        super().closeEvent(event)
     #endregion
 
     #region Slots
@@ -113,6 +127,10 @@ class MainWindow(ExtendedWindow):
 
         self.stack.setCurrentIndex(0)
         self.settings_button.setEnabled(True)
+
+        if self.close_when_operation_finishes:
+            self.close_when_operation_finishes = False
+            QTimer.singleShot(0, self.close)
 
     @Slot()
     def _on_update_available(self):

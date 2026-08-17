@@ -4,13 +4,12 @@ from PySide6.QtGui import QPixmap
 from src.lib.settings import Settings
 from src.widgets.spinner import Spinner
 from src.lib.software import BaseSoftware
-from src import DOWNLOAD_DIR, BROWSER_USER_AGENT
+from src import DOWNLOAD_DIR
 from src.widgets.loading_label import LoadingLabel
 from src.enums import SettingsKeys, DownloadTimeout
-from src.lib.resolver_network import DownloadNetworkSession
-from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
+from src.lib.download_task import DownloadTask, DownloadTaskError
 from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy, QHBoxLayout, QProgressBar
-from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QProcess, QIODevice, QSaveFile
+from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QProcess
 
 class SoftwareProgressRow(QWidget):
     class OperationError(Enum):
@@ -33,7 +32,6 @@ class SoftwareProgressRow(QWidget):
         super().__init__(parent)
 
         self.probing = False
-        self.probe_succeeded = False
         self.cancel_requested = False
         self.operation_finished = False
         self.skip_installation = False
@@ -51,20 +49,10 @@ class SoftwareProgressRow(QWidget):
 
         self.download_url = cast(Optional[str], None)
         self.download_file = cast(Optional[QFile], None)
-        self.download_save_file = cast(Optional[QSaveFile], None)
-        self.download_reply = cast(Optional[QNetworkReply], None)
-        self.download_write_failed = False
-        self.download_timed_out = False
-        self.download_timeout_timer = QTimer(self)
-        self.download_timeout_timer.setSingleShot(True)
-        self.download_timeout_timer.setInterval(Settings().get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
-        self.download_timeout_timer.timeout.connect(self._on_downloader_timeout_timer_timeout)
+        self.download_task = cast(Optional[DownloadTask], None)
         self.download_speed_timer = QTimer(self)
         self.download_speed_timer.setInterval(1_000)
         self.download_speed_timer.timeout.connect(self._on_downloader_speed_timer_timeout)
-
-        self.downloader = DownloadNetworkSession(self)
-        self.downloader.finished.connect(self._on_downloader_finished)
 
         self.installation_proc = QProcess(self)
         self.installation_proc.errorOccurred.connect(self._on_installation_proc_error_occurred)
@@ -108,21 +96,10 @@ class SoftwareProgressRow(QWidget):
         self.last_bytes = self.current_bytes
         self.formatted_speed = self._format_speed(self.current_speed)
 
-    @Slot()
-    def _on_downloader_timeout_timer_timeout(self):
-        if self.download_reply is None:
-            return
-
-        self.download_timed_out = True
-        self.download_reply.abort()
-
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):
-        if self.operation_finished or self.cancel_requested or self.download_timed_out:
+        if self.operation_finished or self.cancel_requested:
             return
-
-        if current_bytes > self.current_bytes:
-            self._record_download_activity()
 
         if not self.progress_bar.isVisible():
             self.progress_bar.setVisible(True)
@@ -145,78 +122,44 @@ class SoftwareProgressRow(QWidget):
         self.current_bytes = current_bytes
 
     @Slot()
-    def _on_downloader_ready_read(self):
-        if self.download_reply is None or self.download_save_file is None or self.download_write_failed:
+    def _on_download_committing(self):
+        if self.operation_finished or self.cancel_requested:
             return
 
-        data = self.download_reply.readAll()
-        if data.isEmpty():
-            return
-
-        if self.download_save_file.write(data) != data.size():
-            self.download_write_failed = True
-            self.download_timeout_timer.stop()
-            self.download_save_file.cancelWriting()
-            self.download_reply.abort()
-        else:
-            self._record_download_activity()
-
-    @Slot()
-    def _on_probe_metadata_changed(self):
-        if self.download_reply is None or self.cancel_requested or self.download_timed_out:
-            return
-
-        status = self.download_reply.attribute(QNetworkRequest.Attribute.HttpStatusCodeAttribute)
-        if status is not None and 200 <= int(status) < 300:
-            self.probe_succeeded = True
-            self.download_reply.abort()
-
-    @Slot(QNetworkReply)
-    def _on_downloader_finished(self, reply: QNetworkReply):
-        self.download_timeout_timer.stop()
         self.download_speed_timer.stop()
+        self.progress_bar.setMaximum(0)
+        self.set_status('Writing to disk', True)
 
-        error = reply.error()
-        if self.download_timed_out:
-            self._discard_partial_download()
-            self._emit_error(self.OperationError.FileDownloadTimeoutError)
-        elif self.cancel_requested:
-            self._discard_partial_download()
-            self._finish(self.OperationError.Canceled)
-        elif self.probing:
-            if self.probe_succeeded or error == QNetworkReply.NetworkError.NoError:
-                self.set_status('<b style="color:green;">OK</b>')
-                self._finish(self.OperationError.NoError)
-            elif error == QNetworkReply.NetworkError.OperationCanceledError:
-                self._emit_error(self.OperationError.Canceled)
-            else:
-                self._emit_error(self.OperationError.FileDownloadNetworkError)
-        elif self.download_write_failed:
-            self._discard_partial_download()
-            self._emit_error(self.OperationError.FileDownloadIOError)
-        elif error == QNetworkReply.NetworkError.NoError:
-            # Drain any bytes delivered immediately before the finished signal.
-            self._on_downloader_ready_read()
-            if self.download_write_failed or self.download_save_file is None:
-                self._discard_partial_download()
-                self._emit_error(self.OperationError.FileDownloadIOError)
-            elif not self.download_save_file.commit():
-                self.download_save_file = None
-                self._emit_error(self.OperationError.FileDownloadIOError)
-            else:
-                self.download_save_file = None
-                self.download_file = QFile(str(DOWNLOAD_DIR / self.software.download_name))
-                self._on_file_written(self.download_file)
-        elif error == QNetworkReply.NetworkError.OperationCanceledError:
-            self._discard_partial_download()
-            self._emit_error(self.OperationError.Canceled)
+    @Slot(str)
+    def _on_download_completed(self, path: str):
+        self.download_speed_timer.stop()
+        self._release_download_task()
+
+        # The worker checks cancellation before and after its disk sync. If it
+        # reports success, completion won the race and the final file is valid.
+        if self.probing:
+            self.set_status('<b style="color:green;">OK</b>')
+            self._finish(self.OperationError.NoError)
         else:
-            self._discard_partial_download()
-            self._emit_error(self.OperationError.FileDownloadNetworkError)
+            self.download_file = QFile(path)
+            self._on_file_written(self.download_file)
 
-        if self.download_reply is reply:
-            self.download_reply = None
-        reply.deleteLater()
+    @Slot(DownloadTaskError)
+    def _on_download_failed(self, error: DownloadTaskError):
+        self.download_speed_timer.stop()
+        self._release_download_task()
+
+        error_mapping = {
+            DownloadTaskError.Timeout: self.OperationError.FileDownloadTimeoutError,
+            DownloadTaskError.Network: self.OperationError.FileDownloadNetworkError,
+            DownloadTaskError.IO: self.OperationError.FileDownloadIOError,
+            DownloadTaskError.Canceled: self.OperationError.Canceled,
+        }
+        operation_error = error_mapping.get(error, self.OperationError.FileDownloadIOError)
+        if operation_error == self.OperationError.Canceled:
+            self._finish(operation_error)
+        else:
+            self._emit_error(operation_error)
 
     @Slot(QFile)
     def _on_file_written(self, file: QFile):
@@ -241,11 +184,6 @@ class SoftwareProgressRow(QWidget):
             self.spinner.setVisible(False)
             self.set_status('Waiting to install', True)
             self.installation_requested.emit()
-
-    def _discard_partial_download(self):
-        if self.download_save_file is not None:
-            self.download_save_file.cancelWriting()
-            self.download_save_file = None
 
     @Slot(QProcess.ProcessError)
     def _on_installation_proc_error_occurred(self):
@@ -320,7 +258,6 @@ class SoftwareProgressRow(QWidget):
         self.cancel_requested = False
         self.operation_finished = False
         self.probing = probe
-        self.probe_succeeded = False
         self.skip_installation = skip_installation
         self.install_silently = install_silently
         self.cleanup_postinstall = cleanup_postinstall
@@ -342,19 +279,14 @@ class SoftwareProgressRow(QWidget):
             return
 
         self.cancel_requested = True
-        self.download_timed_out = False
-        self.download_timeout_timer.stop()
-
-        if self.download_reply:
-            self.download_reply.abort()
+        if self.download_task is not None:
+            self.download_task.cancel()
 
         self.software.cancel_url_resolution()
 
-        self._discard_partial_download()
-
         if self.installation_proc.state() != QProcess.ProcessState.NotRunning:
             self.installation_proc.kill()
-        elif self.download_reply is None:
+        elif self.download_task is None:
             # URL resolution has no row-owned reply to abort. Finish immediately;
             # delayed resolver signals are ignored by the guards above.
             self._finish(self.OperationError.Canceled)
@@ -384,40 +316,29 @@ class SoftwareProgressRow(QWidget):
 
     def _start_download(self, url: str):
         self.file_downloading.emit(url)
-        self.download_timed_out = False
+        self.current_bytes = 0
+        self.last_bytes = 0
+        self.current_speed = 0
+        self.formatted_speed = ''
 
-        req = QNetworkRequest(url)
-        req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
-
-        if self.probing:
-            req.setRawHeader(b'Range', b'bytes=0-0')
-            self.download_reply = self.downloader.get(req)
-            self.download_reply.setReadBufferSize(1)
-            self.download_reply.metaDataChanged.connect(self._on_probe_metadata_changed)
-        else:
-            self.download_save_file = QSaveFile(str(DOWNLOAD_DIR / self.software.download_name))
-            if not self.download_save_file.open(QIODevice.OpenModeFlag.WriteOnly):
-                self.download_save_file = None
-                self._emit_error(self.OperationError.FileDownloadIOError)
-                return
-
-            self.download_write_failed = False
-            self.download_reply = self.downloader.get(req)
-            self.download_reply.setReadBufferSize(1024 * 1024)
-            self.download_reply.readyRead.connect(self._on_downloader_ready_read)
-            self.download_reply.downloadProgress.connect(self._on_downloader_download_progress)
-
-        self.download_timeout_timer.start()
+        self.download_task = DownloadTask(
+            url,
+            DOWNLOAD_DIR / self.software.download_name,
+            Settings().get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int),
+            self.probing,
+            self,
+        )
+        self.download_task.progress.connect(self._on_downloader_download_progress)
+        self.download_task.committing.connect(self._on_download_committing)
+        self.download_task.completed.connect(self._on_download_completed)
+        self.download_task.failed.connect(self._on_download_failed)
         self.download_speed_timer.start()
+        self.download_task.start()
 
-    def _record_download_activity(self):
-        if (
-            self.download_reply is not None and
-            not self.download_reply.isFinished() and
-            not self.cancel_requested and
-            not self.download_timed_out
-        ):
-            self.download_timeout_timer.start()
+    def _release_download_task(self):
+        if self.download_task is not None:
+            self.download_task.deleteLater()
+            self.download_task = None
 
     def _emit_error(self, error: OperationError):
         messages = {

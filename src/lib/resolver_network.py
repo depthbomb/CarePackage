@@ -8,8 +8,8 @@ _shared_download_manager: Optional[QNetworkAccessManager] = None
 
 def shared_resolver_manager() -> QNetworkAccessManager:
     global _shared_resolver_manager
-    # Imported lazily because software definitions load while the src package is
-    # still establishing the settings path used by Settings.
+    # Imported lazily because software definitions load while the src package is still establishing the settings path
+    # used by Settings.
     from src.lib.settings import Settings
     from src.enums import SettingsKeys, DownloadTimeout
 
@@ -22,7 +22,6 @@ def shared_resolver_manager() -> QNetworkAccessManager:
 
     return _shared_resolver_manager
 
-
 def shared_download_manager() -> QNetworkAccessManager:
     global _shared_download_manager
 
@@ -30,7 +29,6 @@ def shared_download_manager() -> QNetworkAccessManager:
         _shared_download_manager = QNetworkAccessManager(QCoreApplication.instance())
 
     return _shared_download_manager
-
 
 class NetworkSession(QObject):
     finished = Signal(QNetworkReply)
@@ -61,11 +59,9 @@ class NetworkSession(QObject):
         reply.finished.connect(self._on_reply_finished)
         return reply
 
-
 class ResolverNetworkSession(NetworkSession):
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(shared_resolver_manager, parent)
-
 
 class DownloadNetworkSession(NetworkSession):
     def __init__(self, parent: Optional[QObject] = None):

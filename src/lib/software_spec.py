@@ -25,7 +25,6 @@ class SoftwareSpec:
         return bool(self.variants)
 
     def get_instance(self) -> BaseSoftware:
-        """Import and construct this definition on first use, then reuse it."""
         identity = (self.module, self.class_name)
         instance = _software_instances.get(identity)
         if instance is not None:
@@ -48,11 +47,9 @@ class SoftwareSpec:
         _software_instances[identity] = instance
         return instance
 
-
 def clear_instantiated_url_cache():
     for software in _software_instances.values():
         software.cached_url = None
-
 
 def instantiated_software_count() -> int:
     return len(_software_instances)

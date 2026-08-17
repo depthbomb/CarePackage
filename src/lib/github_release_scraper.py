@@ -3,7 +3,8 @@ from typing import cast, Optional
 from src import BROWSER_USER_AGENT
 from src.lib.software import BaseSoftware
 from PySide6.QtCore import Slot, Signal, QObject
-from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
+from src.lib.resolver_network import ResolverNetworkSession
+from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 
 class GithubReleaseScraper(QObject):
     releases_scraped = Signal(list)
@@ -15,9 +16,16 @@ class GithubReleaseScraper(QObject):
         self._repo = repo
         self._tag = cast(Optional[str], None)
 
-        self._manager = QNetworkAccessManager(self)
-        self._manager.finished.connect(self._on_manager_finished)
+        self._manager = cast(Optional[ResolverNetworkSession], None)
         self._release_href_pattern = compile(r'href="(.*)" rel="nofollow"')
+
+    @property
+    def manager(self) -> ResolverNetworkSession:
+        if self._manager is None:
+            self._manager = ResolverNetworkSession(self)
+            self._manager.finished.connect(self._on_manager_finished)
+
+        return self._manager
 
     #region Slots
     @Slot(QNetworkReply)
@@ -39,7 +47,7 @@ class GithubReleaseScraper(QObject):
             self._tag = path.split('/')[-1]
             req = QNetworkRequest(f'https://github.com/{self._owner}/{self._repo}/releases/expanded_assets/{self._tag}')
             req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
-            self._manager.get(req)
+            self.manager.get(req)
         else:
             if code == 404:
                 # Some repositories have their assets located at {owner}/{repo}/releases/expanded_assets/release/{tag}
@@ -47,7 +55,7 @@ class GithubReleaseScraper(QObject):
                 # other URL.
                 req = QNetworkRequest(f'https://github.com/{self._owner}/{self._repo}/releases/expanded_assets/release/{self._tag}')
                 req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
-                self._manager.get(req)
+                self.manager.get(req)
             elif code < 300:
                 html = reply.readAll().data().decode()
                 matches = self._release_href_pattern.findall(html)
@@ -60,4 +68,4 @@ class GithubReleaseScraper(QObject):
         req = QNetworkRequest(f'https://github.com/{self._owner}/{self._repo}/releases/latest')
         req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
 
-        self._manager.get(req)
+        self.manager.get(req)

@@ -2,7 +2,8 @@ from abc import abstractmethod
 from enum import auto, Enum, StrEnum
 from typing import cast, Type, Union, Optional
 from PySide6.QtCore import Slot, Signal, QObject
-from PySide6.QtNetwork import QNetworkReply, QNetworkAccessManager
+from PySide6.QtNetwork import QNetworkReply
+from src.lib.resolver_network import ResolverNetworkSession
 
 class SoftwareCategory(StrEnum):
     Audio = 'Audio & Sounds'
@@ -36,9 +37,7 @@ class BaseSoftware(QObject):
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(parent)
 
-        self.manager = QNetworkAccessManager(self)
-        self.manager.setTransferTimeout(5_000)
-        self.manager.finished.connect(self.on_manager_finished)
+        self._manager = cast(Optional[ResolverNetworkSession], None)
 
         self.cached_url = cast(Optional[str], None)
 
@@ -58,6 +57,14 @@ class BaseSoftware(QObject):
         self._homepage = ''
 
     #region Properties
+    @property
+    def manager(self) -> ResolverNetworkSession:
+        if self._manager is None:
+            self._manager = ResolverNetworkSession(self)
+            self._manager.finished.connect(self.on_manager_finished)
+
+        return self._manager
+
     @property
     @abstractmethod
     def key(self) -> str:
@@ -212,4 +219,8 @@ class BaseSoftware(QObject):
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
         pass
+
+    def cancel_url_resolution(self):
+        for session in self.findChildren(ResolverNetworkSession):
+            session.abort_all()
     #endregion

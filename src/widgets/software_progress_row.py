@@ -7,7 +7,8 @@ from src.lib.software import BaseSoftware
 from src import DOWNLOAD_DIR, BROWSER_USER_AGENT
 from src.widgets.loading_label import LoadingLabel
 from src.enums import SettingsKeys, DownloadTimeout
-from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
+from src.lib.resolver_network import DownloadNetworkSession
+from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy, QHBoxLayout, QProgressBar
 from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QProcess, QIODevice, QSaveFile
 
@@ -62,7 +63,7 @@ class SoftwareProgressRow(QWidget):
         self.download_speed_timer.setInterval(1_000)
         self.download_speed_timer.timeout.connect(self._on_downloader_speed_timer_timeout)
 
-        self.downloader = QNetworkAccessManager(self)
+        self.downloader = DownloadNetworkSession(self)
         self.downloader.finished.connect(self._on_downloader_finished)
 
         self.installation_proc = QProcess(self)
@@ -344,8 +345,7 @@ class SoftwareProgressRow(QWidget):
         if self.download_reply:
             self.download_reply.abort()
 
-        for resolver_reply in self.software.findChildren(QNetworkReply):
-            resolver_reply.abort()
+        self.software.cancel_url_resolution()
 
         self._discard_partial_download()
 

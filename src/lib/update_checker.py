@@ -1,8 +1,9 @@
 from typing import cast, Optional
 from packaging.version import Version
+from src.lib.resolver_network import ResolverNetworkSession
+from PySide6.QtNetwork import QNetworkReply, QNetworkRequest
 from src import USER_AGENT, APP_REPO_NAME, APP_REPO_OWNER, APP_VERSION_STRING
 from PySide6.QtCore import Slot, QUrl, Signal, QTimer, QObject, QJsonDocument
-from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
 
 class UpdateChecker(QObject):
     update_available = Signal()
@@ -14,7 +15,7 @@ class UpdateChecker(QObject):
 
         self.latest_release_url = cast(Optional[QUrl], None)
 
-        self.manager = QNetworkAccessManager(self)
+        self.manager = ResolverNetworkSession(self)
         self.manager.finished.connect(self._on_manager_finished)
 
         self.update_timer = QTimer(self)

@@ -12,6 +12,7 @@ class CheatEngine(BaseSoftware):
         self.category = [SoftwareCategory.Gaming, SoftwareCategory.Utility]
         self.download_name = 'CheatEngine.exe'
         self.should_cache_url = True
+        self.is_unreliable = True
         self.icon = 'cheat-engine.png'
         self.homepage = 'https://cheatengine.org'
 

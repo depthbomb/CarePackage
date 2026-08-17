@@ -125,7 +125,7 @@ class SettingsWindow(QDialog):
     #region UI Setup
     def _create_layout(self):
         self.layout = QFormLayout()
-        self.layout.addRow('Download timeout', self._create_download_timeout_row())
+        self.layout.addRow('Download inactivity timeout', self._create_download_timeout_row())
         self.layout.addRow('App Style', self._create_style_row())
         self.layout.addRow('App Theme', self._create_theme_row())
         self.layout.addRow('', self._create_badge_visibility_checkbox())

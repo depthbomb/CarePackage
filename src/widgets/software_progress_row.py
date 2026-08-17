@@ -52,6 +52,7 @@ class SoftwareProgressRow(QWidget):
         self.download_save_file = cast(Optional[QSaveFile], None)
         self.download_reply = cast(Optional[QNetworkReply], None)
         self.download_write_failed = False
+        self.download_timed_out = False
         self.download_timeout_timer = QTimer(self)
         self.download_timeout_timer.setSingleShot(True)
         self.download_timeout_timer.setInterval(Settings().get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
@@ -110,12 +111,14 @@ class SoftwareProgressRow(QWidget):
         if self.download_reply is None:
             return
 
+        self.download_timed_out = True
         self.download_reply.abort()
-        self.download_reply.deleteLater()
-        self.download_reply = None
 
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):
+        if current_bytes > self.current_bytes:
+            self._record_download_activity()
+
         if not self.progress_bar.isVisible():
             self.progress_bar.setVisible(True)
 
@@ -147,8 +150,11 @@ class SoftwareProgressRow(QWidget):
 
         if self.download_save_file.write(data) != data.size():
             self.download_write_failed = True
+            self.download_timeout_timer.stop()
             self.download_save_file.cancelWriting()
             self.download_reply.abort()
+        else:
+            self._record_download_activity()
 
     @Slot(QNetworkReply)
     def _on_downloader_finished(self, reply: QNetworkReply):
@@ -156,7 +162,10 @@ class SoftwareProgressRow(QWidget):
         self.download_speed_timer.stop()
 
         error = reply.error()
-        if self.cancel_requested:
+        if self.download_timed_out:
+            self._discard_partial_download()
+            self._emit_error(self.OperationError.FileDownloadTimeoutError)
+        elif self.cancel_requested:
             self._discard_partial_download()
             self._finish(self.OperationError.Canceled)
         elif self.probing:
@@ -317,6 +326,8 @@ class SoftwareProgressRow(QWidget):
             return
 
         self.cancel_requested = True
+        self.download_timed_out = False
+        self.download_timeout_timer.stop()
 
         if self.download_reply:
             self.download_reply.abort()
@@ -358,6 +369,7 @@ class SoftwareProgressRow(QWidget):
 
     def _start_download(self, url: str):
         self.file_downloading.emit(url)
+        self.download_timed_out = False
 
         req = QNetworkRequest(url)
         req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
@@ -379,6 +391,15 @@ class SoftwareProgressRow(QWidget):
 
         self.download_timeout_timer.start()
         self.download_speed_timer.start()
+
+    def _record_download_activity(self):
+        if (
+            self.download_reply is not None and
+            not self.download_reply.isFinished() and
+            not self.cancel_requested and
+            not self.download_timed_out
+        ):
+            self.download_timeout_timer.start()
 
     def _emit_error(self, error: OperationError):
         messages = {

@@ -14,7 +14,7 @@ class Lazarus(BaseSoftware):
         self.icon = 'lazarus.png'
         self.homepage = 'https://lazarus-ide.org'
 
-        self._initial_url = QUrl('https://www.lazarus-ide.org/index.php?page=downloads')
+        self._initial_url = QUrl('https://download.lazarus-ide.org/Lazarus%20Windows%2064%20bits/')
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
@@ -27,20 +27,27 @@ class Lazarus(BaseSoftware):
         html = reply.readAll().data().decode()
 
         if reply.url() == self._initial_url:
-            download_file_name_pattern = compile(r'https://sourceforge\.net/projects/lazarus/files/(Lazarus%20Windows%2064%20bits/Lazarus%20\d+\.\d+/lazarus-\d+\.\d+-fpc-\d+\.\d+\.\d+-win64.exe)/download')
-            match = download_file_name_pattern.search(html)
-            if not match:
+            release_directory_pattern = compile(r'href="(Lazarus%20(\d+(?:\.\d+)*)/)"')
+            release_directories = release_directory_pattern.findall(html)
+            if not release_directories:
                 self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             else:
-                req = QNetworkRequest(f'https://sourceforge.net/settings/mirror_choices?projectname=lazarus&filename={match.group(1)}&dialog=true')
-                self.manager.get(req)
+                latest_directory = max(
+                    release_directories,
+                    key=lambda release: tuple(map(int, release[1].split('.')))
+                )[0]
+                release_url = self._initial_url.resolved(QUrl(latest_directory))
+                self.manager.get(QNetworkRequest(release_url))
         else:
-            download_url_pattern = compile(r'<a href="(.*)" rel="nofollow">')
+            download_url_pattern = compile(
+                r'href="(lazarus-\d+(?:\.\d+)*-fpc-\d+(?:\.\d+)*-win64\.exe)"'
+            )
             match = download_url_pattern.search(html)
             if not match:
                 self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             else:
-                self.url_resolved.emit(match.group(1))
+                download_url = reply.url().resolved(QUrl(match.group(1)))
+                self.url_resolved.emit(download_url.toEncoded().data().decode())
 
     def resolve_download_url(self):
         self.manager.get(QNetworkRequest(self._initial_url))

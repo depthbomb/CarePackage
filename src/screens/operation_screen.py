@@ -183,9 +183,7 @@ class OperationScreen(QWidget):
                 self._finish_operation(False)
             return
 
-        if error == SoftwareProgressRow.OperationError.Canceled:
-            pass
-        elif error != SoftwareProgressRow.OperationError.NoError:
+        if error != SoftwareProgressRow.OperationError.NoError:
             self.errored_software.append(software_row.software)
         else:
             self.downloaded_software.append(software_row.software)

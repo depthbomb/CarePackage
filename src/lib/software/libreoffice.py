@@ -16,7 +16,7 @@ class LibreOffice(BaseSoftware):
         self.icon = 'libreoffice.png'
         self.homepage = 'https://libreoffice.org'
 
-        self._initial_url = QUrl('https://www.libreoffice.org/download/download-libreoffice/')
+        self._initial_url = QUrl('https://www.libreoffice.org/download/')
 
     @Slot(QNetworkReply)
     def on_manager_finished(self, reply: QNetworkReply):
@@ -26,14 +26,14 @@ class LibreOffice(BaseSoftware):
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
             return
 
-        pattern = compile(r'(\d+\.\d+\.\d+)_Win_x86_helppack')
+        pattern = compile(r'/stable/(\d+\.\d+\.\d+)/')
         html = reply.readAll().data().decode()
         match = pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)
         else:
             version = match.group(1)
-            self.url_resolved.emit(f'https://mirror.fcix.net/tdf/libreoffice/stable/{version}/win/x86_64/LibreOffice_{version}_Win_x86-64.msi')
+            self.url_resolved.emit(f'https://download.documentfoundation.org/libreoffice/stable/{version}/win/x86_64/LibreOffice_{version}_Win_x86-64.msi')
 
     def resolve_download_url(self):
         self.manager.get(QNetworkRequest(self._initial_url))

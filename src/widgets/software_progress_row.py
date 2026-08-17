@@ -9,7 +9,7 @@ from src.widgets.loading_label import LoadingLabel
 from src.enums import SettingsKeys, DownloadTimeout
 from PySide6.QtNetwork import QNetworkReply, QNetworkRequest, QNetworkAccessManager
 from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy, QHBoxLayout, QProgressBar
-from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QThread, QProcess, QIODevice
+from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QProcess, QIODevice, QSaveFile
 
 class SoftwareProgressRow(QWidget):
     class OperationError(Enum):
@@ -20,68 +20,6 @@ class SoftwareProgressRow(QWidget):
         FileDownloadIOError = auto()
         InstallationProcessError = auto()
         Canceled = auto()
-
-    class ChunkedFileWriter(QObject):
-        finished = Signal(QFile)
-        error = Signal()
-        canceled = Signal()
-        progress = Signal(int)
-
-        def __init__(self, file: QFile, reply: QNetworkReply, parent: Optional[QObject] = None):
-            super().__init__(parent)
-            self.file = file
-            self.reply = reply
-            self._cancel_requested = False
-            self.chunk_size = 1024 * 1024
-
-        def cancel(self):
-            self._cancel_requested = True
-
-        @Slot()
-        def write_file(self):
-            if self._cancel_requested:
-                self.canceled.emit()
-                return
-
-            if not self.file.open(QIODevice.OpenModeFlag.WriteOnly):
-                self.error.emit()
-                return
-
-            data = self.reply.readAll().data()
-            try:
-                total_size = len(data)
-                bytes_written = 0
-
-                for i in range(0, total_size, self.chunk_size):
-                    if self._cancel_requested:
-                        self.file.close()
-                        self.file.remove()
-                        self.canceled.emit()
-                        return
-
-                    chunk = data[i:i + self.chunk_size]
-                    written = self.file.write(chunk)
-
-                    if written == -1:
-                        self.file.close()
-                        self.file.remove()
-                        self.error.emit()
-                        return
-
-                    bytes_written += written
-                    self.progress.emit(bytes_written)
-
-                    QThread.msleep(1)
-
-                self.file.close()
-                self.finished.emit(self.file)
-            except Exception:
-                if self.file.isOpen():
-                    self.file.close()
-                self.file.remove()
-                self.error.emit()
-            finally:
-                self.reply.deleteLater()
 
     url_resolving = Signal()
     url_resolved = Signal(str)
@@ -107,12 +45,11 @@ class SoftwareProgressRow(QWidget):
         self.software.url_resolve_error.connect(self._on_software_download_url_resolve_error_occurred)
         self.software.url_resolved.connect(self._on_software_download_url_resolved)
 
-        self.file_writer_thread = cast(Optional[QThread], None)
-        self.chunked_writer = cast(Optional[self.ChunkedFileWriter], None)
-
         self.download_url = cast(Optional[str], None)
         self.download_file = cast(Optional[QFile], None)
+        self.download_save_file = cast(Optional[QSaveFile], None)
         self.download_reply = cast(Optional[QNetworkReply], None)
+        self.download_write_failed = False
         self.download_timeout_timer = QTimer(self)
         self.download_timeout_timer.setSingleShot(True)
         self.download_timeout_timer.setInterval(Settings().get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int))
@@ -191,55 +128,60 @@ class SoftwareProgressRow(QWidget):
         self.set_status(status_text)
         self.current_bytes = current_bytes
 
+    @Slot()
+    def _on_downloader_ready_read(self):
+        if self.download_reply is None or self.download_save_file is None or self.download_write_failed:
+            return
+
+        data = self.download_reply.readAll()
+        if data.isEmpty():
+            return
+
+        if self.download_save_file.write(data) != data.size():
+            self.download_write_failed = True
+            self.download_save_file.cancelWriting()
+            self.download_reply.abort()
+
     @Slot(QNetworkReply)
     def _on_downloader_finished(self, reply: QNetworkReply):
-        error = reply.error()
-        if error == QNetworkReply.NetworkError.NoError:
-            self.download_timeout_timer.stop()
-            self.download_speed_timer.stop()
+        self.download_timeout_timer.stop()
+        self.download_speed_timer.stop()
 
-            if self.probing:
+        error = reply.error()
+        if self.probing:
+            if error == QNetworkReply.NetworkError.NoError:
                 self.set_status('<b style="color:green;">OK</b>')
                 self.finished.emit(self.OperationError.NoError)
-                return
-
-            self.download_file = QFile(DOWNLOAD_DIR / self.software.download_name)
-
-            self.progress_bar.setMaximum(0)
-
-            if self.current_bytes >= 262_144_000:
-                self.set_status('Writing to disk - Don\'t panic if the app freezes!')
+            elif error == QNetworkReply.NetworkError.OperationCanceledError:
+                self._emit_error(self.OperationError.Canceled)
             else:
-                self.set_status('Writing to disk', True)
-
-            self.file_writer_thread = QThread(self)
-            self.chunked_writer = self.ChunkedFileWriter(self.download_file, reply, self)
-            self.chunked_writer.moveToThread(self.file_writer_thread)
-
-            self.chunked_writer.finished.connect(self._on_file_written)
-            self.chunked_writer.error.connect(lambda: self._emit_error(self.OperationError.FileDownloadIOError))
-            self.chunked_writer.canceled.connect(self._on_file_writer_canceled)
-            self.chunked_writer.progress.connect(self._on_write_progress)
-
-            self.file_writer_thread.started.connect(self.chunked_writer.write_file)
-            self.chunked_writer.finished.connect(self.file_writer_thread.quit)
-            self.chunked_writer.finished.connect(self.chunked_writer.deleteLater)
-            self.file_writer_thread.finished.connect(self.file_writer_thread.deleteLater)
-
-            self.file_writer_thread.start()
+                self._emit_error(self.OperationError.FileDownloadNetworkError)
+        elif self.download_write_failed:
+            self._discard_partial_download()
+            self._emit_error(self.OperationError.FileDownloadIOError)
+        elif error == QNetworkReply.NetworkError.NoError:
+            # Drain any bytes delivered immediately before the finished signal.
+            self._on_downloader_ready_read()
+            if self.download_write_failed or self.download_save_file is None:
+                self._discard_partial_download()
+                self._emit_error(self.OperationError.FileDownloadIOError)
+            elif not self.download_save_file.commit():
+                self.download_save_file = None
+                self._emit_error(self.OperationError.FileDownloadIOError)
+            else:
+                self.download_save_file = None
+                self.download_file = QFile(str(DOWNLOAD_DIR / self.software.download_name))
+                self._on_file_written(self.download_file)
         elif error == QNetworkReply.NetworkError.OperationCanceledError:
+            self._discard_partial_download()
             self._emit_error(self.OperationError.Canceled)
         else:
+            self._discard_partial_download()
             self._emit_error(self.OperationError.FileDownloadNetworkError)
 
-    @Slot(int)
-    def _on_write_progress(self, bytes_written: int):
-        self.set_status(f'Writing file to disk ({self._format_bytes(bytes_written)})')
-
-    @Slot()
-    def _on_file_writer_canceled(self):
-        self.set_status('<b style="color:red;">Write canceled</b>')
-        self.finished.emit(self.OperationError.FileDownloadIOError)
+        if self.download_reply is reply:
+            self.download_reply = None
+        reply.deleteLater()
 
     @Slot(QFile)
     def _on_file_written(self, file: QFile):
@@ -264,6 +206,11 @@ class SoftwareProgressRow(QWidget):
             self.spinner.setVisible(False)
             self.set_status('Waiting to install', True)
             self.installation_requested.emit()
+
+    def _discard_partial_download(self):
+        if self.download_save_file is not None:
+            self.download_save_file.cancelWriting()
+            self.download_save_file = None
 
     @Slot(QProcess.ProcessError)
     def _on_installation_proc_error_occurred(self):
@@ -341,8 +288,7 @@ class SoftwareProgressRow(QWidget):
         if self.download_reply:
             self.download_reply.abort()
 
-        if self.chunked_writer is not None:
-            self.chunked_writer.cancel()
+        self._discard_partial_download()
 
         self.set_status('<b style="color:red;">Canceled</b>')
         self.spinner.stop()
@@ -381,7 +327,16 @@ class SoftwareProgressRow(QWidget):
         if self.probing:
             self.download_reply = self.downloader.head(req)
         else:
+            self.download_save_file = QSaveFile(str(DOWNLOAD_DIR / self.software.download_name))
+            if not self.download_save_file.open(QIODevice.OpenModeFlag.WriteOnly):
+                self.download_save_file = None
+                self._emit_error(self.OperationError.FileDownloadIOError)
+                return
+
+            self.download_write_failed = False
             self.download_reply = self.downloader.get(req)
+            self.download_reply.setReadBufferSize(1024 * 1024)
+            self.download_reply.readyRead.connect(self._on_downloader_ready_read)
             self.download_reply.downloadProgress.connect(self._on_downloader_download_progress)
 
         self.download_timeout_timer.start()

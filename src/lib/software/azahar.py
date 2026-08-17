@@ -12,14 +12,14 @@ class Azahar(BaseSoftware):
         self.key = 'azahar'
         self.name = 'Azahar'
         self.category = [SoftwareCategory.Emulation, SoftwareCategory.Gaming]
-        self.download_name = 'azahar-windows-msys2-installer.exe'
+        self.download_name = 'azahar-windows-msvc-installer.exe'
         self.should_cache_url = True
         self.icon = 'azahar.png'
         self.homepage = 'https://azahar-emu.org'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):
-        asset = next((release for release in releases if release.endswith('-windows-msys2-installer.exe')), None)
+        asset = next((release for release in releases if 'msvc-' in release and release.endswith('-installer.exe')), None)
         if asset:
             self.url_resolved.emit(asset)
         else:

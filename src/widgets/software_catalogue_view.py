@@ -40,11 +40,11 @@ class SoftwareCatalogueModel(QAbstractListModel):
         if role == Qt.ItemDataRole.ToolTipRole:
             details = [category.value for category in software.category]
             if software.is_deprecated:
-                details.append('Deprecated')
+                details.append('\nDeprecated')
             if software.is_archive:
-                details.append('Compressed archive')
+                details.append('\nCompressed archive')
             if software.is_unreliable:
-                details.append('May not download reliably')
+                details.append('\nMay not download reliably')
             return f'{software.name}\n{", ".join(details)}'
         if role == self.SoftwareRole:
             return software

@@ -142,6 +142,9 @@ class SettingsWindow(QDialog):
 
     def _create_download_timeout_row(self):
         self.download_timeout_combobox = QComboBox(self)
+        self.download_timeout_combobox.addItem('10 seconds', DownloadTimeout.TenSeconds.value)
+        self.download_timeout_combobox.addItem('30 seconds', DownloadTimeout.ThirtySeconds.value)
+        self.download_timeout_combobox.addItem('1 minute', DownloadTimeout.OneMinute.value)
         self.download_timeout_combobox.addItem('3 minutes', DownloadTimeout.ThreeMinutes.value)
         self.download_timeout_combobox.addItem('5 minutes', DownloadTimeout.FiveMinutes.value)
         self.download_timeout_combobox.addItem('10 minutes', DownloadTimeout.TenMinutes.value)

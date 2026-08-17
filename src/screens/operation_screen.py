@@ -238,7 +238,10 @@ class OperationScreen(QWidget):
         self.skip_installation_checkbox = QCheckBox('Skip installation (download only)')
         self.skip_installation_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)
 
-        self.silent_install_checkbox = QCheckBox('Try to install silently')
+        self.silent_install_checkbox = QCheckBox('Install silently when supported')
+        self.silent_install_checkbox.setToolTip(
+            'MSI packages use Windows Installer quiet mode. Other installers require definition-specific support.'
+        )
         self.silent_install_checkbox.checkStateChanged.connect(self._on_options_check_state_changed)
 
         self.postinstall_cleanup_checkbox = QCheckBox('Delete executables after installation')

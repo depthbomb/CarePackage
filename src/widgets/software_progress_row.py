@@ -231,9 +231,17 @@ class SoftwareProgressRow(QWidget):
             self._emit_error(self.OperationError.InstallationProcessError)
 
     @Slot(int, QProcess.ExitStatus)
-    def _on_installation_proc_finished(self):
+    def _on_installation_proc_finished(self, exit_code: int, exit_status: QProcess.ExitStatus):
         if self.cancel_requested:
             self._finish(self.OperationError.Canceled)
+            return
+
+        succeeded = (
+            exit_status == QProcess.ExitStatus.NormalExit and
+            exit_code in self.software.successful_install_exit_codes
+        )
+        if not succeeded:
+            self._emit_error(self.OperationError.InstallationProcessError)
             return
 
         if self.cleanup_postinstall and self.download_file:
@@ -338,19 +346,14 @@ class SoftwareProgressRow(QWidget):
             self._finish(self.OperationError.NoError)
             return
 
-        extra_args = []
-        if self.install_silently:
-            extra_args.extend([
-                '--silent', '--no-interaction', '--no-input', '--no-user-input',
-                '--quiet', '--passive', '/quiet', '/passive', '/silent', '/q', '/S', '/s'
-            ])
-
         self.set_status(f'Installing <b>{self.software.download_name}</b>')
 
         executable = self.download_file.fileName()
-        if executable.endswith('.msi'):
-            self.installation_proc.start('cmd.exe', ['/c', executable] + extra_args)
+        if executable.lower().endswith('.msi'):
+            extra_args = ['/qn', '/norestart'] if self.install_silently else []
+            self.installation_proc.start('msiexec.exe', ['/i', executable] + extra_args)
         else:
+            extra_args = self.software.silent_install_args if self.install_silently else []
             self.installation_proc.start(executable, extra_args)
 
     def _start_download(self, url: str):
@@ -383,7 +386,7 @@ class SoftwareProgressRow(QWidget):
             self.OperationError.FileDownloadNetworkError: '<b style="color:red;">Download failed</b>',
             self.OperationError.FileDownloadTimeoutError: '<b style="color:red;">Download timed out</b>',
             self.OperationError.FileDownloadIOError: '<b style="color:red;">Failed to write file</b>',
-            self.OperationError.InstallationProcessError: '<b style="color:red;">Failed to start installation</b>',
+            self.OperationError.InstallationProcessError: '<b style="color:red;">Installation failed</b>',
             self.OperationError.Canceled: '<b style="color:orange;">Canceled</b>',
         }
         self.set_status(messages.get(error, f'<b style="color:red;">{error}</b>'))

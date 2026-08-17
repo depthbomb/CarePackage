@@ -46,6 +46,8 @@ class BaseSoftware(QObject):
         self._name = ''
         self._category = cast(list[SoftwareCategory], [])
         self._download_name = ''
+        self._silent_install_args = cast(list[str], [])
+        self._successful_install_exit_codes = {0, 1641, 3010}
         self._is_archive = False
         self._should_cache_url = False
         self._deprecated = False
@@ -99,6 +101,22 @@ class BaseSoftware(QObject):
     @abstractmethod
     def download_name(self, download_name: str):
         self._download_name = download_name
+
+    @property
+    def silent_install_args(self) -> list[str]:
+        return self._silent_install_args
+
+    @silent_install_args.setter
+    def silent_install_args(self, args: list[str]):
+        self._silent_install_args = list(args)
+
+    @property
+    def successful_install_exit_codes(self) -> set[int]:
+        return self._successful_install_exit_codes
+
+    @successful_install_exit_codes.setter
+    def successful_install_exit_codes(self, exit_codes: set[int]):
+        self._successful_install_exit_codes = set(exit_codes)
 
     @property
     @abstractmethod

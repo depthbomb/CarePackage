@@ -12,14 +12,14 @@ class ShareX(BaseSoftware):
         self.key = 'sharex'
         self.name = 'ShareX'
         self.category = [SoftwareCategory.Media, SoftwareCategory.Utility]
-        self.download_name = 'ShareX-setup.exe'
+        self.download_name = 'ShareX-setup-x64.exe'
         self.should_cache_url = True
         self.icon = 'sharex.png'
         self.homepage = 'https://getsharex.com'
 
     @Slot(list)
     def _on_releases_scraped(self, releases: list[str]):
-        asset = next((release for release in releases if release.endswith('-setup.exe')), None)
+        asset = next((release for release in releases if release.endswith('-setup-x64.exe')), None)
         if asset:
             self.url_resolved.emit(asset)
         else:

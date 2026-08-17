@@ -26,7 +26,7 @@ class Snes9X(BaseSoftware):
 
         html = reply.readAll().data().decode()
 
-        pattern = compile(r'https://dl\.emulator-zone\.com/download\.php/emulators/snes/snes9x/snes9x-\d+\.\d+\.\d+-win32-x64\.zip')
+        pattern = compile(r'https://dl\.emulator-zone\.com/download\.php/emulators/snes/snes9x/snes9x-\d+\.\d+(\.\d+)?-win32-x64\.zip')
         match = pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)

@@ -118,6 +118,9 @@ class SoftwareProgressRow(QWidget):
 
     @Slot(int, int)
     def _on_downloader_download_progress(self, current_bytes: int, total_bytes: int):
+        if self.operation_finished or self.cancel_requested or self.download_timed_out:
+            return
+
         if current_bytes > self.current_bytes:
             self._record_download_activity()
 
@@ -428,6 +431,7 @@ class SoftwareProgressRow(QWidget):
         self.set_status(messages.get(error, f'<b style="color:red;">{error}</b>'))
         self.spinner.stop()
         self.spinner.setVisible(False)
+        self.progress_bar.setVisible(False)
         self._finish(error)
 
     def _finish(self, error: OperationError):

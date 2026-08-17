@@ -8,10 +8,17 @@ _shared_download_manager: Optional[QNetworkAccessManager] = None
 
 def shared_resolver_manager() -> QNetworkAccessManager:
     global _shared_resolver_manager
+    # Imported lazily because software definitions load while the src package is
+    # still establishing the settings path used by Settings.
+    from src.lib.settings import Settings
+    from src.enums import SettingsKeys, DownloadTimeout
 
     if _shared_resolver_manager is None:
         _shared_resolver_manager = QNetworkAccessManager(QCoreApplication.instance())
-        _shared_resolver_manager.setTransferTimeout(5_000)
+
+    _shared_resolver_manager.setTransferTimeout(
+        Settings().get(SettingsKeys.DownloadTimeout, DownloadTimeout.FiveMinutes.value, int)
+    )
 
     return _shared_resolver_manager
 

@@ -38,14 +38,14 @@ class SoftwareCatalogueModel(QAbstractListModel):
         if role == Qt.ItemDataRole.DisplayRole:
             return software.name
         if role == Qt.ItemDataRole.ToolTipRole:
-            details = [category.value for category in software.category]
-            if software.is_deprecated:
-                details.append('\nDeprecated')
+            details = []
             if software.is_archive:
-                details.append('\nCompressed archive')
+                details.append('Compressed archive')
             if software.is_unreliable:
-                details.append('\nMay not download reliably')
-            return f'{software.name}\n{", ".join(details)}'
+                details.append('May not download reliably')
+            if software.is_deprecated:
+                details.append('Deprecated')
+            return ", ".join(details)
         if role == self.SoftwareRole:
             return software
         if role == self.SelectedRole:
@@ -142,12 +142,12 @@ class SoftwareCatalogueDelegate(QStyledItemDelegate):
             content_right = self._paint_category_badges(painter, software, rect, content_right)
 
         status_icons = []
-        if software.is_deprecated:
-            status_icons.append(':icons/warning.ico')
         if software.is_archive:
             status_icons.append(':icons/zip.ico')
-        if software.is_unreliable:
+        if software.is_deprecated:
             status_icons.append(':icons/error.ico')
+        if software.is_unreliable:
+            status_icons.append(':icons/warning.ico')
 
         name_font = QFont(option.font)
         name_font.setPointSize(13)

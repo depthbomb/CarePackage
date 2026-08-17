@@ -12,6 +12,7 @@ class MinGW(BaseSoftware):
         self.category = [SoftwareCategory.Development]
         self.download_name = 'mingw-get-setup.exe'
         self.should_cache_url = True
+        self.is_unreliable = True
         self.icon = 'mingw.png'
         self.homepage = 'https://sourceforge.net/projects/mingw'
 

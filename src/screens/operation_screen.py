@@ -4,7 +4,7 @@ from src import IS_COMPILED, DOWNLOAD_DIR
 from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
-from PySide6.QtCore import Qt, Slot, Signal
+from PySide6.QtCore import Qt, Slot, Signal, QUrl
 from typing import cast, Deque, Optional, Sequence
 from src.widgets.software_progress_row import SoftwareProgressRow
 from PySide6.QtWidgets import (
@@ -194,7 +194,7 @@ class OperationScreen(QWidget):
             self.cancel_button.setText('&Finish')
 
             if self.postinstall_open_dir_checkbox.isChecked() and len(self.downloaded_software) > 0:
-                QDesktopServices.openUrl(DOWNLOAD_DIR.as_posix())
+                QDesktopServices.openUrl(QUrl.fromLocalFile(str(DOWNLOAD_DIR)))
 
             if len(self.errored_software) > 0:
                 mb = QMessageBox(self)

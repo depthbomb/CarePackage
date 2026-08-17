@@ -220,7 +220,6 @@ class SoftwareCatalogueView(QListView):
         self.setUniformItemSizes(True)
         self.setVerticalScrollMode(QListView.ScrollMode.ScrollPerPixel)
         self.setMouseTracking(True)
-        self.viewport().setCursor(Qt.CursorShape.PointingHandCursor)
         self._hovered_index = QPersistentModelIndex()
 
         self._context_software = cast(Optional[SoftwareSpec], None)
@@ -272,6 +271,11 @@ class SoftwareCatalogueView(QListView):
         hovered_index = QPersistentModelIndex(index)
         if hovered_index != self._hovered_index:
             self._hovered_index = hovered_index
+            self.viewport().setCursor(
+                Qt.CursorShape.PointingHandCursor
+                if hovered_index.isValid()
+                else Qt.CursorShape.ArrowCursor
+            )
             self.viewport().update()
 
     def _open_context_homepage(self):

@@ -4,7 +4,7 @@ from src import IS_COMPILED, DOWNLOAD_DIR
 from src.enums import PostOperationAction
 from src.lib.software import BaseSoftware
 from PySide6.QtGui import QDesktopServices
-from PySide6.QtCore import Qt, Slot, Signal, QUrl
+from PySide6.QtCore import Qt, QUrl, Slot, Signal
 from typing import cast, Deque, Optional, Sequence
 from src.widgets.software_progress_row import SoftwareProgressRow
 from PySide6.QtWidgets import (

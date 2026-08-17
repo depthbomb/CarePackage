@@ -1,19 +1,19 @@
 from typing import cast, Optional
 from src.lib.theme import ThemeUtil
 from PySide6.QtGui import QIcon, QPixmap
-from src.lib.software import BaseSoftware
+from src.lib.software_spec import SoftwareSpec
 from PySide6.QtCore import QObject, Qt, Slot
 from src.widgets.simple_link_label import SimpleLinkLabel
 from PySide6.QtWidgets import QLabel, QWizard, QCheckBox, QWizardPage, QVBoxLayout, QHBoxLayout
 
 class VariantWizard(QWizard):
-    def __init__(self, parent_software: BaseSoftware, variants: list[BaseSoftware], current_selection: list[BaseSoftware], parent: Optional[QObject] = None):
+    def __init__(self, parent_software: SoftwareSpec, variants: tuple[SoftwareSpec, ...], current_selection: list[SoftwareSpec], parent: Optional[QObject] = None):
         super().__init__(parent)
 
         self.parent_software = parent_software
         self.variants = variants
         self.current_selection = current_selection
-        self.selected_variants = cast(list[BaseSoftware], [])
+        self.selected_variants = cast(list[SoftwareSpec], [])
 
         self.setWindowIcon(QIcon(':icons/icon.ico'))
         self.setWindowTitle(f'Select one or more variants/versions for {self.parent_software.name}')
@@ -31,7 +31,7 @@ class VariantWizard(QWizard):
     @Slot(bool)
     def _on_checkbox_state_changed(self, state: Qt.CheckState):
         cb = cast(QCheckBox, self.sender())
-        variant = cast(BaseSoftware, cb.property('software'))
+        variant = cast(SoftwareSpec, cb.property('software'))
         if state == Qt.CheckState.Checked and variant not in self.selected_variants:
             self.selected_variants.append(variant)
         elif state == Qt.CheckState.Unchecked and variant in self.selected_variants:

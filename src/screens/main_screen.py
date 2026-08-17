@@ -2,10 +2,11 @@ from typing import cast, Optional
 from src import SOFTWARE_CATALOGUE
 from src.lib.theme import ThemeUtil
 from PySide6.QtCore import Qt, Slot, Signal
+from src.lib.software import SoftwareCategory
+from src.lib.software_spec import SoftwareSpec
 from src.lib.update_checker import UpdateChecker
 from src.widgets.software_row import SoftwareRow
 from PySide6.QtGui import QShortcut, QKeySequence
-from src.lib.software import BaseSoftware, SoftwareCategory
 from PySide6.QtWidgets import (
     QLabel,
     QWidget,
@@ -27,7 +28,7 @@ class MainScreen(QWidget):
         self.has_selection = False
 
         self.update_checker = cast(Optional[UpdateChecker], None)
-        self.selected_software = cast(list[BaseSoftware], [])
+        self.selected_software = cast(list[SoftwareSpec], [])
         self.software_widgets = cast(list[SoftwareRow], [])
 
         self.main_layout = QVBoxLayout()
@@ -55,8 +56,8 @@ class MainScreen(QWidget):
     #endregion
 
     #region Slots
-    @Slot(BaseSoftware, bool)
-    def _on_software_row_selection_changed(self, software: BaseSoftware, selected: bool):
+    @Slot(object, bool)
+    def _on_software_row_selection_changed(self, software: SoftwareSpec, selected: bool):
         if selected:
             if software not in self.selected_software:
                 self.selected_software.append(software)
@@ -76,7 +77,7 @@ class MainScreen(QWidget):
             return
 
         self.software_selected.emit(
-                [sw for sw in self.selected_software if not sw.has_variants]
+                [spec.get_instance() for spec in self.selected_software if not spec.has_variants]
         )
 
     @Slot()

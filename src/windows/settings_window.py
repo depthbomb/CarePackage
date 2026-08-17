@@ -1,10 +1,10 @@
 from src import IS_COMPILED
 from typing import cast, Optional
-from src import SOFTWARE_CATALOGUE
 from src.lib.theme import ThemeUtil
 from src.lib.settings import Settings
 from PySide6.QtCore import Slot, QObject, QThread
 from src.lib.download_sweeper import DownloadSweeperWorker
+from src.lib.software_spec import clear_instantiated_url_cache
 from src.enums import AppStyle, AppTheme, SettingsKeys, DownloadTimeout
 from PySide6.QtWidgets import (
     QLabel,
@@ -93,9 +93,7 @@ class SettingsWindow(QDialog):
     @Slot()
     def _on_clear_url_cache_button_clicked(self):
         self.clear_cache_button.setEnabled(False)
-        for software in SOFTWARE_CATALOGUE:
-            software.cached_url = None
-
+        clear_instantiated_url_cache()
         self.clear_cache_button.setEnabled(True)
 
     @Slot(int, int)

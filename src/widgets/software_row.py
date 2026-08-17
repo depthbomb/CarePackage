@@ -4,7 +4,7 @@ from src.enums import SettingsKeys
 from src.lib.theme import ThemeUtil
 from src.widgets.badge import Badge
 from src.lib.settings import Settings
-from src.lib.software import BaseSoftware
+from src.lib.software_spec import SoftwareSpec
 from PySide6.QtCore import Qt, Slot, Signal, QObject
 from src.windows.variant_wizard import VariantWizard
 from PySide6.QtGui import QFont, QIcon, QPixmap, QDesktopServices
@@ -20,17 +20,17 @@ from PySide6.QtWidgets import (
 )
 
 class SoftwareRow(QWidget):
-    selection_changed = Signal(BaseSoftware, bool)
-    variant_selection_changed = Signal(BaseSoftware, bool)
+    selection_changed = Signal(object, bool)
+    variant_selection_changed = Signal(object, bool)
 
-    def __init__(self, software: BaseSoftware, parent: Optional[QObject] = None):
+    def __init__(self, software: SoftwareSpec, parent: Optional[QObject] = None):
         super().__init__(parent)
 
         self._generate_stylesheets()
 
         self.software = software
         self.has_variants = self.software.has_variants
-        self.selected_variants = cast(list[BaseSoftware], [])
+        self.selected_variants = cast(list[SoftwareSpec], [])
         self.hovered = False
         self.selected = False
 
@@ -118,10 +118,8 @@ class SoftwareRow(QWidget):
         if event.button() == Qt.MouseButton.LeftButton:
             if self.software.is_deprecated and not self.selected:
                 message = 'This software has been deprecated and is no longer recommended.'
-                if self.software.alternative:
-                    alt_sw = self.software.alternative
-                    message += f' It is recommended that you download {alt_sw.name} instead.'
-                    del alt_sw
+                if self.software.alternative_name:
+                    message += f' It is recommended that you download {self.software.alternative_name} instead.'
                 message += '\nWould you like to keep this software selected?'
 
                 mb = QMessageBox(self)

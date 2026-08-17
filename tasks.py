@@ -26,6 +26,7 @@ def build(c: Context):
         'src',
         f'--output-dir=build --output-filename={APP_NAME}',
         '--standalone',
+        '--include-package=src.lib.software',
         '--enable-plugin=pyside6 --enable-plugin=upx',
         '--onefile-no-compression',
         '--windows-uac-admin --windows-icon-from-ico=resources/icons/icon.ico --windows-console-mode=attach',

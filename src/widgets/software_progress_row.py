@@ -32,6 +32,8 @@ class SoftwareProgressRow(QWidget):
         super().__init__(parent)
 
         self.probing = False
+        self.cancel_requested = False
+        self.operation_finished = False
         self.skip_installation = False
         self.install_silently = False
         self.cleanup_postinstall = False
@@ -77,6 +79,9 @@ class SoftwareProgressRow(QWidget):
     #region Slots
     @Slot(str)
     def _on_software_download_url_resolved(self, url: str):
+        if self.cancel_requested or self.operation_finished:
+            return
+
         self.set_status('Download URL resolved')
         self.download_url = url
         self.url_resolved.emit(url)
@@ -88,6 +93,9 @@ class SoftwareProgressRow(QWidget):
 
     @Slot(BaseSoftware.ResolveError)
     def _on_software_download_url_resolve_error_occurred(self):
+        if self.cancel_requested or self.operation_finished:
+            return
+
         self._emit_error(self.OperationError.DownloadURLResolveError)
 
     @Slot()
@@ -148,10 +156,13 @@ class SoftwareProgressRow(QWidget):
         self.download_speed_timer.stop()
 
         error = reply.error()
-        if self.probing:
+        if self.cancel_requested:
+            self._discard_partial_download()
+            self._finish(self.OperationError.Canceled)
+        elif self.probing:
             if error == QNetworkReply.NetworkError.NoError:
                 self.set_status('<b style="color:green;">OK</b>')
-                self.finished.emit(self.OperationError.NoError)
+                self._finish(self.OperationError.NoError)
             elif error == QNetworkReply.NetworkError.OperationCanceledError:
                 self._emit_error(self.OperationError.Canceled)
             else:
@@ -198,7 +209,7 @@ class SoftwareProgressRow(QWidget):
             else:
                 self.set_status('Download complete')
 
-            self.finished.emit(self.OperationError.NoError)
+            self._finish(self.OperationError.NoError)
         else:
             self.name.setVisible(True)
             self.progress_bar.setVisible(False)
@@ -214,14 +225,21 @@ class SoftwareProgressRow(QWidget):
 
     @Slot(QProcess.ProcessError)
     def _on_installation_proc_error_occurred(self):
-        self._emit_error(self.OperationError.InstallationProcessError)
+        if self.cancel_requested:
+            self._finish(self.OperationError.Canceled)
+        else:
+            self._emit_error(self.OperationError.InstallationProcessError)
 
     @Slot(int, QProcess.ExitStatus)
     def _on_installation_proc_finished(self):
+        if self.cancel_requested:
+            self._finish(self.OperationError.Canceled)
+            return
+
         if self.cleanup_postinstall and self.download_file:
             self.download_file.remove()
 
-        self.finished.emit(self.OperationError.NoError)
+        self._finish(self.OperationError.NoError)
     #endregion
 
     #region UI Setup
@@ -267,6 +285,8 @@ class SoftwareProgressRow(QWidget):
             self.status.stop_animation()
 
     def start_download(self, skip_installation: bool, install_silently: bool, cleanup_postinstall: bool, probe: bool = False):
+        self.cancel_requested = False
+        self.operation_finished = False
         self.probing = probe
         self.skip_installation = skip_installation
         self.install_silently = install_silently
@@ -285,10 +305,25 @@ class SoftwareProgressRow(QWidget):
             self.software.resolve_download_url()
 
     def cancel(self):
+        if self.operation_finished or self.cancel_requested:
+            return
+
+        self.cancel_requested = True
+
         if self.download_reply:
             self.download_reply.abort()
 
+        for resolver_reply in self.software.findChildren(QNetworkReply):
+            resolver_reply.abort()
+
         self._discard_partial_download()
+
+        if self.installation_proc.state() != QProcess.ProcessState.NotRunning:
+            self.installation_proc.kill()
+        elif self.download_reply is None:
+            # URL resolution has no row-owned reply to abort. Finish immediately;
+            # delayed resolver signals are ignored by the guards above.
+            self._finish(self.OperationError.Canceled)
 
         self.set_status('<b style="color:red;">Canceled</b>')
         self.spinner.stop()
@@ -300,7 +335,7 @@ class SoftwareProgressRow(QWidget):
         self.spinner.start()
 
         if self.skip_installation or self.software.is_archive or not self.download_file.exists():
-            self.finished.emit(self.OperationError.NoError)
+            self._finish(self.OperationError.NoError)
             return
 
         extra_args = []
@@ -354,6 +389,13 @@ class SoftwareProgressRow(QWidget):
         self.set_status(messages.get(error, f'<b style="color:red;">{error}</b>'))
         self.spinner.stop()
         self.spinner.setVisible(False)
+        self._finish(error)
+
+    def _finish(self, error: OperationError):
+        if self.operation_finished:
+            return
+
+        self.operation_finished = True
         self.finished.emit(error)
 
     def _format_bytes(self, size_in_bytes: int):

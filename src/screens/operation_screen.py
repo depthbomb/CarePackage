@@ -31,6 +31,8 @@ class OperationScreen(QWidget):
 
         self.probing = False
         self.canceled = False
+        self.operation_complete = False
+        self.finished_emitted = False
         self.software = software
         self.software_rows = cast(Deque[SoftwareProgressRow], deque([], len(software)))
         self.pending_software = cast(Deque[SoftwareProgressRow], deque())
@@ -106,15 +108,27 @@ class OperationScreen(QWidget):
 
     @Slot()
     def _on_cancel_button_clicked(self):
+        if self.finished_emitted:
+            return
+
+        if self.operation_complete:
+            self._finish_operation(len(self.errored_software) == 0)
+            return
+
         self.canceled = True
+        self.cancel_button.setEnabled(False)
 
-        for software in self.active_downloads:
-            software.cancel()
+        for software_row in self.software_rows:
+            software_row.set_status('<b style="color:orange;">Canceled</b>')
+        self.software_rows.clear()
+        self.pending_software.clear()
+        self.pending_installations.clear()
 
-        if len(self.errored_software) > 0:
-            self.finished.emit(True)
-        else:
-            self.finished.emit(False)
+        for software_row in self.active_downloads.copy():
+            software_row.cancel()
+
+        if len(self.active_downloads) == 0:
+            self._finish_operation(False)
 
     @Slot()
     def _on_probe_button_clicked(self):
@@ -157,6 +171,18 @@ class OperationScreen(QWidget):
     @Slot(SoftwareProgressRow.OperationError)
     def _on_software_row_finished(self, error: SoftwareProgressRow.OperationError):
         software_row = cast(SoftwareProgressRow, self.sender())
+        if software_row in self.active_downloads:
+            self.active_downloads.remove(software_row)
+
+        if self.active_installation is software_row:
+            self.active_installation = None
+
+        if self.canceled:
+            software_row.deleteLater()
+            if len(self.active_downloads) == 0:
+                self._finish_operation(False)
+            return
+
         if error == SoftwareProgressRow.OperationError.Canceled:
             pass
         elif error != SoftwareProgressRow.OperationError.NoError:
@@ -166,6 +192,7 @@ class OperationScreen(QWidget):
             software_row.deleteLater()
 
         if len(self.software_rows) == 0:
+            self.operation_complete = True
             self.cancel_button.setText('&Finish')
 
             if self.postinstall_open_dir_checkbox.isChecked() and len(self.downloaded_software) > 0:
@@ -184,7 +211,7 @@ class OperationScreen(QWidget):
             else:
                 self.probing = False
                 self.post_op_action_requested.emit(self.post_op_combobox.currentData())
-                self.finished.emit(True)
+                self._finish_operation(True)
         else:
             self._start_next_downloads()
 
@@ -301,8 +328,12 @@ class OperationScreen(QWidget):
     #endregion
 
     def _start_next_downloads(self):
+        if self.canceled:
+            return
+
         try:
             software_row = self.software_rows.popleft()
+            self.active_downloads.append(software_row)
             software_row.start_download(
                 self.skip_installation_checkbox.isChecked(),
                 self.silent_install_checkbox.isChecked(),
@@ -311,3 +342,10 @@ class OperationScreen(QWidget):
             )
         except IndexError:
             pass
+
+    def _finish_operation(self, success: bool):
+        if self.finished_emitted:
+            return
+
+        self.finished_emitted = True
+        self.finished.emit(success)

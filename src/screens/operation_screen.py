@@ -186,7 +186,8 @@ class OperationScreen(QWidget):
         if error != SoftwareProgressRow.OperationError.NoError:
             self.errored_software.append(software_row.software)
         else:
-            self.downloaded_software.append(software_row.software)
+            if not self.probing:
+                self.downloaded_software.append(software_row.software)
             software_row.deleteLater()
 
         if len(self.software_rows) == 0:
@@ -207,8 +208,10 @@ class OperationScreen(QWidget):
                 mb.setDetailedText('\n'.join([sw.name for sw in self.errored_software]))
                 mb.exec()
             else:
+                was_probing = self.probing
                 self.probing = False
-                self.post_op_action_requested.emit(self.post_op_combobox.currentData())
+                if not was_probing:
+                    self.post_op_action_requested.emit(self.post_op_combobox.currentData())
                 self._finish_operation(True)
         else:
             self._start_next_downloads()

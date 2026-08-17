@@ -32,6 +32,7 @@ class SoftwareProgressRow(QWidget):
         super().__init__(parent)
 
         self.probing = False
+        self.probe_succeeded = False
         self.cancel_requested = False
         self.operation_finished = False
         self.skip_installation = False
@@ -156,6 +157,16 @@ class SoftwareProgressRow(QWidget):
         else:
             self._record_download_activity()
 
+    @Slot()
+    def _on_probe_metadata_changed(self):
+        if self.download_reply is None or self.cancel_requested or self.download_timed_out:
+            return
+
+        status = self.download_reply.attribute(QNetworkRequest.Attribute.HttpStatusCodeAttribute)
+        if status is not None and 200 <= int(status) < 300:
+            self.probe_succeeded = True
+            self.download_reply.abort()
+
     @Slot(QNetworkReply)
     def _on_downloader_finished(self, reply: QNetworkReply):
         self.download_timeout_timer.stop()
@@ -169,7 +180,7 @@ class SoftwareProgressRow(QWidget):
             self._discard_partial_download()
             self._finish(self.OperationError.Canceled)
         elif self.probing:
-            if error == QNetworkReply.NetworkError.NoError:
+            if self.probe_succeeded or error == QNetworkReply.NetworkError.NoError:
                 self.set_status('<b style="color:green;">OK</b>')
                 self._finish(self.OperationError.NoError)
             elif error == QNetworkReply.NetworkError.OperationCanceledError:
@@ -305,6 +316,7 @@ class SoftwareProgressRow(QWidget):
         self.cancel_requested = False
         self.operation_finished = False
         self.probing = probe
+        self.probe_succeeded = False
         self.skip_installation = skip_installation
         self.install_silently = install_silently
         self.cleanup_postinstall = cleanup_postinstall
@@ -375,7 +387,10 @@ class SoftwareProgressRow(QWidget):
         req.setHeader(QNetworkRequest.KnownHeaders.UserAgentHeader, BROWSER_USER_AGENT)
 
         if self.probing:
-            self.download_reply = self.downloader.head(req)
+            req.setRawHeader(b'Range', b'bytes=0-0')
+            self.download_reply = self.downloader.get(req)
+            self.download_reply.setReadBufferSize(1)
+            self.download_reply.metaDataChanged.connect(self._on_probe_metadata_changed)
         else:
             self.download_save_file = QSaveFile(str(DOWNLOAD_DIR / self.software.download_name))
             if not self.download_save_file.open(QIODevice.OpenModeFlag.WriteOnly):

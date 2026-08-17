@@ -25,7 +25,7 @@ class CPUZ(BaseSoftware):
 
         html = reply.readAll().data().decode()
 
-        version_pattern = compile(r'(\d\.\d+)-en\.exe')
+        version_pattern = compile(r'(\d\.\d+\.?\d+?)-en\.exe')
         match = version_pattern.search(html)
         if not match:
             self.url_resolve_error.emit(self.ResolveError.URLResolveError)

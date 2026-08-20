@@ -1,4 +1,8 @@
-﻿# 5.0.1
+﻿# 5.0.2
+
+- Fixed .msi installations failing
+
+# 5.0.1
 
 - Added silent install support for all _.NET_ software
 - Adjusted status icons

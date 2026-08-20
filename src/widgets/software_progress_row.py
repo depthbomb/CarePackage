@@ -1,15 +1,15 @@
 from enum import auto, Enum
+from src import DOWNLOAD_DIR
 from typing import cast, Optional
 from PySide6.QtGui import QPixmap
 from src.lib.settings import Settings
 from src.widgets.spinner import Spinner
 from src.lib.software import BaseSoftware
-from src import DOWNLOAD_DIR
 from src.widgets.loading_label import LoadingLabel
 from src.enums import SettingsKeys, DownloadTimeout
 from src.lib.download_task import DownloadTask, DownloadTaskError
+from PySide6.QtCore import QDir, Slot, QFile, Signal, QTimer, QObject, QProcess
 from PySide6.QtWidgets import QLabel, QWidget, QSizePolicy, QHBoxLayout, QProgressBar
-from PySide6.QtCore import Slot, QFile, Signal, QTimer, QObject, QProcess
 
 class SoftwareProgressRow(QWidget):
     class OperationError(Enum):
@@ -308,6 +308,7 @@ class SoftwareProgressRow(QWidget):
 
         executable = self.download_file.fileName()
         if executable.lower().endswith('.msi'):
+            executable = QDir.toNativeSeparators(executable)
             extra_args = ['/qn', '/norestart'] if self.install_silently else []
             self.installation_proc.start('msiexec.exe', ['/i', executable] + extra_args)
         else:
